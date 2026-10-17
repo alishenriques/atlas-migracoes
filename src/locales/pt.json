@@ -1,0 +1,52 @@
+{
+  "SEO": {
+    "SITE_NAME": "Atlas Migrações Leste-Sul",
+    "DEFAULT_DESCRIPTION": "Mapeamento dos artistas do Leste Europeu e da Áustria que migraram para o Brasil, 1918–1989, a partir do acervo do MAC USP."
+  },
+  "NAV": {
+    "LABEL": "Navegação principal",
+    "HOME": "Explorar",
+    "TRAJECTORIES": "Trajetórias",
+    "HISTORICAL_LAYER": "Camada Histórica",
+    "ABOUT": "Sobre",
+    "LANGUAGE": "Idioma",
+    "SWITCH_TO": "English"
+  },
+  "HOME": {
+    "EYEBROW": "Contribuições da arte imigrante, 1918–1989",
+    "TITLE": "Atlas Migrações Leste-Sul",
+    "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, a partir do acervo do MAC USP.",
+    "STATS_TITLE": "Acervo",
+    "STATS": {
+      "ARTISTS": "artistas",
+      "WORKS": "obras",
+      "EXHIBITIONS": "exposições",
+      "PUBLICATIONS": "publicações",
+      "ORIGIN_COUNTRIES": "países de origem"
+    },
+    "STATS_UNAVAILABLE": "Não foi possível carregar os números do acervo agora.",
+    "MAP_SOON": "O mapa com as trajetórias chega na próxima etapa."
+  },
+  "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
+  "COMING_SOON": {
+    "EYEBROW": "Em construção",
+    "BODY": "Esta tela faz parte do MVP e está sendo construída."
+  },
+  "TRAJECTORIES": {
+    "TITLE": "Trajetórias"
+  },
+  "HISTORICAL_LAYER": {
+    "TITLE": "Camada Histórica"
+  },
+  "ABOUT": {
+    "TITLE": "Sobre o projeto"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Página não encontrada",
+    "BACK": "Voltar ao início"
+  },
+  "ERROR": {
+    "TITLE": "Algo deu errado",
+    "RETRY": "Tentar de novo"
+  }
+}

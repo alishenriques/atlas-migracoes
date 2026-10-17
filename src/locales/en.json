@@ -1,0 +1,52 @@
+{
+  "SEO": {
+    "SITE_NAME": "Atlas Migrações Leste-Sul",
+    "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, based on the MAC USP collection."
+  },
+  "NAV": {
+    "LABEL": "Main navigation",
+    "HOME": "Explore",
+    "TRAJECTORIES": "Trajectories",
+    "HISTORICAL_LAYER": "Historical Layer",
+    "ABOUT": "About",
+    "LANGUAGE": "Language",
+    "SWITCH_TO": "Português"
+  },
+  "HOME": {
+    "EYEBROW": "Contributions of immigrant art, 1918–1989",
+    "TITLE": "Atlas Migrações Leste-Sul",
+    "SUBTITLE": "Artists from Eastern Europe and Austria who migrated to Brazil, based on the MAC USP collection.",
+    "STATS_TITLE": "Collection",
+    "STATS": {
+      "ARTISTS": "artists",
+      "WORKS": "works",
+      "EXHIBITIONS": "exhibitions",
+      "PUBLICATIONS": "publications",
+      "ORIGIN_COUNTRIES": "countries of origin"
+    },
+    "STATS_UNAVAILABLE": "The collection figures could not be loaded right now.",
+    "MAP_SOON": "The map with the trajectories comes in the next stage."
+  },
+  "DEMO_NOTICE": "Demo data: the records shown are simulated and are not part of the collection.",
+  "COMING_SOON": {
+    "EYEBROW": "Under construction",
+    "BODY": "This screen is part of the MVP and is being built."
+  },
+  "TRAJECTORIES": {
+    "TITLE": "Trajectories"
+  },
+  "HISTORICAL_LAYER": {
+    "TITLE": "Historical Layer"
+  },
+  "ABOUT": {
+    "TITLE": "About the project"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Page not found",
+    "BACK": "Back to the start"
+  },
+  "ERROR": {
+    "TITLE": "Something went wrong",
+    "RETRY": "Try again"
+  }
+}
