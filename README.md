@@ -47,7 +47,9 @@ Com a API em modo demonstração, o app mostra um aviso de que os dados são sim
 |---|---|---|
 | `/` | Explorar: mapa, filtros, linha do tempo e contadores | Contadores prontos; mapa na etapa 2 |
 | `/trajetorias` (`/en/trajectories`) | Trajetórias: ficha e trajetória do artista | Etapa 2 |
-| `/camada-historica` (`/en/historical-layer`) | Camada Histórica: períodos e fronteiras provisórias | Etapa 3 |
+| `/camada-historica` (`/en/historical-layer`) | Camada Histórica: mapas da Europa por década com as fronteiras da época | Etapa 3 |
+| Rede Relacional (rota a definir) | Grafo de artistas, obras, exposições, publicações, instituições e lugares | Etapa 3 |
+| IA Relacional (rota a definir) | Pesquisa em fontes externas com fontes, confiabilidade e prompt visíveis | Etapa 4 |
 | `/sobre` (`/en/about`) | Sobre: projeto, metodologia e cartografia | Etapa 2 |
 
 ## Documentação
