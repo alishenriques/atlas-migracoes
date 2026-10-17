@@ -7,12 +7,12 @@ Deadline: **live on 8 November 2026** for the conference (10–12 Nov, MAC USP).
 Done when the API answers with the 31 artists and their works, exhibitions and publications.
 
 - [x] Repos created (public) with README and initial commit
-- [x] Design system foundation: `--atlas-*` tokens from the deck, `Button`, `Eyebrow`, `Panel`, `ReliabilityTag`, `StatGrid`, CI and npm publish workflow (PR open)
-- [x] API foundation: Drizzle schema with `FuzzyDate`, idempotent xlsx importer with report, read-only GraphQL, demo mode, PGlite tests (PR open). Dry run on the real spreadsheets: 31 artists, 417 works, 299 exhibitions, 108 publications, 73 places; 11 exhibitions and 1 publication referenced by works are missing from the exports
+- [x] Design system foundation: `--atlas-*` tokens from the deck, `Button`, `Eyebrow`, `Panel`, `ReliabilityTag`, `StatGrid`, CI and npm publish workflow (merged; StatGrid fix in DS PR #2)
+- [x] API foundation: Drizzle schema with `FuzzyDate`, idempotent xlsx importer with report, read-only GraphQL, demo mode, PGlite tests (merged). Dry run on the real spreadsheets: 31 artists, 417 works, 299 exhibitions, 108 publications, 73 places; 11 exhibitions and 1 publication referenced by works are missing from the exports
 - [x] App foundation: Next 16 + next-intl (pt/en, localized paths), layout with the MVP navigation, Explorar home with collection counters and demo notice, placeholders for the other screens, these docs, CI (PR open)
 - [ ] First npm release of the DS (manual the first time, by Alisson), then switch the app from the GitHub pin to `^0.1.0`
 - [ ] Neon database and Vercel projects (API and app), env vars, migrations, real import (needs Alisson's OK)
-- [ ] Geocode the places (Nominatim script + manual review)
+- [ ] Geocode the places: script in API PR #2 (Nominatim + review file); the run itself happens on Alisson's machine
 
 ## Stage 2: public screens (26 Oct – 1 Nov, ~28 h)
 
