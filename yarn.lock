@@ -12,9 +12,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alishenriques/atlas-design-system@github:alishenriques/atlas-migracoes-design-system#commit=1b26e18d2e0b5443eda89a64a86311c12c1410aa":
+"@alishenriques/atlas-design-system@github:alishenriques/atlas-migracoes-design-system#commit=673650cf8c468720a39b266168c1806e617ea481":
   version: 0.1.0
-  resolution: "@alishenriques/atlas-design-system@https://github.com/alishenriques/atlas-migracoes-design-system.git#commit=1b26e18d2e0b5443eda89a64a86311c12c1410aa"
+  resolution: "@alishenriques/atlas-design-system@https://github.com/alishenriques/atlas-migracoes-design-system.git#commit=673650cf8c468720a39b266168c1806e617ea481"
   peerDependencies:
     react: ^19.0.0
     react-dom: ^19.0.0
@@ -2638,7 +2638,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "atlas-migracoes@workspace:."
   dependencies:
-    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=1b26e18d2e0b5443eda89a64a86311c12c1410aa"
+    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=673650cf8c468720a39b266168c1806e617ea481"
     "@tailwindcss/postcss": "npm:^4"
     "@testing-library/dom": "npm:^10.4.2"
     "@testing-library/jest-dom": "npm:^7.0.1"
