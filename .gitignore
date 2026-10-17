@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Collection spreadsheets never go into this public repo.
+*.xlsx
+
+# vitest reports
+/.vitest

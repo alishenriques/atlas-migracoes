@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/*
+ * Single dark theme by design: the Atlas screens in the project deck
+ * (ap_MIGRACOES.pptx, slides 12–21) are night-blue with one gold accent.
+ *
+ * Re-declares the design system's --atlas-font-* tokens to point at the
+ * self-hosted next/font variables set on <html> in layout.tsx. Must come
+ * after "@alishenriques/atlas-design-system/styles.css" in the import order
+ * (see layout.tsx) for the cascade to win.
+ */
+:root {
+  color-scheme: dark;
+  --atlas-font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --atlas-font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--atlas-color-bg);
+  --color-raised: var(--atlas-color-bg-raised);
+  --color-foreground: var(--atlas-color-fg);
+  --color-muted: var(--atlas-color-muted);
+  --color-accent: var(--atlas-color-accent);
+  --color-line: var(--atlas-color-border);
+  --font-sans: var(--atlas-font-sans);
+  --font-serif: var(--atlas-font-serif);
+}
+
+body {
+  background: var(--atlas-color-bg);
+  color: var(--atlas-color-fg);
+  font-family: var(--atlas-font-sans);
+}
+
+html {
+  scrollbar-gutter: stable;
+}

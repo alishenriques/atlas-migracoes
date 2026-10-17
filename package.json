@@ -1,0 +1,43 @@
+{
+  "name": "atlas-migracoes",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=e79cdd411189f4df15c947eda6df497aac937ed9",
+    "axios": "^1.20.0",
+    "next": "16.3.5",
+    "next-intl": "^4.14.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "eslint-plugin-import": "^2.32.0",
+    "jsdom": "^30.1.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vite": "^7",
+    "vitest": "^5.0.1"
+  },
+  "packageManager": "yarn@4.9.2"
+}

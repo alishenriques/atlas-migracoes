@@ -14,6 +14,42 @@ Este é o **repositório principal** do ecossistema: o app web público (mapa, t
 
 A arquitetura segue o ecossistema do [alis-portfolio](https://github.com/alishenriques/alis-portfolio). **Custo zero é requisito.**
 
-## Status
+## Rodando
 
-Repositório recém-criado. A estrutura, a documentação (`docs/ai/`) e o CI chegam na etapa 1 do roadmap, a partir de 20/10/2026, por PR revisada pelo Alisson.
+Precisa do Node 22 e do Yarn 4 (`corepack enable`). A API roda ao lado, em modo demonstração se não houver banco:
+
+```bash
+# em ../atlas-migracoes-api
+yarn install && yarn dev        # http://localhost:4000/graphql
+
+# aqui
+yarn install
+cp .env.example .env.local
+yarn dev                        # http://localhost:3000/pt
+```
+
+Com a API em modo demonstração, o app mostra um aviso de que os dados são simulados. Os dados reais entram pelo importador da API e nunca ficam neste repositório.
+
+## Scripts
+
+`yarn dev` · `yarn build` · `yarn lint` · `yarn typecheck` · `yarn test`
+
+## Variáveis de ambiente
+
+| Variável | Descrição |
+|---|---|
+| `NEXT_PUBLIC_GRAPHQL_URL` | Endpoint GraphQL da API (padrão `http://localhost:4000/graphql`) |
+| `NEXT_PUBLIC_SITE_URL` | Origem pública do site, usada nos metadados (padrão `http://localhost:3000`) |
+
+## Telas do MVP
+
+| Rota | Tela | Estado |
+|---|---|---|
+| `/` | Explorar: mapa, filtros, linha do tempo e contadores | Contadores prontos; mapa na etapa 2 |
+| `/trajetorias` (`/en/trajectories`) | Trajetórias: ficha e trajetória do artista | Etapa 2 |
+| `/camada-historica` (`/en/historical-layer`) | Camada Histórica: períodos e fronteiras provisórias | Etapa 3 |
+| `/sobre` (`/en/about`) | Sobre: projeto, metodologia e cartografia | Etapa 2 |
+
+## Documentação
+
+Arquitetura, convenções e roadmap do ecossistema inteiro ficam em [`docs/ai/`](docs/ai/README.md), que também serve de instrução para agentes de IA (`AGENTS.md`, `CLAUDE.md`). Mudanças grandes vão por PR detalhada e só entram na `main` com aprovação do Alisson.
