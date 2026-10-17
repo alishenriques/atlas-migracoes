@@ -12,12 +12,15 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@alishenriques/atlas-design-system": "^0.1.0",
+    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=0f86a5be458f281f65e132b6f208f7ba90d079f8",
+    "@turf/great-circle": "^7.4.0",
     "axios": "^1.20.0",
+    "maplibre-gl": "^6.14.0",
     "next": "16.3.5",
     "next-intl": "^4.14.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "react-map-gl": "^8.1.3",
     "zod": "^4.6.5"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.7",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
