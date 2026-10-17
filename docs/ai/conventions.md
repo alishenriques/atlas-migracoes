@@ -36,6 +36,7 @@ Same rules as the portfolio ecosystem, plus the data rules this project needs.
 
 - Default branch `main`; one feature branch per change.
 - Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `test:`).
+- Small commits, one context each (Alisson's rule): split a change into commits by concern (for example schema, importer, API, docs) so each one can be read and reverted on its own. A PR can hold several commits; never pile unrelated changes into one.
 - Never commit `.env*` (except `.env.example`), `dist/`, `node_modules/`, `*.xlsx`.
 
 ## Pull requests (Alisson's rule)
