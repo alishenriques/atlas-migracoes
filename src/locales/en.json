@@ -25,7 +25,30 @@
       "ORIGIN_COUNTRIES": "countries of origin"
     },
     "STATS_UNAVAILABLE": "The collection figures could not be loaded right now.",
-    "MAP_SOON": "The map with the trajectories comes in the next stage."
+    "MAP_UNAVAILABLE": "The trajectories could not be loaded right now.",
+    "MAP": {
+      "LABEL": "Map of the artists' trajectories",
+      "FILTERS": "Filters",
+      "CLEAR": "Clear",
+      "ORIGIN": "Country of origin",
+      "ALL_COUNTRIES": "All countries",
+      "PERIOD": "Period",
+      "PERIOD_FROM": "Start year",
+      "PERIOD_TO": "End year",
+      "ARTISTS": "{count, plural, one {# artist} other {# artists}}",
+      "NO_RESULTS": "No artists for this country and period.",
+      "BACK": "Back",
+      "INFERRED": "Inferred trajectory",
+      "METHOD": "Drawn from the points the collection documents: birth, exhibitions of the works during the artist's lifetime, and death. The sources do not record the route or the year of arrival in Brazil.",
+      "STOP": {
+        "BIRTH": "Birth",
+        "EXHIBITION": "Exhibition",
+        "DEATH": "Death"
+      },
+      "UNKNOWN_DATE": "n.d.",
+      "POSTHUMOUS": "{count, plural, one {# posthumous exhibition is left out of the line.} other {# posthumous exhibitions are left out of the line.}}",
+      "UNDRAWN": "{count, plural, one {# point without a date or coordinates is left off the map.} other {# points without a date or coordinates are left off the map.}}"
+    }
   },
   "DEMO_NOTICE": "Demo data: the records shown are simulated and are not part of the collection.",
   "COMING_SOON": {

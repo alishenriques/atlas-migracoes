@@ -2,13 +2,18 @@ import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getOverview } from "@/lib/atlas";
+import { getMapData, getOverview } from "@/lib/atlas";
 import type { Overview } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
 import { Home } from "../Home";
 
-vi.mock("@/lib/atlas", () => ({ getOverview: vi.fn() }));
+vi.mock("@/lib/atlas", () => ({ getOverview: vi.fn(), getMapData: vi.fn() }));
+
+// The interactive map has its own tests (components/Explorar).
+vi.mock("../components/Explorar", () => ({
+  Explorar: ({ artists }: { artists: unknown[] }) => <div data-testid="explorar">{artists.length}</div>,
+}));
 
 vi.mock("next-intl/server", async () => {
   const { createTranslator } = await import("next-intl");
@@ -35,6 +40,8 @@ async function renderHome() {
 describe("Home", () => {
   beforeEach(() => {
     vi.mocked(getOverview).mockReset();
+    vi.mocked(getMapData).mockReset();
+    vi.mocked(getMapData).mockResolvedValue({ artists: [] });
   });
 
   it("shows the collection counters", async () => {
@@ -44,6 +51,7 @@ describe("Home", () => {
     expect(screen.getByText("417")).toBeInTheDocument();
     expect(screen.getByText("países de origem")).toBeInTheDocument();
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    expect(screen.getByTestId("explorar")).toBeInTheDocument();
   });
 
   it("flags simulated demo data", async () => {
@@ -59,5 +67,15 @@ describe("Home", () => {
     });
     await renderHome();
     expect(screen.getByText("Não foi possível carregar os números do acervo agora.")).toBeInTheDocument();
+  });
+
+  it("keeps the counters when the map data fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.mocked(getOverview).mockResolvedValue(overview("database"));
+    vi.mocked(getMapData).mockRejectedValue(new Error("timeout"));
+    await renderHome();
+    expect(screen.getByText("Não foi possível carregar as trajetórias agora.")).toBeInTheDocument();
+    expect(screen.queryByTestId("explorar")).not.toBeInTheDocument();
+    expect(screen.getByText("417")).toBeInTheDocument();
   });
 });

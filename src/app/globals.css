@@ -35,3 +35,53 @@ body {
 html {
   scrollbar-gutter: stable;
 }
+
+/* MapLibre's popup and controls, restyled to the night-blue panels. */
+.maplibregl-popup-content {
+  background: var(--atlas-color-bg-overlay);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--atlas-color-border);
+  border-radius: var(--atlas-radius-md);
+  padding: var(--atlas-space-3) var(--atlas-space-4);
+  color: var(--atlas-color-fg);
+  font-family: var(--atlas-font-sans);
+}
+
+.maplibregl-popup-close-button {
+  color: var(--atlas-color-muted);
+  padding: 0 var(--atlas-space-2);
+}
+
+.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: var(--atlas-color-bg-raised);
+}
+
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: var(--atlas-color-bg-raised);
+}
+
+.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--atlas-color-bg-raised);
+}
+
+.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--atlas-color-bg-raised);
+}
+
+.maplibregl-ctrl-group,
+.maplibregl-ctrl-attrib {
+  background: var(--atlas-color-bg-overlay) !important;
+  color: var(--atlas-color-muted);
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--atlas-color-muted);
+}
+
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}

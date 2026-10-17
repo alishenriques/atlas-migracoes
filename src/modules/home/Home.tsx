@@ -1,25 +1,31 @@
 import { Eyebrow, Panel, StatGrid, type Stat } from "@alishenriques/atlas-design-system";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { getOverview } from "@/lib/atlas";
-import type { Overview } from "@/lib/schemas";
+import { getMapData, getOverview } from "@/lib/atlas";
+import type { MapData, Overview } from "@/lib/schemas";
 import { DemoNotice } from "@/shared/components/DemoNotice";
 
+import { Explorar } from "./components/Explorar";
 import { styles } from "./styles/index.styles";
 
-async function loadOverview(): Promise<Overview | null> {
+// Each block still renders when its query fails; the cause goes to the server log.
+async function attempt<T>(what: string, load: () => Promise<T>): Promise<T | null> {
   try {
-    return await getOverview();
+    return await load();
   } catch (error) {
-    // The page still renders without the counters; the cause goes to the server log.
-    console.error("Failed to load the collection overview:", error instanceof Error ? error.message : error);
+    console.error(`Failed to load ${what}:`, error instanceof Error ? error.message : error);
     return null;
   }
 }
 
-/** The Explorar screen. The map, filters and timeline arrive in stage 2 of the roadmap. */
+/** The Explorar screen: the trajectories map with its filters, then the collection counters. */
 export async function Home() {
-  const [t, locale, overview] = await Promise.all([getTranslations("HOME"), getLocale(), loadOverview()]);
+  const [t, locale, overview, mapData] = await Promise.all([
+    getTranslations("HOME"),
+    getLocale(),
+    attempt<Overview>("the collection overview", getOverview),
+    attempt<MapData>("the map data", getMapData),
+  ]);
   const format = new Intl.NumberFormat(locale);
 
   const stats: Stat[] = overview
@@ -33,20 +39,26 @@ export async function Home() {
     : [];
 
   return (
-    <main className={styles.main}>
-      <section className={styles.hero}>
-        <Eyebrow>{t("EYEBROW")}</Eyebrow>
-        <h1 className={styles.title}>{t("TITLE")}</h1>
-        <p className={styles.subtitle}>{t("SUBTITLE")}</p>
-      </section>
+    <main className={styles.page}>
+      {overview?.meta.source === "demo" && (
+        <div className={styles.notice}>
+          <DemoNotice />
+        </div>
+      )}
 
-      {overview?.meta.source === "demo" && <DemoNotice />}
+      {mapData ? <Explorar artists={mapData.artists} /> : <p className={styles.mapUnavailable}>{t("MAP_UNAVAILABLE")}</p>}
 
-      <Panel title={t("STATS_TITLE")}>
-        {overview ? <StatGrid stats={stats} /> : <p className={styles.muted}>{t("STATS_UNAVAILABLE")}</p>}
-      </Panel>
+      <div className={styles.main}>
+        <section className={styles.hero}>
+          <Eyebrow>{t("EYEBROW")}</Eyebrow>
+          <h1 className={styles.title}>{t("TITLE")}</h1>
+          <p className={styles.subtitle}>{t("SUBTITLE")}</p>
+        </section>
 
-      <p className={styles.muted}>{t("MAP_SOON")}</p>
+        <Panel title={t("STATS_TITLE")}>
+          {overview ? <StatGrid stats={stats} /> : <p className={styles.muted}>{t("STATS_UNAVAILABLE")}</p>}
+        </Panel>
+      </div>
     </main>
   );
 }

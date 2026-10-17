@@ -25,7 +25,30 @@
       "ORIGIN_COUNTRIES": "países de origem"
     },
     "STATS_UNAVAILABLE": "Não foi possível carregar os números do acervo agora.",
-    "MAP_SOON": "O mapa com as trajetórias chega na próxima etapa."
+    "MAP_UNAVAILABLE": "Não foi possível carregar as trajetórias agora.",
+    "MAP": {
+      "LABEL": "Mapa das trajetórias dos artistas",
+      "FILTERS": "Filtros",
+      "CLEAR": "Limpar",
+      "ORIGIN": "País de origem",
+      "ALL_COUNTRIES": "Todos os países",
+      "PERIOD": "Período",
+      "PERIOD_FROM": "Ano inicial",
+      "PERIOD_TO": "Ano final",
+      "ARTISTS": "{count, plural, one {# artista} other {# artistas}}",
+      "NO_RESULTS": "Nenhum artista neste país e período.",
+      "BACK": "Voltar",
+      "INFERRED": "Trajetória inferida",
+      "METHOD": "Traçada a partir dos pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. As fontes não registram a rota nem o ano de chegada ao Brasil.",
+      "STOP": {
+        "BIRTH": "Nascimento",
+        "EXHIBITION": "Exposição",
+        "DEATH": "Morte"
+      },
+      "UNKNOWN_DATE": "s.d.",
+      "POSTHUMOUS": "{count, plural, one {# exposição póstuma fica fora do traçado.} other {# exposições póstumas ficam fora do traçado.}}",
+      "UNDRAWN": "{count, plural, one {# ponto sem data ou sem coordenadas fica fora do mapa.} other {# pontos sem data ou sem coordenadas ficam fora do mapa.}}"
+    }
   },
   "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
   "COMING_SOON": {
