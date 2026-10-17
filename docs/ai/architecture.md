@@ -70,4 +70,4 @@ The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21)
 
 ## Design system consumption
 
-Until the first npm release of `@alishenriques/atlas-design-system`, the app installs it from GitHub pinned to a commit (`github:alishenriques/atlas-migracoes-design-system#commit=…`); Yarn builds it through the package's `prepack`. Switch to the npm version (`^0.1.0`) once it is published.
+The app installs `@alishenriques/atlas-design-system` from npm (`^0.1.0`, first published 2026-10-17). New DS versions are released from the DS repo by bumping `version` and pushing a `v*` tag, which runs its publish workflow through npm Trusted Publishing; then bump the range here if the release is a new minor or major. To test unreleased DS changes, temporarily point the dependency at a commit (`github:alishenriques/atlas-migracoes-design-system#commit=…`; Yarn builds it through `prepack`) and never merge that pin.
