@@ -38,7 +38,7 @@ Done when you can pick an artist and follow their trajectory on the preview.
 
 Done when the map switches decades and the graph opens from an artist's record.
 
-- [ ] Camada Histórica: one standardized vector map of Europe per decade, places linked to the territory of the period
+- [ ] Camada Histórica: one standardized vector map of Europe per decade, places linked to the territory of the period (see "Historical cartography" below)
 - [ ] Rede Relacional: graph of artists, works, exhibitions, publications, institutions and places from the base, period filter, opens from Trajetórias
 
 ## Stage 4: IA Relacional and delivery (3–8 Nov, ~11 h)
@@ -48,6 +48,14 @@ Done when the demo script runs end to end at the final address.
 - [ ] IA Relacional: search in open sources, findings traced to their source, results with reliability and the prompt shown, period-only geopolitics
 - [ ] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
 - [ ] Production deploy on 8 Nov
+
+## Historical cartography
+
+Goal: show Europe's borders and political divisions decade by decade, so that every artist and place of origin is read inside the territory that existed at the time, even when that country later ceased to exist, split or was renamed (Austria-Hungary, Russian Empire, Czechoslovakia, Yugoslavia, the USSR).
+
+- **Standardized vector maps.** One GeoJSON per decade (1910s–1980s), produced by a script from an open historical borders dataset: same projection, simplification and styling tokens for every period, so only the borders change between decades. Each map records which source snapshot it came from. When a decade has no exact snapshot, the nearest one is used and the map is labelled approximate. Never draw a border the source does not have. Confirm the dataset's license and credit it in Sobre.
+- **Territories in the data model.** Each period's territories (name as used at the time, validity years, present-day successors as a note) are stored in the API. Each geocoded place is linked to the territory containing it in each period by point-in-polygon, with the result reviewed like the geocoding. An artist's origin is then the territory of their birthplace in the year of birth, keeping the date's precision.
+- **AI guardrail.** The IA Relacional receives the period's territory names with every question and is instructed to reason only with the geopolitics of that period, never present-day borders. The prompt shown to the user includes this context, and findings that name a present-day country for a historical place are flagged for review.
 
 ## After the conference
 
