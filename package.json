@@ -12,7 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=e79cdd411189f4df15c947eda6df497aac937ed9",
+    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=1b26e18d2e0b5443eda89a64a86311c12c1410aa",
     "axios": "^1.20.0",
     "next": "16.3.5",
     "next-intl": "^4.14.6",
