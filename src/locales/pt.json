@@ -8,6 +8,7 @@
     "HOME": "Explorar",
     "TRAJECTORIES": "Trajetórias",
     "HISTORICAL_LAYER": "Camada Histórica",
+    "NETWORK": "Rede Relacional",
     "ABOUT": "Sobre",
     "LANGUAGE": "Idioma",
     "SWITCH_TO": "English"
@@ -65,7 +66,8 @@
     "SOURCES": "Fontes",
     "SOURCE_COLLECTION": "Acervo do MAC USP: obras selecionadas, exposições e publicações relacionadas (planilhas de 16 de julho de 2026).",
     "SOURCE_TRAJECTORY": "Trajetória traçada pela plataforma a partir desses registros; não é um percurso documentado.",
-    "RECORD_UNAVAILABLE": "Não foi possível carregar esta ficha agora."
+    "RECORD_UNAVAILABLE": "Não foi possível carregar esta ficha agora.",
+    "OPEN_NETWORK": "Ver na Rede Relacional"
   },
   "HISTORICAL_LAYER": {
     "TITLE": "Camada Histórica",
@@ -95,6 +97,47 @@
       "CHANGED": "{from} ou {to}: a fronteira mudou nesse período"
     },
     "CREDIT": "Fronteiras: CShapes 2.0, de Schvitz, Rüegger, Girardin, Cederman, Weidmann e Gleditsch (ETH Zürich, 2022), licença CC BY-NC-SA 4.0. Recorte e simplificação para a Europa feitos pelo Atlas."
+  },
+  "NETWORK": {
+    "TITLE": "Rede Relacional",
+    "EYEBROW": "Artistas, obras, exposições e lugares",
+    "INTRO": "As ligações que o acervo documenta entre os artistas, suas obras, as exposições e publicações em que as obras aparecem, as instituições e os lugares. Escolha um artista para ver a rede dele, ou veja a base inteira.",
+    "DATA_UNAVAILABLE": "Não foi possível carregar a rede agora. Tente de novo em instantes.",
+    "FILTERS": "Rede",
+    "CENTER": "Centro da rede",
+    "OVERVIEW": "Todos os artistas (visão geral)",
+    "PERIOD": "Período das exposições e publicações",
+    "PERIOD_FROM": "Ano inicial",
+    "PERIOD_TO": "Ano final",
+    "UNDATED_NOTE": "Exposições, publicações e obras sem ano aparecem só com o período completo.",
+    "OVERVIEW_NOTE": "Na visão geral, cada artista se liga ao lugar de nascimento e às instituições que expuseram suas obras (ou ao lugar, quando a fonte não nomeia a instituição). A espessura da linha conta as exposições.",
+    "EGO_NOTE": "As obras de {name} no acervo, onde foram expostas ou publicadas, e os outros artistas do acervo que estiveram nas mesmas exposições.",
+    "CLEAR": "Limpar",
+    "LEGEND": "Legenda",
+    "GRAPH_LABEL": "Rede de {count, plural, one {# elemento} other {# elementos}}; use Tab para percorrer e Enter para ver os detalhes",
+    "EMPTY": "Nenhuma ligação neste período.",
+    "KIND": {
+      "ARTIST": "Artista",
+      "WORK": "Obra",
+      "EXHIBITION": "Exposição",
+      "PUBLICATION": "Publicação",
+      "INSTITUTION": "Instituição",
+      "PLACE": "Lugar"
+    },
+    "KINDS": {
+      "ARTIST": "Artistas",
+      "WORK": "Obras",
+      "EXHIBITION": "Exposições",
+      "PUBLICATION": "Publicações",
+      "INSTITUTION": "Instituições",
+      "PLACE": "Lugares"
+    },
+    "SELECT_HINT": "Selecione um elemento da rede para ver suas ligações.",
+    "LINKED": "{count, plural, =0 {Sem ligações} one {# ligação} other {# ligações}}",
+    "FOCUS": "Centralizar a rede neste artista",
+    "OPEN_RECORD": "Abrir a ficha da trajetória",
+    "DOCUMENTED": "Documentado",
+    "SOURCE": "Ligações tiradas do acervo do MAC USP (obras, exposições e publicações relacionadas). Instituições com o mesmo nome escrito de formas diferentes são somadas numa só."
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",

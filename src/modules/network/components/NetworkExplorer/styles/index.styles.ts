@@ -1,0 +1,18 @@
+export const styles = {
+  root: "mx-auto grid w-full max-w-6xl gap-4 px-4 sm:px-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start",
+  panel: "flex flex-col gap-4 lg:sticky lg:top-20",
+  graph: "relative h-[65svh] min-h-[380px] overflow-hidden rounded-xl border border-line bg-raised lg:h-[calc(100svh-7rem)]",
+  empty: "absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-muted",
+  note: "text-xs leading-relaxed text-muted",
+  clear: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+  detail: "flex flex-col gap-2 border-t border-line pt-3",
+  detailHeader: "flex flex-wrap items-center justify-between gap-2",
+  detailKind: "text-[11px] uppercase tracking-[0.12em] text-muted",
+  detailTitle: "font-serif text-xl leading-snug",
+  detailMeta: "text-xs text-muted",
+  actions: "flex flex-wrap gap-x-4 gap-y-1",
+  action: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+  neighbors: "flex max-h-64 flex-col gap-0.5 overflow-y-auto text-sm",
+  neighbor: "flex w-full items-baseline gap-2 rounded px-1 py-0.5 text-left hover:bg-white/5",
+  dot: "inline-block size-2 shrink-0 rounded-full",
+};
