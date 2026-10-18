@@ -25,8 +25,24 @@ vi.mock("next/navigation", () => ({
 }));
 
 vi.mock("@/i18n/navigation", () => ({
-  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string | { params: { slug: string } } }) => (
-    <a href={typeof href === "string" ? href : `/trajetorias/${href.params.slug}`} {...props}>
+  Link: ({
+    children,
+    href,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string | { params: { slug: string } } | { pathname: string; query: { [key: string]: string } };
+  }) => (
+    <a
+      href={
+        typeof href === "string"
+          ? href
+          : "params" in href
+            ? `/trajetorias/${href.params.slug}`
+            : `${href.pathname}?${new URLSearchParams(href.query).toString()}`
+      }
+      {...props}
+    >
       {children}
     </a>
   ),
@@ -100,6 +116,7 @@ describe("ArtistRecord", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Lasar Segall" })).toBeInTheDocument();
     expect(screen.getByText("Vilna (Vilnius, Lituânia), 1889")).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Mapa da trajetória de Lasar Segall" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Ver na Rede Relacional" })).toHaveAttribute("href", "/rede?artista=lasar-segall");
 
     const works = screen.getByRole("region", { name: "1 obra" });
     expect(within(works).getByText("Paisagem")).toBeInTheDocument();
