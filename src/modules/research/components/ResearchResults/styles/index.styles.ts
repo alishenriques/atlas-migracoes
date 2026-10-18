@@ -1,0 +1,25 @@
+export const styles = {
+  root: "flex flex-col gap-6",
+  // On small screens the findings come right after the collection's record; from lg up the
+  // record, the sources and the method sit in the left column.
+  columns: "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start",
+  collection: "lg:col-start-1 lg:row-start-1",
+  aside: "flex flex-col gap-6 lg:col-start-1 lg:row-start-2",
+  main: "flex flex-col gap-6 lg:col-start-2 lg:row-span-2 lg:row-start-1",
+  facts: "flex flex-col gap-2 text-sm",
+  factLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
+  matchTitle: "font-serif text-xl leading-snug",
+  text: "text-sm leading-relaxed",
+  note: "text-xs leading-relaxed text-muted",
+  link: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+  groups: "flex flex-col divide-y divide-white/5",
+  group: "flex flex-col gap-2 py-3 first:pt-0 last:pb-0",
+  groupTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",
+  findings: "flex flex-col gap-3",
+  finding: "flex flex-col gap-1",
+  findingValue: "font-serif text-lg leading-snug",
+  findingMeta: "flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted",
+  review: "text-xs leading-relaxed text-accent",
+  sources: "flex flex-col gap-1 text-sm",
+  method: "flex flex-col gap-2 text-sm leading-relaxed text-muted",
+};
