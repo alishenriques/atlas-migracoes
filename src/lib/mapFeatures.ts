@@ -1,6 +1,6 @@
 import { greatCircle } from "@turf/great-circle";
 
-import { legs, type GeoPlace, type Stop, type VisibleTrajectory } from "./trajectory";
+import { migrationLeg, type GeoPlace, type Stop, type VisibleTrajectory } from "./trajectory";
 
 import type { FeatureCollection, LineString, MultiLineString, Point } from "geojson";
 
@@ -18,8 +18,9 @@ const position = (place: GeoPlace): [number, number] => [place.lng, place.lat];
 const samePosition = (a: Stop, b: Stop) => a.place.lat === b.place.lat && a.place.lng === b.place.lng;
 
 /**
- * GeoJSON for the map: one great-circle line per leg of each trajectory, and
- * one point per place, sized by how many of the shown artists passed there.
+ * GeoJSON for the map: at most one great-circle line per artist, from the
+ * birthplace to the first documented place in Brazil, and one point per place,
+ * sized by how many of the shown artists passed there.
  */
 export function toMapFeatures(trajectories: VisibleTrajectory[], selectedSlug: string | null): MapFeatures {
   const legFeatures: MapFeatures["legs"]["features"] = [];
@@ -29,9 +30,9 @@ export function toMapFeatures(trajectories: VisibleTrajectory[], selectedSlug: s
     const { slug } = trajectory.artist;
     const selected = slug === selectedSlug;
 
-    for (const [from, to] of legs(trajectory.visible)) {
-      if (samePosition(from, to)) continue;
-      const line = greatCircle(position(from.place), position(to.place), { npoints: 64 });
+    const leg = migrationLeg(trajectory);
+    if (leg && !samePosition(...leg)) {
+      const line = greatCircle(position(leg[0].place), position(leg[1].place), { npoints: 64 });
       legFeatures.push({ type: "Feature", geometry: line.geometry, properties: { slug, selected } });
     }
 
