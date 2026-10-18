@@ -10,6 +10,11 @@ The Atlas mirrors the ecosystem of Alisson's portfolio (`alis-portfolio`, `alis-
 | `atlas-migracoes-api` | `@alishenriques/atlas-migracoes-api` | GraphQL API, database, spreadsheet importer | Vercel function |
 | `atlas-migracoes-design-system` | `@alishenriques/atlas-design-system` | React components and `--atlas-*` tokens | npm, via GitHub Actions on `v*` tags |
 
+## Labels and project board (decided by Alisson, 2026-10-18)
+
+- **Every PR is linked to the project board** [Atlas Migrações (GitHub Project 4)](https://github.com/users/alishenriques/projects/4).
+- **Every PR carries labels** for what it implements: the kind (`feature`, `fix`, `docs`, `chore`, `refactor`, `test`), the screen or module (`explorar`, `trajetorias`, `camada-historica`, `rede-relacional`, `ia-relacional`, `sobre`, `importer`, `design-system`…) and the stage (`stage-1`…`stage-4`).
+
 ## Data flow
 
 Next.js server components → Axios POST to `NEXT_PUBLIC_GRAPHQL_URL` → GraphQL Yoga → in-memory dataset loaded per request through Drizzle → Neon Postgres. Responses are parsed with Zod on the front-end as well (`src/lib/schemas.ts`).
