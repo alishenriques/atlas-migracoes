@@ -68,7 +68,33 @@
     "RECORD_UNAVAILABLE": "This record could not be loaded right now."
   },
   "HISTORICAL_LAYER": {
-    "TITLE": "Historical Layer"
+    "TITLE": "Historical Layer",
+    "EYEBROW": "Borders of Europe, 1910–1989",
+    "INTRO": "Europe with each year's borders, to read every artist's place of origin in the state that existed at the time, including states that later ceased to exist, split or were renamed.",
+    "DATA_UNAVAILABLE": "The artists couldn't be loaded right now. Please try again shortly.",
+    "LOADING": "Loading the borders…",
+    "BORDERS_UNAVAILABLE": "The historical borders couldn't be loaded right now.",
+    "MAP_LABEL": "Map of Europe with the borders of {year}",
+    "BORDERS_OF": "Borders of {year}",
+    "DECADE": "Decade",
+    "DECADE_LABEL": "{decade}s",
+    "YEAR": "Year",
+    "SOURCE_NOTE": "Borders on 1 July of the chosen year, according to CShapes 2.0. The dataset follows Gleditsch and Ward's list of states: states occupied or annexed in the Second World War, such as Poland and Austria, keep their borders, and territories that belonged to no state on that day have no border. State names are as in the source.",
+    "ORIGINS_TITLE": "Places of origin",
+    "INFERRED": "Inferred territory",
+    "ORIGINS_METHOD": "Each place's state was derived from its position inside the borders of the time. When the birth date is only a year and the border moved during that year, both states are shown.",
+    "BORN": "Born in {place}, {date}",
+    "UNKNOWN_DATE": "unknown date",
+    "AT_BIRTH": "At birth",
+    "IN_YEAR": "In {year}: {state}",
+    "BORN_HERE": "{count, plural, =0 {No artist was born in places that belonged to this state in {year}.} one {# artist was born in a place that belonged to this state in {year}:} other {# artists were born in places that belonged to this state in {year}:}}",
+    "STATE": {
+      "UNKNOWN": "undetermined (unknown date or outside the dataset, which covers 1886–2019)",
+      "NONE": "no state in the dataset",
+      "CIRCA": "{name} (approximate date)",
+      "CHANGED": "{from} or {to}: the border moved in this period"
+    },
+    "CREDIT": "Borders: CShapes 2.0 by Schvitz, Rüegger, Girardin, Cederman, Weidmann and Gleditsch (ETH Zürich, 2022), CC BY-NC-SA 4.0 license. Clipped and simplified for Europe by the Atlas."
   },
   "ABOUT": {
     "TITLE": "About the project",
@@ -112,7 +138,7 @@
     "CREDITS": {
       "TITLE": "Cartography and credits",
       "BASEMAP": "Basemap: OpenFreeMap, with OpenStreetMap data (© OpenStreetMap contributors, ODbL) in the OpenMapTiles schema. It shows only land and water, with no present-day borders or names.",
-      "HISTORICAL": "The borders of each decade come with the Historical Layer, with their own source, license and credits.",
+      "HISTORICAL": "Historical borders: CShapes 2.0 by Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann and Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), CC BY-NC-SA 4.0 license. The Atlas clipped and simplified the borders for Europe, and the derived file keeps the same license.",
       "SOFTWARE": "Map rendered with MapLibre GL, free software.",
       "COLLECTION": "Collection data: Museum of Contemporary Art of the University of São Paulo (MAC USP)."
     }

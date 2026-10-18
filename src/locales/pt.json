@@ -68,7 +68,33 @@
     "RECORD_UNAVAILABLE": "Não foi possível carregar esta ficha agora."
   },
   "HISTORICAL_LAYER": {
-    "TITLE": "Camada Histórica"
+    "TITLE": "Camada Histórica",
+    "EYEBROW": "Fronteiras da Europa, 1910–1989",
+    "INTRO": "A Europa com as fronteiras de cada ano, para ler o lugar de origem de cada artista no Estado que existia na época, inclusive os que deixaram de existir, se dividiram ou mudaram de nome.",
+    "DATA_UNAVAILABLE": "Não foi possível carregar os artistas agora. Tente de novo em instantes.",
+    "LOADING": "Carregando as fronteiras…",
+    "BORDERS_UNAVAILABLE": "Não foi possível carregar as fronteiras históricas agora.",
+    "MAP_LABEL": "Mapa da Europa com as fronteiras de {year}",
+    "BORDERS_OF": "Fronteiras de {year}",
+    "DECADE": "Década",
+    "DECADE_LABEL": "{decade}",
+    "YEAR": "Ano",
+    "SOURCE_NOTE": "Fronteiras em 1º de julho do ano escolhido, segundo a CShapes 2.0. A base segue o sistema de Estados de Gleditsch e Ward: Estados ocupados ou anexados na Segunda Guerra, como a Polônia e a Áustria, mantêm as fronteiras, e territórios que não pertenciam a nenhum Estado naquele dia ficam sem fronteira. Os nomes dos Estados estão como na fonte, em inglês.",
+    "ORIGINS_TITLE": "Lugares de origem",
+    "INFERRED": "Território inferido",
+    "ORIGINS_METHOD": "O Estado de cada lugar foi deduzido pela posição do lugar dentro das fronteiras da época. Quando a data de nascimento é só um ano e a fronteira mudou nesse ano, os dois Estados aparecem.",
+    "BORN": "Nasceu em {place}, {date}",
+    "UNKNOWN_DATE": "data desconhecida",
+    "AT_BIRTH": "No nascimento",
+    "IN_YEAR": "Em {year}: {state}",
+    "BORN_HERE": "{count, plural, =0 {Nenhum artista nasceu em lugares que em {year} pertenciam a este Estado.} one {# artista nasceu em lugar que em {year} pertencia a este Estado:} other {# artistas nasceram em lugares que em {year} pertenciam a este Estado:}}",
+    "STATE": {
+      "UNKNOWN": "não determinado (data desconhecida ou fora da base, que cobre 1886–2019)",
+      "NONE": "nenhum Estado na base",
+      "CIRCA": "{name} (data aproximada)",
+      "CHANGED": "{from} ou {to}: a fronteira mudou nesse período"
+    },
+    "CREDIT": "Fronteiras: CShapes 2.0, de Schvitz, Rüegger, Girardin, Cederman, Weidmann e Gleditsch (ETH Zürich, 2022), licença CC BY-NC-SA 4.0. Recorte e simplificação para a Europa feitos pelo Atlas."
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",
@@ -112,7 +138,7 @@
     "CREDITS": {
       "TITLE": "Cartografia e créditos",
       "BASEMAP": "Mapa de base: OpenFreeMap, com dados do OpenStreetMap (© colaboradores do OpenStreetMap, licença ODbL) no esquema OpenMapTiles. O mapa de base mostra só terra e água, sem fronteiras nem nomes atuais.",
-      "HISTORICAL": "As fronteiras de cada década chegam com a Camada Histórica, com fonte, licença e créditos próprios.",
+      "HISTORICAL": "Fronteiras históricas: CShapes 2.0, de Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann e Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), licença CC BY-NC-SA 4.0. O Atlas recortou e simplificou as fronteiras para a Europa, e o arquivo derivado segue a mesma licença.",
       "SOFTWARE": "Mapa renderizado com MapLibre GL, software livre.",
       "COLLECTION": "Dados do acervo: Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP)."
     }

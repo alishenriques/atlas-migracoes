@@ -1,8 +1,13 @@
 import { getTranslations } from "next-intl/server";
 
-import { ComingSoon } from "@/shared/components/ComingSoon";
+import { getMapData } from "@/lib/atlas";
+import { HistoricalLayer } from "@/modules/historical";
 
 import type { Metadata } from "next";
+
+// Collection data changes independently of deploys and is fetched with Axios
+// (not Next's `fetch`), so Next can't detect it's dynamic on its own.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/camada-historica">): Promise<Metadata> {
   const { locale } = await params;
@@ -11,6 +16,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/camada-h
 }
 
 export default async function Page() {
-  const t = await getTranslations("HISTORICAL_LAYER");
-  return <ComingSoon title={t("TITLE")} />;
+  const data = await getMapData().catch((error: unknown) => {
+    console.error("Failed to load the artists:", error instanceof Error ? error.message : error);
+    return null;
+  });
+  return <HistoricalLayer data={data} />;
 }
