@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const post = vi.fn();
 vi.spyOn(axios, "create").mockReturnValue({ post } as unknown as ReturnType<typeof axios.create>);
 
-const { getArtistRecord, getMapData, getOverview } = await import("./atlas");
+const { getArtistRecord, getMapData, getNetworkData, getOverview } = await import("./atlas");
 
 const reply = (data: unknown) => post.mockResolvedValue({ data: { data } });
 
@@ -93,5 +93,51 @@ describe("getArtistRecord", () => {
   it("returns null for an unknown slug", async () => {
     reply({ meta: { source: "database" }, artist: null });
     await expect(getArtistRecord("nobody")).resolves.toEqual({ meta: { source: "database" }, artist: null });
+  });
+});
+
+describe("getNetworkData", () => {
+  it("returns each artist's works with their exhibitions and publications", async () => {
+    const network = {
+      meta: { source: "database" },
+      artists: [
+        {
+          slug: "lasar-segall",
+          name: "Lasar Segall",
+          birthPlace: vilna,
+          birthDate: circa1930,
+          deathPlace: null,
+          works: [
+            {
+              id: "1963.1.1",
+              title: "Paisagem",
+              date: unknownDate,
+              exhibitions: [{ id: "EX.1", title: "Bienal", startDate: circa1930, institution: "MAC USP", place: vilna }],
+              publications: [{ id: "PB.1", title: "Catálogo", date: unknownDate, periodical: null }],
+            },
+          ],
+        },
+      ],
+    };
+    reply(network);
+    await expect(getNetworkData()).resolves.toEqual(network);
+    expect(post.mock.calls[0]?.[1]).toMatchObject({ query: expect.stringContaining("publications") });
+  });
+
+  it("rejects an exhibition without its institution field", async () => {
+    reply({
+      meta: { source: "database" },
+      artists: [
+        {
+          slug: "a",
+          name: "A",
+          birthPlace: null,
+          birthDate: unknownDate,
+          deathPlace: null,
+          works: [{ id: "w", title: "W", date: unknownDate, publications: [], exhibitions: [{ id: "e", title: "E", startDate: unknownDate, place: null }] }],
+        },
+      ],
+    });
+    await expect(getNetworkData()).rejects.toThrow();
   });
 });

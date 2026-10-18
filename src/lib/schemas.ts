@@ -115,3 +115,47 @@ export type RecordExhibition = z.infer<typeof recordExhibitionSchema>;
 export type RecordPublication = z.infer<typeof recordPublicationSchema>;
 export type ArtistRecord = z.infer<typeof artistRecordSchema>;
 export type ArtistRecordResponse = z.infer<typeof artistRecordResponseSchema>;
+
+export const networkExhibitionSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  startDate: fuzzyDateSchema,
+  institution: z.string().nullable(),
+  place: placeSchema.nullable(),
+});
+
+export const networkPublicationSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  date: fuzzyDateSchema,
+  periodical: z.string().nullable(),
+});
+
+export const networkWorkSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  date: fuzzyDateSchema,
+  exhibitions: z.array(networkExhibitionSchema),
+  publications: z.array(networkPublicationSchema),
+});
+
+/** What the Rede Relacional needs: each artist with their works and where each work was shown or published. */
+export const networkArtistSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  birthPlace: placeSchema.nullable(),
+  birthDate: fuzzyDateSchema,
+  deathPlace: placeSchema.nullable(),
+  works: z.array(networkWorkSchema),
+});
+
+export const networkDataSchema = z.object({
+  meta: z.object({ source: dataSourceSchema }),
+  artists: z.array(networkArtistSchema),
+});
+
+export type NetworkExhibition = z.infer<typeof networkExhibitionSchema>;
+export type NetworkPublication = z.infer<typeof networkPublicationSchema>;
+export type NetworkWork = z.infer<typeof networkWorkSchema>;
+export type NetworkArtist = z.infer<typeof networkArtistSchema>;
+export type NetworkData = z.infer<typeof networkDataSchema>;

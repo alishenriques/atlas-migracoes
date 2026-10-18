@@ -2,9 +2,11 @@ import { graphqlRequest } from "./graphql-client";
 import {
   artistRecordResponseSchema,
   mapDataSchema,
+  networkDataSchema,
   overviewSchema,
   type ArtistRecordResponse,
   type MapData,
+  type NetworkData,
   type Overview,
 } from "./schemas";
 
@@ -155,4 +157,58 @@ const ARTIST_RECORD_QUERY = /* GraphQL */ `
 /** One artist's record (null when the slug is unknown), with works, exhibitions and publications. */
 export function getArtistRecord(slug: string): Promise<ArtistRecordResponse> {
   return graphqlRequest(artistRecordResponseSchema, ARTIST_RECORD_QUERY, { slug });
+}
+
+const NETWORK_QUERY = /* GraphQL */ `
+  ${FRAGMENTS}
+
+  query Network {
+    meta {
+      source
+    }
+    artists {
+      slug
+      name
+      birthPlace {
+        ...MapPlace
+      }
+      birthDate {
+        ...MapDate
+      }
+      deathPlace {
+        ...MapPlace
+      }
+      works {
+        id
+        title
+        date {
+          ...MapDate
+        }
+        exhibitions {
+          id
+          title
+          startDate {
+            ...MapDate
+          }
+          institution
+          place {
+            ...MapPlace
+          }
+        }
+        publications {
+          id
+          title
+          date {
+            ...MapDate
+          }
+          periodical
+        }
+      }
+    }
+  }
+`;
+
+/** Every artist with their works and where each work was shown or published, for the Rede Relacional. */
+export function getNetworkData(): Promise<NetworkData> {
+  return graphqlRequest(networkDataSchema, NETWORK_QUERY);
 }
