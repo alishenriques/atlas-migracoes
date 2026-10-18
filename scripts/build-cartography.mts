@@ -4,7 +4,7 @@
  * Europe, simplified, one polygon per version of each state with the days it
  * was valid.
  *
- *   node scripts/build-cartography.mts ~/atlas/cshapes/CShapes-2.0.geojson
+ *   yarn build:cartography ~/atlas/cshapes/CShapes-2.0.geojson
  *
  * Download CShapes-2.0.geojson from the page above first and keep it outside
  * the repository. The output is public/cartography/europe-states.geojson.
@@ -42,7 +42,7 @@ const isoDay = (year: number, month: number, day: number) =>
 
 const input = process.argv[2];
 if (!input) {
-  console.error("Usage: node scripts/build-cartography.mts <path to CShapes-2.0.geojson>");
+  console.error("Usage: yarn build:cartography <path to CShapes-2.0.geojson>");
   process.exit(1);
 }
 
