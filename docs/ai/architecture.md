@@ -50,10 +50,12 @@ src/
   lib/                # env.ts, graphql-client.ts, schemas.ts, atlas.ts (queries)
 ```
 
-- Routes: `/` Explorar, `/trajetorias` (`/en/trajectories`), `/camada-historica` (`/en/historical-layer`), `/sobre` (`/en/about`). `[...rest]` sends unknown paths to the localized 404.
+- Routes: `/` Explorar, `/trajetorias` (`/en/trajectories`) with each artist's record at `/trajetorias/[slug]`, `/camada-historica` (`/en/historical-layer`), `/sobre` (`/en/about`). `[...rest]` sends unknown paths to the localized 404.
 - `app/[locale]/layout.tsx` is the root layout: fonts via `next/font` (Cormorant Garamond for headings, Inter for UI), DS stylesheet, then `globals.css`, which points `--atlas-font-*` at the self-hosted fonts and maps the tokens into Tailwind (`bg-background`, `text-muted`, `text-accent`, `border-line`, `font-serif`).
 - Always import navigation from `@/i18n/navigation`, not `next/link`.
 - **Explorar map** (`modules/home`): MapLibre GL 6 through `react-map-gl/maplibre`, loaded client-only with `next/dynamic`. MapLibre 6 looks for its worker next to its own module, so `ExplorarMap` calls `setWorkerUrl(new URL("maplibre-gl/dist/maplibre-gl-worker.mjs", import.meta.url))` and the bundler emits the worker as an asset. The basemap is a minimal style over OpenFreeMap vector tiles (free, no key): land and water only, colored from the `--atlas-*` tokens, with no present-day borders or place names (the borders of each period belong to the Camada Histórica). Trajectories are built in `utils/trajectory.ts` from the documented points only (birth, exhibitions of the works during the artist's lifetime, death), shown with an "inferred" reliability tag; posthumous exhibitions and points without a date or coordinates are counted, never drawn. Legs are Turf great-circle arcs (`utils/mapFeatures.ts`).
+- **Shared trajectory pieces**: `lib/trajectory.ts` and `lib/mapFeatures.ts` (pure, tested), `shared/components/TrajectoryMap` (client-only MapLibre map; import it from the folder index, which lazy-loads it) and `shared/components/TrajectoryStops` (the dated stop list with its "inferred" tag). Explorar and the Trajetórias record both use them.
+- **Trajetórias record** (`modules/trajectories`): works, exhibitions and publications come straight from the MAC USP spreadsheets and are tagged "documented"; the trajectory is tagged "inferred". Unknown slugs go to the localized 404; a failed request to the error boundary.
 - Pages that read collection data use `dynamic = "force-dynamic"` (Axios, not `fetch`, so Next can't infer it) and render a fallback when the API is unreachable instead of failing.
 
 ## Visual direction
@@ -71,4 +73,4 @@ The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21)
 
 ## Design system consumption
 
-The app installs `@alishenriques/atlas-design-system` from npm (`^0.1.0`, first published 2026-10-17). New DS versions are released from the DS repo by bumping `version` and pushing a `v*` tag, which runs its publish workflow through npm Trusted Publishing; then bump the range here if the release is a new minor or major. To test unreleased DS changes, temporarily point the dependency at a commit (`github:alishenriques/atlas-migracoes-design-system#commit=…`; Yarn builds it through `prepack`) and never merge that pin.
+The app installs `@alishenriques/atlas-design-system` from npm (`^0.2.0`; 0.1.0 first published 2026-10-17, 0.2.0 on 2026-10-18 with `SelectField` and `YearRange`). New DS versions are released from the DS repo by bumping `version` and pushing a `v*` tag, which runs its publish workflow through npm Trusted Publishing; then bump the range here if the release is a new minor or major. To test unreleased DS changes, temporarily point the dependency at a commit (`github:alishenriques/atlas-migracoes-design-system#commit=…`; Yarn builds it through `prepack`) and never merge that pin.

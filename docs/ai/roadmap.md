@@ -30,7 +30,7 @@ All of it responsive, at zero running cost, with no invented data.
 Done when you can pick an artist and follow their trajectory on the preview.
 
 - [x] Explorar: MapLibre map, trajectory arcs, filters (origin country, period), 1918–1989 timeline, counters
-- [ ] Trajetórias: artist record, trajectory on the map, works, exhibitions, publications, sources with reliability tags
+- [x] Trajetórias: artist record, trajectory on the map, works, exhibitions, publications, sources with reliability tags
 - [ ] Sobre: project, methodology, cartography credits
 - [ ] Responsive layout of the three screens
 
