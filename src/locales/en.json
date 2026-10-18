@@ -107,7 +107,7 @@
       "TITLE": "Data",
       "SOURCE": "The base comes from three MAC USP collection spreadsheets of 16 July 2026: selected works, and the exhibitions and publications related to them.",
       "PRECISION": "Place names are kept as in the source, with the present-day name alongside when the source gives it. Dates show the precision the source gives (“c. 1949”, “1940–1945”, “n.d.”), and nothing missing from the source is filled in.",
-      "GAPS": "The sources do not record the year of arrival or the route to Brazil, so trajectories only join the documented points: birth, exhibitions of the works during the artist's lifetime, and death."
+      "GAPS": "The sources do not record the year of arrival or the route to Brazil, so the map draws a single line from the birthplace to the first documented place in Brazil, with no intermediate route. Exhibitions of the works during the artist's lifetime and the place of death appear as points."
     },
     "CREDITS": {
       "TITLE": "Cartography and credits",
@@ -127,7 +127,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Inferred trajectory",
-    "METHOD": "Drawn from the points the collection documents: birth, exhibitions of the works during the artist's lifetime, and death. The sources do not record the route or the year of arrival in Brazil.",
+    "METHOD": "The line joins the birthplace to the first documented place in Brazil. The sources do not record the route or the year of arrival, so no intermediate route is drawn. Exhibitions of the works during the artist's lifetime and the place of death appear as points.",
     "STOP": {
       "BIRTH": "Birth",
       "EXHIBITION": "Exhibition",
