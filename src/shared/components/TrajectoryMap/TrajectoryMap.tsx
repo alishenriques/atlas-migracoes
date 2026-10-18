@@ -5,7 +5,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
-import { setWorkerUrl } from "maplibre-gl";
 import Map, {
   Layer,
   NavigationControl,
@@ -17,8 +16,9 @@ import Map, {
 
 import { boundsOf, toMapFeatures } from "@/lib/mapFeatures";
 import type { VisibleTrajectory } from "@/lib/trajectory";
+import { baseMapStyle, readMapColors } from "@/shared/map/mapStyle";
 
-import { baseMapStyle, readMapColors } from "./mapStyle";
+import "@/shared/map/worker";
 import { styles } from "./styles/index.styles";
 
 
@@ -32,10 +32,6 @@ export type TrajectoryMapProps = {
   /** Space covered by a floating panel, so fitted bounds stay visible. */
   padding?: { top: number; right: number; bottom: number; left: number };
 };
-
-// MapLibre 6 looks for its worker next to its own module, which the bundler
-// moves; point it at the worker file emitted as a static asset instead.
-setWorkerUrl(new URL("maplibre-gl/dist/maplibre-gl-worker.mjs", import.meta.url).href);
 
 // Europe and Brazil in one view.
 const INITIAL_VIEW = { longitude: -18, latitude: 18, zoom: 1.6 };
