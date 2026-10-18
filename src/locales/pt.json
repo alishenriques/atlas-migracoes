@@ -46,6 +46,27 @@
     "EYEBROW": "Em construção",
     "BODY": "Esta tela faz parte do MVP e está sendo construída."
   },
+  "TRAJECTORIES": {
+    "TITLE": "Trajetórias",
+    "EYEBROW": "Trajetórias",
+    "INTRO": "Os artistas do acervo, cada um com a ficha de sua trajetória: obras, exposições, publicações e fontes.",
+    "LIST_UNAVAILABLE": "Não foi possível carregar os artistas agora.",
+    "BACK": "Todas as trajetórias",
+    "BORN": "Nascimento",
+    "DIED": "Morte",
+    "MAP_LABEL": "Mapa da trajetória de {name}",
+    "TRAJECTORY": "Trajetória",
+    "WORKS": "{count, plural, =0 {Obras} one {# obra} other {# obras}}",
+    "EXHIBITIONS": "{count, plural, =0 {Exposições} one {# exposição} other {# exposições}}",
+    "PUBLICATIONS": "{count, plural, =0 {Publicações} one {# publicação} other {# publicações}}",
+    "NONE": "Nenhum registro no acervo.",
+    "ACCESSION": "Tombo {id}",
+    "DOCUMENTED": "Documentado",
+    "SOURCES": "Fontes",
+    "SOURCE_COLLECTION": "Acervo do MAC USP: obras selecionadas, exposições e publicações relacionadas (planilhas de 16 de julho de 2026).",
+    "SOURCE_TRAJECTORY": "Trajetória traçada pela plataforma a partir desses registros; não é um percurso documentado.",
+    "RECORD_UNAVAILABLE": "Não foi possível carregar esta ficha agora."
+  },
   "HISTORICAL_LAYER": {
     "TITLE": "Camada Histórica"
   },
@@ -71,8 +92,5 @@
     "UNKNOWN_DATE": "s.d.",
     "POSTHUMOUS": "{count, plural, one {# exposição póstuma fica fora do traçado.} other {# exposições póstumas ficam fora do traçado.}}",
     "UNDRAWN": "{count, plural, one {# ponto sem data ou sem coordenadas fica fora do mapa.} other {# pontos sem data ou sem coordenadas ficam fora do mapa.}}"
-  },
-  "TRAJECTORIES": {
-    "TITLE": "Trajetórias"
   }
 }

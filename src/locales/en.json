@@ -46,6 +46,27 @@
     "EYEBROW": "Under construction",
     "BODY": "This screen is part of the MVP and is being built."
   },
+  "TRAJECTORIES": {
+    "TITLE": "Trajectories",
+    "EYEBROW": "Trajectories",
+    "INTRO": "The artists in the collection, each with the record of their trajectory: works, exhibitions, publications and sources.",
+    "LIST_UNAVAILABLE": "The artists could not be loaded right now.",
+    "BACK": "All trajectories",
+    "BORN": "Birth",
+    "DIED": "Death",
+    "MAP_LABEL": "Map of {name}'s trajectory",
+    "TRAJECTORY": "Trajectory",
+    "WORKS": "{count, plural, =0 {Works} one {# work} other {# works}}",
+    "EXHIBITIONS": "{count, plural, =0 {Exhibitions} one {# exhibition} other {# exhibitions}}",
+    "PUBLICATIONS": "{count, plural, =0 {Publications} one {# publication} other {# publications}}",
+    "NONE": "No records in the collection.",
+    "ACCESSION": "Accession {id}",
+    "DOCUMENTED": "Documented",
+    "SOURCES": "Sources",
+    "SOURCE_COLLECTION": "MAC USP collection: selected works, related exhibitions and publications (spreadsheets of 16 July 2026).",
+    "SOURCE_TRAJECTORY": "Trajectory drawn by the platform from these records; it is not a documented route.",
+    "RECORD_UNAVAILABLE": "This record could not be loaded right now."
+  },
   "HISTORICAL_LAYER": {
     "TITLE": "Historical Layer"
   },
@@ -71,8 +92,5 @@
     "UNKNOWN_DATE": "n.d.",
     "POSTHUMOUS": "{count, plural, one {# posthumous exhibition is left out of the line.} other {# posthumous exhibitions are left out of the line.}}",
     "UNDRAWN": "{count, plural, one {# point without a date or coordinates is left off the map.} other {# points without a date or coordinates are left off the map.}}"
-  },
-  "TRAJECTORIES": {
-    "TITLE": "Trajectories"
   }
 }
