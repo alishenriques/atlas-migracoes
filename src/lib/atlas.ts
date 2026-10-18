@@ -1,13 +1,17 @@
 import { graphqlRequest } from "./graphql-client";
 import {
+  artistListSchema,
   artistRecordResponseSchema,
   mapDataSchema,
   networkDataSchema,
   overviewSchema,
+  researchResponseSchema,
+  type ArtistList,
   type ArtistRecordResponse,
   type MapData,
   type NetworkData,
   type Overview,
+  type Research,
 } from "./schemas";
 
 const OVERVIEW_QUERY = /* GraphQL */ `
@@ -211,4 +215,75 @@ const NETWORK_QUERY = /* GraphQL */ `
 /** Every artist with their works and where each work was shown or published, for the Rede Relacional. */
 export function getNetworkData(): Promise<NetworkData> {
   return graphqlRequest(networkDataSchema, NETWORK_QUERY);
+}
+
+const ARTIST_LIST_QUERY = /* GraphQL */ `
+  query ArtistList {
+    meta {
+      source
+    }
+    artists {
+      slug
+      name
+    }
+  }
+`;
+
+/** Every artist's slug and name, for screens that start by picking one. */
+export function getArtistList(): Promise<ArtistList> {
+  return graphqlRequest(artistListSchema, ARTIST_LIST_QUERY);
+}
+
+const RESEARCH_QUERY = /* GraphQL */ `
+  ${FRAGMENTS}
+
+  query Research($slug: String!) {
+    research(slug: $slug) {
+      artist {
+        slug
+        name
+        birthPlace {
+          ...MapPlace
+        }
+        birthDate {
+          ...MapDate
+        }
+        deathPlace {
+          ...MapPlace
+        }
+        deathDate {
+          ...MapDate
+        }
+      }
+      match {
+        id
+        label
+        description
+        url
+        basis
+      }
+      findings {
+        source
+        sourceUrl
+        sourceTitle
+        property
+        propertyId
+        value
+        references
+        reliability
+        reviews
+      }
+      sources {
+        source
+        status
+        detail
+      }
+      retrievedAt
+    }
+  }
+`;
+
+/** What open sources say about an artist (null when the slug is unknown), each finding with its source. */
+export async function getResearch(slug: string): Promise<Research | null> {
+  return (await graphqlRequest(researchResponseSchema, RESEARCH_QUERY, { slug })).research;
 }

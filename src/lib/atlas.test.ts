@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const post = vi.fn();
 vi.spyOn(axios, "create").mockReturnValue({ post } as unknown as ReturnType<typeof axios.create>);
 
-const { getArtistRecord, getMapData, getNetworkData, getOverview } = await import("./atlas");
+const { getArtistList, getArtistRecord, getMapData, getNetworkData, getOverview, getResearch } = await import("./atlas");
 
 const reply = (data: unknown) => post.mockResolvedValue({ data: { data } });
 
@@ -139,5 +139,52 @@ describe("getNetworkData", () => {
       ],
     });
     await expect(getNetworkData()).rejects.toThrow();
+  });
+});
+
+describe("getArtistList", () => {
+  it("returns every artist's slug and name", async () => {
+    const list = { meta: { source: "database" }, artists: [{ slug: "lasar-segall", name: "Lasar Segall" }] };
+    reply(list);
+    await expect(getArtistList()).resolves.toEqual(list);
+  });
+});
+
+describe("getResearch", () => {
+  const research = {
+    artist: { ...mapArtist, exhibitions: undefined },
+    match: { id: "Q1", label: "Lasar Segall", description: null, url: "https://www.wikidata.org/wiki/Q1", basis: "birth_year" },
+    findings: [
+      {
+        source: "wikidata",
+        sourceUrl: "https://www.wikidata.org/wiki/Q1",
+        sourceTitle: "Wikidata: Lasar Segall (Q1)",
+        property: "birthDate",
+        propertyId: "P569",
+        value: "1891-07-21",
+        references: 1,
+        reliability: "documented",
+        reviews: ["conflicts_with_collection"],
+      },
+    ],
+    sources: [{ source: "wikidata", status: "ok", detail: null }],
+    retrievedAt: "2026-10-18T12:00:00.000Z",
+  };
+
+  it("asks for the slug and returns the findings with their sources", async () => {
+    reply({ research });
+    await expect(getResearch("lasar-segall")).resolves.toEqual(research);
+    expect(post.mock.calls[0]?.[1]).toMatchObject({ variables: { slug: "lasar-segall" } });
+  });
+
+  it("returns null for an unknown artist", async () => {
+    reply({ research: null });
+    await expect(getResearch("x")).resolves.toBeNull();
+  });
+
+  it("refuses a source link that is not https", async () => {
+    const [finding] = research.findings;
+    reply({ research: { ...research, findings: [{ ...finding, sourceUrl: "javascript:alert(1)" }] } });
+    await expect(getResearch("lasar-segall")).rejects.toThrow();
   });
 });
