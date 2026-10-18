@@ -1,0 +1,16 @@
+export const styles = {
+  main: "mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16",
+  header: "flex flex-col gap-3",
+  title: "font-serif text-4xl leading-tight sm:text-5xl",
+  intro: "text-lg text-muted",
+  body: "leading-relaxed",
+  muted: "text-sm leading-relaxed text-muted",
+  label: "text-[11px] uppercase tracking-[0.12em] text-accent",
+  definitions: "flex flex-col gap-4",
+  steps: "grid gap-4 sm:grid-cols-3",
+  step: "flex flex-col gap-1 border-l border-accent pl-3",
+  stepTitle: "font-serif text-2xl",
+  levels: "flex flex-col gap-3",
+  level: "flex flex-col gap-1",
+  credits: "flex list-disc flex-col gap-2 pl-5 text-sm leading-relaxed text-muted",
+};
