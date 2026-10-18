@@ -3,6 +3,7 @@ export const styles = {
   record: "mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6 sm:py-12",
   back: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
   header: "flex flex-col gap-3",
+  links: "flex flex-wrap gap-x-6 gap-y-2",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   intro: "max-w-2xl text-muted",
   life: "flex flex-col gap-2 text-sm sm:flex-row sm:gap-10",

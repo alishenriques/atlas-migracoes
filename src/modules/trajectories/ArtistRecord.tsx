@@ -53,9 +53,14 @@ export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
             <dd>{died ?? unknown}</dd>
           </div>
         </dl>
-        <Link href={{ pathname: "/rede", query: { artista: artist.slug } }} className={styles.back}>
-          {t("OPEN_NETWORK")}
-        </Link>
+        <div className={styles.links}>
+          <Link href={{ pathname: "/rede", query: { artista: artist.slug } }} className={styles.back}>
+            {t("OPEN_NETWORK")}
+          </Link>
+          <Link href={{ pathname: "/ia-relacional", query: { artista: artist.slug } }} className={styles.back}>
+            {t("OPEN_RESEARCH")}
+          </Link>
+        </div>
       </header>
 
       <RecordMap

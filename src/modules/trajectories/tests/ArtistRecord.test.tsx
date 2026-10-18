@@ -117,6 +117,10 @@ describe("ArtistRecord", () => {
     expect(screen.getByText("Vilna (Vilnius, Lituânia), 1889")).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Mapa da trajetória de Lasar Segall" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Ver na Rede Relacional" })).toHaveAttribute("href", "/rede?artista=lasar-segall");
+    expect(screen.getByRole("link", { name: "Pesquisar em fontes abertas" })).toHaveAttribute(
+      "href",
+      "/ia-relacional?artista=lasar-segall",
+    );
 
     const works = screen.getByRole("region", { name: "1 obra" });
     expect(within(works).getByText("Paisagem")).toBeInTheDocument();
