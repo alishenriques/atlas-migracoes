@@ -9,6 +9,7 @@ export const routing = defineRouting({
   pathnames: {
     "/": "/",
     "/trajetorias": { pt: "/trajetorias", en: "/trajectories" },
+    "/trajetorias/[slug]": { pt: "/trajetorias/[slug]", en: "/trajectories/[slug]" },
     "/camada-historica": { pt: "/camada-historica", en: "/historical-layer" },
     "/sobre": { pt: "/sobre", en: "/about" },
   },

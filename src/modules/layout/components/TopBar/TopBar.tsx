@@ -20,7 +20,8 @@ export function TopBar() {
       </Link>
       <nav aria-label={t("NAV.LABEL")} className={styles.nav}>
         {menuItems.map((item) => {
-          const isCurrent = pathname === item.href;
+          // A record page (/trajetorias/[slug]) still belongs to its section.
+          const isCurrent = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
           return (
             <Link
               key={item.href}
