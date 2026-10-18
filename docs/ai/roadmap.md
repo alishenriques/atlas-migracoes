@@ -38,7 +38,7 @@ Done when you can pick an artist and follow their trajectory on the preview.
 
 Done when the map switches decades and the graph opens from an artist's record.
 
-- [ ] Camada Histórica: one standardized vector map of Europe per decade, places linked to the territory of the period (see "Historical cartography" below)
+- [x] Camada Histórica: Europe's state borders for any year 1910–1989 (decade and year), each birthplace read in the state of the artist's birth and of the year shown (see "Historical cartography" below)
 - [ ] Rede Relacional: graph of artists, works, exhibitions, publications, institutions and places from the base, period filter, opens from Trajetórias
 
 ## Stage 4: IA Relacional and delivery (3–8 Nov, ~11 h)
@@ -53,8 +53,9 @@ Done when the demo script runs end to end at the final address.
 
 Goal: show Europe's borders and political divisions decade by decade, so that every artist and place of origin is read inside the territory that existed at the time, even when that country later ceased to exist, split or was renamed (Austria-Hungary, Russian Empire, Czechoslovakia, Yugoslavia, the USSR).
 
-- **Standardized vector maps.** One GeoJSON per decade (1910s–1980s), produced by a script from an open historical borders dataset: same projection, simplification and styling tokens for every period, so only the borders change between decades. Each map records which source snapshot it came from. When a decade has no exact snapshot, the nearest one is used and the map is labelled approximate. Never draw a border the source does not have. Confirm the dataset's license and credit it in Sobre.
-- **Territories in the data model.** Each period's territories (name as used at the time, validity years, present-day successors as a note) are stored in the API. Each geocoded place is linked to the territory containing it in each period by point-in-polygon, with the result reviewed like the geocoding. An artist's origin is then the territory of their birthplace in the year of birth, keeping the date's precision.
+- **Source: CShapes 2.0** (ETH Zürich, CC BY-NC-SA 4.0; chosen by Alisson on 2026-10-18 over `historical-basemaps`, which placed 1914 Bessarabia in Romania and 1930 Kyiv in "White Russia"). CShapes gives one polygon per version of each state's border with the exact days it was valid, 1886–2019, so every year has exact borders and no map is approximate. It follows Gleditsch and Ward's list of states: states occupied or annexed in the Second World War (Poland, Austria) keep their borders, and a territory that was no state's on a day has no polygon. The screen says so.
+- **One standardized file.** `scripts/build-cartography.mts` clips CShapes to Europe, simplifies it with mapshaper and keeps `name`, `start`, `end`, writing `public/cartography/europe-states.geojson` (~0.6 MB, served statically). The raw download stays outside the repo (`~/atlas/cshapes/` on Alisson's machine). Never draw a border the source does not have. CShapes is credited in Sobre and on the screen.
+- **Territories in the app.** The app filters the polygons in force on a day (1 July of the year shown) and finds the state containing each geocoded birthplace by point-in-polygon (`lib/cartography.ts`). An artist's origin is the state of the birthplace across the whole span the birth date can mean: when the date is a year and the border moved that year, both states are shown. The result is tagged "inferred". Storing territories in the API is deferred: the IA Relacional can read the same file.
 - **AI guardrail.** The IA Relacional receives the period's territory names with every question and is instructed to reason only with the geopolitics of that period, never present-day borders. The prompt shown to the user includes this context, and findings that name a present-day country for a historical place are flagged for review.
 
 ## After the conference
