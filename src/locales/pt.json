@@ -107,7 +107,7 @@
       "TITLE": "Dados",
       "SOURCE": "A base vem de três planilhas do acervo do MAC USP, de 16 de julho de 2026: obras selecionadas, exposições e publicações relacionadas a essas obras.",
       "PRECISION": "Nomes de lugares são mantidos como na fonte, com o nome atual ao lado quando a fonte o indica. Datas aparecem com a precisão que a fonte dá (“c. 1949”, “1940–1945”, “s.d.”), e nada que a fonte não traga é completado.",
-      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, as trajetórias ligam apenas os pontos documentados: nascimento, exposições das obras em vida e morte."
+      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, o mapa traça uma única linha, do local de nascimento ao primeiro lugar documentado no Brasil, sem rotas intermediárias. As exposições das obras em vida e o local de morte aparecem como pontos."
     },
     "CREDITS": {
       "TITLE": "Cartografia e créditos",
@@ -127,7 +127,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Trajetória inferida",
-    "METHOD": "Traçada a partir dos pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. As fontes não registram a rota nem o ano de chegada ao Brasil.",
+    "METHOD": "A linha liga o local de nascimento ao primeiro lugar documentado no Brasil. As fontes não registram a rota nem o ano de chegada, então nenhuma rota intermediária é desenhada. As exposições das obras em vida e o local de morte aparecem como pontos.",
     "STOP": {
       "BIRTH": "Nascimento",
       "EXHIBITION": "Exposição",
