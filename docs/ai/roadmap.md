@@ -39,7 +39,7 @@ Done when you can pick an artist and follow their trajectory on the preview.
 Done when the map switches decades and the graph opens from an artist's record.
 
 - [x] Camada Histórica: Europe's state borders for any year 1910–1989 (decade and year), each birthplace read in the state of the artist's birth and of the year shown (see "Historical cartography" below)
-- [ ] Rede Relacional: graph of artists, works, exhibitions, publications, institutions and places from the base, period filter, opens from Trajetórias
+- [x] Rede Relacional: graph of artists, works, exhibitions, publications, institutions and places from the base, period filter, opens from Trajetórias
 
 ## Stage 4: IA Relacional and delivery (3–8 Nov, ~11 h)
 
