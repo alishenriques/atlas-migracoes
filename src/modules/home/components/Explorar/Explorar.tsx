@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 
 import { Button, Panel, SelectField, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
@@ -19,24 +19,9 @@ import {
 } from "@/lib/trajectory";
 import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
+import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
 
 import { styles } from "./styles/index.styles";
-
-const DESKTOP = "(min-width: 768px)";
-const subscribe = (onChange: () => void) => {
-  const query = window.matchMedia(DESKTOP);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-};
-
-/** Desktop floats the panel over the map's left side; mobile stacks it below. */
-function useIsDesktop() {
-  return useSyncExternalStore(
-    subscribe,
-    () => window.matchMedia(DESKTOP).matches,
-    () => true,
-  );
-}
 
 export type ExplorarProps = { artists: MapArtist[] };
 
@@ -45,6 +30,7 @@ export function Explorar({ artists }: ExplorarProps) {
   const t = useTranslations("HOME.MAP");
   const tStop = useTranslations("TRAJECTORY");
   const locale = useLocale();
+  // Desktop floats the panel over the map's left side; mobile stacks it below.
   const isDesktop = useIsDesktop();
   const [originCountry, setOriginCountry] = useState("");
   const [period, setPeriod] = useState<Period>(FULL_PERIOD);
