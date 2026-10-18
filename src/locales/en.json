@@ -9,6 +9,7 @@
     "TRAJECTORIES": "Trajectories",
     "HISTORICAL_LAYER": "Historical Layer",
     "NETWORK": "Relational Network",
+    "RELATIONAL_AI": "Relational AI",
     "ABOUT": "About",
     "LANGUAGE": "Language",
     "SWITCH_TO": "Português"
@@ -67,7 +68,8 @@
     "SOURCE_COLLECTION": "MAC USP collection: selected works, related exhibitions and publications (spreadsheets of 16 July 2026).",
     "SOURCE_TRAJECTORY": "Trajectory drawn by the platform from these records; it is not a documented route.",
     "RECORD_UNAVAILABLE": "This record could not be loaded right now.",
-    "OPEN_NETWORK": "See in the Relational Network"
+    "OPEN_NETWORK": "See in the Relational Network",
+    "OPEN_RESEARCH": "Search open sources"
   },
   "HISTORICAL_LAYER": {
     "TITLE": "Historical Layer",
@@ -138,6 +140,68 @@
     "OPEN_RECORD": "Open the trajectory record",
     "DOCUMENTED": "Documented",
     "SOURCE": "Links taken from the MAC USP collection (works, related exhibitions and publications). Institutions whose name is spelled in different ways are merged into one."
+  },
+  "RESEARCH": {
+    "TITLE": "Relational AI",
+    "EYEBROW": "The collection and open sources",
+    "INTRO": "Links each artist in the collection to what open sources say about them. Every finding shows the page it came from and how reliable it is, and nothing found here enters the base without review.",
+    "PICK": "Artist",
+    "PICK_PLACEHOLDER": "Choose an artist",
+    "PICK_HINT": "Choose an artist to search the open sources.",
+    "LIST_UNAVAILABLE": "The list of artists could not be loaded right now. Please try again shortly.",
+    "UNAVAILABLE": "The open-source search is not available right now. Please try again shortly.",
+    "NOT_FOUND": "This artist is not in the collection.",
+    "OPEN_RECORD": "Open the trajectory record",
+    "COLLECTION": "In the collection",
+    "BORN": "Born",
+    "DIED": "Died",
+    "UNKNOWN_DATE": "n.d.",
+    "UNKNOWN_PLACE": "unknown place",
+    "MATCH": "Person found on Wikidata",
+    "BASIS": {
+      "BIRTH_YEAR": "Chosen as the only person with this name born in the year the collection records.",
+      "NAME": "The collection has no birth year; chosen as the only person with exactly this name."
+    },
+    "NO_MATCH": "No Wikidata person is certainly this artist. When there are namesakes, or the birth year does not match, the search picks none, so as not to give the artist someone else's life.",
+    "SOURCE_ERROR": "Wikidata did not answer just now, so the open sources could not be searched for this artist. Please try again shortly.",
+    "SUMMARY": "Encyclopedia summary",
+    "FINDINGS": "Findings",
+    "NO_FINDINGS": "The person found has none of this information on Wikidata.",
+    "PROPERTY": {
+      "BIRTH_DATE": "Born",
+      "BIRTH_PLACE": "Place of birth",
+      "DEATH_DATE": "Died",
+      "DEATH_PLACE": "Place of death",
+      "CITIZENSHIP": "Citizenship",
+      "OCCUPATION": "Occupation",
+      "MOVEMENT": "Movement",
+      "EDUCATED_AT": "Education",
+      "MEMBER_OF": "Member of",
+      "NOTABLE_WORK": "Notable works"
+    },
+    "RELIABILITY": {
+      "DOCUMENTED": "Documented",
+      "UNDETERMINED": "Undetermined"
+    },
+    "REFERENCES": "{count, plural, =0 {no references} one {# reference} other {# references}}",
+    "REVIEW": {
+      "PRESENT_DAY_NAME": "Review: the source uses the present-day name of the place or state, not the period's.",
+      "CONFLICTS_WITH_COLLECTION": "Review: the date differs from the one in the collection."
+    },
+    "SOURCE_LINK": "See the source",
+    "SOURCES": "Sources consulted",
+    "STATUS": {
+      "OK": "consulted",
+      "NO_MATCH": "nothing found",
+      "ERROR": "did not answer"
+    },
+    "RETRIEVED": "Sources read on {date}. Answers are kept for a day.",
+    "METHOD": "How the search works",
+    "QUERY": "Query used",
+    "QUERY_TEXT": "Searches Wikidata for the name “{name}”; of the people found, only the one that is certainly this artist is kept. From it the search reads the dates and places of birth and death, citizenship, occupation, movement, education, institutions they were a member of and notable works, and the lead of the Wikipedia article in Portuguese (or English, when there is none).",
+    "METHOD_RELIABILITY": "A finding is documented when Wikidata cites references for it; with no references, or when it comes from encyclopedia text, it is undetermined.",
+    "METHOD_PERIOD": "Open sources use the present-day names of places and states. For the period's geopolitics, compare with the Historical Layer.",
+    "METHOD_AI": "The AI summary, with its prompt shown here, comes in a later version."
   },
   "ABOUT": {
     "TITLE": "About the project",

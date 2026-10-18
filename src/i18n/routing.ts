@@ -12,6 +12,7 @@ export const routing = defineRouting({
     "/trajetorias/[slug]": { pt: "/trajetorias/[slug]", en: "/trajectories/[slug]" },
     "/camada-historica": { pt: "/camada-historica", en: "/historical-layer" },
     "/rede": { pt: "/rede", en: "/network" },
+    "/ia-relacional": { pt: "/ia-relacional", en: "/relational-ai" },
     "/sobre": { pt: "/sobre", en: "/about" },
   },
 });

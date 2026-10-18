@@ -9,6 +9,7 @@
     "TRAJECTORIES": "Trajetórias",
     "HISTORICAL_LAYER": "Camada Histórica",
     "NETWORK": "Rede Relacional",
+    "RELATIONAL_AI": "IA Relacional",
     "ABOUT": "Sobre",
     "LANGUAGE": "Idioma",
     "SWITCH_TO": "English"
@@ -67,7 +68,8 @@
     "SOURCE_COLLECTION": "Acervo do MAC USP: obras selecionadas, exposições e publicações relacionadas (planilhas de 16 de julho de 2026).",
     "SOURCE_TRAJECTORY": "Trajetória traçada pela plataforma a partir desses registros; não é um percurso documentado.",
     "RECORD_UNAVAILABLE": "Não foi possível carregar esta ficha agora.",
-    "OPEN_NETWORK": "Ver na Rede Relacional"
+    "OPEN_NETWORK": "Ver na Rede Relacional",
+    "OPEN_RESEARCH": "Pesquisar em fontes abertas"
   },
   "HISTORICAL_LAYER": {
     "TITLE": "Camada Histórica",
@@ -138,6 +140,68 @@
     "OPEN_RECORD": "Abrir a ficha da trajetória",
     "DOCUMENTED": "Documentado",
     "SOURCE": "Ligações tiradas do acervo do MAC USP (obras, exposições e publicações relacionadas). Instituições com o mesmo nome escrito de formas diferentes são somadas numa só."
+  },
+  "RESEARCH": {
+    "TITLE": "IA Relacional",
+    "EYEBROW": "O acervo e as fontes abertas",
+    "INTRO": "Liga cada artista do acervo ao que fontes abertas dizem sobre ele. Cada achado traz a página de onde veio e o grau de confiabilidade, e nada do que é encontrado aqui entra na base sem revisão.",
+    "PICK": "Artista",
+    "PICK_PLACEHOLDER": "Escolha um artista",
+    "PICK_HINT": "Escolha um artista para pesquisar nas fontes abertas.",
+    "LIST_UNAVAILABLE": "Não foi possível carregar a lista de artistas agora. Tente de novo em instantes.",
+    "UNAVAILABLE": "A pesquisa em fontes abertas não está disponível agora. Tente de novo em instantes.",
+    "NOT_FOUND": "Este artista não está no acervo.",
+    "OPEN_RECORD": "Abrir a ficha da trajetória",
+    "COLLECTION": "No acervo",
+    "BORN": "Nascimento",
+    "DIED": "Morte",
+    "UNKNOWN_DATE": "s.d.",
+    "UNKNOWN_PLACE": "lugar desconhecido",
+    "MATCH": "Pessoa encontrada no Wikidata",
+    "BASIS": {
+      "BIRTH_YEAR": "Escolhida por ser a única pessoa com este nome nascida no ano que o acervo registra.",
+      "NAME": "O acervo não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome."
+    },
+    "NO_MATCH": "Nenhuma pessoa do Wikidata é com certeza este artista. Quando há homônimos, ou o ano de nascimento não confere, a pesquisa não escolhe nenhuma, para não atribuir ao artista a vida de outra pessoa.",
+    "SOURCE_ERROR": "O Wikidata não respondeu agora, então não foi possível saber quem é este artista nas fontes abertas. Tente de novo em instantes.",
+    "SUMMARY": "Resumo da enciclopédia",
+    "FINDINGS": "Achados",
+    "NO_FINDINGS": "A pessoa encontrada não tem nenhuma destas informações no Wikidata.",
+    "PROPERTY": {
+      "BIRTH_DATE": "Nascimento",
+      "BIRTH_PLACE": "Lugar de nascimento",
+      "DEATH_DATE": "Morte",
+      "DEATH_PLACE": "Lugar de morte",
+      "CITIZENSHIP": "Cidadania",
+      "OCCUPATION": "Ocupação",
+      "MOVEMENT": "Movimento",
+      "EDUCATED_AT": "Formação",
+      "MEMBER_OF": "Membro de",
+      "NOTABLE_WORK": "Obras notáveis"
+    },
+    "RELIABILITY": {
+      "DOCUMENTED": "Documentado",
+      "UNDETERMINED": "Não determinado"
+    },
+    "REFERENCES": "{count, plural, =0 {sem referências} one {# referência} other {# referências}}",
+    "REVIEW": {
+      "PRESENT_DAY_NAME": "Revisar: a fonte usa o nome atual do lugar ou do Estado, não o do período.",
+      "CONFLICTS_WITH_COLLECTION": "Revisar: a data diverge da registrada no acervo."
+    },
+    "SOURCE_LINK": "Ver na fonte",
+    "SOURCES": "Fontes consultadas",
+    "STATUS": {
+      "OK": "consultada",
+      "NO_MATCH": "nada encontrado",
+      "ERROR": "não respondeu"
+    },
+    "RETRIEVED": "Fontes lidas em {date}. As respostas ficam guardadas por um dia.",
+    "METHOD": "Como a pesquisa é feita",
+    "QUERY": "Consulta usada",
+    "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e morte, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
+    "METHOD_RELIABILITY": "Um achado é documentado quando o Wikidata cita referências para ele; sem referências, ou vindo do texto da enciclopédia, ele não é determinado.",
+    "METHOD_PERIOD": "As fontes abertas usam os nomes atuais de lugares e Estados. Para a geopolítica do período, compare com a Camada Histórica.",
+    "METHOD_AI": "O resumo feito por IA, com o prompt mostrado aqui, entra numa próxima versão."
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",

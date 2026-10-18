@@ -42,9 +42,10 @@ describe("TopBar", () => {
   it("links to every MVP screen inside a labelled nav", () => {
     renderTopBar();
     const nav = screen.getByRole("navigation", { name: "Navegação principal" });
-    expect(nav.querySelectorAll("a")).toHaveLength(5);
+    expect(nav.querySelectorAll("a")).toHaveLength(6);
     expect(screen.getByRole("link", { name: "Camada Histórica" })).toHaveAttribute("href", "/camada-historica");
     expect(screen.getByRole("link", { name: "Rede Relacional" })).toHaveAttribute("href", "/rede");
+    expect(screen.getByRole("link", { name: "IA Relacional" })).toHaveAttribute("href", "/ia-relacional");
   });
 
   it("marks the current screen", () => {
