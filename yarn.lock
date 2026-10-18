@@ -12,13 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alishenriques/atlas-design-system@github:alishenriques/atlas-migracoes-design-system#commit=0f86a5be458f281f65e132b6f208f7ba90d079f8":
+"@alishenriques/atlas-design-system@npm:^0.2.0":
   version: 0.2.0
-  resolution: "@alishenriques/atlas-design-system@https://github.com/alishenriques/atlas-migracoes-design-system.git#commit=0f86a5be458f281f65e132b6f208f7ba90d079f8"
+  resolution: "@alishenriques/atlas-design-system@npm:0.2.0"
   peerDependencies:
     react: ^19.0.0
     react-dom: ^19.0.0
-  checksum: 10c0/c9732fbab0e44cad1a6b945dae2290123846522dc8989a7df6b61a524deb64b5bdcfc320b1526bb221e2a4b41eba8cc58585ebc5296fcccef15ca976dfab4ea7
+  checksum: 10c0/f27d92ea9936cbf7ef6263be6554f6b88391ed80424e31cc94cb0391fc9ab5ba6bd519bbf3b4813f4d15a913cf5e3e92e449cf1102ace38d441e6660c54ed6d1
   languageName: node
   linkType: hard
 
@@ -2841,7 +2841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "atlas-migracoes@workspace:."
   dependencies:
-    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=0f86a5be458f281f65e132b6f208f7ba90d079f8"
+    "@alishenriques/atlas-design-system": "npm:^0.2.0"
     "@tailwindcss/postcss": "npm:^4"
     "@testing-library/dom": "npm:^10.4.2"
     "@testing-library/jest-dom": "npm:^7.0.1"
