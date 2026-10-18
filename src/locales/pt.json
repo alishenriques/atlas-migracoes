@@ -71,7 +71,51 @@
     "TITLE": "Camada Histórica"
   },
   "ABOUT": {
-    "TITLE": "Sobre o projeto"
+    "TITLE": "Sobre o projeto",
+    "EYEBROW": "Sobre",
+    "INTRO": "O Atlas Migrações Leste-Sul mapeia artistas do Leste Europeu e da Áustria que migraram para o Brasil entre 1918 e 1989, a partir do acervo do Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP).",
+    "PROJECT": {
+      "TITLE": "O projeto",
+      "PROBLEM": "A digitalização ampliou o acesso aos acervos, mas não resolveu a sua inteligibilidade.",
+      "QUESTION_LABEL": "Pergunta central",
+      "QUESTION": "Como a IA pode contribuir para enriquecer, relacionar e interpretar acervos artísticos digitalizados sem perder o rigor histórico e curatorial?",
+      "GOAL_LABEL": "Objetivo",
+      "GOAL": "Desenvolver uma estrutura analítica baseada em IA para enriquecer e visualizar relações históricas em acervos digitalizados.",
+      "HYPOTHESIS_LABEL": "Hipótese",
+      "HYPOTHESIS": "Sistemas de IA, com mediação crítica e curatorial, podem revelar conexões invisibilizadas e ampliar a inteligibilidade dos acervos. A IA não é tratada como solução automática, e sim como ferramenta assistiva e exploratória para produzir hipóteses verificáveis e auditáveis."
+    },
+    "METHOD": {
+      "TITLE": "Metodologia",
+      "READING": "Leitura",
+      "READING_BODY": "Definição do escopo analítico, mapeamento e seleção de dados, ingestão e preparação dos dados para análise.",
+      "RELATION": "Relação",
+      "RELATION_BODY": "Associação entre entidades, reconhecimento de padrões, avaliação de relevância e descoberta de relações.",
+      "RELIABILITY": "Confiabilidade",
+      "RELIABILITY_BODY": "Detecção de inconsistências, validação de fontes e sinalização de incertezas.",
+      "PROVENANCE": "Toda informação preserva sua proveniência, toda relação inferida se distingue de uma relação documentalmente comprovada, e toda hipótese permite retornar às fontes que a formularam."
+    },
+    "LEVELS": {
+      "TITLE": "Como ler a confiabilidade",
+      "DOCUMENTED": "Documentado",
+      "DOCUMENTED_BODY": "Consta de uma fonte identificada, como as planilhas do acervo do MAC USP.",
+      "INFERRED": "Inferido",
+      "INFERRED_BODY": "Deduzido pela plataforma a partir de registros documentados, como as trajetórias desenhadas no mapa.",
+      "UNDETERMINED": "Indeterminado",
+      "UNDETERMINED_BODY": "Sem fonte suficiente para afirmar ou negar."
+    },
+    "DATA": {
+      "TITLE": "Dados",
+      "SOURCE": "A base vem de três planilhas do acervo do MAC USP, de 16 de julho de 2026: obras selecionadas, exposições e publicações relacionadas a essas obras.",
+      "PRECISION": "Nomes de lugares são mantidos como na fonte, com o nome atual ao lado quando a fonte o indica. Datas aparecem com a precisão que a fonte dá (“c. 1949”, “1940–1945”, “s.d.”), e nada que a fonte não traga é completado.",
+      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, as trajetórias ligam apenas os pontos documentados: nascimento, exposições das obras em vida e morte."
+    },
+    "CREDITS": {
+      "TITLE": "Cartografia e créditos",
+      "BASEMAP": "Mapa de base: OpenFreeMap, com dados do OpenStreetMap (© colaboradores do OpenStreetMap, licença ODbL) no esquema OpenMapTiles. O mapa de base mostra só terra e água, sem fronteiras nem nomes atuais.",
+      "HISTORICAL": "As fronteiras de cada década chegam com a Camada Histórica, com fonte, licença e créditos próprios.",
+      "SOFTWARE": "Mapa renderizado com MapLibre GL, software livre.",
+      "COLLECTION": "Dados do acervo: Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP)."
+    }
   },
   "NOT_FOUND": {
     "TITLE": "Página não encontrada",

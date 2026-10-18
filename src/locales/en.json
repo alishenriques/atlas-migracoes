@@ -71,7 +71,51 @@
     "TITLE": "Historical Layer"
   },
   "ABOUT": {
-    "TITLE": "About the project"
+    "TITLE": "About the project",
+    "EYEBROW": "About",
+    "INTRO": "Atlas Migrações Leste-Sul maps artists from Eastern Europe and Austria who migrated to Brazil between 1918 and 1989, based on the collection of the Museum of Contemporary Art of the University of São Paulo (MAC USP).",
+    "PROJECT": {
+      "TITLE": "The project",
+      "PROBLEM": "Digitisation widened access to collections but did not make them intelligible.",
+      "QUESTION_LABEL": "Central question",
+      "QUESTION": "How can AI help enrich, relate and interpret digitised art collections without losing historical and curatorial rigour?",
+      "GOAL_LABEL": "Goal",
+      "GOAL": "To develop an AI-based analytical framework to enrich and visualise historical relations in digitised collections.",
+      "HYPOTHESIS_LABEL": "Hypothesis",
+      "HYPOTHESIS": "AI systems, with critical and curatorial mediation, can reveal hidden connections and make collections more intelligible. AI is not treated as an automatic solution but as an assistive, exploratory tool to produce verifiable and auditable hypotheses."
+    },
+    "METHOD": {
+      "TITLE": "Methodology",
+      "READING": "Reading",
+      "READING_BODY": "Defining the analytical scope, mapping and selecting data, ingesting and preparing the data for analysis.",
+      "RELATION": "Relation",
+      "RELATION_BODY": "Associating entities, recognising patterns, assessing relevance and discovering relations.",
+      "RELIABILITY": "Reliability",
+      "RELIABILITY_BODY": "Detecting inconsistencies, validating sources and flagging uncertainty.",
+      "PROVENANCE": "Every piece of information keeps its provenance, every inferred relation is distinguished from a documented one, and every hypothesis leads back to the sources it came from."
+    },
+    "LEVELS": {
+      "TITLE": "Reading reliability",
+      "DOCUMENTED": "Documented",
+      "DOCUMENTED_BODY": "Stated in an identified source, such as the MAC USP collection spreadsheets.",
+      "INFERRED": "Inferred",
+      "INFERRED_BODY": "Derived by the platform from documented records, such as the trajectories drawn on the map.",
+      "UNDETERMINED": "Undetermined",
+      "UNDETERMINED_BODY": "Not enough sources to confirm or deny it."
+    },
+    "DATA": {
+      "TITLE": "Data",
+      "SOURCE": "The base comes from three MAC USP collection spreadsheets of 16 July 2026: selected works, and the exhibitions and publications related to them.",
+      "PRECISION": "Place names are kept as in the source, with the present-day name alongside when the source gives it. Dates show the precision the source gives (“c. 1949”, “1940–1945”, “n.d.”), and nothing missing from the source is filled in.",
+      "GAPS": "The sources do not record the year of arrival or the route to Brazil, so trajectories only join the documented points: birth, exhibitions of the works during the artist's lifetime, and death."
+    },
+    "CREDITS": {
+      "TITLE": "Cartography and credits",
+      "BASEMAP": "Basemap: OpenFreeMap, with OpenStreetMap data (© OpenStreetMap contributors, ODbL) in the OpenMapTiles schema. It shows only land and water, with no present-day borders or names.",
+      "HISTORICAL": "The borders of each decade come with the Historical Layer, with their own source, license and credits.",
+      "SOFTWARE": "Map rendered with MapLibre GL, free software.",
+      "COLLECTION": "Collection data: Museum of Contemporary Art of the University of São Paulo (MAC USP)."
+    }
   },
   "NOT_FOUND": {
     "TITLE": "Page not found",
