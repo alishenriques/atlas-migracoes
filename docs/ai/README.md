@@ -29,3 +29,4 @@ Budget: R$ 2.800 for 40 h (R$ 1.000 at the start, R$ 1.800 on 15 Nov 2026). The 
 8. **Never commit secrets.** Only `.env.example` is tracked.
 9. **Confirm before outward-facing actions** (publish to npm, deploy, creating accounts, databases or repos), unless already asked to.
 10. **Big changes go through a reviewed PR, never straight to `main`.** New branch, a detailed PR (see "Pull requests" in [conventions.md](conventions.md)), and **no merge until Alisson explicitly approves it on the PR**.
+11. **PRs go on GitHub Project 4 with labels.** See "Labels and project board" in [architecture.md](architecture.md).

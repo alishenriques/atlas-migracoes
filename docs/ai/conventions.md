@@ -48,4 +48,5 @@ Every big change follows this flow in every repo:
 1. **Branch** from up-to-date `main`.
 2. **PR** detailed enough to evaluate without reading the code first: what changed and what it is about; the problem it solves; new or changed components/operations and how to use them; architecture decisions and discarded alternatives; how it was verified (lint/typecheck/test/build, screenshots or a preview URL for visual changes); cross-links to the matching PRs in the other repos.
 3. **Review**: Alisson comments on the PR; reply on each thread and push fixes to the same branch, keeping the description current.
-4. **Merge only after his explicit approval on the PR.** Never merge on your own, not even with green CI.
+4. **Board and labels**: link the PR to [GitHub Project 4](https://github.com/users/alishenriques/projects/4) and label it by kind, screen or module, and stage (see "Labels and project board" in [architecture.md](architecture.md)).
+5. **Merge only after his explicit approval on the PR.** Never merge on your own, not even with green CI.
