@@ -10,10 +10,11 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "build:cartography": "node --experimental-strip-types scripts/build-cartography.mts"
   },
   "dependencies": {
-    "@alishenriques/atlas-design-system": "^0.2.0",
+    "@alishenriques/atlas-design-system": "^0.3.0",
     "@turf/boolean-point-in-polygon": "^7.4.0",
     "@turf/great-circle": "^7.4.0",
     "axios": "^1.20.0",
