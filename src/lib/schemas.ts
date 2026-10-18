@@ -159,3 +159,71 @@ export type NetworkPublication = z.infer<typeof networkPublicationSchema>;
 export type NetworkWork = z.infer<typeof networkWorkSchema>;
 export type NetworkArtist = z.infer<typeof networkArtistSchema>;
 export type NetworkData = z.infer<typeof networkDataSchema>;
+
+/** The artists to choose from, for screens that start by picking one. */
+export const artistListSchema = z.object({
+  meta: z.object({ source: dataSourceSchema }),
+  artists: z.array(z.object({ slug: z.string(), name: z.string() })),
+});
+
+export type ArtistList = z.infer<typeof artistListSchema>;
+
+export const researchSourceSchema = z.enum(["wikidata", "wikipedia"]);
+export const findingPropertySchema = z.enum([
+  "birthDate",
+  "birthPlace",
+  "deathDate",
+  "deathPlace",
+  "citizenship",
+  "occupation",
+  "movement",
+  "educatedAt",
+  "memberOf",
+  "notableWork",
+  "summary",
+]);
+export const findingReviewSchema = z.enum(["present_day_name", "conflicts_with_collection"]);
+
+// Source links are shown as links, so only https pages are accepted.
+const sourceUrlSchema = z.url({ protocol: /^https$/ });
+
+export const findingSchema = z.object({
+  source: researchSourceSchema,
+  sourceUrl: sourceUrlSchema,
+  sourceTitle: z.string(),
+  property: findingPropertySchema,
+  propertyId: z.string().nullable(),
+  value: z.string(),
+  references: z.number().int().nonnegative(),
+  reliability: z.enum(["documented", "undetermined"]),
+  reviews: z.array(findingReviewSchema),
+});
+
+export const researchSchema = z.object({
+  artist: mapArtistSchema.omit({ exhibitions: true }),
+  match: z
+    .object({
+      id: z.string(),
+      label: z.string(),
+      description: z.string().nullable(),
+      url: sourceUrlSchema,
+      basis: z.enum(["birth_year", "name"]),
+    })
+    .nullable(),
+  findings: z.array(findingSchema),
+  sources: z.array(
+    z.object({
+      source: researchSourceSchema,
+      status: z.enum(["ok", "no_match", "error"]),
+      detail: z.string().nullable(),
+    }),
+  ),
+  retrievedAt: z.iso.datetime({ offset: true }),
+});
+
+export const researchResponseSchema = z.object({ research: researchSchema.nullable() });
+
+export type FindingProperty = z.infer<typeof findingPropertySchema>;
+export type FindingReview = z.infer<typeof findingReviewSchema>;
+export type Finding = z.infer<typeof findingSchema>;
+export type Research = z.infer<typeof researchSchema>;
