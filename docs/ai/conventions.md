@@ -24,7 +24,9 @@ Same rules as the portfolio ecosystem, plus the data rules this project needs.
 - Test behavior, not implementation. Test GraphQL through `createApp(...).fetch(...)`.
 - Async server components are tested by awaiting them (`render(await Home())`) with `next-intl/server` mocked.
 - Watch out: a `beforeEach` that returns a function registers it as a cleanup hook; use a block body.
-- Before finishing: `yarn lint && yarn typecheck && yarn test` in every repo touched, plus `yarn build` here and in the DS.
+- Every change keeps its repo above its coverage floor (see "Test coverage" in [architecture.md](architecture.md)): new code comes with the tests that cover it, in the same PR. When coverage goes up, raise the floor in the same PR; never lower it, and never exclude a file or skip a test to get green.
+- Code that needs a browser API jsdom lacks (MapLibre, WebGL) is tested by mocking that library at its boundary (`vi.mock("react-map-gl/maplibre", ...)`) and asserting what the component asks it to draw, as in `shared/components/TrajectoryMap/tests`.
+- Before finishing: `yarn lint && yarn typecheck && yarn test:coverage` in every repo touched, plus `yarn build` here and in the DS.
 
 ## Design system
 

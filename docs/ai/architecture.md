@@ -58,6 +58,23 @@ src/
 - **Trajetórias record** (`modules/trajectories`): works, exhibitions and publications come straight from the MAC USP spreadsheets and are tagged "documented"; the trajectory is tagged "inferred". Unknown slugs go to the localized 404; a failed request to the error boundary.
 - Pages that read collection data use `dynamic = "force-dynamic"` (Axios, not `fetch`, so Next can't infer it) and render a fallback when the API is unreachable instead of failing.
 
+## Test coverage
+
+Test coverage is a premise of the architecture, decided by Alisson on 2026-10-18: the platform is presented live at MAC USP and maintained by one person, so every repo measures its coverage and CI blocks a PR that drops it below the floor.
+
+- **How:** Vitest with the V8 provider (`@vitest/coverage-v8`, free). `yarn test:coverage` prints the report (text, plus `coverage/index.html`); CI runs it instead of `yarn test`. The thresholds live in each repo's Vitest config.
+- **Floors** (lines / statements / functions / branches):
+
+  | Repo | Floor | Measured on 2026-10-18 |
+  | --- | --- | --- |
+  | `atlas-migracoes` | 95 / 95 / 90 / 85, and 95 / 95 / 95 / 90 for `src/lib` | 98.5 / 97.8 / 95.3 / 90.1 |
+  | `atlas-migracoes-api` | 95 / 95 / 95 / 90 | 98.6 / 98.6 / 96.5 / 92.7 |
+  | `atlas-migracoes-design-system` | 100 / 100 / 100 / 95 | 100 / 100 / 100 / 100 |
+
+  A floor only goes up: when a PR raises coverage, it raises the floor too.
+- **What is not measured, and why:** only code with no logic of its own. App: the Next.js route files in `src/app` (each `page.tsx` stays a thin wrapper delegating to a tested module), `src/i18n` and `src/proxy.ts` wiring, and barrels (`index.ts`); these are exercised by `next build`. API: entry points that only wire env, files and exit codes around tested functions (`src/index.ts`, `src/**/cli.ts`, `src/db/migrate.ts`, `api/graphql.ts`) and the declarative Drizzle tables (`src/db/schema.ts`, checked by the PGlite migrations in every test). DS: barrels. Logic never moves into these files to dodge the floor.
+- **What the numbers do not prove:** behaviour in a real browser. The planned Playwright smoke flow (see "Planned additions") covers the map, the record and later the login before each deploy.
+
 ## Visual direction
 
 The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21): night-blue surfaces, one gold accent, serif headings, small uppercase sans labels, translucent panels over the map, a reliability tag (documented, inferred, undetermined) next to claims. Single dark theme by design.

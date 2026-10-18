@@ -23,7 +23,7 @@ Budget: R$ 2.800 for 40 h (R$ 1.000 at the start, R$ 1.800 on 15 Nov 2026). The 
 2. **Never invent data.** Unknown stays null, approximate dates keep their precision, provisional map layers are labelled provisional, and simulated demo data is always flagged (`meta.source = demo`).
 3. **The real collection data never goes into a repository.** All three repos are public; the MAC USP spreadsheets stay on the machine that runs the import.
 4. **Everything typed.** TypeScript `strict`; no `any`. Data crossing a boundary (API, env, forms, spreadsheets) is validated with a Zod schema.
-5. **Everything tested.** New logic ships with unit tests. Run `lint`, `typecheck` and `test` (and `build` here) before finishing.
+5. **Everything tested, with measured coverage.** New logic ships with tests, and CI fails when coverage drops below each repo's floor (see "Test coverage" in [architecture.md](architecture.md)). Run `lint`, `typecheck` and `test:coverage` (and `build` here and in the DS) before finishing.
 6. **Design system stays isolated.** Reusable UI lives in `atlas-migracoes-design-system` and is consumed as `@alishenriques/atlas-design-system`. Never import from its source path or copy components.
 7. **Do not guess Next.js APIs.** This is Next 16; read `node_modules/next/dist/docs/` first (see `AGENTS.md`).
 8. **Never commit secrets.** Only `.env.example` is tracked.

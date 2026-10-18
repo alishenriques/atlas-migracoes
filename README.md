@@ -32,7 +32,7 @@ Com a API em modo demonstração, o app mostra um aviso de que os dados são sim
 
 ## Scripts
 
-`yarn dev` · `yarn build` · `yarn lint` · `yarn typecheck` · `yarn test`
+`yarn dev` · `yarn build` · `yarn lint` · `yarn typecheck` · `yarn test` · `yarn test:coverage`
 
 ## Variáveis de ambiente
 
