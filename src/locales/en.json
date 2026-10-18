@@ -8,6 +8,7 @@
     "HOME": "Explore",
     "TRAJECTORIES": "Trajectories",
     "HISTORICAL_LAYER": "Historical Layer",
+    "NETWORK": "Relational Network",
     "ABOUT": "About",
     "LANGUAGE": "Language",
     "SWITCH_TO": "Português"
@@ -65,7 +66,8 @@
     "SOURCES": "Sources",
     "SOURCE_COLLECTION": "MAC USP collection: selected works, related exhibitions and publications (spreadsheets of 16 July 2026).",
     "SOURCE_TRAJECTORY": "Trajectory drawn by the platform from these records; it is not a documented route.",
-    "RECORD_UNAVAILABLE": "This record could not be loaded right now."
+    "RECORD_UNAVAILABLE": "This record could not be loaded right now.",
+    "OPEN_NETWORK": "See in the Relational Network"
   },
   "HISTORICAL_LAYER": {
     "TITLE": "Historical Layer",
@@ -95,6 +97,47 @@
       "CHANGED": "{from} or {to}: the border moved in this period"
     },
     "CREDIT": "Borders: CShapes 2.0 by Schvitz, Rüegger, Girardin, Cederman, Weidmann and Gleditsch (ETH Zürich, 2022), CC BY-NC-SA 4.0 license. Clipped and simplified for Europe by the Atlas."
+  },
+  "NETWORK": {
+    "TITLE": "Relational Network",
+    "EYEBROW": "Artists, works, exhibitions and places",
+    "INTRO": "The links the collection documents between the artists, their works, the exhibitions and publications the works appear in, the institutions and the places. Pick an artist to see their network, or see the whole base.",
+    "DATA_UNAVAILABLE": "The network could not be loaded right now. Please try again shortly.",
+    "FILTERS": "Network",
+    "CENTER": "Center of the network",
+    "OVERVIEW": "All artists (overview)",
+    "PERIOD": "Period of exhibitions and publications",
+    "PERIOD_FROM": "From year",
+    "PERIOD_TO": "To year",
+    "UNDATED_NOTE": "Exhibitions, publications and works with no year appear only with the full period.",
+    "OVERVIEW_NOTE": "In the overview, each artist links to their birthplace and to the institutions that showed their works (or to the place, when the source names no institution). Line thickness counts the exhibitions.",
+    "EGO_NOTE": "{name}'s works in the collection, where they were shown or published, and the other artists of the collection in the same exhibitions.",
+    "CLEAR": "Clear",
+    "LEGEND": "Legend",
+    "GRAPH_LABEL": "Network of {count, plural, one {# element} other {# elements}}; use Tab to move through it and Enter to see details",
+    "EMPTY": "No links in this period.",
+    "KIND": {
+      "ARTIST": "Artist",
+      "WORK": "Work",
+      "EXHIBITION": "Exhibition",
+      "PUBLICATION": "Publication",
+      "INSTITUTION": "Institution",
+      "PLACE": "Place"
+    },
+    "KINDS": {
+      "ARTIST": "Artists",
+      "WORK": "Works",
+      "EXHIBITION": "Exhibitions",
+      "PUBLICATION": "Publications",
+      "INSTITUTION": "Institutions",
+      "PLACE": "Places"
+    },
+    "SELECT_HINT": "Select an element of the network to see its links.",
+    "LINKED": "{count, plural, =0 {No links} one {# link} other {# links}}",
+    "FOCUS": "Center the network on this artist",
+    "OPEN_RECORD": "Open the trajectory record",
+    "DOCUMENTED": "Documented",
+    "SOURCE": "Links taken from the MAC USP collection (works, related exhibitions and publications). Institutions whose name is spelled in different ways are merged into one."
   },
   "ABOUT": {
     "TITLE": "About the project",
