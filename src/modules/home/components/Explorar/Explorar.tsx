@@ -2,28 +2,25 @@
 
 import { useMemo, useState, useSyncExternalStore } from "react";
 
-import { Button, Panel, ReliabilityTag, SelectField, YearRange } from "@alishenriques/atlas-design-system";
-import dynamic from "next/dynamic";
+import { Button, Panel, SelectField, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { formatFuzzyDate } from "@/lib/dates";
 import type { MapArtist } from "@/lib/schemas";
-
-import { styles } from "./styles/index.styles";
 import {
   buildTrajectory,
   filterTrajectories,
   FULL_PERIOD,
   originCountries,
+  placeName,
   type Period,
   type Stop,
-} from "../../utils/trajectory";
+} from "@/lib/trajectory";
+import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
+import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 
-// MapLibre needs WebGL and the window, so the map only renders in the browser.
-const ExplorarMap = dynamic(() => import("../ExplorarMap").then((module) => module.ExplorarMap), {
-  ssr: false,
-  loading: () => <div className={styles.mapLoading} />,
-});
+import { styles } from "./styles/index.styles";
 
 const DESKTOP = "(min-width: 768px)";
 const subscribe = (onChange: () => void) => {
@@ -46,6 +43,7 @@ export type ExplorarProps = { artists: MapArtist[] };
 /** The interactive part of Explorar: map, filters, timeline and the artist list. */
 export function Explorar({ artists }: ExplorarProps) {
   const t = useTranslations("HOME.MAP");
+  const tStop = useTranslations("TRAJECTORY");
   const locale = useLocale();
   const isDesktop = useIsDesktop();
   const [originCountry, setOriginCountry] = useState("");
@@ -62,9 +60,7 @@ export function Explorar({ artists }: ExplorarProps) {
   const filtered = originCountry !== "" || period[0] !== FULL_PERIOD[0] || period[1] !== FULL_PERIOD[1];
   const padding = useMemo(() => ({ top: 0, right: 0, bottom: 0, left: isDesktop ? 360 : 0 }), [isDesktop]);
 
-  const date = (stop: Stop) => formatFuzzyDate(stop.date, locale, t("UNKNOWN_DATE"));
-  const placeName = (stop: Stop) =>
-    stop.place.currentName ? `${stop.place.label} (${stop.place.currentName})` : stop.place.label;
+  const date = (stop: Stop) => formatFuzzyDate(stop.date, locale, tStop("UNKNOWN_DATE"));
 
   const clear = () => {
     setOriginCountry("");
@@ -82,11 +78,11 @@ export function Explorar({ artists }: ExplorarProps) {
     if (!first) return null;
     return (
       <div className={styles.popup}>
-        <p className={styles.popupTitle}>{placeName(first)}</p>
+        <p className={styles.popupTitle}>{placeName(first.place)}</p>
         <ul className={styles.popupList}>
           {events.map(({ name, stop }, index) => (
             <li key={index}>
-              {name}: {t(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)}, {date(stop)}
+              {name}: {tStop(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)}, {date(stop)}
             </li>
           ))}
         </ul>
@@ -97,7 +93,7 @@ export function Explorar({ artists }: ExplorarProps) {
   return (
     <section className={styles.root}>
       <div className={styles.map}>
-        <ExplorarMap
+        <TrajectoryMap
           trajectories={visible}
           selectedSlug={selected?.artist.slug ?? null}
           label={t("LABEL")}
@@ -141,21 +137,13 @@ export function Explorar({ artists }: ExplorarProps) {
                 {t("BACK")}
               </Button>
             </div>
-            <ReliabilityTag level="inferred" label={t("INFERRED")} />
-            <p className={styles.note}>{t("METHOD")}</p>
-            <ol className={styles.stops}>
-              {selected.visible.map((stop, index) => (
-                <li key={index} className={styles.stop}>
-                  <span className={styles.stopMeta}>
-                    {t(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)} · {date(stop)}
-                  </span>
-                  <span>{placeName(stop)}</span>
-                  {stop.title && <span className={styles.stopTitle}>{stop.title}</span>}
-                </li>
-              ))}
-            </ol>
-            {selected.posthumous > 0 && <p className={styles.note}>{t("POSTHUMOUS", { count: selected.posthumous })}</p>}
-            {selected.undrawn > 0 && <p className={styles.note}>{t("UNDRAWN", { count: selected.undrawn })}</p>}
+            <TrajectoryStops trajectory={selected} stops={selected.visible} />
+            <Link
+              href={{ pathname: "/trajetorias/[slug]", params: { slug: selected.artist.slug } }}
+              className={styles.recordLink}
+            >
+              {t("OPEN_RECORD")}
+            </Link>
           </div>
         ) : (
           <div className={styles.list}>

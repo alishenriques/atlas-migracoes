@@ -38,25 +38,13 @@
       "ARTISTS": "{count, plural, one {# artista} other {# artistas}}",
       "NO_RESULTS": "Nenhum artista neste país e período.",
       "BACK": "Voltar",
-      "INFERRED": "Trajetória inferida",
-      "METHOD": "Traçada a partir dos pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. As fontes não registram a rota nem o ano de chegada ao Brasil.",
-      "STOP": {
-        "BIRTH": "Nascimento",
-        "EXHIBITION": "Exposição",
-        "DEATH": "Morte"
-      },
-      "UNKNOWN_DATE": "s.d.",
-      "POSTHUMOUS": "{count, plural, one {# exposição póstuma fica fora do traçado.} other {# exposições póstumas ficam fora do traçado.}}",
-      "UNDRAWN": "{count, plural, one {# ponto sem data ou sem coordenadas fica fora do mapa.} other {# pontos sem data ou sem coordenadas ficam fora do mapa.}}"
+      "OPEN_RECORD": "Abrir a ficha"
     }
   },
   "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
   "COMING_SOON": {
     "EYEBROW": "Em construção",
     "BODY": "Esta tela faz parte do MVP e está sendo construída."
-  },
-  "TRAJECTORIES": {
-    "TITLE": "Trajetórias"
   },
   "HISTORICAL_LAYER": {
     "TITLE": "Camada Histórica"
@@ -71,5 +59,20 @@
   "ERROR": {
     "TITLE": "Algo deu errado",
     "RETRY": "Tentar de novo"
+  },
+  "TRAJECTORY": {
+    "INFERRED": "Trajetória inferida",
+    "METHOD": "Traçada a partir dos pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. As fontes não registram a rota nem o ano de chegada ao Brasil.",
+    "STOP": {
+      "BIRTH": "Nascimento",
+      "EXHIBITION": "Exposição",
+      "DEATH": "Morte"
+    },
+    "UNKNOWN_DATE": "s.d.",
+    "POSTHUMOUS": "{count, plural, one {# exposição póstuma fica fora do traçado.} other {# exposições póstumas ficam fora do traçado.}}",
+    "UNDRAWN": "{count, plural, one {# ponto sem data ou sem coordenadas fica fora do mapa.} other {# pontos sem data ou sem coordenadas ficam fora do mapa.}}"
+  },
+  "TRAJECTORIES": {
+    "TITLE": "Trajetórias"
   }
 }

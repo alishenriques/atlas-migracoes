@@ -4,15 +4,23 @@ import { describe, expect, it, vi } from "vitest";
 
 import type { FuzzyDate, MapArtist, Place } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
+import type { TrajectoryMapProps } from "@/shared/components/TrajectoryMap";
 
 import { Explorar } from "../Explorar";
 
-import type { ExplorarMapProps } from "../../ExplorarMap";
+
+vi.mock("@/i18n/navigation", () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: { params: { slug: string } } }) => (
+    <a href={`/trajetorias/${href.params.slug}`} {...props}>
+      {children}
+    </a>
+  ),
+}));
 
 // MapLibre needs WebGL; the stub exposes what the map would draw.
 vi.mock("next/dynamic", () => ({
   default: () =>
-    function MapStub({ trajectories, selectedSlug, label }: ExplorarMapProps) {
+    function MapStub({ trajectories, selectedSlug, label }: TrajectoryMapProps) {
       return (
         <div role="region" aria-label={label} data-selected={selectedSlug ?? ""}>
           {trajectories.map((t) => t.artist.slug).join(",")}
@@ -111,6 +119,7 @@ describe("Explorar", () => {
       "Morte · 1957São Paulo",
     ]);
     expect(screen.getByText("1 exposição póstuma fica fora do traçado.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Abrir a ficha" })).toHaveAttribute("href", "/trajetorias/lasar-segall");
 
     fireEvent.click(screen.getByRole("button", { name: "Voltar" }));
     expect(screen.getByText("2 artistas")).toBeInTheDocument();

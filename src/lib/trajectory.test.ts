@@ -10,7 +10,7 @@ import {
   livedDuring,
   originCountries,
   stopsInPeriod,
-} from "../trajectory";
+} from "./trajectory";
 
 const year = (y: number | null, precision: FuzzyDate["precision"] = "year"): FuzzyDate => ({
   raw: y === null ? "s.d." : String(y),
