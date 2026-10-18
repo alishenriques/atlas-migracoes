@@ -6,7 +6,7 @@ import {
   buildTrajectory,
   filterTrajectories,
   FULL_PERIOD,
-  legs,
+  migrationLeg,
   livedDuring,
   originCountries,
   stopsInPeriod,
@@ -128,17 +128,34 @@ describe("filterTrajectories", () => {
   });
 });
 
-describe("legs", () => {
-  it("joins consecutive stops in different places", () => {
-    const { stops } = buildTrajectory(
-      artist({
-        exhibitions: [
-          { id: "EX.1", title: "A", startDate: year(1940), place: saoPaulo },
-          { id: "EX.2", title: "B", startDate: year(1945), place: saoPaulo },
-        ],
-      }),
-    );
-    expect(legs(stops).map(([a, b]) => [a.place.id, b.place.id])).toEqual([["vilna", "sao-paulo"]]);
+describe("migrationLeg", () => {
+  const leg = (patch: Partial<MapArtist> = {}, period = FULL_PERIOD) => {
+    const [trajectory] = filterTrajectories([buildTrajectory(artist(patch))], { originCountry: "", period });
+    const result = trajectory ? migrationLeg(trajectory) : null;
+    return result?.map((stop) => stop.place.id) ?? null;
+  };
+
+  it("goes from the birthplace to the first documented place in Brazil, skipping other exhibitions", () => {
+    expect(leg()).toEqual(["vilna", "rio"]);
+  });
+
+  it("ends at the place of death when no exhibition in Brazil is documented", () => {
+    expect(leg({ exhibitions: [{ id: "EX.1", title: "Paris", startDate: year(1932), place: paris }] })).toEqual([
+      "vilna",
+      "sao-paulo",
+    ]);
+  });
+
+  it("draws nothing without a documented place in Brazil", () => {
+    expect(leg({ deathPlace: paris, exhibitions: [] })).toBeNull();
+  });
+
+  it("draws nothing for an artist born in Brazil", () => {
+    expect(leg({ birthPlace: rio })).toBeNull();
+  });
+
+  it("draws nothing when the arrival falls outside the period", () => {
+    expect(leg({}, [1918, 1940])).toBeNull();
   });
 });
 

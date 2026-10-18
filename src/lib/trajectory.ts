@@ -108,15 +108,21 @@ export function filterTrajectories(trajectories: Trajectory[], filters: Filters)
     .map((t) => ({ ...t, visible: stopsInPeriod(t, filters.period) }));
 }
 
-/** Consecutive stops in different places: the lines drawn on the map. */
-export function legs(stops: Stop[]): [Stop, Stop][] {
-  const result: [Stop, Stop][] = [];
-  for (let i = 1; i < stops.length; i += 1) {
-    const previous = stops[i - 1];
-    const current = stops[i];
-    if (previous && current && previous.place.id !== current.place.id) result.push([previous, current]);
-  }
-  return result;
+/** Country name the collection uses for Brazil. */
+export const BRAZIL = "Brasil";
+
+/**
+ * The one line drawn on the map: from the birthplace to the first documented
+ * place in Brazil. The collection documents no route, so no intermediate leg
+ * is drawn. Null when the artist was born in Brazil, has no documented place
+ * in Brazil, or either end is outside the shown period.
+ */
+export function migrationLeg({ stops, visible }: VisibleTrajectory): [Stop, Stop] | null {
+  const birth = stops.find((stop) => stop.kind === "birth");
+  if (!birth || birth.place.country === BRAZIL) return null;
+  const arrival = stops.find((stop) => stop.place.country === BRAZIL);
+  if (!arrival || !visible.includes(birth) || !visible.includes(arrival)) return null;
+  return [birth, arrival];
 }
 
 /** Countries of birth present in the data, alphabetical. */
