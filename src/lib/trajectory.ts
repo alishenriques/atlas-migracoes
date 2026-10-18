@@ -124,3 +124,6 @@ export function originCountries(artists: MapArtist[], locale: string): string[] 
   const countries = new Set(artists.flatMap((artist) => (artist.birthPlace ? [artist.birthPlace.country] : [])));
   return [...countries].sort((a, b) => a.localeCompare(b, locale));
 }
+
+/** The place as written in the source, with the present-day name when the source gives one. */
+export const placeName = (place: Place) => (place.currentName ? `${place.label} (${place.currentName})` : place.label);

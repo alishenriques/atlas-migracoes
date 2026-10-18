@@ -2,7 +2,7 @@
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 import { setWorkerUrl } from "maplibre-gl";
@@ -15,21 +15,22 @@ import Map, {
   type MapRef,
 } from "react-map-gl/maplibre";
 
+import { boundsOf, toMapFeatures } from "@/lib/mapFeatures";
+import type { VisibleTrajectory } from "@/lib/trajectory";
+
 import { baseMapStyle, readMapColors } from "./mapStyle";
 import { styles } from "./styles/index.styles";
-import { boundsOf, toMapFeatures } from "../../utils/mapFeatures";
 
-import type { VisibleTrajectory } from "../../utils/trajectory";
 
-export type ExplorarMapProps = {
+export type TrajectoryMapProps = {
   trajectories: VisibleTrajectory[];
   selectedSlug: string | null;
   /** Accessible name of the map region. */
   label: string;
   /** What to show in the popup of a clicked place. */
   renderPlace: (placeId: string) => ReactNode;
-  /** Space covered by the floating panel, so fitted bounds stay visible. */
-  padding: { top: number; right: number; bottom: number; left: number };
+  /** Space covered by a floating panel, so fitted bounds stay visible. */
+  padding?: { top: number; right: number; bottom: number; left: number };
 };
 
 // MapLibre 6 looks for its worker next to its own module, which the bundler
@@ -41,7 +42,16 @@ const INITIAL_VIEW = { longitude: -18, latitude: 18, zoom: 1.6 };
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-export function ExplorarMap({ trajectories, selectedSlug, label, renderPlace, padding }: ExplorarMapProps) {
+const NO_PADDING = { top: 0, right: 0, bottom: 0, left: 0 };
+
+/** Trajectories as great-circle arcs between their places; the selected one is highlighted and kept in view. */
+export function TrajectoryMap({
+  trajectories,
+  selectedSlug,
+  label,
+  renderPlace,
+  padding = NO_PADDING,
+}: TrajectoryMapProps) {
   const mapRef = useRef<MapRef>(null);
   const [colors] = useState(() => readMapColors());
   const [openPlace, setOpenPlace] = useState<{ id: string; lng: number; lat: number } | null>(null);
@@ -50,8 +60,9 @@ export function ExplorarMap({ trajectories, selectedSlug, label, renderPlace, pa
   const features = useMemo(() => toMapFeatures(trajectories, selectedSlug), [trajectories, selectedSlug]);
   const dim = selectedSlug !== null;
 
-  // Follow the selected artist: fit their whole trajectory in view.
-  useEffect(() => {
+  // Follow the selected artist: fit their whole trajectory in view, once the map
+  // has loaded and whenever the selection changes.
+  const fitSelected = useCallback(() => {
     const selected = trajectories.find((t) => t.artist.slug === selectedSlug);
     const bounds = selected ? boundsOf(selected.visible) : null;
     if (!bounds || !mapRef.current) return;
@@ -61,6 +72,8 @@ export function ExplorarMap({ trajectories, selectedSlug, label, renderPlace, pa
       duration: prefersReducedMotion() ? 0 : 1200,
     });
   }, [selectedSlug, trajectories, padding]);
+
+  useEffect(fitSelected, [fitSelected]);
 
   const onClick = (event: MapLayerMouseEvent) => {
     const placeId = event.features?.[0]?.properties?.placeId;
@@ -75,6 +88,7 @@ export function ExplorarMap({ trajectories, selectedSlug, label, renderPlace, pa
         mapStyle={mapStyle}
         interactiveLayerIds={["places"]}
         onClick={onClick}
+        onLoad={fitSelected}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
         cursor={hovering ? "pointer" : "grab"}

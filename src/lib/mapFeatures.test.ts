@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import type { FuzzyDate, MapArtist, Place } from "@/lib/schemas";
 
-import { boundsOf, toMapFeatures } from "../mapFeatures";
-import { buildTrajectory, filterTrajectories, FULL_PERIOD } from "../trajectory";
+import { boundsOf, toMapFeatures } from "./mapFeatures";
+import { buildTrajectory, filterTrajectories, FULL_PERIOD } from "./trajectory";
 
 const year = (y: number): FuzzyDate => ({ raw: String(y), year: y, endYear: y, iso: null, precision: "year" });
 const place = (id: string, lat: number, lng: number): Place => ({
