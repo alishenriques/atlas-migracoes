@@ -12,7 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@alishenriques/atlas-design-system": "github:alishenriques/atlas-migracoes-design-system#commit=0f86a5be458f281f65e132b6f208f7ba90d079f8",
+    "@alishenriques/atlas-design-system": "^0.2.0",
     "@turf/great-circle": "^7.4.0",
     "axios": "^1.20.0",
     "maplibre-gl": "^6.14.0",
