@@ -70,3 +70,48 @@ export type FuzzyDate = z.infer<typeof fuzzyDateSchema>;
 export type Place = z.infer<typeof placeSchema>;
 export type MapArtist = z.infer<typeof mapArtistSchema>;
 export type MapData = z.infer<typeof mapDataSchema>;
+
+export const recordWorkSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  date: fuzzyDateSchema,
+  technique: z.string().nullable(),
+  dimensions: z.string().nullable(),
+  acquisition: z.string().nullable(),
+  acquisitionDate: fuzzyDateSchema,
+});
+
+export const recordExhibitionSchema = mapExhibitionSchema.extend({
+  endDate: fuzzyDateSchema,
+  institution: z.string().nullable(),
+  venue: z.string().nullable(),
+});
+
+export const recordPublicationSchema = z.object({
+  id: z.string(),
+  authors: z.string().nullable(),
+  title: z.string(),
+  city: z.string().nullable(),
+  publisher: z.string().nullable(),
+  date: fuzzyDateSchema,
+  category: z.string().nullable(),
+  periodical: z.string().nullable(),
+});
+
+/** Everything the Trajetórias record shows about one artist. */
+export const artistRecordSchema = mapArtistSchema.extend({
+  exhibitions: z.array(recordExhibitionSchema),
+  works: z.array(recordWorkSchema),
+  publications: z.array(recordPublicationSchema),
+});
+
+export const artistRecordResponseSchema = z.object({
+  meta: z.object({ source: dataSourceSchema }),
+  artist: artistRecordSchema.nullable(),
+});
+
+export type RecordWork = z.infer<typeof recordWorkSchema>;
+export type RecordExhibition = z.infer<typeof recordExhibitionSchema>;
+export type RecordPublication = z.infer<typeof recordPublicationSchema>;
+export type ArtistRecord = z.infer<typeof artistRecordSchema>;
+export type ArtistRecordResponse = z.infer<typeof artistRecordResponseSchema>;
