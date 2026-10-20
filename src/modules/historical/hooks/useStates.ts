@@ -2,12 +2,16 @@
 
 import { useEffect, useState } from "react";
 
+import { preload } from "react-dom";
+
 import { STATES_URL, statesSchema, type States } from "@/lib/cartography";
 
 export type StatesStatus = { status: "loading" } | { status: "error" } | { status: "ready"; states: States };
 
 /** Loads the historical borders file once, validated, when the screen opens. */
 export function useStates(): StatesStatus {
+  // Starts the download with the page's HTML instead of after hydration; the fetch below reuses it.
+  preload(STATES_URL, { as: "fetch", crossOrigin: "anonymous" });
   const [result, setResult] = useState<StatesStatus>({ status: "loading" });
 
   useEffect(() => {

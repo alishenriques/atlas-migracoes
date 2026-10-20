@@ -6,6 +6,17 @@ import { useStates } from "../useStates";
 afterEach(() => vi.restoreAllMocks());
 
 describe("useStates", () => {
+  it("asks the browser to fetch the borders file with the page, before hydration", async () => {
+    vi.spyOn(globalThis, "fetch").mockReturnValue(new Promise(() => {}));
+    renderHook(() => useStates());
+    await waitFor(() =>
+      expect(document.head.querySelector('link[rel="preload"][href="/cartography/europe-states.geojson"]')).toHaveAttribute(
+        "as",
+        "fetch",
+      ),
+    );
+  });
+
   it("reports an error that is not an Error instance", async () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => {});
     vi.spyOn(globalThis, "fetch").mockRejectedValue("offline");
