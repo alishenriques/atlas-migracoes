@@ -60,7 +60,7 @@ Done when the demo script runs end to end at the final address.
   - Before launch, code:
     - [ ] API abuse limits: graphql-armor (max aliases, depth, tokens and cost, one `research` per operation), GraphiQL off in production. One alias-heavy query can fan `research` out over every artist and use up the Gemini free tier, and the cyclic types (Artist → Work → Exhibition → Work) allow huge nested responses.
     - [ ] API: cache the read-only dataset per instance with a TTL, so a flood of requests does not drain the Neon free compute; persist or pre-generate the research results, so public traffic does not call Gemini live (the in-memory cache resets on every cold start and drops failed results).
-    - [ ] App: basic security headers in `next.config.ts` (`X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`/`frame-ancestors 'none'`, `Permissions-Policy`).
+    - [x] App: basic security headers in `next.config.ts` (`X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`/`frame-ancestors 'none'`, `Permissions-Policy`).
     - [ ] All repos: `.github/dependabot.yml` (npm and github-actions, weekly) and `permissions: contents: read` in the CI workflows; DS: pin the npm version that `publish.yml` installs.
   - Before launch, Alisson's settings:
     - [ ] Google AI Studio: no billing account on the Gemini key's project (abuse then ends in a 429, never a charge), key restricted to the Generative Language API, and the key rotated, since it appeared in a screenshot.

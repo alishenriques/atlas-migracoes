@@ -94,6 +94,10 @@ Test coverage is a premise of the architecture, decided by Alisson on 2026-10-18
 - `yarn test:launch` (`playwright.launch.config.ts`, `e2e/launch/`) runs the same demo script against a deployed address with the real base: production by default, or `LAUNCH_URL`. It names no artist (it follows the first one each list shows), fails if any page shows the demo-data notice, and builds or starts nothing. CI does not run it; it is the launch check, and a rehearsal before it.
 - Every page has a "Pular para o conteúdo" link as the first Tab stop, pointing to `#conteudo` (the wrapper in `modules/layout/Layout.tsx`).
 
+## Security headers
+
+Every page is served with the headers in `src/lib/securityHeaders.ts` (wired in `next.config.ts`): `X-Content-Type-Options: nosniff`, `Content-Security-Policy: frame-ancestors 'none'` with `X-Frame-Options: DENY` (the site is never shown inside another site's frame), `Referrer-Policy: strict-origin-when-cross-origin` and a `Permissions-Policy` that turns off camera, microphone, location and topics. The smoke suite checks them on the built app. The CSP limits framing only; a full policy (scripts, styles, the MapLibre worker, OpenFreeMap, the API, Vercel Analytics) is planned after the conference, starting in Report-Only. HSTS comes from Vercel.
+
 ## Visual direction
 
 The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21): night-blue surfaces, one gold accent, serif headings, small uppercase sans labels, translucent panels over the map, a reliability tag (documented, inferred, undetermined) next to claims. Single dark theme by design.
