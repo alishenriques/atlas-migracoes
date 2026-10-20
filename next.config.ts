@@ -1,5 +1,7 @@
 import createNextIntlPlugin from "next-intl/plugin";
 
+import { SECURITY_HEADERS } from "./src/lib/securityHeaders";
+
 import type { NextConfig } from "next";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
@@ -12,6 +14,7 @@ const nextConfig: NextConfig = {
   // hash, so it is never marked immutable.
   async headers() {
     return [
+      { source: "/:path*", headers: SECURITY_HEADERS },
       {
         source: "/cartography/:file*",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
