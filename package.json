@@ -18,6 +18,8 @@
     "@alishenriques/atlas-design-system": "^0.3.0",
     "@turf/boolean-point-in-polygon": "^7.4.0",
     "@turf/great-circle": "^7.4.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.20.0",
     "d3-force": "^3.0.0",
     "maplibre-gl": "^6.14.0",
