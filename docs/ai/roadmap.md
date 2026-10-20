@@ -53,9 +53,10 @@ Done when the demo script runs end to end at the final address.
   - [x] Playwright smoke flow and axe on every screen, in CI
   - [x] Accessibility fixes found by axe and by hand (language switch name, skip link)
   - [x] Load optimization of the map and layers: MapLibre already loads only on map screens; added a preconnect to the tile server, a preload of the borders file and a day of caching for it (see "Map loading" in architecture.md)
-- [x] Vercel Web Analytics and Speed Insights in the app (requested by Alisson, 2026-10-20). Both are free on the Hobby plan within its monthly limits; turn them on in the Vercel project and add `@vercel/analytics` and `@vercel/speed-insights` to the root layout (`src/app/[locale]/layout.tsx`). No cookies or personal data, so no consent banner. Turning both on in the Vercel project (Analytics and Speed Insights tabs) is Alisson's step.
+- [x] Vercel Web Analytics and Speed Insights in the app (requested by Alisson, 2026-10-20). Both are free on the Hobby plan within its monthly limits; turn them on in the Vercel project and add `@vercel/analytics` and `@vercel/speed-insights` to the root layout (`src/app/[locale]/layout.tsx`). No cookies or personal data, so no consent banner. Both turned on in the Vercel project by Alisson (2026-10-20).
 - [ ] Protect `main` in the three repos (requested by Alisson, 2026-10-20): merging only through a PR with green CI and Alisson's approval, no direct pushes, history kept linear (Rebase and merge). Note: GitHub does not let an author approve their own PR, and the PRs are opened under Alisson's account, so a required approving review would block every merge. Rule to use instead: a repository ruleset on `main` requiring a PR and the CI checks, blocking force pushes and deletions, with Alisson as the only bypass actor; his "Aproved" comment stays the approval, as in the PR workflow. Applied by Alisson in each repo's Settings → Rules (Claude cannot change repository settings from here).
-- [ ] Production deploy on 8 Nov
+- [ ] Team credits on Sobre: text to come from Alisson (never invent names or roles)
+- [ ] Launch check on 8 Nov: production already deploys from `main` on every merge (app https://atlas-migracoes.vercel.app, API https://atlas-migracoes-api.vercel.app/graphql, real base on Neon), so launch day means confirming the latest `main` is live in production, running the demo script end to end at that address, and fixing anything it finds
 
 ## Historical cartography
 
