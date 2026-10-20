@@ -45,10 +45,10 @@ Done when the map switches decades and the graph opens from an artist's record.
 
 Done when the demo script runs end to end at the final address.
 
-- [ ] IA Relacional: search in open sources, findings traced to their source, results with reliability and the prompt shown, period-only geopolitics
+- [x] IA Relacional: search in open sources, findings traced to their source, results with reliability and the prompt shown, period-only geopolitics
   - [x] Open-source search in the API (Wikidata, Wikipedia), each finding with its source, reliability and review notes
   - [x] Screen in the app (`/ia-relacional`), opens from Trajetórias
-  - [ ] Summary with the Gemini API free tier, prompt shown, the period's territories in the prompt
+  - [x] Summary with the Gemini API free tier, prompt shown, the period's territories in the prompt (API: `research.summary`, `research.period`; app: summary with citations, prompt and the period's map)
 - [ ] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
 - [ ] Production deploy on 8 Nov
 
