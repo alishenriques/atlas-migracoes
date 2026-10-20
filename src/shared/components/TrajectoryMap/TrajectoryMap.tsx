@@ -40,7 +40,11 @@ const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: r
 
 const NO_PADDING = { top: 0, right: 0, bottom: 0, left: 0 };
 
-/** Trajectories as great-circle arcs between their places; the selected one is highlighted and kept in view. */
+/**
+ * Trajectories as great-circle arcs between their documented points, the way
+ * from the birthplace to Brazil in gold; with an artist selected only their
+ * lines are drawn, and their trajectory is kept in view.
+ */
 export function TrajectoryMap({
   trajectories,
   selectedSlug,
@@ -93,14 +97,29 @@ export function TrajectoryMap({
       >
         <NavigationControl position="bottom-right" showCompass={false} />
         <Source id="legs" type="geojson" data={features.legs}>
+          {/* Legs between other documented points: thin and dashed, under the migration. */}
           <Layer
-            id="legs"
+            id="legs-route"
             type="line"
+            filter={["==", ["get", "kind"], "route"]}
+            layout={{ "line-cap": "round" }}
+            paint={{
+              "line-color": colors.foreground,
+              "line-width": ["case", ["get", "selected"], 1.6, 0.9],
+              "line-dasharray": [2, 2],
+              "line-opacity": ["case", ["get", "selected"], 0.75, 0.3],
+            }}
+          />
+          {/* The way from the birthplace to the first place in Brazil: solid gold. */}
+          <Layer
+            id="legs-migration"
+            type="line"
+            filter={["==", ["get", "kind"], "migration"]}
             layout={{ "line-cap": "round" }}
             paint={{
               "line-color": colors.accent,
-              "line-width": ["case", ["get", "selected"], 2.5, 1.2],
-              "line-opacity": ["case", ["get", "selected"], 0.95, dim ? 0.1 : 0.45],
+              "line-width": ["case", ["get", "selected"], 3, 1.4],
+              "line-opacity": ["case", ["get", "selected"], 0.95, 0.5],
             }}
           />
         </Source>
@@ -109,7 +128,7 @@ export function TrajectoryMap({
             id="places"
             type="circle"
             paint={{
-              "circle-color": colors.accent,
+              "circle-color": ["case", ["get", "migration"], colors.accent, colors.foreground],
               "circle-radius": ["interpolate", ["linear"], ["get", "artists"], 1, 4, 10, 10],
               "circle-stroke-color": colors.water,
               "circle-stroke-width": 1.5,

@@ -37,6 +37,9 @@
       "PERIOD": "Período",
       "PERIOD_FROM": "Ano inicial",
       "PERIOD_TO": "Ano final",
+      "LEGEND": "Legenda",
+      "LEGEND_MIGRATION": "Da origem ao Brasil",
+      "LEGEND_ROUTE": "Demais registros, em ordem de data",
       "ARTISTS": "{count, plural, one {# artista} other {# artistas}}",
       "NO_RESULTS": "Nenhum artista neste país e período.",
       "BACK": "Voltar",
@@ -260,7 +263,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Trajetória inferida",
-    "METHOD": "A linha liga o local de nascimento ao primeiro lugar documentado no Brasil. As fontes não registram a rota nem o ano de chegada, então nenhuma rota intermediária é desenhada. As exposições das obras em vida e o local de morte aparecem como pontos.",
+    "METHOD": "As linhas ligam, em ordem de data, os pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. O trecho do local de nascimento até o primeiro lugar documentado no Brasil aparece em dourado. As fontes não registram a rota nem o ano de chegada, então as linhas mostram a sequência dos registros, não um percurso documentado.",
     "STOP": {
       "BIRTH": "Nascimento",
       "EXHIBITION": "Exposição",
