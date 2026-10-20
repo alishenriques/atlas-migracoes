@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "build:cartography": "node --experimental-strip-types scripts/build-cartography.mts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:launch": "playwright test --config playwright.launch.config.ts"
   },
   "dependencies": {
     "@alishenriques/atlas-design-system": "^0.3.0",
