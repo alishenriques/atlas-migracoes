@@ -60,3 +60,11 @@ test("the first Tab offers to skip the menu", async ({ page, isMobile }) => {
   await page.keyboard.press("Enter");
   await expect(page.locator("#conteudo")).toBeFocused();
 });
+
+test("pages carry the security headers", async ({ page }) => {
+  const response = await page.goto("/pt/sobre");
+  const headers = response?.headers() ?? {};
+  expect(headers["x-content-type-options"]).toBe("nosniff");
+  expect(headers["content-security-policy"]).toBe("frame-ancestors 'none'");
+  expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+});
