@@ -46,3 +46,8 @@ next-env.d.ts
 
 # vitest reports
 /.vitest
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
