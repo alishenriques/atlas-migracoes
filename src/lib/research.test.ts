@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatSourceDate, groupFindings, isDateProperty, summariesOf } from "./research";
+import { findingAnchor, formatSourceDate, groupFindings, isDateProperty, summariesOf, summaryParts } from "./research";
 
 import type { Finding } from "./schemas";
 
@@ -29,6 +29,33 @@ describe("groupFindings", () => {
       ["occupation", ["pintor", "gravador"]],
     ]);
     expect(summariesOf(findings).map((item) => item.value)).toEqual(["Texto"]);
+  });
+
+  it("numbers each finding by its place in the research, as the AI summary cites it", () => {
+    const findings = [finding("occupation", "pintor"), finding("summary", "Texto"), finding("birthDate", "1891")];
+    expect(groupFindings(findings).flatMap((group) => group.findings.map((item) => [item.value, item.n]))).toEqual([
+      ["1891", 3],
+      ["pintor", 1],
+    ]);
+    expect(summariesOf(findings)[0]?.n).toBe(2);
+    expect(findingAnchor(2)).toBe("achado-2");
+  });
+});
+
+describe("summaryParts", () => {
+  it("turns [n] into citations of existing findings and keeps the rest as text", () => {
+    expect(summaryParts("Nasceu em 1891 [1] em Vilna [2][1].", 2)).toEqual([
+      { text: "Nasceu em 1891 " },
+      { cite: 1 },
+      { text: " em Vilna " },
+      { cite: 2 },
+      { cite: 1 },
+      { text: "." },
+    ]);
+  });
+
+  it("leaves numbers that point to no finding as text", () => {
+    expect(summaryParts("Fim [3] e [0]", 2)).toEqual([{ text: "Fim " }, { text: "[3]" }, { text: " e " }, { text: "[0]" }]);
   });
 });
 

@@ -168,6 +168,8 @@ describe("getResearch", () => {
       },
     ],
     sources: [{ source: "wikidata", status: "ok", detail: null }],
+    period: { day: "1891-07-01", approximate: false, birthState: "Império Russo", states: ["Império Russo"] },
+    summary: { status: "ok", text: "Pintor [1].", citations: [1], prompt: "# Instruções", model: "gemini-2.5-flash", detail: null },
     retrievedAt: "2026-10-18T12:00:00.000Z",
   };
 

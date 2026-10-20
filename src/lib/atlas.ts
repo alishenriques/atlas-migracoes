@@ -278,6 +278,20 @@ const RESEARCH_QUERY = /* GraphQL */ `
         status
         detail
       }
+      period {
+        day
+        approximate
+        birthState
+        states
+      }
+      summary {
+        status
+        text
+        citations
+        prompt
+        model
+        detail
+      }
       retrievedAt
     }
   }
