@@ -37,6 +37,9 @@
       "PERIOD": "Period",
       "PERIOD_FROM": "Start year",
       "PERIOD_TO": "End year",
+      "LEGEND": "Legend",
+      "LEGEND_MIGRATION": "From origin to Brazil",
+      "LEGEND_ROUTE": "Other records, in date order",
       "ARTISTS": "{count, plural, one {# artist} other {# artists}}",
       "NO_RESULTS": "No artists for this country and period.",
       "BACK": "Back",
@@ -260,7 +263,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Inferred trajectory",
-    "METHOD": "The line joins the birthplace to the first documented place in Brazil. The sources do not record the route or the year of arrival, so no intermediate route is drawn. Exhibitions of the works during the artist's lifetime and the place of death appear as points.",
+    "METHOD": "The lines join, in date order, the points the collection documents: birth, exhibitions of the works during the artist's lifetime, and death. The stretch from the birthplace to the first documented place in Brazil is drawn in gold. The sources record neither the route nor the year of arrival, so the lines show the sequence of the records, not a documented journey.",
     "STOP": {
       "BIRTH": "Birth",
       "EXHIBITION": "Exhibition",

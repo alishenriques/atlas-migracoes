@@ -88,6 +88,13 @@ describe("Explorar", () => {
     expect(map).toHaveTextContent("lasar-segall,mira-schendel");
   });
 
+  it("explains the two kinds of line", () => {
+    renderExplorar();
+    const legend = screen.getByRole("group", { name: "Legenda" });
+    expect(legend).toHaveTextContent("Da origem ao Brasil");
+    expect(legend).toHaveTextContent("Demais registros, em ordem de data");
+  });
+
   it("filters by country of origin", () => {
     const map = renderExplorar();
     fireEvent.change(screen.getByRole("combobox", { name: "País de origem" }), { target: { value: "Suíça" } });

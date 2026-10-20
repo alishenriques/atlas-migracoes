@@ -114,6 +114,17 @@ export function Explorar({ artists }: ExplorarProps) {
           value={period}
           onChange={setPeriod}
         />
+        <div role="group" aria-label={t("LEGEND")} className={styles.legend}>
+          <p className={styles.listTitle}>{t("LEGEND")}</p>
+          <p className={styles.legendItem}>
+            <span aria-hidden className={styles.legendMigration} />
+            {t("LEGEND_MIGRATION")}
+          </p>
+          <p className={styles.legendItem}>
+            <span aria-hidden className={styles.legendRoute} />
+            {t("LEGEND_ROUTE")}
+          </p>
+        </div>
 
         {selected ? (
           <div className={styles.detail}>

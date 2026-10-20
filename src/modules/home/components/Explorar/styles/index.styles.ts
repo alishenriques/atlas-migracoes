@@ -3,6 +3,11 @@ export const styles = {
   map: "relative h-[60svh] min-h-[360px] md:absolute md:inset-0 md:h-auto",
   panel: "m-4 md:absolute md:top-4 md:left-4 md:m-0 md:max-h-[calc(100%-2rem)] md:w-[336px] md:overflow-y-auto",
   clear: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+  legend: "flex flex-col gap-1",
+  legendItem: "flex items-center gap-2 text-xs text-muted",
+  // Line samples matching the map: solid gold for the migration, dashed light for the other legs.
+  legendMigration: "inline-block h-0.5 w-6 shrink-0 rounded bg-accent",
+  legendRoute: "inline-block w-6 shrink-0 border-t border-dashed border-foreground/60",
   list: "flex flex-col gap-2 border-t border-line pt-3",
   listTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",
   artists: "flex flex-col",
