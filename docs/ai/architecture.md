@@ -91,6 +91,7 @@ Test coverage is a premise of the architecture, decided by Alisson on 2026-10-18
 
 - `e2e/smoke.spec.ts` is the conference demo script: Explorar to an artist's record, the record to the IA Relacional and a citation to its finding, Camada Histórica, Rede Relacional, Sobre, the language switch keeping the page, and the skip link.
 - `e2e/a11y.spec.ts` runs axe (`@axe-core/playwright`) on every screen in PT and EN and fails on any serious or critical WCAG 2.1 A/AA violation it can detect. What axe cannot judge (reading order, keyboard use of the map and the graph) is checked by hand before the deploy.
+- `yarn test:launch` (`playwright.launch.config.ts`, `e2e/launch/`) runs the same demo script against a deployed address with the real base: production by default, or `LAUNCH_URL`. It names no artist (it follows the first one each list shows), fails if any page shows the demo-data notice, and builds or starts nothing. CI does not run it; it is the launch check, and a rehearsal before it.
 - Every page has a "Pular para o conteúdo" link as the first Tab stop, pointing to `#conteudo` (the wrapper in `modules/layout/Layout.tsx`).
 
 ## Visual direction
