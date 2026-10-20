@@ -48,6 +48,15 @@ describe("TopBar", () => {
     expect(screen.getByRole("link", { name: "IA Relacional" })).toHaveAttribute("href", "/ia-relacional");
   });
 
+  it("links home with the Atlas mark and the site name", () => {
+    renderTopBar();
+    const brand = screen.getByRole("link", { name: "Atlas Migrações Leste-Sul" });
+    expect(brand).toHaveAttribute("href", "/");
+    expect(brand.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
+    expect(brand).toHaveTextContent("Atlas Migrações");
+    expect(brand).toHaveTextContent("Leste-Sul · 1918–1989");
+  });
+
   it("marks the current screen", () => {
     renderTopBar();
     expect(screen.getByRole("link", { name: "Trajetórias" })).toHaveAttribute("aria-current", "page");

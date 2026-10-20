@@ -3,20 +3,25 @@
 import { useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
+import { AtlasMark } from "@/shared/components/AtlasMark";
 
 import { menuItems } from "../../constants/menuConfig";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { styles } from "./styles/index.styles";
 
-/** Header from the deck's screens: wordmark on the left, the MVP screens in the middle, language on the right. */
+/** Header from the deck's screens: the Atlas mark and wordmark on the left, the MVP screens in the middle, language on the right. */
 export function TopBar() {
   const t = useTranslations();
   const pathname = usePathname();
 
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.brand}>
-        {t("SEO.SITE_NAME")}
+      <Link href="/" aria-label={t("SEO.SITE_NAME")} className={styles.brand}>
+        <AtlasMark className={styles.mark} />
+        <span className={styles.wordmark}>
+          <span className={styles.name}>{t("BRAND.NAME")}</span>
+          <span className={styles.tagline}>{t("BRAND.TAGLINE")}</span>
+        </span>
       </Link>
       <nav aria-label={t("NAV.LABEL")} className={styles.nav}>
         {menuItems.map((item) => {
