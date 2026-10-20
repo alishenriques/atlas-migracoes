@@ -3,10 +3,12 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { formatFuzzyDate } from "@/lib/dates";
-import { formatSourceDate, groupFindings, isDateProperty, summariesOf } from "@/lib/research";
-import type { Finding, FuzzyDate, Place, Research } from "@/lib/schemas";
+import { findingAnchor, formatSourceDate, groupFindings, isDateProperty, summariesOf, type NumberedFinding } from "@/lib/research";
+import type { FuzzyDate, Place, Research } from "@/lib/schemas";
 import { placeName } from "@/lib/trajectory";
 
+import { AiSummary } from "../AiSummary";
+import { PeriodMap } from "../PeriodMap";
 import { styles } from "./styles/index.styles";
 
 export type ResearchResultsProps = { research: Research };
@@ -33,7 +35,7 @@ const PROPERTY = {
 export function ResearchResults({ research }: ResearchResultsProps) {
   const t = useTranslations("RESEARCH");
   const locale = useLocale();
-  const { artist, match, findings, sources } = research;
+  const { artist, match, findings, sources, period, summary } = research;
   const groups = groupFindings(findings);
   const summaries = summariesOf(findings);
   // With no match, an error on Wikidata means the search never ran, not that nobody matched.
@@ -81,10 +83,14 @@ export function ResearchResults({ research }: ResearchResultsProps) {
           </Panel>
         )}
 
-        {summaries.map((summary) => (
-          <Panel key={summary.sourceUrl} title={t("SUMMARY")}>
-            <p className={styles.text}>{summary.value}</p>
-            <FindingMeta finding={summary} />
+        <AiSummary summary={summary} findingCount={findings.length} />
+
+        {summaries.map((item) => (
+          <Panel key={item.sourceUrl} title={t("SUMMARY")}>
+            <div id={findingAnchor(item.n)} className={styles.anchored}>
+              <p className={styles.text}>{item.value}</p>
+              <FindingMeta finding={item} />
+            </div>
           </Panel>
         ))}
 
@@ -98,8 +104,8 @@ export function ResearchResults({ research }: ResearchResultsProps) {
                   <section key={property} className={styles.group} aria-label={t(`PROPERTY.${PROPERTY[property]}`)}>
                     <h3 className={styles.groupTitle}>{t(`PROPERTY.${PROPERTY[property]}`)}</h3>
                     <ul className={styles.findings}>
-                      {items.map((finding, index) => (
-                        <li key={`${finding.value}-${index}`} className={styles.finding}>
+                      {items.map((finding) => (
+                        <li key={finding.n} id={findingAnchor(finding.n)} className={styles.finding}>
                           <span className={styles.findingValue}>
                             {isDateProperty(finding.property) ? formatSourceDate(finding.value, locale) : finding.value}
                           </span>
@@ -121,6 +127,8 @@ export function ResearchResults({ research }: ResearchResultsProps) {
       </div>
 
       <aside className={styles.aside}>
+        <PeriodMap period={period} />
+
         <Panel title={t("SOURCES")}>
           <ul className={styles.sources}>
             {sources.map(({ source, status }) => (
@@ -142,6 +150,12 @@ export function ResearchResults({ research }: ResearchResultsProps) {
             <p>{t("METHOD_RELIABILITY")}</p>
             <p>{t("METHOD_PERIOD")}</p>
             <p>{t("METHOD_AI")}</p>
+            {summary.prompt && (
+              <details>
+                <summary className={styles.promptToggle}>{t("PROMPT")}</summary>
+                <pre className={styles.prompt}>{summary.prompt}</pre>
+              </details>
+            )}
           </div>
         </Panel>
       </aside>
@@ -149,11 +163,14 @@ export function ResearchResults({ research }: ResearchResultsProps) {
   );
 }
 
-/** Reliability, references and the link to the page the finding was read from. */
-function FindingMeta({ finding }: { finding: Finding }) {
+/** Number, reliability, references and the link to the page the finding was read from. */
+function FindingMeta({ finding }: { finding: NumberedFinding }) {
   const t = useTranslations("RESEARCH");
   return (
     <span className={styles.findingMeta}>
+      <span className={styles.findingNumber} aria-label={t("FINDING_NUMBER", { n: finding.n })}>
+        [{finding.n}]
+      </span>
       <ReliabilityTag level={finding.reliability} label={t(`RELIABILITY.${RELIABILITY[finding.reliability]}`)} />
       {finding.source === "wikidata" && <span>{t("REFERENCES", { count: finding.references })}</span>}
       <a href={finding.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">

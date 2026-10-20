@@ -8,8 +8,8 @@ import messages from "@/locales/pt.json";
 import { ResearchResults } from "../ResearchResults";
 
 vi.mock("@/i18n/navigation", () => ({
-  Link: ({ children, href, ...props }: { children: React.ReactNode; href: { params: { slug: string } } }) => (
-    <a href={`/trajetorias/${href.params.slug}`} {...props}>
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string | { params: { slug: string } } }) => (
+    <a href={typeof href === "string" ? href : `/trajetorias/${href.params.slug}`} {...props}>
       {children}
     </a>
   ),
@@ -63,6 +63,15 @@ const research: Research = {
     { source: "wikidata", status: "ok", detail: null },
     { source: "wikipedia", status: "error", detail: "pt.wikipedia.org answered 503" },
   ],
+  period: { day: "1889-07-01", approximate: false, birthState: "Império Russo", states: ["Alemanha", "Império Russo"] },
+  summary: {
+    status: "ok",
+    text: "Lasar Segall nasceu em 1891 [1] em Vilna, então no Império Russo [2].",
+    citations: [1, 2],
+    prompt: "# Instruções\n\nResuma.\n\n# Dados\n\n[1] data de nascimento: 1891-07-21",
+    model: "gemini-2.5-flash",
+    detail: null,
+  },
   retrievedAt: "2026-10-18T12:00:00.000Z",
 };
 
@@ -146,5 +155,34 @@ describe("ResearchResults", () => {
     });
     expect(screen.getByText(/O Wikidata não respondeu agora/)).toBeInTheDocument();
     expect(screen.queryByText(/Nenhuma pessoa do Wikidata/)).not.toBeInTheDocument();
+  });
+
+  it("numbers the findings and links each citation of the AI summary to its finding", () => {
+    const { container } = renderResults(research);
+    const summary = screen.getByText(/Lasar Segall nasceu em 1891/);
+    const citations = within(summary).getAllByRole("link");
+    expect(citations.map((link) => [link.getAttribute("aria-label"), link.getAttribute("href")])).toEqual([
+      ["Achado 1", "#achado-1"],
+      ["Achado 2", "#achado-2"],
+    ]);
+    expect(container.querySelector("#achado-1")).toHaveTextContent("21 de jul. de 1891");
+    expect(container.querySelector("#achado-2")).toHaveTextContent("Vilnius");
+    expect(container.querySelector("#achado-4")).toHaveTextContent("Lasar Segall foi um pintor.");
+    expect(screen.getByLabelText("Achado 3")).toHaveTextContent("[3]");
+    expect(screen.getByText(/Escrito por IA \(gemini-2.5-flash\)/)).toBeInTheDocument();
+  });
+
+  it("shows the prompt sent to the AI and the period's map it was given", () => {
+    renderResults(research);
+    expect(screen.getByText("Prompt enviado à IA")).toBeInTheDocument();
+    expect(screen.getByText(/\[1\] data de nascimento: 1891-07-21/)).toBeInTheDocument();
+    expect(screen.getByText("Europa em 1 de jul. de 1889")).toBeInTheDocument();
+    expect(screen.getByText("Império Russo", { selector: "p" })).toBeInTheDocument();
+  });
+
+  it("hides the prompt when there is none", () => {
+    renderResults({ ...research, summary: { ...research.summary, status: "no_findings", text: null, prompt: null } });
+    expect(screen.queryByText("Prompt enviado à IA")).not.toBeInTheDocument();
+    expect(screen.queryByText("Resumo da IA")).not.toBeInTheDocument();
   });
 });
