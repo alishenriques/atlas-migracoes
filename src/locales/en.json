@@ -3,6 +3,10 @@
     "SITE_NAME": "Atlas Migrações Leste-Sul",
     "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, based on the MAC USP collection."
   },
+  "BRAND": {
+    "NAME": "Atlas Migrações",
+    "TAGLINE": "Leste-Sul · 1918–1989"
+  },
   "NAV": {
     "LABEL": "Main navigation",
     "HOME": "Explore",
