@@ -37,23 +37,61 @@ const artist = (slug: string, patch: Partial<MapArtist> = {}): MapArtist => ({
 const visible = (artists: MapArtist[]) =>
   filterTrajectories(artists.map(buildTrajectory), { originCountry: "", period: FULL_PERIOD });
 
+const ends = (feature: ReturnType<typeof toMapFeatures>["legs"]["features"][number]) => {
+  const { geometry } = feature;
+  const points = geometry.type === "LineString" ? geometry.coordinates : geometry.coordinates.flat();
+  return [points[0], points.at(-1)].map((point) => point?.map((n) => Math.round(n)));
+};
+
 describe("toMapFeatures", () => {
-  it("draws one curved line from the birthplace to the first place in Brazil", () => {
+  it("joins every documented point in date order with curved lines", () => {
     const { legs } = toMapFeatures(visible([artist("a")]), null);
-    expect(legs.features).toHaveLength(1);
+    // Vienna (birth) → Paris (1930) → Rio (1950) → São Paulo (death)
+    expect(legs.features.map(ends)).toEqual([
+      [
+        [16, 48],
+        [2, 49],
+      ],
+      [
+        [2, 49],
+        [-43, -23],
+      ],
+      [
+        [-43, -23],
+        [-47, -24],
+      ],
+    ]);
+    expect(legs.features[0]?.geometry.type).toBe("LineString");
     const first = legs.features[0]?.geometry;
-    expect(first?.type).toBe("LineString");
-    if (first?.type !== "LineString") return;
-    expect(first.coordinates[0]?.map((n) => Math.round(n))).toEqual([16, 48]);
-    expect(first.coordinates.at(-1)?.map((n) => Math.round(n))).toEqual([-43, -23]);
-    expect(first.coordinates.length).toBeGreaterThan(2);
+    if (first?.type === "LineString") expect(first.coordinates.length).toBeGreaterThan(2);
   });
 
-  it("marks the selected artist's lines and places", () => {
+  it("marks the legs from the birthplace to the first place in Brazil as the migration", () => {
+    const { legs, places } = toMapFeatures(visible([artist("a")]), null);
+    expect(legs.features.map((f) => f.properties.kind)).toEqual(["migration", "migration", "route"]);
+    const migration = (id: string) => places.features.find((f) => f.properties.placeId === id)?.properties.migration;
+    expect(migration("viena")).toBe(true);
+    expect(migration("rio")).toBe(true);
+    expect(migration("paris")).toBe(false);
+    expect(migration("sao-paulo")).toBe(false);
+  });
+
+  it("draws only route legs for an artist born in Brazil", () => {
+    const { legs, places } = toMapFeatures(visible([artist("a", { birthPlace: saoPaulo, deathPlace: null })]), null);
+    expect(legs.features.map((f) => f.properties.kind)).toEqual(["route", "route"]);
+    expect(places.features.some((f) => f.properties.migration)).toBe(false);
+  });
+
+  it("draws only the selected artist's lines and marks their places", () => {
     const { legs, places } = toMapFeatures(visible([artist("a"), artist("b", { exhibitions: [] })]), "b");
-    expect(legs.features.filter((f) => f.properties.selected).map((f) => f.properties.slug)).toEqual(["b"]);
+    expect(legs.features.map((f) => [f.properties.slug, f.properties.selected])).toEqual([["b", true]]);
     expect(places.features.find((f) => f.properties.placeId === "rio")?.properties.selected).toBe(false);
     expect(places.features.find((f) => f.properties.placeId === "viena")?.properties.selected).toBe(true);
+  });
+
+  it("draws everyone's lines when the selected artist is filtered out", () => {
+    const { legs } = toMapFeatures(visible([artist("a")]), "gone");
+    expect(legs.features).toHaveLength(3);
   });
 
   it("puts one point per place, counting the artists who passed there", () => {
@@ -62,13 +100,7 @@ describe("toMapFeatures", () => {
     expect(places.features.find((f) => f.properties.placeId === "viena")?.properties.artists).toBe(2);
   });
 
-  it("keeps exhibitions as points without lines between them", () => {
-    const { legs, places } = toMapFeatures(visible([artist("a")]), null);
-    expect(legs.features).toHaveLength(1);
-    expect(places.features.map((f) => f.properties.placeId)).toContain("paris");
-  });
-
-  it("skips the line when both ends share the same coordinates", () => {
+  it("skips a leg whose ends share the same coordinates", () => {
     const sameSpot = place("sao-paulo-capital", -23.55, -46.63, "Áustria");
     const { legs } = toMapFeatures(visible([artist("a", { birthPlace: sameSpot, exhibitions: [] })]), null);
     expect(legs.features).toHaveLength(0);
