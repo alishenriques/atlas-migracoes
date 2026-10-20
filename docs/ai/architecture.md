@@ -51,7 +51,7 @@ src/
   locales/            # pt.json, en.json, nested UPPER_CASE namespaces; keys must match (locales.test.ts)
   proxy.ts            # Next 16's middleware (renamed), runs next-intl
   modules/<module>/   # <Name>.tsx, styles/index.styles.ts, tests/, components/<Sub>/..., constants/
-  shared/components/  # reused across modules but specific to the Atlas (DemoNotice, ComingSoon)
+  shared/components/  # reused across modules but specific to the Atlas (DemoNotice, ComingSoon, AtlasMark)
   lib/                # env.ts, graphql-client.ts, schemas.ts, atlas.ts (queries)
 ```
 
@@ -87,6 +87,8 @@ Test coverage is a premise of the architecture, decided by Alisson on 2026-10-18
 ## Visual direction
 
 The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21): night-blue surfaces, one gold accent, serif headings, small uppercase sans labels, translucent panels over the map, a reliability tag (documented, inferred, undetermined) next to claims. Single dark theme by design.
+
+Brand (chosen by Alisson, 2026-10-20): the "Rosa Leste-Sul", a compass rose whose only gold stroke is the quarter turn from East to South. The header draws it with `shared/components/AtlasMark` (inline SVG coloured by the `foreground` and `accent` tokens) next to the live wordmark text; `src/app/icon.svg`, `favicon.ico` and `apple-icon.png` use the simplified icon (no ring, thicker strokes) on a night-blue square. The full kit (lockups, light and mono versions) lives outside the repo, in the project's files.
 
 ## Planned additions (see roadmap)
 
