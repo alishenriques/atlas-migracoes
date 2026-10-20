@@ -49,10 +49,10 @@ Done when the demo script runs end to end at the final address.
   - [x] Open-source search in the API (Wikidata, Wikipedia), each finding with its source, reliability and review notes
   - [x] Screen in the app (`/ia-relacional`), opens from Trajetórias
   - [x] Summary with the Gemini API free tier, prompt shown, the period's territories in the prompt (API: `research.summary`, `research.period`; app: summary with citations, prompt and the period's map)
-- [ ] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
+- [x] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
   - [x] Playwright smoke flow and axe on every screen, in CI
   - [x] Accessibility fixes found by axe and by hand (language switch name, skip link)
-  - [ ] Load optimization of the map and layers
+  - [x] Load optimization of the map and layers: MapLibre already loads only on map screens; added a preconnect to the tile server, a preload of the borders file and a day of caching for it (see "Map loading" in architecture.md)
 - [x] Vercel Web Analytics and Speed Insights in the app (requested by Alisson, 2026-10-20). Both are free on the Hobby plan within its monthly limits; turn them on in the Vercel project and add `@vercel/analytics` and `@vercel/speed-insights` to the root layout (`src/app/[locale]/layout.tsx`). No cookies or personal data, so no consent banner. Turning both on in the Vercel project (Analytics and Speed Insights tabs) is Alisson's step.
 - [ ] Protect `main` in the three repos (requested by Alisson, 2026-10-20): merging only through a PR with green CI and Alisson's approval, no direct pushes, history kept linear (Rebase and merge). Note: GitHub does not let an author approve their own PR, and the PRs are opened under Alisson's account, so a required approving review would block every merge. Rule to use instead: a repository ruleset on `main` requiring a PR and the CI checks, blocking force pushes and deletions, with Alisson as the only bypass actor; his "Aproved" comment stays the approval, as in the PR workflow. Applied by Alisson in each repo's Settings → Rules (Claude cannot change repository settings from here).
 - [ ] Production deploy on 8 Nov
