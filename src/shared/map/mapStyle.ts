@@ -1,10 +1,13 @@
 import type { StyleSpecification } from "maplibre-gl";
 
+/** Where OpenFreeMap serves its tiles and glyphs; maps preconnect to it (see `preconnectTiles`). */
+export const TILES_ORIGIN = "https://tiles.openfreemap.org";
+
 /** Free OpenStreetMap vector tiles, no key or account (https://openfreemap.org). */
-const TILES_URL = "https://tiles.openfreemap.org/planet";
+const TILES_URL = `${TILES_ORIGIN}/planet`;
 
 /** OpenFreeMap's free font glyphs, needed only by maps that draw text labels. */
-export const GLYPHS_URL = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
+export const GLYPHS_URL = `${TILES_ORIGIN}/fonts/{fontstack}/{range}.pbf`;
 
 /** A font OpenFreeMap serves, for text labels on the map. */
 export const LABEL_FONT = ["Noto Sans Regular"];

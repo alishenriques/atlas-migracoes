@@ -18,5 +18,6 @@ describe("LazyHistoricalMap", () => {
     );
     expect(container.querySelector(".animate-pulse")).not.toBeNull();
     expect(await findByRole("region", { name: "mapa" })).toBeInTheDocument();
+    expect(document.head.querySelector('link[rel="preconnect"][href="https://tiles.openfreemap.org"]')).not.toBeNull();
   });
 });
