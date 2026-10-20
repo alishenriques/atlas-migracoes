@@ -203,8 +203,27 @@
     "QUERY": "Consulta usada",
     "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e morte, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
     "METHOD_RELIABILITY": "Um achado é documentado quando o Wikidata cita referências para ele; sem referências, ou vindo do texto da enciclopédia, ele não é determinado.",
-    "METHOD_PERIOD": "As fontes abertas usam os nomes atuais de lugares e Estados. Para a geopolítica do período, compare com a Camada Histórica.",
-    "METHOD_AI": "O resumo feito por IA, com o prompt mostrado aqui, entra numa próxima versão."
+    "METHOD_PERIOD": "As fontes abertas usam os nomes atuais de lugares e Estados. A IA recebe os Estados do ano de nascimento e é instruída a usar os nomes da época.",
+    "METHOD_AI": "O resumo é escrito pelo Gemini com temperatura baixa, a partir só dos achados numerados, do registro do acervo e do mapa do período. Um resumo que não cite os achados, ou cite um que não existe, é descartado.",
+    "AI_SUMMARY": "Resumo da IA",
+    "AI_NOTE": "Escrito por IA ({model}) só com os achados numerados e o registro do acervo, dentro da geopolítica do período. Cada número leva ao achado de onde a afirmação vem; confira a fonte antes de usar.",
+    "AI_STATUS": {
+      "NOT_CONFIGURED": "O resumo por IA não está ativo neste ambiente. O prompt que seria enviado aparece em “Como a pesquisa é feita”.",
+      "REJECTED": "A IA escreveu um resumo que não citava os achados corretamente, então ele não é mostrado.",
+      "ERROR": "A IA não respondeu agora. Os achados continuam valendo; tente de novo em instantes."
+    },
+    "CITATION": "Achado {n}",
+    "FINDING_NUMBER": "Achado {n}",
+    "PERIOD": "O mapa do período",
+    "PERIOD_DAY": "Europa em {date}",
+    "PERIOD_APPROXIMATE": "O ano de nascimento é aproximado no acervo.",
+    "PERIOD_BIRTH_STATE": "Estado do local de nascimento",
+    "PERIOD_NO_STATE": "nenhum Estado identificado",
+    "PERIOD_STATES": "{count, plural, one {# Estado na Europa nesse dia} other {# Estados na Europa nesse dia}}",
+    "PERIOD_SOURCE": "Fronteiras do CShapes 2.0, lidas em 1º de julho do ano de nascimento, como na Camada Histórica. É este mapa que a IA recebe.",
+    "PERIOD_UNAVAILABLE": "O ano de nascimento é desconhecido ou está fora do período coberto pelas fronteiras, então a IA não recebe o mapa do período.",
+    "OPEN_LAYER": "Abrir a Camada Histórica",
+    "PROMPT": "Prompt enviado à IA"
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",

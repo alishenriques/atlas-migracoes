@@ -203,8 +203,27 @@
     "QUERY": "Query used",
     "QUERY_TEXT": "Searches Wikidata for the name “{name}”; of the people found, only the one that is certainly this artist is kept. From it the search reads the dates and places of birth and death, citizenship, occupation, movement, education, institutions they were a member of and notable works, and the lead of the Wikipedia article in Portuguese (or English, when there is none).",
     "METHOD_RELIABILITY": "A finding is documented when Wikidata cites references for it; with no references, or when it comes from encyclopedia text, it is undetermined.",
-    "METHOD_PERIOD": "Open sources use the present-day names of places and states. For the period's geopolitics, compare with the Historical Layer.",
-    "METHOD_AI": "The AI summary, with its prompt shown here, comes in a later version."
+    "METHOD_PERIOD": "Open sources use the present-day names of places and states. The AI is given the states of the birth year and told to use the names of the time.",
+    "METHOD_AI": "The summary is written by Gemini at a low temperature, only from the numbered findings, the collection's record and the period's map. A summary that cites no finding, or one that does not exist, is discarded.",
+    "AI_SUMMARY": "AI summary",
+    "AI_NOTE": "Written by AI ({model}) only from the numbered findings and the collection's record, within the period's geopolitics. Each number leads to the finding the claim comes from; check the source before using it.",
+    "AI_STATUS": {
+      "NOT_CONFIGURED": "The AI summary is not active in this environment. The prompt that would be sent is under “How the search works”.",
+      "REJECTED": "The AI wrote a summary that did not cite the findings correctly, so it is not shown.",
+      "ERROR": "The AI did not answer just now. The findings still stand; please try again shortly."
+    },
+    "CITATION": "Finding {n}",
+    "FINDING_NUMBER": "Finding {n}",
+    "PERIOD": "The period's map",
+    "PERIOD_DAY": "Europe on {date}",
+    "PERIOD_APPROXIMATE": "The birth year is approximate in the collection.",
+    "PERIOD_BIRTH_STATE": "State of the birthplace",
+    "PERIOD_NO_STATE": "no state identified",
+    "PERIOD_STATES": "{count, plural, one {# state in Europe that day} other {# states in Europe that day}}",
+    "PERIOD_SOURCE": "CShapes 2.0 borders, read on 1 July of the birth year, as on the Historical Layer. This is the map the AI is given.",
+    "PERIOD_UNAVAILABLE": "The birth year is unknown or outside the period the borders cover, so the AI is not given the period's map.",
+    "OPEN_LAYER": "Open the Historical Layer",
+    "PROMPT": "Prompt sent to the AI"
   },
   "ABOUT": {
     "TITLE": "About the project",
