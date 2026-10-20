@@ -82,7 +82,15 @@ Test coverage is a premise of the architecture, decided by Alisson on 2026-10-18
 
   A floor only goes up: when a PR raises coverage, it raises the floor too.
 - **What is not measured, and why:** only code with no logic of its own. App: the Next.js route files in `src/app` (each `page.tsx` stays a thin wrapper delegating to a tested module), `src/i18n` and `src/proxy.ts` wiring, and barrels (`index.ts`); these are exercised by `next build`. API: entry points that only wire env, files and exit codes around tested functions (`src/index.ts`, `src/**/cli.ts`, `src/db/migrate.ts`, `api/graphql.ts`) and the declarative Drizzle tables (`src/db/schema.ts`, checked by the PGlite migrations in every test). DS: barrels. Logic never moves into these files to dodge the floor.
-- **What the numbers do not prove:** behaviour in a real browser. The planned Playwright smoke flow (see "Planned additions") covers the map, the record and later the login before each deploy.
+- **What the numbers do not prove:** behaviour in a real browser. That is the job of the Playwright suite in `e2e/` (see "Smoke and accessibility tests" below).
+
+## Smoke and accessibility tests
+
+`yarn test:e2e` (Playwright, Chromium, desktop and a Pixel 7 viewport) runs the built app (`yarn build` first) against `e2e/mock-api.mts`, a stand-in for the API that answers each GraphQL operation by name with simulated records (`meta.source = demo`; no collection data in the repo). The mock listens on the API's default local URL, `http://localhost:4000/graphql`, so the default build already points to it. CI runs it in a separate `e2e` job on every PR.
+
+- `e2e/smoke.spec.ts` is the conference demo script: Explorar to an artist's record, the record to the IA Relacional and a citation to its finding, Camada Histórica, Rede Relacional, Sobre, the language switch keeping the page, and the skip link.
+- `e2e/a11y.spec.ts` runs axe (`@axe-core/playwright`) on every screen in PT and EN and fails on any serious or critical WCAG 2.1 A/AA violation it can detect. What axe cannot judge (reading order, keyboard use of the map and the graph) is checked by hand before the deploy.
+- Every page has a "Pular para o conteúdo" link as the first Tab stop, pointing to `#conteudo` (the wrapper in `modules/layout/Layout.tsx`).
 
 ## Visual direction
 
@@ -95,7 +103,7 @@ Brand (chosen by Alisson, 2026-10-20): the "Rosa Leste-Sul", a compass rose whos
 - Historical cartography: Europe's state borders from CShapes 2.0 (CC BY-NC-SA 4.0), one static file of polygons with validity dates built by `scripts/build-cartography.mts`; the app picks the polygons in force on a day and places birthplaces in them by point-in-polygon. See "Historical cartography" in the roadmap.
 - Geocoding: a one-time Nominatim script plus manual review, stored in `places`; never a live lookup.
 - Admin: Better Auth with the Drizzle adapter, sessions in Postgres, roles admin and researcher.
-- E2E: one Playwright smoke flow (map, artist record, login) before each deploy.
+- E2E: when the admin area arrives, the login joins the smoke flow.
 - IA Relacional: an API service that searches open sources (Wikidata, Wikipedia) and uses the Gemini API free tier to summarise; the key stays in the API's env. Every finding keeps its source URL and a reliability tag, the prompt is returned to the app, and the period's territories go into the prompt so the model reasons only with that period's geopolitics. Findings never enter the base without review.
 
 ## Design system consumption

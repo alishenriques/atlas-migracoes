@@ -50,6 +50,9 @@ Done when the demo script runs end to end at the final address.
   - [x] Screen in the app (`/ia-relacional`), opens from Trajetórias
   - [x] Summary with the Gemini API free tier, prompt shown, the period's territories in the prompt (API: `research.summary`, `research.period`; app: summary with citations, prompt and the period's map)
 - [ ] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
+  - [x] Playwright smoke flow and axe on every screen, in CI
+  - [x] Accessibility fixes found by axe and by hand (language switch name, skip link)
+  - [ ] Load optimization of the map and layers
 - [ ] Production deploy on 8 Nov
 
 ## Historical cartography
