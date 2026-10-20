@@ -50,7 +50,7 @@ describe("TopBar", () => {
 
   it("links home with the Atlas mark and the site name", () => {
     renderTopBar();
-    const brand = screen.getByRole("link", { name: "Atlas Migrações Leste-Sul" });
+    const brand = screen.getByRole("link", { name: "Atlas Migrações Leste-Sul · 1918–1989" });
     expect(brand).toHaveAttribute("href", "/");
     expect(brand.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
     expect(brand).toHaveTextContent("Atlas Migrações");

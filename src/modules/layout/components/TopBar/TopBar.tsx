@@ -19,10 +19,11 @@ export function TopBar() {
       <a href={`#${CONTENT_ID}`} className={styles.skip}>
         {t("NAV.SKIP_TO_CONTENT")}
       </a>
-      <Link href="/" aria-label={t("SEO.SITE_NAME")} className={styles.brand}>
+      {/* Named by its visible text (no aria-label), so voice control users can say what they see. */}
+      <Link href="/" className={styles.brand}>
         <AtlasMark className={styles.mark} />
         <span className={styles.wordmark}>
-          <span className={styles.name}>{t("BRAND.NAME")}</span>
+          <span className={styles.name}>{t("BRAND.NAME")}</span>{" "}
           <span className={styles.tagline}>{t("BRAND.TAGLINE")}</span>
         </span>
       </Link>
