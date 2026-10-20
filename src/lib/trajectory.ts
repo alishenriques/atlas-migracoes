@@ -112,10 +112,9 @@ export function filterTrajectories(trajectories: Trajectory[], filters: Filters)
 export const BRAZIL = "Brasil";
 
 /**
- * The one line drawn on the map: from the birthplace to the first documented
- * place in Brazil. The collection documents no route, so no intermediate leg
- * is drawn. Null when the artist was born in Brazil, has no documented place
- * in Brazil, or either end is outside the shown period.
+ * The migration the map highlights: from the birthplace to the first
+ * documented place in Brazil. Null when the artist was born in Brazil, has no
+ * documented place in Brazil, or either end is outside the shown period.
  */
 export function migrationLeg({ stops, visible }: VisibleTrajectory): [Stop, Stop] | null {
   const birth = stops.find((stop) => stop.kind === "birth");
