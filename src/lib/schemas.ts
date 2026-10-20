@@ -199,6 +199,24 @@ export const findingSchema = z.object({
   reviews: z.array(findingReviewSchema),
 });
 
+/** The map of Europe on the artist's birth (CShapes 2.0) that the AI summary is given. */
+export const researchPeriodSchema = z.object({
+  day: z.iso.date(),
+  approximate: z.boolean(),
+  birthState: z.string().nullable(),
+  states: z.array(z.string()),
+});
+
+/** The AI summary of the findings; its text cites findings as [n], n counting from 1 in `findings`. */
+export const researchSummarySchema = z.object({
+  status: z.enum(["ok", "not_configured", "no_findings", "rejected", "error"]),
+  text: z.string().nullable(),
+  citations: z.array(z.number().int().positive()),
+  prompt: z.string().nullable(),
+  model: z.string().nullable(),
+  detail: z.string().nullable(),
+});
+
 export const researchSchema = z.object({
   artist: mapArtistSchema.omit({ exhibitions: true }),
   match: z
@@ -218,6 +236,8 @@ export const researchSchema = z.object({
       detail: z.string().nullable(),
     }),
   ),
+  period: researchPeriodSchema.nullable(),
+  summary: researchSummarySchema,
   retrievedAt: z.iso.datetime({ offset: true }),
 });
 
@@ -227,3 +247,5 @@ export type FindingProperty = z.infer<typeof findingPropertySchema>;
 export type FindingReview = z.infer<typeof findingReviewSchema>;
 export type Finding = z.infer<typeof findingSchema>;
 export type Research = z.infer<typeof researchSchema>;
+export type ResearchPeriod = z.infer<typeof researchPeriodSchema>;
+export type ResearchSummary = z.infer<typeof researchSummarySchema>;
