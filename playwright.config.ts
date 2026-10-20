@@ -5,6 +5,8 @@ import { defineConfig, devices } from "@playwright/test";
 // http://localhost:4000/graphql, so the default build already points to it.
 export default defineConfig({
   testDir: "./e2e",
+  // e2e/launch runs against a deployed address (playwright.launch.config.ts).
+  testIgnore: "launch/**",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
