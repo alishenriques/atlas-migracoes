@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { AtlasMark } from "@/shared/components/AtlasMark";
 
-import { menuItems } from "../../constants/menuConfig";
+import { CONTENT_ID, menuItems } from "../../constants/menuConfig";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { styles } from "./styles/index.styles";
 
@@ -16,6 +16,9 @@ export function TopBar() {
 
   return (
     <header className={styles.header}>
+      <a href={`#${CONTENT_ID}`} className={styles.skip}>
+        {t("NAV.SKIP_TO_CONTENT")}
+      </a>
       <Link href="/" aria-label={t("SEO.SITE_NAME")} className={styles.brand}>
         <AtlasMark className={styles.mark} />
         <span className={styles.wordmark}>

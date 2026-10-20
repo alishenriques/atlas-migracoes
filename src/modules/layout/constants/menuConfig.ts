@@ -23,3 +23,6 @@ export const menuItems: MenuItem[] = [
   { href: "/ia-relacional", labelKey: "RELATIONAL_AI" },
   { href: "/sobre", labelKey: "ABOUT" },
 ];
+
+/** Id of the element that holds each page, the target of the "skip to content" link. */
+export const CONTENT_ID = "conteudo";

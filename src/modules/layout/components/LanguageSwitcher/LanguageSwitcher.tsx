@@ -19,8 +19,12 @@ export function LanguageSwitcher() {
   const other = routing.locales.find((candidate) => candidate !== locale) ?? routing.defaultLocale;
 
   return (
-    <Link href={href} locale={other} hrefLang={other} aria-label={`${t("LANGUAGE")}: ${t("SWITCH_TO")}`} className={styles.link}>
-      {other.toUpperCase()}
+    // The visible code starts the accessible name, so voice control users can say what they see.
+    <Link href={href} locale={other} hrefLang={other} className={styles.link}>
+      {other.toUpperCase()}{" "}
+      <span className="sr-only">
+        ({t("LANGUAGE")}: {t("SWITCH_TO")})
+      </span>
     </Link>
   );
 }

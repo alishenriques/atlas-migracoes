@@ -63,9 +63,16 @@ describe("TopBar", () => {
     expect(screen.getByRole("link", { name: "Explorar" })).not.toHaveAttribute("aria-current");
   });
 
+  it("starts with a link that skips the menu to the page's content", () => {
+    renderTopBar();
+    const skip = screen.getAllByRole("link")[0];
+    expect(skip).toHaveTextContent("Pular para o conteúdo");
+    expect(skip).toHaveAttribute("href", "#conteudo");
+  });
+
   it("offers the same page in English", () => {
     renderTopBar();
-    expect(screen.getByRole("link", { name: "Idioma: English" })).toHaveAttribute("href", "/en/trajetorias");
+    expect(screen.getByRole("link", { name: "EN (Idioma: English)" })).toHaveAttribute("href", "/en/trajetorias");
   });
 
   it("keeps the section marked and the record's URL on an artist record", () => {
@@ -73,7 +80,7 @@ describe("TopBar", () => {
     navigation.params = { locale: "pt", slug: "lasar-segall" };
     renderTopBar();
     expect(screen.getByRole("link", { name: "Trajetórias" })).toHaveAttribute("aria-current", "page");
-    expect(screen.getByRole("link", { name: "Idioma: English" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "EN (Idioma: English)" })).toHaveAttribute(
       "href",
       "/en/trajetorias/lasar-segall",
     );
