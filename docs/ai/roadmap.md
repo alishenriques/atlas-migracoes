@@ -86,3 +86,4 @@ Goal: show Europe's borders and political divisions decade by decade, so that ev
 
 - Admin area: login (Better Auth), artist list, create/edit, migration events, spreadsheet import with preview
 - Researcher contribution flow, images of works, full English texts
+- IA Relacional with more than one AI (requested by Alisson, 2026-10-21): a deeper search that asks several models, so every finding and every sentence of a summary records which AI supplied it (provider, model, date) as its reference. Today only Gemini writes the summary, and each stored research already keeps the model that answered and the prompt sent; the findings come from Wikidata and Wikipedia, each with its source page.
