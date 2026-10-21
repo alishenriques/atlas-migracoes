@@ -9,6 +9,7 @@ import { placeName } from "@/lib/trajectory";
 
 import { AiSummary } from "../AiSummary";
 import { PeriodMap } from "../PeriodMap";
+import { ResearchOverview } from "../ResearchOverview";
 import { styles } from "./styles/index.styles";
 
 export type ResearchResultsProps = { research: Research };
@@ -38,8 +39,6 @@ export function ResearchResults({ research }: ResearchResultsProps) {
   const { artist, match, findings, sources, period, summary } = research;
   const groups = groupFindings(findings);
   const summaries = summariesOf(findings);
-  // With no match, an error on Wikidata means the search never ran, not that nobody matched.
-  const searchFailed = sources.some(({ source, status }) => source === "wikidata" && status === "error");
 
   const life = (date: FuzzyDate, place: Place | null) =>
     `${formatFuzzyDate(date, locale, t("UNKNOWN_DATE"))}, ${place ? placeName(place) : t("UNKNOWN_PLACE")}`;
@@ -68,7 +67,9 @@ export function ResearchResults({ research }: ResearchResultsProps) {
       </Panel>
 
       <div className={styles.main}>
-        {match ? (
+        <ResearchOverview research={research} />
+
+        {match && (
           <Panel title={t("MATCH")}>
             <p className={styles.matchTitle}>{match.label}</p>
             {match.description && <p className={styles.text}>{match.description}</p>}
@@ -76,10 +77,6 @@ export function ResearchResults({ research }: ResearchResultsProps) {
             <a href={match.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
               {t("SOURCE_LINK")}: Wikidata {match.id}
             </a>
-          </Panel>
-        ) : (
-          <Panel title={t("MATCH")}>
-            <p className={styles.text}>{t(searchFailed ? "SOURCE_ERROR" : "NO_MATCH")}</p>
           </Panel>
         )}
 
