@@ -217,8 +217,20 @@ export const researchSummarySchema = z.object({
   detail: z.string().nullable(),
 });
 
+/** A person Wikidata returned that was not linked to the artist, and why: a lead for a researcher, never a finding. */
+export const researchCandidateSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  description: z.string().nullable(),
+  url: sourceUrlSchema,
+  birthYear: z.number().int().nullable(),
+  foundBy: z.string(),
+  reason: z.enum(["birth_year_differs", "no_birth_year", "ambiguous", "shorter_name", "name_differs"]),
+});
+
 export const researchSchema = z.object({
   artist: mapArtistSchema.omit({ exhibitions: true }),
+  searchedNames: z.array(z.string()),
   match: z
     .object({
       id: z.string(),
@@ -228,6 +240,7 @@ export const researchSchema = z.object({
       basis: z.enum(["birth_year", "name"]),
     })
     .nullable(),
+  candidates: z.array(researchCandidateSchema),
   findings: z.array(findingSchema),
   sources: z.array(
     z.object({
@@ -249,3 +262,4 @@ export type Finding = z.infer<typeof findingSchema>;
 export type Research = z.infer<typeof researchSchema>;
 export type ResearchPeriod = z.infer<typeof researchPeriodSchema>;
 export type ResearchSummary = z.infer<typeof researchSummarySchema>;
+export type ResearchCandidate = z.infer<typeof researchCandidateSchema>;
