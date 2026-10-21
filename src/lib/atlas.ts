@@ -262,6 +262,16 @@ const RESEARCH_QUERY = /* GraphQL */ `
         url
         basis
       }
+      searchedNames
+      candidates {
+        id
+        label
+        description
+        url
+        birthYear
+        foundBy
+        reason
+      }
       findings {
         source
         sourceUrl

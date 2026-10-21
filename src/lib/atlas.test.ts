@@ -153,7 +153,9 @@ describe("getArtistList", () => {
 describe("getResearch", () => {
   const research = {
     artist: { ...mapArtist, exhibitions: undefined },
+    searchedNames: ["Lasar Segall"],
     match: { id: "Q1", label: "Lasar Segall", description: null, url: "https://www.wikidata.org/wiki/Q1", basis: "birth_year" },
+    candidates: [],
     findings: [
       {
         source: "wikidata",
