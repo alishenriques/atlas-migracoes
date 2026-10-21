@@ -46,7 +46,9 @@ const research: Research = {
     deathPlace: null,
     deathDate: year(null),
   },
+  searchedNames: ["Lasar Segall"],
   match: { id: "Q1", label: "Lasar Segall", description: "pintor lituano-brasileiro", url: item, basis: "birth_year" },
+  candidates: [],
   findings: [
     statement("birthDate", "1891-07-21", { references: 2, reliability: "documented", reviews: ["conflicts_with_collection"] }),
     statement("birthPlace", "Vilnius", { reviews: ["present_day_name"] }),
@@ -120,7 +122,7 @@ describe("ResearchResults", () => {
     renderResults(research);
     expect(screen.getByText("Wikidata: consultada")).toBeInTheDocument();
     expect(screen.getByText("Wikipedia: não respondeu")).toBeInTheDocument();
-    expect(screen.getByText(/Fontes lidas em 18 de outubro de 2026 às 09:00/)).toBeInTheDocument();
+    expect(screen.getByText("Fontes lidas em 18 de outubro de 2026 às 09:00.")).toBeInTheDocument();
     expect(screen.getByText(/Busca no Wikidata pelo nome “Lasar Segall”/)).toBeInTheDocument();
   });
 
@@ -141,8 +143,9 @@ describe("ResearchResults", () => {
       findings: [],
       sources: [{ source: "wikidata", status: "no_match", detail: null }],
     });
-    expect(screen.getByText(/Nenhuma pessoa do Wikidata é com certeza este artista/)).toBeInTheDocument();
+    expect(screen.getByText(/Não foram encontrados dados concretos sobre este artista/)).toBeInTheDocument();
     expect(screen.getByText("Wikidata: nada encontrado")).toBeInTheDocument();
+    expect(screen.queryByText("Pessoa encontrada no Wikidata")).not.toBeInTheDocument();
     expect(screen.queryByText("Achados")).not.toBeInTheDocument();
   });
 
@@ -153,8 +156,8 @@ describe("ResearchResults", () => {
       findings: [],
       sources: [{ source: "wikidata", status: "error", detail: "www.wikidata.org answered 503" }],
     });
-    expect(screen.getByText(/O Wikidata não respondeu agora/)).toBeInTheDocument();
-    expect(screen.queryByText(/Nenhuma pessoa do Wikidata/)).not.toBeInTheDocument();
+    expect(screen.getByText(/Pesquisa pendente/)).toBeInTheDocument();
+    expect(screen.queryByText(/Não foram encontrados dados concretos/)).not.toBeInTheDocument();
   });
 
   it("numbers the findings and links each citation of the AI summary to its finding", () => {
