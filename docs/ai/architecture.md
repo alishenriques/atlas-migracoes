@@ -35,7 +35,7 @@ What the data does **not** have: arrival year or route to Brazil, images. The ma
 
 ## API (`atlas-migracoes-api`)
 
-- `src/app.ts`: `createApp(env, { db })` builds the Yoga instance; used by `src/index.ts` (local) and `api/graphql.ts` (Vercel). `vercel.json` rewrites `/graphql`.
+- `src/app.ts`: `createApp(env, { db })` builds the Yoga instance; used by `src/index.ts` (local) and `api/graphql.ts` (Vercel). `vercel.json` rewrites `/graphql` and pins the "Other" preset (`framework: null`, output `public`), because Vercel would otherwise detect a Vite site from the `vite` dev dependency that vitest needs.
 - `src/graphql/schema.ts`: read-only queries `meta`, `stats`, `artists(filter)`, `artist(slug)`, `places`, `exhibitions(placeId)`, `work(id)`. Throw `GraphQLError` for client-visible errors (`BAD_USER_INPUT`).
 - **Demo mode:** without `DATABASE_URL` the API serves a few simulated records (`src/db/fallback.ts`) and `meta.source` is `demo`; the app shows `DemoNotice` whenever it sees that.
 - **Tests:** PGlite with the real migrations; the importer is tested end to end with a workbook generated in the test (same headers and quirks as the real export).
