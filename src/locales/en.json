@@ -170,8 +170,6 @@
       "BIRTH_YEAR": "Chosen as the only person with this name born in the year the collection records.",
       "NAME": "The collection has no birth year; chosen as the only person with exactly this name."
     },
-    "NO_MATCH": "No Wikidata person is certainly this artist. When there are namesakes, or the birth year does not match, the search picks none, so as not to give the artist someone else's life.",
-    "SOURCE_ERROR": "Wikidata did not answer just now, so the open sources could not be searched for this artist. Please try again shortly.",
     "SUMMARY": "Encyclopedia summary",
     "FINDINGS": "Findings",
     "NO_FINDINGS": "The person found has none of this information on Wikidata.",
@@ -203,7 +201,7 @@
       "NO_MATCH": "nothing found",
       "ERROR": "did not answer"
     },
-    "RETRIEVED": "Sources read on {date}. Answers are kept for a day.",
+    "RETRIEVED": "Sources read on {date}.",
     "METHOD": "How the search works",
     "QUERY": "Query used",
     "QUERY_TEXT": "Searches Wikidata for the name “{name}”; of the people found, only the one that is certainly this artist is kept. From it the search reads the dates and places of birth and death, citizenship, occupation, movement, education, institutions they were a member of and notable works, and the lead of the Wikipedia article in Portuguese (or English, when there is none).",
@@ -228,7 +226,25 @@
     "PERIOD_SOURCE": "CShapes 2.0 borders, read on 1 July of the birth year, as on the Historical Layer. This is the map the AI is given.",
     "PERIOD_UNAVAILABLE": "The birth year is unknown or outside the period the borders cover, so the AI is not given the period's map.",
     "OPEN_LAYER": "Open the Historical Layer",
-    "PROMPT": "Prompt sent to the AI"
+    "PROMPT": "Prompt sent to the AI",
+    "OVERVIEW": {
+      "TITLE": "AI research on this artist",
+      "FOUND": "Information found by the automated research of {date} on {platforms}. Each finding below links to the page it came from.",
+      "FOUND_AI": "Summary written by AI: {model}.",
+      "NOT_FOUND": "No concrete data on this artist was found by the research on {platforms} on {date}.",
+      "PENDING": "Research pending: Wikidata did not answer in the research of {date}, so it is not yet known whether there is data on this artist.",
+      "SEARCHED": "Names searched: {names}.",
+      "NONE_FOUND": "Nobody with this name was found on Wikidata. This is information for research to gather.",
+      "CANDIDATES": "Possible matches, not linked",
+      "CANDIDATES_NOTE": "None of them was linked automatically, so as not to give the artist someone else's life. If one is the artist, a researcher's confirmation lets it be linked.",
+      "REASON": {
+        "BIRTH_YEAR_DIFFERS": "Wikidata says born in {wikidata}; the collection, {collection}. Check which date is right.",
+        "NO_BIRTH_YEAR": "Wikidata has no birth year, so it cannot be compared with the collection ({collection}).",
+        "AMBIGUOUS": "More than one person on Wikidata fits the collection, so it is not possible to tell which is the artist.",
+        "SHORTER_NAME": "Only turns up when searching “{foundBy}”, a name different from the collection's.",
+        "NAME_DIFFERS": "The collection has no birth year, and the name on Wikidata is different."
+      }
+    }
   },
   "ABOUT": {
     "TITLE": "About the project",

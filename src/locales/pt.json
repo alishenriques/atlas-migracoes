@@ -170,8 +170,6 @@
       "BIRTH_YEAR": "Escolhida por ser a única pessoa com este nome nascida no ano que o acervo registra.",
       "NAME": "O acervo não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome."
     },
-    "NO_MATCH": "Nenhuma pessoa do Wikidata é com certeza este artista. Quando há homônimos, ou o ano de nascimento não confere, a pesquisa não escolhe nenhuma, para não atribuir ao artista a vida de outra pessoa.",
-    "SOURCE_ERROR": "O Wikidata não respondeu agora, então não foi possível saber quem é este artista nas fontes abertas. Tente de novo em instantes.",
     "SUMMARY": "Resumo da enciclopédia",
     "FINDINGS": "Achados",
     "NO_FINDINGS": "A pessoa encontrada não tem nenhuma destas informações no Wikidata.",
@@ -203,7 +201,7 @@
       "NO_MATCH": "nada encontrado",
       "ERROR": "não respondeu"
     },
-    "RETRIEVED": "Fontes lidas em {date}. As respostas ficam guardadas por um dia.",
+    "RETRIEVED": "Fontes lidas em {date}.",
     "METHOD": "Como a pesquisa é feita",
     "QUERY": "Consulta usada",
     "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e morte, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
@@ -228,7 +226,25 @@
     "PERIOD_SOURCE": "Fronteiras do CShapes 2.0, lidas em 1º de julho do ano de nascimento, como na Camada Histórica. É este mapa que a IA recebe.",
     "PERIOD_UNAVAILABLE": "O ano de nascimento é desconhecido ou está fora do período coberto pelas fronteiras, então a IA não recebe o mapa do período.",
     "OPEN_LAYER": "Abrir a Camada Histórica",
-    "PROMPT": "Prompt enviado à IA"
+    "PROMPT": "Prompt enviado à IA",
+    "OVERVIEW": {
+      "TITLE": "Pesquisa de IA sobre este artista",
+      "FOUND": "Informações encontradas na pesquisa automatizada de {date} em {platforms}. Cada achado abaixo traz a página de onde veio.",
+      "FOUND_AI": "Resumo escrito por IA: {model}.",
+      "NOT_FOUND": "Não foram encontrados dados concretos sobre este artista nas pesquisas realizadas em {platforms} em {date}.",
+      "PENDING": "Pesquisa pendente: o Wikidata não respondeu na pesquisa de {date}, então ainda não se sabe se há dados sobre este artista.",
+      "SEARCHED": "Nomes buscados: {names}.",
+      "NONE_FOUND": "Nenhuma pessoa com este nome foi encontrada no Wikidata. É uma informação a ser levantada pela pesquisa.",
+      "CANDIDATES": "Possíveis correspondências, não vinculadas",
+      "CANDIDATES_NOTE": "Nenhuma delas foi vinculada automaticamente, para não atribuir ao artista a vida de outra pessoa. Se uma for o artista, a confirmação de um pesquisador permite vinculá-la.",
+      "REASON": {
+        "BIRTH_YEAR_DIFFERS": "No Wikidata, nasceu em {wikidata}; no acervo, {collection}. Confirme qual data está correta.",
+        "NO_BIRTH_YEAR": "O Wikidata não registra o ano de nascimento, então não é possível comparar com o acervo ({collection}).",
+        "AMBIGUOUS": "Mais de uma pessoa no Wikidata corresponde ao acervo, então não é possível saber qual é o artista.",
+        "SHORTER_NAME": "Só aparece na busca por “{foundBy}”, um nome diferente do registrado no acervo.",
+        "NAME_DIFFERS": "O acervo não registra o ano de nascimento, e o nome no Wikidata é diferente."
+      }
+    }
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",
