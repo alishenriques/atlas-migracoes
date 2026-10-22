@@ -25,5 +25,5 @@ export const styles = {
   sources: "flex flex-col gap-1 text-sm",
   method: "flex flex-col gap-2 text-sm leading-relaxed text-muted",
   promptToggle: "cursor-pointer text-xs uppercase tracking-[0.12em] text-accent",
-  prompt: "mt-2 max-h-96 overflow-auto whitespace-pre-wrap break-words rounded border border-white/10 p-3 font-mono text-[11px] leading-relaxed",
+  prompt: "mt-2 max-h-96 overflow-auto whitespace-pre-wrap break-words rounded border border-white/10 p-3 font-mono text-[11px] leading-relaxed scrollbar-atlas",
 };
