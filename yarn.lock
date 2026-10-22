@@ -12,13 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alishenriques/atlas-design-system@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@alishenriques/atlas-design-system@npm:0.4.0"
+"@alishenriques/atlas-design-system@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@alishenriques/atlas-design-system@npm:0.5.0"
   peerDependencies:
     react: ^19.0.0
     react-dom: ^19.0.0
-  checksum: 10c0/978d7bc2b32fa368b987228bb0dbd7511f69fd6bacd6636312ad831cdb5c2d064aa59457ca3f0182dc7b3fed2d7c7bda60d776318969ce0fa60770b02b579699
+  checksum: 10c0/70b3a3b3ba275556cfbb07211b5985f0779bc77e54177c30e7814a44c832a618c3d5b3ac1e56cd0f41d199d3a6b1645e932dc767b42f728a1625067f9546ac98
   languageName: node
   linkType: hard
 
@@ -3447,7 +3447,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "atlas-migracoes@workspace:."
   dependencies:
-    "@alishenriques/atlas-design-system": "npm:^0.4.0"
+    "@alishenriques/atlas-design-system": "npm:^0.5.0"
     "@axe-core/playwright": "npm:^4.11.0"
     "@playwright/test": "npm:1.64.1"
     "@tailwindcss/postcss": "npm:^4"
