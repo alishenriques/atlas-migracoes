@@ -1,4 +1,4 @@
-import { Eyebrow, Panel, StatGrid, type Stat } from "@alishenriques/atlas-design-system";
+import { CollectionIcon, Eyebrow, Panel, StatGrid, type Stat } from "@alishenriques/atlas-design-system";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { getMapData, getOverview } from "@/lib/atlas";
@@ -30,11 +30,27 @@ export async function Home() {
 
   const stats: Stat[] = overview
     ? [
-        { value: format.format(overview.stats.artists), label: t("STATS.ARTISTS") },
-        { value: format.format(overview.stats.works), label: t("STATS.WORKS") },
-        { value: format.format(overview.stats.exhibitions), label: t("STATS.EXHIBITIONS") },
-        { value: format.format(overview.stats.publications), label: t("STATS.PUBLICATIONS") },
-        { value: format.format(overview.stats.originCountries), label: t("STATS.ORIGIN_COUNTRIES") },
+        {
+          value: format.format(overview.stats.artists),
+          label: t("STATS.ARTISTS"),
+          icon: <CollectionIcon name="artists" />,
+        },
+        { value: format.format(overview.stats.works), label: t("STATS.WORKS"), icon: <CollectionIcon name="works" /> },
+        {
+          value: format.format(overview.stats.exhibitions),
+          label: t("STATS.EXHIBITIONS"),
+          icon: <CollectionIcon name="exhibitions" />,
+        },
+        {
+          value: format.format(overview.stats.publications),
+          label: t("STATS.PUBLICATIONS"),
+          icon: <CollectionIcon name="publications" />,
+        },
+        {
+          value: format.format(overview.stats.originCountries),
+          label: t("STATS.ORIGIN_COUNTRIES"),
+          icon: <CollectionIcon name="countries" />,
+        },
       ]
     : [];
 
