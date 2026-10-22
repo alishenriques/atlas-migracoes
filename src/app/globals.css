@@ -37,6 +37,16 @@ html {
 }
 
 /*
+ * Thin scrollbar in the panel colours, for every scroll area inside the
+ * night-blue blocks (filters, popups, lists), instead of the browser's
+ * default grey track and arrows.
+ */
+@utility scrollbar-atlas {
+  scrollbar-width: thin;
+  scrollbar-color: var(--atlas-color-border-strong) transparent;
+}
+
+/*
  * MapLibre's popup and controls, restyled to the night-blue panels.
  * maplibre-gl.css is imported by the map components, so it lands after this
  * file in the cascade: the popup rules are scoped under .maplibregl-map to

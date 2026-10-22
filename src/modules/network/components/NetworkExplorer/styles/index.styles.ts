@@ -12,7 +12,7 @@ export const styles = {
   detailMeta: "text-xs text-muted",
   actions: "flex flex-wrap gap-x-4 gap-y-1",
   action: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
-  neighbors: "flex max-h-64 flex-col gap-0.5 overflow-y-auto text-sm",
+  neighbors: "flex max-h-64 flex-col gap-0.5 overflow-y-auto text-sm scrollbar-atlas",
   neighbor: "flex w-full items-baseline gap-2 rounded px-1 py-0.5 text-left hover:bg-white/5",
   dot: "inline-block size-2 shrink-0 rounded-full",
 };

@@ -6,10 +6,10 @@ export const styles = {
   // Only the blocks take pointer events, so the map stays draggable between them.
   overlay:
     "flex flex-col gap-4 p-4 md:pb-8 md:pointer-events-none md:absolute md:inset-0 md:grid md:grid-cols-[336px_minmax(0,1fr)_320px] md:grid-rows-[minmax(0,1fr)_auto]",
-  panel: "md:pointer-events-auto md:col-start-1 md:row-start-1 md:max-h-full md:min-h-0 md:self-start md:overflow-y-auto",
+  panel: "md:pointer-events-auto md:col-start-1 md:row-start-1 md:max-h-full md:min-h-0 md:self-start md:overflow-y-auto scrollbar-atlas",
   // On mobile the presentation comes first, right under the map, before the long artist list.
   aside:
-    "order-first flex flex-col gap-4 md:order-none md:pointer-events-auto md:col-start-3 md:row-start-1 md:max-h-full md:min-h-0 md:self-start md:overflow-y-auto",
+    "order-first flex flex-col gap-4 md:order-none md:pointer-events-auto md:col-start-3 md:row-start-1 md:max-h-full md:min-h-0 md:self-start md:overflow-y-auto scrollbar-atlas",
   // Stops short of the right edge, and the overlay leaves a strip under it, so MapLibre's zoom
   // buttons and the map attribution stay visible.
   footer: "md:pointer-events-auto md:col-span-3 md:row-start-2 md:mr-12",
