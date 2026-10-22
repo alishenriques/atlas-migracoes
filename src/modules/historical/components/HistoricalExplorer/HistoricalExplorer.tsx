@@ -10,6 +10,7 @@ import { DECADES, mapDate, statesOn, yearsOf, type Decade, type StateAtDate } fr
 import { formatFuzzyDate } from "@/lib/dates";
 import type { MapArtist } from "@/lib/schemas";
 import { placeName } from "@/lib/trajectory";
+import { MapPopup } from "@/shared/components/MapPopup";
 
 import { useStates } from "../../hooks/useStates";
 import { birthplacesOf, originsIn } from "../../utils/origins";
@@ -59,24 +60,21 @@ export function HistoricalExplorer({ artists }: HistoricalExplorerProps) {
     const first = born[0];
     if (!first) return null;
     return (
-      <div className={styles.popup}>
-        <p className={styles.popupTitle}>{placeName(first.place)}</p>
-        <p className={styles.popupMeta}>{t("IN_YEAR", { year, state: first.inYear ?? t("STATE.NONE") })}</p>
+      // No country label here: the layer is about the state of the period, not today's country.
+      <MapPopup title={placeName(first.place)} meta={t("IN_YEAR", { year, state: first.inYear ?? t("STATE.NONE") })}>
         <ul className={styles.popupList}>
           {born.map(({ artist }) => (
             <li key={artist.slug}>{artist.name}</li>
           ))}
         </ul>
-      </div>
+      </MapPopup>
     );
   };
 
   const renderState = (name: string) => {
     const born = origins.filter((origin) => origin.inYear === name);
     return (
-      <div className={styles.popup}>
-        <p className={styles.popupTitle}>{name}</p>
-        <p className={styles.popupMeta}>{t("BORN_HERE", { year, count: born.length })}</p>
+      <MapPopup title={name} meta={t("BORN_HERE", { year, count: born.length })}>
         {born.length > 0 && (
           <ul className={styles.popupList}>
             {born.map(({ artist }) => (
@@ -84,7 +82,7 @@ export function HistoricalExplorer({ artists }: HistoricalExplorerProps) {
             ))}
           </ul>
         )}
-      </div>
+      </MapPopup>
     );
   };
 
