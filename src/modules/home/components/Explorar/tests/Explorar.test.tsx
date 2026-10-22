@@ -97,10 +97,19 @@ describe("Explorar", () => {
 
   it("filters by country of origin", () => {
     const map = renderExplorar();
-    fireEvent.change(screen.getByRole("combobox", { name: "País de origem" }), { target: { value: "Suíça" } });
+    fireEvent.click(screen.getByRole("combobox", { name: "País de origem" }));
+    fireEvent.click(screen.getByRole("option", { name: "Suíça" }));
     expect(screen.getByText("1 artista")).toBeInTheDocument();
     expect(map).toHaveTextContent("mira-schendel");
     expect(map).not.toHaveTextContent("lasar-segall");
+  });
+
+  it("shows the flag of each known country of origin, in the list and in the filter", () => {
+    renderExplorar();
+    expect(screen.getByRole("button", { name: /Lasar Segall/ }).querySelector('[data-country="Lituânia"]')).not.toBeNull();
+    expect(screen.getByRole("button", { name: /Mira Schendel/ }).querySelector("svg")).toBeNull();
+    fireEvent.click(screen.getByRole("combobox", { name: "País de origem" }));
+    expect(screen.getByRole("option", { name: "Lituânia" }).querySelector("[data-country]")).not.toBeNull();
   });
 
   it("filters by period and can be cleared", () => {
