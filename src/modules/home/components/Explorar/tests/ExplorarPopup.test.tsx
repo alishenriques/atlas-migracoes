@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { act, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
@@ -69,13 +69,27 @@ function renderExplorar() {
 }
 
 describe("Explorar map popups", () => {
-  it("lists every visible artist who passed through the clicked place", () => {
+  it("groups the records of the clicked place by artist", () => {
     renderExplorar();
-    const popup = screen.getByTestId("popup-sp");
-    expect(popup).toHaveTextContent("São Paulo");
-    expect(popup).toHaveTextContent("Artista A: Morte, 1957");
-    expect(popup).toHaveTextContent("Artista B: Exposição, 1940");
+    const popup = within(screen.getByTestId("popup-sp"));
+    expect(popup.getByText("Brasil")).toBeInTheDocument();
+    expect(popup.getByText("São Paulo")).toBeInTheDocument();
+    expect(popup.getByText("2 artistas · 2 registros")).toBeInTheDocument();
+
+    const [first, second] = popup.getAllByRole("button").map((button) => button.closest("li"));
+    expect(first).toHaveTextContent("Artista A");
+    expect(within(first as HTMLElement).getByText("Morte")).toBeInTheDocument();
+    expect(within(first as HTMLElement).getByText("1957")).toBeInTheDocument();
+    expect(second).toHaveTextContent("Artista B");
+    expect(within(second as HTMLElement).getByText("Exposição")).toBeInTheDocument();
+    expect(within(second as HTMLElement).getByText("1940")).toBeInTheDocument();
     expect(screen.getByTestId("popup-nowhere")).toBeEmptyDOMElement();
+  });
+
+  it("opens an artist's trajectory in the panel from the popup", () => {
+    renderExplorar();
+    fireEvent.click(screen.getByRole("button", { name: "Ver a trajetória de Artista B no mapa" }));
+    expect(screen.getByRole("heading", { name: "Artista B" })).toBeInTheDocument();
   });
 
   it("leaves room for the floating panel on desktop only, following the viewport", () => {

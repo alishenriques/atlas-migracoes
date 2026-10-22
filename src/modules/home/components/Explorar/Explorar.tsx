@@ -17,6 +17,7 @@ import {
   type Period,
   type Stop,
 } from "@/lib/trajectory";
+import { MapPopup } from "@/shared/components/MapPopup";
 import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
@@ -55,24 +56,47 @@ export function Explorar({ artists }: ExplorarProps) {
   };
 
   const renderPlace = (placeId: string) => {
-    const events = visible.flatMap((trajectory) =>
-      trajectory.visible
-        .filter((stop) => stop.place.id === placeId)
-        .map((stop) => ({ name: trajectory.artist.name, stop })),
-    );
-    const first = events[0]?.stop;
+    // One group per artist who passed through the place, in the order of the list.
+    const groups = visible
+      .map((trajectory) => ({
+        artist: trajectory.artist,
+        stops: trajectory.visible.filter((stop) => stop.place.id === placeId),
+      }))
+      .filter((group) => group.stops.length > 0);
+    const first = groups[0]?.stops[0];
     if (!first) return null;
+    const records = groups.reduce((sum, group) => sum + group.stops.length, 0);
     return (
-      <div className={styles.popup}>
-        <p className={styles.popupTitle}>{placeName(first.place)}</p>
-        <ul className={styles.popupList}>
-          {events.map(({ name, stop }, index) => (
-            <li key={index}>
-              {name}: {tStop(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)}, {date(stop)}
+      <MapPopup
+        eyebrow={first.place.country}
+        title={placeName(first.place)}
+        meta={t("POPUP_SUMMARY", { artists: groups.length, records })}
+      >
+        <ul className={styles.popupGroups}>
+          {groups.map(({ artist, stops }) => (
+            <li key={artist.slug} className={styles.popupGroup}>
+              <button
+                type="button"
+                className={styles.popupArtist}
+                aria-label={t("SHOW_TRAJECTORY", { name: artist.name })}
+                onClick={() => setSelectedSlug(artist.slug)}
+              >
+                {artist.name}
+              </button>
+              <ul className={styles.popupStops}>
+                {stops.map((stop, index) => (
+                  <li key={index} className={styles.popupStop}>
+                    <span className={styles.popupKind}>
+                      {tStop(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)}
+                    </span>
+                    <span className={styles.popupDate}>{date(stop)}</span>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
-      </div>
+      </MapPopup>
     );
   };
 
