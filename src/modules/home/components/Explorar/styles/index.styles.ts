@@ -19,7 +19,13 @@ export const styles = {
   detailName: "font-serif text-2xl leading-tight",
   note: "text-xs leading-relaxed text-muted",
   recordLink: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
-  popup: "flex flex-col gap-1 text-foreground",
-  popupTitle: "font-serif text-lg leading-tight",
-  popupList: "flex max-h-40 flex-col gap-0.5 overflow-y-auto text-xs text-muted",
+  popupGroups: "flex flex-col gap-3",
+  popupGroup: "flex flex-col gap-1",
+  popupArtist:
+    "self-start text-left text-sm font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-accent",
+  // Each record as a row with a thread on the left, like the trajectory list in the panel.
+  popupStops: "flex flex-col border-l border-line pl-3",
+  popupStop: "flex items-baseline justify-between gap-3 py-0.5",
+  popupKind: "text-[11px] uppercase tracking-[0.12em] text-accent",
+  popupDate: "text-xs text-muted tabular-nums",
 };

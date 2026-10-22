@@ -48,7 +48,9 @@
       "ARTISTS": "{count, plural, one {# artista} other {# artistas}}",
       "NO_RESULTS": "Nenhum artista neste país e período.",
       "BACK": "Voltar",
-      "OPEN_RECORD": "Abrir a ficha"
+      "OPEN_RECORD": "Abrir a ficha",
+      "POPUP_SUMMARY": "{artists, plural, one {# artista} other {# artistas}} · {records, plural, one {# registro} other {# registros}}",
+      "SHOW_TRAJECTORY": "Ver a trajetória de {name} no mapa"
     }
   },
   "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
