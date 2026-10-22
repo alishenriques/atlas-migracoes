@@ -1,5 +1,5 @@
 export const styles = {
-  index: "mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-12 sm:px-6 sm:py-16",
+  index: "flex w-full flex-1 flex-col gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
   record: "mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6 sm:py-12",
   back: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
   header: "flex flex-col gap-3",
@@ -18,7 +18,8 @@ export const styles = {
   sources: "flex flex-col gap-3 text-sm",
   source: "flex flex-col gap-1",
   muted: "text-sm text-muted",
-  grid: "grid gap-3 sm:grid-cols-2 lg:grid-cols-3",
-  card: "flex h-full flex-col gap-1 rounded-xl border border-line bg-raised px-4 py-3 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-accent",
+  grid: "grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5",
+  card: "flex h-full items-center justify-between gap-4 rounded-xl border border-line bg-raised px-4 py-3 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-accent",
+  cardText: "flex min-w-0 flex-col gap-1",
   cardName: "font-serif text-xl leading-tight",
 };
