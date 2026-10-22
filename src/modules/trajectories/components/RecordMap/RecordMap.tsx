@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { formatFuzzyDate } from "@/lib/dates";
 import type { MapArtist } from "@/lib/schemas";
 import { buildTrajectory, placeName, type Stop } from "@/lib/trajectory";
+import { MapPopup } from "@/shared/components/MapPopup";
 import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 
 import { styles } from "./styles/index.styles";
@@ -25,18 +26,19 @@ export function RecordMap({ artist, label }: { artist: MapArtist; label: string 
     const first = stops[0];
     if (!first) return null;
     return (
-      <div className={styles.popup}>
-        <p className={styles.popupTitle}>{placeName(first.place)}</p>
-        <ul className={styles.popupList}>
+      <MapPopup eyebrow={first.place.country} title={placeName(first.place)}>
+        <ul className={styles.popupStops}>
           {stops.map((stop, index) => (
-            <li key={index}>
-              {t(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)},{" "}
-              {formatFuzzyDate(stop.date, locale, t("UNKNOWN_DATE"))}
-              {stop.title && `: ${stop.title}`}
+            <li key={index} className={styles.popupStop}>
+              <span className={styles.popupKind}>
+                {t(`STOP.${stop.kind.toUpperCase() as Uppercase<Stop["kind"]>}`)} ·{" "}
+                {formatFuzzyDate(stop.date, locale, t("UNKNOWN_DATE"))}
+              </span>
+              {stop.title && <span className={styles.popupTitle}>{stop.title}</span>}
             </li>
           ))}
         </ul>
-      </div>
+      </MapPopup>
     );
   };
 

@@ -12,8 +12,5 @@ export const styles = {
   originName: "font-serif text-lg leading-snug hover:text-accent",
   originMeta: "text-xs text-muted",
   state: "text-foreground",
-  popup: "flex flex-col gap-1 text-foreground",
-  popupTitle: "font-serif text-lg leading-tight",
-  popupMeta: "text-xs text-muted",
-  popupList: "flex max-h-40 flex-col gap-0.5 overflow-y-auto text-xs",
+  popupList: "flex flex-col gap-1 text-sm",
 };
