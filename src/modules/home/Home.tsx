@@ -61,7 +61,7 @@ export async function Home() {
       {mapData ? (
         <Explorar
           artists={mapData.artists}
-          aside={
+          intro={
             <>
               {notice}
               <Panel>{hero}</Panel>
