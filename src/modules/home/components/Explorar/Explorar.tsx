@@ -17,6 +17,7 @@ import {
   type Period,
   type Stop,
 } from "@/lib/trajectory";
+import { CountryFlag } from "@/shared/components/CountryFlag";
 import { MapPopup } from "@/shared/components/MapPopup";
 import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
@@ -148,7 +149,10 @@ export function Explorar({ artists, intro, footer }: ExplorarProps) {
               label={t("ORIGIN")}
               value={originCountry}
               onChange={setOriginCountry}
-              options={[{ value: "", label: t("ALL_COUNTRIES") }, ...countries.map((c) => ({ value: c, label: c }))]}
+              options={[
+                { value: "", label: t("ALL_COUNTRIES") },
+                ...countries.map((c) => ({ value: c, label: c, icon: <CountryFlag country={c} /> })),
+              ]}
             />
             <YearRange
               label={t("PERIOD")}
@@ -205,7 +209,10 @@ export function Explorar({ artists, intro, footer }: ExplorarProps) {
                           onClick={() => setSelectedSlug(trajectory.artist.slug)}
                         >
                           <span>{trajectory.artist.name}</span>
-                          <span className={styles.artistOrigin}>{trajectory.artist.birthPlace?.country}</span>
+                          <span className={styles.artistOrigin}>
+                            <CountryFlag country={trajectory.artist.birthPlace?.country} />
+                            {trajectory.artist.birthPlace?.country}
+                          </span>
                         </button>
                       </li>
                     ))}

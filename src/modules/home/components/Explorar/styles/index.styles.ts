@@ -23,8 +23,8 @@ export const styles = {
   listTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",
   artists: "flex flex-col",
   artist:
-    "flex w-full items-baseline justify-between gap-3 rounded px-2 py-1.5 text-left text-sm hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-accent",
-  artistOrigin: "shrink-0 text-xs text-muted",
+    "flex w-full items-center justify-between gap-3 rounded px-2 py-1.5 text-left text-sm hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-accent",
+  artistOrigin: "flex shrink-0 items-center gap-2 text-xs text-muted",
   detail: "flex flex-col gap-3 border-t border-line pt-3",
   detailHeader: "flex items-start justify-between gap-3",
   detailName: "font-serif text-2xl leading-tight",
