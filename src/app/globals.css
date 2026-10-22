@@ -36,39 +36,63 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* MapLibre's popup and controls, restyled to the night-blue panels. */
-.maplibregl-popup-content {
-  background: var(--atlas-color-bg-overlay);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--atlas-color-border);
+/*
+ * MapLibre's popup and controls, restyled to the night-blue panels.
+ * maplibre-gl.css is imported by the map components, so it lands after this
+ * file in the cascade: the popup rules are scoped under .maplibregl-map to
+ * outrank its defaults (white box, dark text, grey close button).
+ */
+.maplibregl-map .maplibregl-popup-content {
+  background: var(--atlas-color-bg-raised);
+  border: 1px solid var(--atlas-color-border-strong);
   border-radius: var(--atlas-radius-md);
-  padding: var(--atlas-space-3) var(--atlas-space-4);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.45);
+  padding: var(--atlas-space-4);
   color: var(--atlas-color-fg);
   font-family: var(--atlas-font-sans);
 }
 
-.maplibregl-popup-close-button {
+.maplibregl-map .maplibregl-popup-close-button {
+  top: var(--atlas-space-2);
+  right: var(--atlas-space-2);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--atlas-radius-sm);
   color: var(--atlas-color-muted);
-  padding: 0 var(--atlas-space-2);
+  font-size: 1.125rem;
+  line-height: 1;
+  transition:
+    color var(--atlas-motion-fast),
+    background-color var(--atlas-motion-fast);
 }
 
-.maplibregl-popup-anchor-top .maplibregl-popup-tip,
-.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
-.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+.maplibregl-map .maplibregl-popup-close-button:hover {
+  background: var(--atlas-color-accent-soft);
+  color: var(--atlas-color-accent);
+}
+
+.maplibregl-map .maplibregl-popup-close-button:focus-visible {
+  outline: 2px solid var(--atlas-color-accent);
+  outline-offset: 1px;
+}
+
+.maplibregl-map .maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.maplibregl-map .maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.maplibregl-map .maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
   border-bottom-color: var(--atlas-color-bg-raised);
 }
 
-.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
-.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
-.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+.maplibregl-map .maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.maplibregl-map .maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.maplibregl-map .maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
   border-top-color: var(--atlas-color-bg-raised);
 }
 
-.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+.maplibregl-map .maplibregl-popup-anchor-left .maplibregl-popup-tip {
   border-right-color: var(--atlas-color-bg-raised);
 }
 
-.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+.maplibregl-map .maplibregl-popup-anchor-right .maplibregl-popup-tip {
   border-left-color: var(--atlas-color-bg-raised);
 }
 
