@@ -17,7 +17,12 @@ vi.mock("next/dynamic", () => ({
   default: () =>
     function MapStub({ renderPlace, padding }: TrajectoryMapProps) {
       return (
-        <div data-testid="map" data-padding-left={padding?.left}>
+        <div
+          data-testid="map"
+          data-padding-left={padding?.left}
+          data-padding-right={padding?.right}
+          data-padding-bottom={padding?.bottom}
+        >
           {(["sp", "nowhere"] as const).map((id) => (
             <div key={id} data-testid={`popup-${id}`}>
               {renderPlace(id)}
@@ -60,10 +65,10 @@ const artists: MapArtist[] = [
   },
 ];
 
-function renderExplorar() {
+function renderExplorar(blocks: { aside?: ReactNode; footer?: ReactNode } = {}) {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      <Explorar artists={artists} />
+      <Explorar artists={artists} {...blocks} />
     </NextIntlClientProvider>,
   );
 }
@@ -112,6 +117,19 @@ describe("Explorar map popups", () => {
     desktop = true;
     act(() => listeners.forEach((listener) => listener()));
     expect(screen.getByTestId("map")).toHaveAttribute("data-padding-left", "360");
+    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-right", "0");
+    matchMedia.mockRestore();
+  });
+
+  it("floats the aside and footer blocks over the map, leaving room for them on desktop", () => {
+    const matchMedia = vi.spyOn(window, "matchMedia").mockImplementation(
+      () => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }) as unknown as MediaQueryList,
+    );
+    renderExplorar({ aside: <p>Apresentação</p>, footer: <p>Acervo</p> });
+    expect(screen.getByText("Apresentação")).toBeInTheDocument();
+    expect(screen.getByText("Acervo")).toBeInTheDocument();
+    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-right", "344");
+    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-bottom", "152");
     matchMedia.mockRestore();
   });
 });
