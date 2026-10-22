@@ -152,6 +152,11 @@ describe("TrajectoryIndex", () => {
     expect(screen.getByText("Polônia · 1889–1957")).toBeInTheDocument();
   });
 
+  it("marks that there is no photo of the artist yet", async () => {
+    render(await TrajectoryIndex({ data: { artists: [artist] } }));
+    expect(screen.getByRole("img", { name: "Ainda sem foto" })).toHaveAttribute("data-empty", "true");
+  });
+
   it("still renders when the artists cannot be loaded", async () => {
     render(await TrajectoryIndex({ data: null }));
     expect(screen.getByText("Não foi possível carregar os artistas agora.")).toBeInTheDocument();
