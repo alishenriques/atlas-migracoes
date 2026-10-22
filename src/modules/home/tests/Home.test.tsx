@@ -14,10 +14,10 @@ vi.mock("@/lib/atlas", () => ({ getOverview: vi.fn(), getMapData: vi.fn() }));
 
 // The interactive map has its own tests (components/Explorar).
 vi.mock("../components/Explorar", () => ({
-  Explorar: ({ artists, aside, footer }: { artists: unknown[]; aside: ReactNode; footer: ReactNode }) => (
+  Explorar: ({ artists, intro, footer }: { artists: unknown[]; intro: ReactNode; footer: ReactNode }) => (
     <div data-testid="explorar">
       {artists.length}
-      <div data-testid="aside">{aside}</div>
+      <div data-testid="intro">{intro}</div>
       <div data-testid="footer">{footer}</div>
     </div>
   ),
@@ -65,9 +65,9 @@ describe("Home", () => {
   it("floats the presentation and the counters over the map", async () => {
     vi.mocked(getOverview).mockResolvedValue(overview("demo"));
     await renderHome();
-    const aside = within(screen.getByTestId("aside"));
-    expect(aside.getByRole("status")).toHaveTextContent("Dados de demonstração");
-    expect(aside.getByRole("heading", { level: 1 })).toHaveTextContent("Atlas Migrações Leste-Sul");
+    const intro = within(screen.getByTestId("intro"));
+    expect(intro.getByRole("status")).toHaveTextContent("Dados de demonstração");
+    expect(intro.getByRole("heading", { level: 1 })).toHaveTextContent("Atlas Migrações Leste-Sul");
     expect(within(screen.getByTestId("footer")).getByText("417")).toBeInTheDocument();
   });
 

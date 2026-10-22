@@ -65,7 +65,7 @@ const artists: MapArtist[] = [
   },
 ];
 
-function renderExplorar(blocks: { aside?: ReactNode; footer?: ReactNode } = {}) {
+function renderExplorar(blocks: { intro?: ReactNode; footer?: ReactNode } = {}) {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
       <Explorar artists={artists} {...blocks} />
@@ -121,14 +121,15 @@ describe("Explorar map popups", () => {
     matchMedia.mockRestore();
   });
 
-  it("floats the aside and footer blocks over the map, leaving room for them on desktop", () => {
+  it("floats the intro and footer blocks over the map, leaving room for the footer on desktop", () => {
     const matchMedia = vi.spyOn(window, "matchMedia").mockImplementation(
       () => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }) as unknown as MediaQueryList,
     );
-    renderExplorar({ aside: <p>Apresentação</p>, footer: <p>Acervo</p> });
+    renderExplorar({ intro: <p>Apresentação</p>, footer: <p>Acervo</p> });
     expect(screen.getByText("Apresentação")).toBeInTheDocument();
     expect(screen.getByText("Acervo")).toBeInTheDocument();
-    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-right", "344");
+    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-right", "0");
+    expect(screen.getByTestId("map")).toHaveAttribute("data-padding-left", "360");
     expect(screen.getByTestId("map")).toHaveAttribute("data-padding-bottom", "152");
     matchMedia.mockRestore();
   });
