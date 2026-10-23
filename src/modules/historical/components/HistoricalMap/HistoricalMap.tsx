@@ -28,15 +28,25 @@ export type HistoricalMapProps = {
   renderPlace: (placeId: string) => ReactNode;
   /** Popup for a clicked state. */
   renderState: (name: string) => ReactNode;
+  /** Room to leave for blocks floating over the map, so the opening view centers in what stays visible. */
+  padding?: { top: number; right: number; bottom: number; left: number };
 };
 
 // Central Europe, where the artists were born.
 const INITIAL_VIEW = { longitude: 18, latitude: 50, zoom: 3.6 };
+const NO_PADDING = { top: 0, right: 0, bottom: 0, left: 0 };
 
 type Opened = { kind: "place" | "state"; id: string; lng: number; lat: number };
 
 /** Europe with the borders in force on one day, and the artists' birthplaces on top. */
-export function HistoricalMap({ states, birthplaces, label, renderPlace, renderState }: HistoricalMapProps) {
+export function HistoricalMap({
+  states,
+  birthplaces,
+  label,
+  renderPlace,
+  renderState,
+  padding = NO_PADDING,
+}: HistoricalMapProps) {
   const [colors] = useState(() => readMapColors());
   const [opened, setOpened] = useState<Opened | null>(null);
   const [hovering, setHovering] = useState(false);
@@ -66,7 +76,7 @@ export function HistoricalMap({ states, birthplaces, label, renderPlace, renderS
   return (
     <div className={styles.root} role="region" aria-label={label}>
       <Map
-        initialViewState={INITIAL_VIEW}
+        initialViewState={{ ...INITIAL_VIEW, padding }}
         mapStyle={mapStyle}
         interactiveLayerIds={["birthplaces", "states-fill"]}
         onClick={onClick}
