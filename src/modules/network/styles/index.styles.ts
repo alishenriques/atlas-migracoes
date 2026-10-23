@@ -9,3 +9,8 @@ export const styles = {
   muted: "text-sm text-muted",
   credit: "text-xs leading-relaxed text-muted",
 };
+
+export const skeletonStyles = {
+  // Where the graph's frame goes (see NetworkExplorer), drawn by the skeleton itself.
+  graph: "h-[65svh] min-h-[380px] lg:h-auto lg:min-h-0",
+};
