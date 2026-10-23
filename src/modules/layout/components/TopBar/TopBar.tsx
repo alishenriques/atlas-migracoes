@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import { useTranslations } from "next-intl";
 
@@ -16,7 +16,7 @@ const NAV_ID = "menu-principal";
 
 /**
  * Header from the deck's screens: the Atlas mark and wordmark on the left, the MVP screens in the middle, language on the right.
- * Below `xl` (1280 px, where the six screens no longer fit beside the brand) the screens fold into a "Menu" button that drops them in a list over the page.
+ * Below `xl` (1280 px, where the screens no longer fit beside the brand) they fold into a "Menu" button that slides them down in a list over the page.
  */
 export function TopBar() {
   const t = useTranslations();
@@ -52,6 +52,8 @@ export function TopBar() {
 
   return (
     <header ref={headerRef} className={styles.header}>
+      {/* Keyed by the page, so the light runs again on each screen. */}
+      <span key={pathname} aria-hidden="true" className={styles.headerLight} />
       <a href={`#${CONTENT_ID}`} className={styles.skip}>
         {t("NAV.SKIP_TO_CONTENT")}
       </a>
@@ -63,8 +65,8 @@ export function TopBar() {
           <span className={styles.tagline}>{t("BRAND.TAGLINE")}</span>
         </span>
       </Link>
-      <nav id={NAV_ID} aria-label={t("NAV.LABEL")} className={open ? styles.navOpen : styles.nav}>
-        {menuItems.map((item) => {
+      <nav id={NAV_ID} aria-label={t("NAV.LABEL")} data-open={open} className={styles.nav}>
+        {menuItems.map((item, index) => {
           // A record page (/trajetorias/[slug]) still belongs to its section.
           const isCurrent = pathname === item.href || pathname.startsWith(`${item.href}/`);
           return (
@@ -73,6 +75,7 @@ export function TopBar() {
               href={item.href}
               aria-current={isCurrent ? "page" : undefined}
               className={isCurrent ? styles.linkCurrent : styles.link}
+              style={{ "--i": index } as CSSProperties}
             >
               {t(`NAV.${item.labelKey}`)}
             </Link>

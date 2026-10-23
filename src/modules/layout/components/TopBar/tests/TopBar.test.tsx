@@ -77,6 +77,15 @@ describe("TopBar", () => {
     expect(screen.getAllByRole("link", { current: "page" })).toHaveLength(1);
   });
 
+  it("runs the header's light again on each page", () => {
+    const { container, rerender } = renderTopBar();
+    const light = container.querySelector("header > span[aria-hidden]");
+    expect(light).toBeInTheDocument();
+    navigation.pathname = "/sobre";
+    rerender(topBar());
+    expect(container.querySelector("header > span[aria-hidden]")).not.toBe(light);
+  });
+
   it("starts with a link that skips the menu to the page's content", () => {
     renderTopBar();
     const skip = screen.getAllByRole("link")[0];
@@ -107,11 +116,11 @@ describe("TopBar", () => {
       const nav = screen.getByRole("navigation", { name: "Navegação principal" });
       expect(button).toHaveAttribute("aria-controls", nav.id);
       expect(button).toHaveAttribute("aria-expanded", "false");
-      expect(nav).toHaveClass("hidden");
+      expect(nav).toHaveAttribute("data-open", "false");
 
       await userEvent.click(button);
       expect(button).toHaveAttribute("aria-expanded", "true");
-      expect(nav).not.toHaveClass("hidden");
+      expect(nav).toHaveAttribute("data-open", "true");
 
       await userEvent.click(button);
       expect(button).toHaveAttribute("aria-expanded", "false");
@@ -153,6 +162,12 @@ describe("TopBar", () => {
       rerender(topBar());
       expect(button).toHaveAttribute("aria-expanded", "false");
       expect(screen.getByRole("link", { name: "Sobre" })).toHaveAttribute("aria-current", "page");
+    });
+
+    it("numbers the rows so they slide in one after another", () => {
+      renderTopBar();
+      const links = screen.getByRole("navigation", { name: "Navegação principal" }).querySelectorAll("a");
+      expect([...links].map((link) => link.style.getPropertyValue("--i"))).toEqual(["0", "1", "2", "3", "4", "5", "6"]);
     });
   });
 });
