@@ -25,13 +25,6 @@
     "TITLE": "Atlas Migrações Leste-Sul",
     "SUBTITLE": "Artists from Eastern Europe and Austria who migrated to Brazil, based on the MAC USP collection.",
     "STATS_TITLE": "Collection",
-    "STATS": {
-      "ARTISTS": "artists",
-      "WORKS": "works",
-      "EXHIBITIONS": "exhibitions",
-      "PUBLICATIONS": "publications",
-      "ORIGIN_COUNTRIES": "countries of origin"
-    },
     "STATS_UNAVAILABLE": "The collection figures could not be loaded right now.",
     "MAP_UNAVAILABLE": "The trajectories could not be loaded right now.",
     "MAP": {
@@ -53,6 +46,13 @@
       "POPUP_SUMMARY": "{artists, plural, one {# artist} other {# artists}} · {records, plural, one {# record} other {# records}}",
       "SHOW_TRAJECTORY": "Show {name}'s trajectory on the map"
     }
+  },
+  "COLLECTION_STATS": {
+    "ARTISTS": "artists",
+    "WORKS": "works",
+    "EXHIBITIONS": "exhibitions",
+    "PUBLICATIONS": "publications",
+    "ORIGIN_COUNTRIES": "countries of origin"
   },
   "DEMO_NOTICE": "Demo data: the records shown are simulated and are not part of the collection.",
   "COMING_SOON": {
