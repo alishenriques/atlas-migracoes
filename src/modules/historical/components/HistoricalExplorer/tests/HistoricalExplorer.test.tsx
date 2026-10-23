@@ -21,9 +21,9 @@ vi.mock("@/i18n/navigation", () => ({
 // MapLibre needs WebGL; the stub shows the states in force and renders both popups.
 vi.mock("next/dynamic", () => ({
   default: () =>
-    function MapStub({ states, birthplaces, label, renderPlace, renderState }: HistoricalMapProps) {
+    function MapStub({ states, birthplaces, label, renderPlace, renderState, padding }: HistoricalMapProps) {
       return (
-        <div role="region" aria-label={label}>
+        <div role="region" aria-label={label} data-padding-left={padding?.left}>
           <p data-testid="states">{states.features.map((f) => f.properties.name).join(",")}</p>
           <div data-testid="place-popup">{birthplaces[0] && renderPlace(birthplaces[0].placeId)}</div>
           <div data-testid="state-popup">{renderState("Polônia")}</div>
@@ -90,10 +90,10 @@ const states: States = {
 const respond = (body: unknown, ok = true) =>
   vi.spyOn(globalThis, "fetch").mockResolvedValue({ ok, status: ok ? 200 : 500, json: () => Promise.resolve(body) } as Response);
 
-const renderExplorer = () =>
+const renderExplorer = (props: { intro?: React.ReactNode; credit?: React.ReactNode } = {}) =>
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      <HistoricalExplorer artists={artists} />
+      <HistoricalExplorer artists={artists} {...props} />
     </NextIntlClientProvider>,
   );
 
@@ -125,6 +125,23 @@ describe("HistoricalExplorer", () => {
     expect(screen.queryByRole("link", { name: "Sem lugar" })).not.toBeInTheDocument();
   });
 
+  it("floats the presentation over the controls and leaves the map's opening view clear of them", async () => {
+    vi.spyOn(window, "matchMedia").mockImplementation(
+      () => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }) as unknown as MediaQueryList,
+    );
+    respond(states);
+    renderExplorer({ intro: <h1>Camada Histórica</h1>, credit: <p>Fronteiras: CShapes 2.0</p> });
+    expect(await screen.findByRole("region", { name: /Mapa da Europa/ })).toHaveAttribute("data-padding-left", "360");
+    expect(screen.getByRole("heading", { level: 1, name: "Camada Histórica" })).toBeInTheDocument();
+    expect(screen.getByText("Fronteiras: CShapes 2.0")).toBeInTheDocument();
+  });
+
+  it("stacks the blocks under the map on mobile, with no room left for them", async () => {
+    respond(states);
+    renderExplorer();
+    expect(await screen.findByRole("region", { name: /Mapa da Europa/ })).not.toHaveAttribute("data-padding-left");
+  });
+
   it("lists who was born in a clicked place or state", async () => {
     respond(states);
     renderExplorer();
@@ -138,7 +155,7 @@ describe("HistoricalExplorer", () => {
   it("switches decade, then year, and redraws the borders", async () => {
     respond(states);
     renderExplorer();
-    await screen.findByRole("region");
+    await screen.findByRole("region", { name: /Mapa da Europa/ });
     fireEvent.click(screen.getByRole("radio", { name: "1910" }));
     expect(screen.getByRole("combobox", { name: "Ano" })).toHaveValue("1915");
     expect(screen.getByTestId("states")).toHaveTextContent("Império Russo");
