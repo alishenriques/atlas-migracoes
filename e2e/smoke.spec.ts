@@ -2,6 +2,21 @@ import { expect, test } from "@playwright/test";
 
 // The demo script for the conference, end to end, against simulated records (e2e/mock-api.mts).
 
+test("the home page presents the project and leads to Explorar", async ({ page }) => {
+  await page.goto("/pt");
+  await expect(page.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeVisible();
+  await expect(page.getByText(/Dados de demonstração/).first()).toBeVisible();
+  await expect(page.getByText(/^\d+$/).first()).toBeVisible();
+
+  await page.getByRole("button", { name: "Pausar a apresentação" }).click();
+  await page.getByRole("button", { name: "Próximo slide" }).click();
+  await expect(page.getByRole("heading", { level: 2, name: /A digitalização ampliou o acesso/ })).toBeVisible();
+  await page.getByRole("button", { name: "Ir para o slide 1: O acervo" }).click();
+  await page.getByRole("link", { name: "Explorar o mapa" }).click();
+  await expect(page).toHaveURL(/\/pt\/explorar$/);
+  await expect(page.getByRole("region", { name: "Mapa das trajetórias dos artistas" })).toBeVisible();
+});
+
 test("Explorar shows the collection and opens an artist's trajectory", async ({ page }) => {
   await page.goto("/pt/explorar");
   await expect(page.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeVisible();

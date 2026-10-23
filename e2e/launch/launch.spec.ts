@@ -9,6 +9,15 @@ async function expectRealData(page: Page) {
   await expect(page.getByText(/Dados de demonstração/)).toHaveCount(0);
 }
 
+test("the home page presents the project with the real counters", async ({ page }) => {
+  await page.goto("/pt");
+  await expect(page.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeVisible();
+  await expect(page.getByText(/^\d+$/).first()).toBeVisible();
+  await expectRealData(page);
+  await page.getByRole("link", { name: "Explorar o mapa" }).click();
+  await expect(page).toHaveURL(/\/pt\/explorar$/);
+});
+
 test("Explorar shows the real collection and opens an artist's trajectory", async ({ page }) => {
   await page.goto("/pt/explorar");
   await expect(page.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeVisible();
