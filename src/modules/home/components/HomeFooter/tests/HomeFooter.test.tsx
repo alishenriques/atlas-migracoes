@@ -15,7 +15,7 @@ describe("HomeFooter", () => {
       </NextIntlClientProvider>,
     );
     const link = screen.getByRole("link", { name: "Desenvolvido por Alisson Henriques" });
-    expect(link).toHaveAttribute("href", "https://alis-portfolio-three.vercel.app");
+    expect(link).toHaveAttribute("href", "https://www.alissonhenriques.dev");
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
     expect(screen.getByRole("img", { name: "Alisson Henriques" })).toBeInTheDocument();
