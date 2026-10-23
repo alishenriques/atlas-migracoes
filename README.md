@@ -45,12 +45,13 @@ Com a API em modo demonstração, o app mostra um aviso de que os dados são sim
 
 | Rota | Tela | Estado |
 |---|---|---|
-| `/` | Explorar: mapa, filtros, linha do tempo e contadores | Contadores prontos; mapa na etapa 2 |
-| `/trajetorias` (`/en/trajectories`) | Trajetórias: ficha e trajetória do artista | Etapa 2 |
-| `/camada-historica` (`/en/historical-layer`) | Camada Histórica: mapas da Europa por década com as fronteiras da época | Etapa 3 |
-| Rede Relacional (rota a definir) | Grafo de artistas, obras, exposições, publicações, instituições e lugares | Etapa 3 |
-| IA Relacional (rota a definir) | Pesquisa em fontes externas com fontes, confiabilidade e prompt visíveis | Etapa 4 |
-| `/sobre` (`/en/about`) | Sobre: projeto, metodologia e cartografia | Etapa 2 |
+| `/` | Início: slider de apresentação, contadores, necessidade e impactos do projeto, telas e método | Pronta |
+| `/explorar` (`/en/explore`) | Explorar: mapa, filtros, linha do tempo e contadores | Pronta |
+| `/trajetorias` (`/en/trajectories`) | Trajetórias: ficha e trajetória do artista | Pronta |
+| `/camada-historica` (`/en/historical-layer`) | Camada Histórica: mapas da Europa por década com as fronteiras da época | Pronta |
+| `/rede` (`/en/network`) | Rede Relacional: grafo de artistas, obras, exposições, publicações, instituições e lugares | Pronta |
+| `/ia-relacional` (`/en/relational-ai`) | IA Relacional: pesquisa em fontes externas com fontes, confiabilidade e prompt visíveis | Pronta |
+| `/sobre` (`/en/about`) | Sobre: projeto, metodologia e cartografia | Pronta (créditos da equipe pendentes) |
 
 ## Documentação
 
