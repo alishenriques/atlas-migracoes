@@ -1,5 +1,6 @@
 import { mapDate, stateAt, stateAtDate, type StateAtDate, type States } from "@/lib/cartography";
 import type { MapArtist } from "@/lib/schemas";
+import { stateNameLocale } from "@/lib/stateNames";
 import { isGeocoded, type GeoPlace } from "@/lib/trajectory";
 
 import type { Birthplace } from "../components/HistoricalMap";
@@ -14,16 +15,17 @@ export type Origin = {
   inYear: string | null;
 };
 
-/** Artists whose birthplace has coordinates, with the state at their birth and in `year`, by name. */
+/** Artists whose birthplace has coordinates, with the state at their birth and in `year` (named as it was then), by name. */
 export function originsIn(artists: MapArtist[], states: States, year: number, locale: string): Origin[] {
   const day = mapDate(year);
+  const names = stateNameLocale(locale);
   return artists
     .flatMap((artist) => (isGeocoded(artist.birthPlace) ? [{ artist, place: artist.birthPlace }] : []))
     .map(({ artist, place }) => ({
       artist,
       place,
-      atBirth: stateAtDate(states, artist.birthDate, place.lng, place.lat),
-      inYear: stateAt(states, day, place.lng, place.lat),
+      atBirth: stateAtDate(states, artist.birthDate, place.lng, place.lat, names),
+      inYear: stateAt(states, day, place.lng, place.lat, names),
     }))
     .sort((a, b) => a.artist.name.localeCompare(b.artist.name, locale));
 }
