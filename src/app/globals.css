@@ -136,3 +136,94 @@ html {
     transform: translateY(8px);
   }
 }
+
+/*
+ * Top bar (modules/layout/components/TopBar): discreet light, in the gold of
+ * the logo's East-to-South stroke. A screen glows faintly on hover, the current
+ * one keeps a soft halo with a small four-point star that twinkles on it,
+ * and from xl a thin line of light opens under the hovered tab.
+ */
+@utility nav-light {
+  position: relative;
+
+  &:hover {
+    text-shadow: 0 0 10px rgb(212 166 74 / 0.35);
+  }
+
+  &[aria-current="page"] {
+    text-shadow: 0 0 12px rgb(212 166 74 / 0.5);
+  }
+
+  /*
+   * The twinkle: a star clipped from a square, like the logo's compass points.
+   * In the dropped-down list it sits on the top end of the row's gold mark; on a tab, at the word's top right.
+   */
+  &[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    top: -0.2rem;
+    left: -0.25rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: var(--atlas-color-accent);
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+    filter: drop-shadow(0 0 3px var(--atlas-color-accent));
+    animation: atlas-twinkle 3.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @media (width >= 80rem) {
+    &[aria-current="page"]::after {
+      top: -0.1rem;
+      left: auto;
+      right: -0.6rem;
+    }
+
+    &:not([aria-current])::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      right: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--atlas-color-accent), transparent);
+      box-shadow: 0 0 6px rgb(212 166 74 / 0.6);
+      transition:
+        left 0.3s ease-out,
+        right 0.3s ease-out;
+    }
+
+    &:not([aria-current]):hover::before {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes atlas-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+/* A light that runs once along the header's lower edge, and along the menu's when it opens. */
+@keyframes atlas-light-sweep {
+  from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
