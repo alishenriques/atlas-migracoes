@@ -73,7 +73,7 @@ describe("RecordMap", () => {
     const popup = screen.getByTestId("popup-sp");
     expect(popup).toHaveTextContent("São Paulo");
     expect(popup).toHaveTextContent("Exposição · 1951Bienal");
-    expect(popup).toHaveTextContent("Morte · 1957");
+    expect(popup).toHaveTextContent("Falecimento · 1957");
     expect(screen.getByTestId("popup-nowhere")).toBeEmptyDOMElement();
   });
 });

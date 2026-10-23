@@ -66,7 +66,7 @@
     "LIST_UNAVAILABLE": "Não foi possível carregar os artistas agora.",
     "BACK": "Todas as trajetórias",
     "BORN": "Nascimento",
-    "DIED": "Morte",
+    "DIED": "Falecimento",
     "MAP_LABEL": "Mapa da trajetória de {name}",
     "TRAJECTORY": "Trajetória",
     "WORKS": "{count, plural, =0 {Obras} one {# obra} other {# obras}}",
@@ -125,7 +125,7 @@
     "UNDATED_NOTE": "Exposições, publicações e obras sem ano aparecem só com o período completo.",
     "OVERVIEW_NOTE": "Na visão geral, a rede se lê da esquerda para a direita: lugar de nascimento, artista, instituições que expuseram suas obras e cidades dessas exposições (quando a fonte não nomeia a instituição, o artista se liga direto à cidade). A espessura da linha conta as exposições.",
     "EGO_NOTE": "{name} fica no centro e cada anel se afasta uma ligação: obras e lugares de vida, depois exposições e publicações, depois instituições, cidades e os outros artistas do acervo que estiveram nas mesmas exposições.",
-    "LINES_NOTE": "Linhas tracejadas levam ao lugar de nascimento ou de morte. Aproxime com a roda do mouse ou os botões e arraste para mover.",
+    "LINES_NOTE": "Linhas tracejadas levam ao lugar de nascimento ou de falecimento. Aproxime com a roda do mouse ou os botões e arraste para mover.",
     "CLEAR": "Limpar",
     "LEGEND": "Legenda",
     "GRAPH_LABEL": "Rede de {count, plural, one {# elemento} other {# elementos}}; use Tab para percorrer e Enter para ver os detalhes",
@@ -175,7 +175,7 @@
     "OPEN_RECORD": "Abrir a ficha da trajetória",
     "COLLECTION": "No acervo",
     "BORN": "Nascimento",
-    "DIED": "Morte",
+    "DIED": "Falecimento",
     "UNKNOWN_DATE": "s.d.",
     "UNKNOWN_PLACE": "lugar desconhecido",
     "MATCH": "Pessoa encontrada no Wikidata",
@@ -189,8 +189,8 @@
     "PROPERTY": {
       "BIRTH_DATE": "Nascimento",
       "BIRTH_PLACE": "Lugar de nascimento",
-      "DEATH_DATE": "Morte",
-      "DEATH_PLACE": "Lugar de morte",
+      "DEATH_DATE": "Falecimento",
+      "DEATH_PLACE": "Local de falecimento",
       "CITIZENSHIP": "Cidadania",
       "OCCUPATION": "Ocupação",
       "MOVEMENT": "Movimento",
@@ -217,7 +217,7 @@
     "RETRIEVED": "Fontes lidas em {date}.",
     "METHOD": "Como a pesquisa é feita",
     "QUERY": "Consulta usada",
-    "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e morte, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
+    "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e falecimento, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
     "METHOD_RELIABILITY": "Um achado é documentado quando o Wikidata cita referências para ele; sem referências, ou vindo do texto da enciclopédia, ele não é determinado.",
     "METHOD_PERIOD": "As fontes abertas usam os nomes atuais de lugares e Estados. A IA recebe os Estados do ano de nascimento e é instruída a usar os nomes da época.",
     "METHOD_AI": "O resumo é escrito pelo Gemini com temperatura baixa, a partir só dos achados numerados, do registro do acervo e do mapa do período. Um resumo que não cite os achados, ou cite um que não existe, é descartado.",
@@ -296,7 +296,7 @@
       "TITLE": "Dados",
       "SOURCE": "A base vem de três planilhas do acervo do MAC USP, de 16 de julho de 2026: obras selecionadas, exposições e publicações relacionadas a essas obras.",
       "PRECISION": "Nomes de lugares são mantidos como na fonte, com o nome atual ao lado quando a fonte o indica. Datas aparecem com a precisão que a fonte dá (“c. 1949”, “1940–1945”, “s.d.”), e nada que a fonte não traga é completado.",
-      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, o mapa traça uma única linha, do local de nascimento ao primeiro lugar documentado no Brasil, sem rotas intermediárias. As exposições das obras em vida e o local de morte aparecem como pontos."
+      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, o mapa traça uma única linha, do local de nascimento ao primeiro lugar documentado no Brasil, sem rotas intermediárias. As exposições das obras em vida e o local de falecimento aparecem como pontos."
     },
     "CREDITS": {
       "TITLE": "Cartografia e créditos",
@@ -316,11 +316,11 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Trajetória inferida",
-    "METHOD": "As linhas ligam, em ordem de data, os pontos que o acervo documenta: nascimento, exposições das obras em vida e morte. O trecho do local de nascimento até o primeiro lugar documentado no Brasil aparece em dourado. As fontes não registram a rota nem o ano de chegada, então as linhas mostram a sequência dos registros, não um percurso documentado.",
+    "METHOD": "As linhas ligam, em ordem de data, os pontos que o acervo documenta: nascimento, exposições das obras em vida e falecimento. O trecho do local de nascimento até o primeiro lugar documentado no Brasil aparece em dourado. As fontes não registram a rota nem o ano de chegada, então as linhas mostram a sequência dos registros, não um percurso documentado.",
     "STOP": {
       "BIRTH": "Nascimento",
       "EXHIBITION": "Exposição",
-      "DEATH": "Morte"
+      "DEATH": "Falecimento"
     },
     "UNKNOWN_DATE": "s.d.",
     "POSTHUMOUS": "{count, plural, one {# exposição póstuma fica fora do traçado.} other {# exposições póstumas ficam fora do traçado.}}",

@@ -83,7 +83,7 @@ describe("Explorar map popups", () => {
 
     const [first, second] = popup.getAllByRole("button").map((button) => button.closest("li"));
     expect(first).toHaveTextContent("Artista A");
-    expect(within(first as HTMLElement).getByText("Morte")).toBeInTheDocument();
+    expect(within(first as HTMLElement).getByText("Falecimento")).toBeInTheDocument();
     expect(within(first as HTMLElement).getByText("1957")).toBeInTheDocument();
     expect(second).toHaveTextContent("Artista B");
     expect(within(second as HTMLElement).getByText("Exposição")).toBeInTheDocument();
