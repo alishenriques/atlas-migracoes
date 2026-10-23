@@ -20,7 +20,7 @@
     "SKIP_TO_CONTENT": "Pular para o conteúdo"
   },
   "HOME": {
-    "EYEBROW": "Contribuições da arte imigrante, 1918\u2060–\u20601989",
+    "EYEBROW": "Contribuições da arte imigrante, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",
     "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, a partir do acervo do MAC USP.",
     "STATS_TITLE": "Acervo",
@@ -123,12 +123,16 @@
     "PERIOD_FROM": "Ano inicial",
     "PERIOD_TO": "Ano final",
     "UNDATED_NOTE": "Exposições, publicações e obras sem ano aparecem só com o período completo.",
-    "OVERVIEW_NOTE": "Na visão geral, cada artista se liga ao lugar de nascimento e às instituições que expuseram suas obras (ou ao lugar, quando a fonte não nomeia a instituição). A espessura da linha conta as exposições.",
-    "EGO_NOTE": "As obras de {name} no acervo, onde foram expostas ou publicadas, e os outros artistas do acervo que estiveram nas mesmas exposições.",
+    "OVERVIEW_NOTE": "Na visão geral, a rede se lê da esquerda para a direita: lugar de nascimento, artista, instituições que expuseram suas obras e cidades dessas exposições (quando a fonte não nomeia a instituição, o artista se liga direto à cidade). A espessura da linha conta as exposições.",
+    "EGO_NOTE": "{name} fica no centro e cada anel se afasta uma ligação: obras e lugares de vida, depois exposições e publicações, depois instituições, cidades e os outros artistas do acervo que estiveram nas mesmas exposições.",
+    "LINES_NOTE": "Linhas tracejadas levam ao lugar de nascimento ou de morte. Aproxime com a roda do mouse ou os botões e arraste para mover.",
     "CLEAR": "Limpar",
     "LEGEND": "Legenda",
     "GRAPH_LABEL": "Rede de {count, plural, one {# elemento} other {# elementos}}; use Tab para percorrer e Enter para ver os detalhes",
     "EMPTY": "Nenhuma ligação neste período.",
+    "ZOOM_IN": "Aproximar",
+    "ZOOM_OUT": "Afastar",
+    "ZOOM_FIT": "Ver a rede inteira",
     "KIND": {
       "ARTIST": "Artista",
       "WORK": "Obra",
@@ -144,6 +148,12 @@
       "PUBLICATION": "Publicações",
       "INSTITUTION": "Instituições",
       "PLACE": "Lugares"
+    },
+    "COLUMNS": {
+      "ORIGIN": "Nascimento",
+      "ARTIST": "Artistas",
+      "INSTITUTION": "Instituições",
+      "CITY": "Cidades"
     },
     "SELECT_HINT": "Selecione um elemento da rede para ver suas ligações.",
     "LINKED": "{count, plural, =0 {Sem ligações} one {# ligação} other {# ligações}}",

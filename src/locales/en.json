@@ -20,7 +20,7 @@
     "SKIP_TO_CONTENT": "Skip to content"
   },
   "HOME": {
-    "EYEBROW": "Contributions of immigrant art, 1918\u2060–\u20601989",
+    "EYEBROW": "Contributions of immigrant art, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",
     "SUBTITLE": "Artists from Eastern Europe and Austria who migrated to Brazil, based on the MAC USP collection.",
     "STATS_TITLE": "Collection",
@@ -123,12 +123,16 @@
     "PERIOD_FROM": "From year",
     "PERIOD_TO": "To year",
     "UNDATED_NOTE": "Exhibitions, publications and works with no year appear only with the full period.",
-    "OVERVIEW_NOTE": "In the overview, each artist links to their birthplace and to the institutions that showed their works (or to the place, when the source names no institution). Line thickness counts the exhibitions.",
-    "EGO_NOTE": "{name}'s works in the collection, where they were shown or published, and the other artists of the collection in the same exhibitions.",
+    "OVERVIEW_NOTE": "The overview reads left to right: birthplace, artist, the institutions that showed their works and the cities of those exhibitions (when the source names no institution, the artist links straight to the city). Line thickness counts the exhibitions.",
+    "EGO_NOTE": "{name} sits in the middle and each ring is one link further out: works and life places, then exhibitions and publications, then institutions, cities and the other artists of the collection in the same exhibitions.",
+    "LINES_NOTE": "Dashed lines lead to the place of birth or death. Zoom with the mouse wheel or the buttons and drag to move.",
     "CLEAR": "Clear",
     "LEGEND": "Legend",
     "GRAPH_LABEL": "Network of {count, plural, one {# element} other {# elements}}; use Tab to move through it and Enter to see details",
     "EMPTY": "No links in this period.",
+    "ZOOM_IN": "Zoom in",
+    "ZOOM_OUT": "Zoom out",
+    "ZOOM_FIT": "Show the whole network",
     "KIND": {
       "ARTIST": "Artist",
       "WORK": "Work",
@@ -144,6 +148,12 @@
       "PUBLICATION": "Publications",
       "INSTITUTION": "Institutions",
       "PLACE": "Places"
+    },
+    "COLUMNS": {
+      "ORIGIN": "Birth",
+      "ARTIST": "Artists",
+      "INSTITUTION": "Institutions",
+      "CITY": "Cities"
     },
     "SELECT_HINT": "Select an element of the network to see its links.",
     "LINKED": "{count, plural, =0 {No links} one {# link} other {# links}}",

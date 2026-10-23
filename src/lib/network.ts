@@ -1,9 +1,6 @@
-import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
-
 import { FULL_PERIOD, placeName, type Period } from "./trajectory";
 
 import type { FuzzyDate, NetworkArtist, NetworkData, NetworkExhibition, NetworkPublication, Place } from "./schemas";
-import type { SimulationLinkDatum, SimulationNodeDatum } from "d3-force";
 
 export type NodeKind = "artist" | "work" | "exhibition" | "publication" | "institution" | "place";
 
@@ -221,52 +218,4 @@ export function neighborsOf(graph: Graph, id: string): NetworkNode[] {
     graph.edges.flatMap((edge) => (edge.source === id ? [edge.target] : edge.target === id ? [edge.source] : [])),
   );
   return graph.nodes.filter((node) => ids.has(node.id));
-}
-
-export type PositionedNode = NetworkNode & { x: number; y: number };
-export type Layout = {
-  nodes: PositionedNode[];
-  edges: NetworkEdge[];
-  /** [minX, minY, width, height], ready for an SVG viewBox. */
-  viewBox: [number, number, number, number];
-};
-
-type SimNode = SimulationNodeDatum & { id: string };
-
-const MARGIN = 40;
-const labelRoom = (width: number) => Math.max(120, width * 0.2);
-
-/**
- * Places the nodes with a force simulation run to rest before drawing. d3-force
- * seeds its own random source, so the same graph always gets the same picture.
- * The `center` node, when given, is pinned at the origin.
- */
-export function layoutGraph(graph: Graph, { center, ticks = 300 }: { center?: string; ticks?: number } = {}): Layout {
-  const simNodes: SimNode[] = graph.nodes.map(({ id }) => (id === center ? { id, fx: 0, fy: 0 } : { id }));
-  const links: SimulationLinkDatum<SimNode>[] = graph.edges.map(({ source, target }) => ({ source, target }));
-
-  forceSimulation(simNodes)
-    .force("link", forceLink(links).id((node) => (node as SimNode).id).distance(48))
-    .force("charge", forceManyBody().strength(-90))
-    .force("collide", forceCollide(10))
-    .force("x", forceX(0).strength(0.05))
-    .force("y", forceY(0).strength(0.05))
-    .stop()
-    .tick(ticks);
-
-  const nodes = graph.nodes.map((node, index) => {
-    const { x = 0, y = 0 } = simNodes[index] as SimNode;
-    return { ...node, x, y };
-  });
-  const xs = nodes.map((node) => node.x);
-  const ys = nodes.map((node) => node.y);
-  const [minX, maxX] = xs.length ? [Math.min(...xs), Math.max(...xs)] : [0, 0];
-  const [minY, maxY] = ys.length ? [Math.min(...ys), Math.max(...ys)] : [0, 0];
-
-  return {
-    nodes,
-    edges: graph.edges,
-    // Labels sit to the right of their node, so that side gets room for them.
-    viewBox: [minX - MARGIN, minY - MARGIN, maxX - minX + 2 * MARGIN + labelRoom(maxX - minX), maxY - minY + 2 * MARGIN],
-  };
 }
