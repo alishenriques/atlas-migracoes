@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { styles } from "./styles/index.styles";
 
-const PORTFOLIO_URL = "https://alis-portfolio-three.vercel.app";
+const PORTFOLIO_URL = "https://www.alissonhenriques.dev";
 
 // The "AH" monogram and its triangle, as in the portfolio's brand files (alis-portfolio, shared/components/Logo).
 const MONOGRAM_PATH =
