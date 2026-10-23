@@ -106,7 +106,7 @@ Brand (chosen by Alisson, 2026-10-20): the "Rosa Leste-Sul", a compass rose whos
 
 ## Planned additions (see roadmap)
 
-- Historical cartography: Europe's state borders from CShapes 2.0 (CC BY-NC-SA 4.0), one static file of polygons with validity dates built by `scripts/build-cartography.mts`; the app picks the polygons in force on a day and places birthplaces in them by point-in-polygon. See "Historical cartography" in the roadmap.
+- Historical cartography: Europe's state borders from CShapes 2.0 (CC BY-NC-SA 4.0), one static file of polygons with validity dates built by `scripts/build-cartography.mts`; the app picks the polygons in force on a day and places birthplaces in them by point-in-polygon. Each state is shown by its name on that day (`public/cartography/state-names.json`, pt and en, via `periodName` in `lib/stateNames.ts`), never by CShapes' single English name; the API reads the same file for `research.period`. See "Historical cartography" in the roadmap.
 - Geocoding: a one-time Nominatim script plus manual review, stored in `places`; never a live lookup.
 - Admin: Better Auth with the Drizzle adapter, sessions in Postgres, roles admin and researcher.
 - E2E: when the admin area arrives, the login joins the smoke flow.
