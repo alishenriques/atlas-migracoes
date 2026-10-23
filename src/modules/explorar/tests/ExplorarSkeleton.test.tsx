@@ -4,13 +4,13 @@ import { describe, expect, it } from "vitest";
 
 import messages from "@/locales/pt.json";
 
-import { HomeSkeleton } from "../HomeSkeleton";
+import { ExplorarSkeleton } from "../ExplorarSkeleton";
 
-describe("HomeSkeleton", () => {
+describe("ExplorarSkeleton", () => {
   it("draws Explorar in skeleton, with the counters along the bottom", () => {
     const { container } = render(
       <NextIntlClientProvider locale="pt" messages={messages}>
-        <HomeSkeleton />
+        <ExplorarSkeleton />
       </NextIntlClientProvider>,
     );
     expect(screen.getByRole("main")).toContainElement(screen.getByRole("status"));

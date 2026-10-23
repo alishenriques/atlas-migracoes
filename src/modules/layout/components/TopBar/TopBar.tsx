@@ -66,7 +66,7 @@ export function TopBar() {
       <nav id={NAV_ID} aria-label={t("NAV.LABEL")} className={open ? styles.navOpen : styles.nav}>
         {menuItems.map((item) => {
           // A record page (/trajetorias/[slug]) still belongs to its section.
-          const isCurrent = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+          const isCurrent = pathname === item.href || pathname.startsWith(`${item.href}/`);
           return (
             <Link
               key={item.href}

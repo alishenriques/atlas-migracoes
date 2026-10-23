@@ -44,7 +44,7 @@ export type ExplorarProps = {
  * after the Atlas screens in the project deck. On mobile the blocks stack under the map.
  */
 export function Explorar({ artists, intro, footer }: ExplorarProps) {
-  const t = useTranslations("HOME.MAP");
+  const t = useTranslations("EXPLORAR.MAP");
   const tStop = useTranslations("TRAJECTORY");
   const locale = useLocale();
   // Desktop floats the panel over the map's left side; mobile stacks it below.

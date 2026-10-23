@@ -10,7 +10,7 @@
   "NAV": {
     "LABEL": "Navegação principal",
     "MENU": "Menu",
-    "HOME": "Explorar",
+    "EXPLORAR": "Explorar",
     "TRAJECTORIES": "Trajetórias",
     "HISTORICAL_LAYER": "Camada Histórica",
     "NETWORK": "Rede Relacional",
@@ -20,7 +20,7 @@
     "SWITCH_TO": "English",
     "SKIP_TO_CONTENT": "Pular para o conteúdo"
   },
-  "HOME": {
+  "EXPLORAR": {
     "EYEBROW": "Contribuições da arte imigrante, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",
     "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, a partir do acervo do MAC USP.",

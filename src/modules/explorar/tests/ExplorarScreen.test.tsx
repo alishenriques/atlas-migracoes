@@ -8,7 +8,7 @@ import { getMapData, getOverview } from "@/lib/atlas";
 import type { Overview } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
-import { Home } from "../Home";
+import { ExplorarScreen } from "../ExplorarScreen";
 
 vi.mock("@/lib/atlas", () => ({ getOverview: vi.fn(), getMapData: vi.fn() }));
 
@@ -28,7 +28,7 @@ vi.mock("next-intl/server", async () => {
   const pt = (await import("@/locales/pt.json")).default;
   return {
     getLocale: async () => "pt",
-    getTranslations: async (namespace: "HOME") => createTranslator({ locale: "pt", messages: pt, namespace }),
+    getTranslations: async (namespace: "EXPLORAR") => createTranslator({ locale: "pt", messages: pt, namespace }),
   };
 });
 
@@ -37,15 +37,15 @@ const overview = (source: Overview["meta"]["source"]): Overview => ({
   stats: { artists: 31, works: 417, exhibitions: 299, publications: 108, places: 73, originCountries: 14 },
 });
 
-async function renderHome() {
+async function renderExplorar() {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      {await Home()}
+      {await ExplorarScreen()}
     </NextIntlClientProvider>,
   );
 }
 
-describe("Home", () => {
+describe("ExplorarScreen", () => {
   beforeEach(() => {
     vi.mocked(getOverview).mockReset();
     vi.mocked(getMapData).mockReset();
@@ -54,7 +54,7 @@ describe("Home", () => {
 
   it("shows the collection counters", async () => {
     vi.mocked(getOverview).mockResolvedValue(overview("database"));
-    await renderHome();
+    await renderExplorar();
     expect(screen.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeInTheDocument();
     expect(screen.getByText("417")).toBeInTheDocument();
     expect(screen.getByText("países de origem")).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe("Home", () => {
 
   it("floats the presentation and the counters over the map", async () => {
     vi.mocked(getOverview).mockResolvedValue(overview("demo"));
-    await renderHome();
+    await renderExplorar();
     const intro = within(screen.getByTestId("intro"));
     expect(intro.getByRole("status")).toHaveTextContent("Dados de demonstração");
     expect(intro.getByRole("heading", { level: 1 })).toHaveTextContent("Atlas Migrações Leste-Sul");
@@ -73,7 +73,7 @@ describe("Home", () => {
 
   it("flags simulated demo data", async () => {
     vi.mocked(getOverview).mockResolvedValue(overview("demo"));
-    await renderHome();
+    await renderExplorar();
     expect(screen.getByRole("status")).toHaveTextContent("Dados de demonstração");
   });
 
@@ -82,7 +82,7 @@ describe("Home", () => {
     vi.mocked(getOverview).mockImplementation(async () => {
       throw new Error("ECONNREFUSED");
     });
-    await renderHome();
+    await renderExplorar();
     expect(screen.getByText("Não foi possível carregar os números do acervo agora.")).toBeInTheDocument();
   });
 
@@ -90,7 +90,7 @@ describe("Home", () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     vi.mocked(getOverview).mockResolvedValue(overview("database"));
     vi.mocked(getMapData).mockRejectedValue(new Error("timeout"));
-    await renderHome();
+    await renderExplorar();
     expect(screen.getByText("Não foi possível carregar as trajetórias agora.")).toBeInTheDocument();
     expect(screen.queryByTestId("explorar")).not.toBeInTheDocument();
     expect(screen.getByText("417")).toBeInTheDocument();

@@ -6,7 +6,7 @@ type StaticPathname = Exclude<AppPathname, `${string}[${string}`>;
 export type MenuItem = {
   href: StaticPathname;
   labelKey:
-    | "HOME"
+    | "EXPLORAR"
     | "TRAJECTORIES"
     | "HISTORICAL_LAYER"
     | "NETWORK"
@@ -16,7 +16,7 @@ export type MenuItem = {
 
 // The screens of the MVP, in the order of the deck's navigation bar.
 export const menuItems: MenuItem[] = [
-  { href: "/", labelKey: "HOME" },
+  { href: "/explorar", labelKey: "EXPLORAR" },
   { href: "/trajetorias", labelKey: "TRAJECTORIES" },
   { href: "/camada-historica", labelKey: "HISTORICAL_LAYER" },
   { href: "/rede", labelKey: "NETWORK" },
