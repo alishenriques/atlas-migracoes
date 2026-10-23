@@ -26,3 +26,13 @@ export const styles = {
   cardText: "flex min-w-0 flex-col gap-1",
   cardName: "font-serif text-xl leading-tight",
 };
+
+export const skeletonStyles = {
+  // A card's frame, without the hover of a link.
+  card: "flex h-full items-center justify-between gap-4 rounded-xl border border-line bg-raised px-4 py-3",
+  // Takes the card's width, which the skeleton lines size themselves against.
+  cardText: "flex min-w-0 flex-1 flex-col gap-2",
+  record: "flex flex-col gap-6",
+  // As tall as the record's map.
+  map: "h-[50svh] min-h-[320px] w-full",
+};
