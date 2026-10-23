@@ -1,8 +1,5 @@
 export const styles = {
-  root: "relative flex flex-col md:block md:h-[calc(100svh-4rem)] md:min-h-[560px]",
-  map: "relative h-[60svh] min-h-[360px] md:absolute md:inset-0 md:h-auto",
   mapStatus: "absolute inset-0 flex items-center justify-center bg-raised text-sm text-muted",
-  panel: "m-4 md:absolute md:top-4 md:left-4 md:m-0 md:max-h-[calc(100%-2rem)] md:w-[360px] md:overflow-y-auto scrollbar-atlas",
   note: "text-xs leading-relaxed text-muted",
   list: "flex flex-col gap-2 border-t border-line pt-3",
   listHeader: "flex items-center justify-between gap-3",
@@ -12,5 +9,6 @@ export const styles = {
   originName: "font-serif text-lg leading-snug hover:text-accent",
   originMeta: "text-xs text-muted",
   state: "text-foreground",
+  credit: "border-t border-line pt-3 text-xs leading-relaxed text-muted",
   popupList: "flex flex-col gap-1 text-sm",
 };

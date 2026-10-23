@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 
-import { Panel, ReliabilityTag, SegmentedControl, SelectField } from "@alishenriques/atlas-design-system";
+import { ReliabilityTag, SegmentedControl, SelectField } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -12,20 +12,34 @@ import type { MapArtist } from "@/lib/schemas";
 import { stateNameLocale } from "@/lib/stateNames";
 import { placeName } from "@/lib/trajectory";
 import { MapPopup } from "@/shared/components/MapPopup";
+import { MapScreen, SIDE_INSET } from "@/shared/components/MapScreen";
+import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
 
 import { useStates } from "../../hooks/useStates";
 import { birthplacesOf, originsIn } from "../../utils/origins";
 import { HistoricalMap } from "../HistoricalMap";
 import { styles } from "./styles/index.styles";
 
-export type HistoricalExplorerProps = { artists: MapArtist[] };
+export type HistoricalExplorerProps = {
+  artists: MapArtist[];
+  /** Floats above the controls, in the left column (the screen's presentation). */
+  intro?: ReactNode;
+  /** Closes the controls panel (the borders' credit). */
+  credit?: ReactNode;
+};
 
 const FIRST_DECADE: Decade = 1920;
+// Keeps the opening view clear of the left column on desktop.
+const SIDE_PADDING = { top: 0, right: 0, bottom: 0, left: SIDE_INSET };
 
-/** The interactive Camada Histórica: Europe's borders by decade and year, and where each artist was born. */
-export function HistoricalExplorer({ artists }: HistoricalExplorerProps) {
+/**
+ * The interactive Camada Histórica: Europe's borders by decade and year, and where each artist was born.
+ * Laid out like Explorar: the map fills the screen and the presentation and the controls float over it.
+ */
+export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplorerProps) {
   const t = useTranslations("HISTORICAL_LAYER");
   const locale = useLocale();
+  const isDesktop = useIsDesktop();
   const loaded = useStates();
   const [decade, setDecade] = useState<Decade>(FIRST_DECADE);
   const [year, setYear] = useState(FIRST_DECADE + 5);
@@ -88,68 +102,71 @@ export function HistoricalExplorer({ artists }: HistoricalExplorerProps) {
   };
 
   return (
-    <section className={styles.root}>
-      <div className={styles.map}>
-        {inForce ? (
+    <MapScreen
+      map={
+        inForce ? (
           <HistoricalMap
             states={inForce}
             birthplaces={birthplaces}
             label={t("MAP_LABEL", { year })}
             renderPlace={renderPlace}
             renderState={renderState}
+            padding={isDesktop ? SIDE_PADDING : undefined}
           />
         ) : (
           <p className={styles.mapStatus}>{loaded.status === "error" ? t("BORDERS_UNAVAILABLE") : t("LOADING")}</p>
-        )}
+        )
+      }
+      intro={intro}
+      title={t("BORDERS_OF", { year })}
+    >
+      <SegmentedControl
+        label={t("DECADE")}
+        value={String(decade)}
+        onChange={chooseDecade}
+        options={DECADES.map((d) => ({ value: String(d), label: t("DECADE_LABEL", { decade: d }) }))}
+      />
+      <SelectField
+        label={t("YEAR")}
+        value={String(year)}
+        onChange={(value) => setYear(Number(value))}
+        options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
+      />
+      <p className={styles.note}>{t("SOURCE_NOTE")}</p>
+
+      <div className={styles.list}>
+        <div className={styles.listHeader}>
+          <p className={styles.listTitle}>{t("ORIGINS_TITLE")}</p>
+          <ReliabilityTag level="inferred" label={t("INFERRED")} />
+        </div>
+        <p className={styles.note}>{t("ORIGINS_METHOD")}</p>
+        <ul className={styles.origins}>
+          {origins.map((origin) => (
+            <li key={origin.artist.slug} className={styles.origin}>
+              <Link
+                href={{ pathname: "/trajetorias/[slug]", params: { slug: origin.artist.slug } }}
+                className={styles.originName}
+              >
+                {origin.artist.name}
+              </Link>
+              <span className={styles.originMeta}>
+                {t("BORN", {
+                  place: placeName(origin.place),
+                  date: formatFuzzyDate(origin.artist.birthDate, locale, t("UNKNOWN_DATE")),
+                })}
+              </span>
+              <span className={styles.originMeta}>
+                {t("AT_BIRTH")}: <span className={styles.state}>{atBirth(origin.atBirth)}</span>
+              </span>
+              <span className={styles.originMeta}>
+                {t("IN_YEAR", { year, state: origin.inYear ?? t("STATE.NONE") })}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <Panel title={t("BORDERS_OF", { year })} className={styles.panel}>
-        <SegmentedControl
-          label={t("DECADE")}
-          value={String(decade)}
-          onChange={chooseDecade}
-          options={DECADES.map((d) => ({ value: String(d), label: t("DECADE_LABEL", { decade: d }) }))}
-        />
-        <SelectField
-          label={t("YEAR")}
-          value={String(year)}
-          onChange={(value) => setYear(Number(value))}
-          options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
-        />
-        <p className={styles.note}>{t("SOURCE_NOTE")}</p>
-
-        <div className={styles.list}>
-          <div className={styles.listHeader}>
-            <p className={styles.listTitle}>{t("ORIGINS_TITLE")}</p>
-            <ReliabilityTag level="inferred" label={t("INFERRED")} />
-          </div>
-          <p className={styles.note}>{t("ORIGINS_METHOD")}</p>
-          <ul className={styles.origins}>
-            {origins.map((origin) => (
-              <li key={origin.artist.slug} className={styles.origin}>
-                <Link
-                  href={{ pathname: "/trajetorias/[slug]", params: { slug: origin.artist.slug } }}
-                  className={styles.originName}
-                >
-                  {origin.artist.name}
-                </Link>
-                <span className={styles.originMeta}>
-                  {t("BORN", {
-                    place: placeName(origin.place),
-                    date: formatFuzzyDate(origin.artist.birthDate, locale, t("UNKNOWN_DATE")),
-                  })}
-                </span>
-                <span className={styles.originMeta}>
-                  {t("AT_BIRTH")}: <span className={styles.state}>{atBirth(origin.atBirth)}</span>
-                </span>
-                <span className={styles.originMeta}>
-                  {t("IN_YEAR", { year, state: origin.inYear ?? t("STATE.NONE") })}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Panel>
-    </section>
+      {credit && <div className={styles.credit}>{credit}</div>}
+    </MapScreen>
   );
 }
