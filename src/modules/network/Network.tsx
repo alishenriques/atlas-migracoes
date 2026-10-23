@@ -17,25 +17,29 @@ export type NetworkProps = {
 export async function Network({ data, initialSlug }: NetworkProps) {
   const t = await getTranslations("NETWORK");
 
-  return (
-    <main className={styles.page}>
+  const header = (
+    <>
       {data?.meta.source === "demo" && <DemoNotice />}
-
       <header className={styles.header}>
         <Eyebrow>{t("EYEBROW")}</Eyebrow>
         <h1 className={styles.title}>{t("TITLE")}</h1>
         <p className={styles.intro}>{t("INTRO")}</p>
       </header>
+    </>
+  );
+  const credit = <p className={styles.credit}>{t("SOURCE")}</p>;
 
+  return (
+    <main className={styles.page}>
       {data ? (
-        <NetworkExplorer data={data} initialSlug={initialSlug} />
+        <NetworkExplorer data={data} initialSlug={initialSlug} intro={header} footer={credit} />
       ) : (
-        <p className={styles.muted}>{t("DATA_UNAVAILABLE")}</p>
+        <div className={styles.fallback}>
+          {header}
+          <p className={styles.muted}>{t("DATA_UNAVAILABLE")}</p>
+          {credit}
+        </div>
       )}
-
-      <footer className={styles.credit}>
-        <p>{t("SOURCE")}</p>
-      </footer>
     </main>
   );
 }
