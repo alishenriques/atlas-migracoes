@@ -1,0 +1,36 @@
+export const styles = {
+  page: "flex flex-1 flex-col",
+  sections: "mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 pb-24 sm:px-6 lg:px-10",
+  section: "flex flex-col gap-8",
+  // The counters float over the bottom of the slider, as the strip floats over the map on Explorar.
+  countersSection: "relative z-10 -mt-14",
+  counters: "flex flex-col gap-4",
+  label: "text-[11px] font-medium uppercase tracking-[0.14em] text-accent",
+  heading: "flex max-w-2xl flex-col gap-3",
+  title: "font-serif text-4xl leading-tight text-balance sm:text-5xl",
+  need: "grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16",
+  needIntro: "flex flex-col gap-3",
+  needBody: "flex flex-col gap-5",
+  lead: "text-lg leading-relaxed sm:text-xl",
+  text: "leading-relaxed text-foreground/80",
+  question: "flex flex-col gap-2 border-l-2 border-accent pl-5",
+  questionText: "font-serif text-2xl leading-snug italic sm:text-[1.7rem]",
+  impacts: "grid gap-6 md:grid-cols-2",
+  impact: "flex flex-col gap-5 rounded-xl border border-line bg-raised p-6 sm:p-8",
+  impactTitle: "font-serif text-3xl",
+  impactList: "flex flex-col gap-4",
+  // Each item marked with the gold arrival dot of the brand.
+  impactItem:
+    "relative pl-6 leading-relaxed text-foreground/85 before:absolute before:left-0 before:top-[0.6em] before:size-2 before:rounded-full before:bg-accent",
+  screens: "grid gap-3 sm:grid-cols-2 lg:grid-cols-5",
+  screen:
+    "flex h-full flex-col gap-3 rounded-xl border border-line bg-raised p-5 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-accent",
+  screenNumber: "font-serif text-3xl text-accent",
+  screenName: "text-xs font-semibold uppercase tracking-[0.14em]",
+  screenText: "text-sm leading-relaxed text-muted",
+  method: "grid gap-6 sm:grid-cols-3",
+  step: "flex flex-col gap-1 border-l border-accent pl-4",
+  stepTitle: "font-serif text-2xl",
+  muted: "text-sm leading-relaxed text-muted",
+  more: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+};

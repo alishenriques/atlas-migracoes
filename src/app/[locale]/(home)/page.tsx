@@ -1,7 +1,9 @@
-import { redirect } from "@/i18n/navigation";
+import { Home } from "@/modules/home";
 
-// Explorar moved to /explorar; the home page takes its place in the next change.
-export default async function Page({ params }: PageProps<"/[locale]">) {
-  const { locale } = await params;
-  redirect({ href: "/explorar", locale });
+// Collection data changes independently of deploys and is fetched with Axios
+// (not Next's `fetch`), so Next can't detect it's dynamic on its own.
+export const dynamic = "force-dynamic";
+
+export default function Page() {
+  return <Home />;
 }

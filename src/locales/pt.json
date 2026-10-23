@@ -59,6 +59,49 @@
           "CTA": "Conhecer a IA Relacional"
         }
       }
+    },
+    "COUNTERS": {
+      "TITLE": "O acervo em números",
+      "UNAVAILABLE": "Não foi possível carregar os números do acervo agora."
+    },
+    "NEED": {
+      "EYEBROW": "Por que um atlas",
+      "TITLE": "Um acervo lido em relação",
+      "CONTEXT": "Entre 1918 e 1989, artistas nascidos no Leste Europeu e na Áustria migraram para o Brasil. Suas obras estão no acervo do MAC USP, mas os registros do museu não mostram, por si, de onde esses artistas vieram, por onde passaram e com quem se relacionaram.",
+      "PROBLEM": "O Atlas reúne esses registros num só lugar e os lê em relação: no mapa, no tempo, nas fronteiras de cada época e numa rede de vínculos, sempre com a fonte de cada informação e sem completar o que a fonte não traz."
+    },
+    "IMPACTS": {
+      "EYEBROW": "Impactos",
+      "TITLE": "O que muda para a pesquisa e para o acervo",
+      "RESEARCH": {
+        "TITLE": "Para a pesquisa",
+        "ITEMS": {
+          "1": "As trajetórias dos artistas reunidas num só mapa, filtráveis por país de origem e por período.",
+          "2": "Relações entre artistas, obras, exposições e publicações que estavam dispersas em registros separados.",
+          "3": "Achados em fontes abertas com a fonte, a confiabilidade e o prompt à vista, prontos para serem verificados."
+        }
+      },
+      "COLLECTION": {
+        "TITLE": "Para o acervo",
+        "ITEMS": {
+          "1": "Os registros do MAC USP ganham contexto geográfico e histórico, com as fronteiras de cada período.",
+          "2": "Toda informação preserva a sua proveniência, e o que é inferido se distingue do que é documentado.",
+          "3": "As lacunas ficam visíveis: o que a fonte não traz aparece como desconhecido e nunca é completado."
+        }
+      }
+    },
+    "SCREENS": {
+      "EYEBROW": "Percorra o atlas",
+      "TITLE": "Cinco maneiras de ler o acervo",
+      "EXPLORAR": "As trajetórias no mapa, com filtros por país de origem e período e os números do acervo.",
+      "TRAJECTORIES": "A ficha de cada artista: trajetória, obras, exposições, publicações e fontes.",
+      "HISTORICAL_LAYER": "A Europa ano a ano, de 1910 a 1989, com as fronteiras de cada período e os locais de origem.",
+      "NETWORK": "O grafo que liga artistas, obras, exposições, publicações, instituições e lugares.",
+      "RELATIONAL_AI": "Pesquisa em fontes abertas, cada achado ligado à sua fonte e à geopolítica do período."
+    },
+    "METHOD": {
+      "TITLE": "Leitura, relação e confiabilidade",
+      "MORE": "Conheça o projeto e a metodologia"
     }
   },
   "EXPLORAR": {
