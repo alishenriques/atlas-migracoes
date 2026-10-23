@@ -42,10 +42,12 @@ describe("TopBar", () => {
     navigation.params = {};
   });
 
-  it("links to every MVP screen inside a labelled nav", () => {
+  it("links to the home page and every MVP screen inside a labelled nav", () => {
     renderTopBar();
     const nav = screen.getByRole("navigation", { name: "Navegação principal" });
-    expect(nav.querySelectorAll("a")).toHaveLength(6);
+    expect(nav.querySelectorAll("a")).toHaveLength(7);
+    expect(nav.querySelector("a")).toHaveTextContent("Início");
+    expect(screen.getByRole("link", { name: "Início" })).toHaveAttribute("href", "/");
     expect(screen.getByRole("link", { name: "Explorar" })).toHaveAttribute("href", "/explorar");
     expect(screen.getByRole("link", { name: "Camada Histórica" })).toHaveAttribute("href", "/camada-historica");
     expect(screen.getByRole("link", { name: "Rede Relacional" })).toHaveAttribute("href", "/rede");
@@ -65,6 +67,14 @@ describe("TopBar", () => {
     renderTopBar();
     expect(screen.getByRole("link", { name: "Trajetórias" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("link", { name: "Explorar" })).not.toHaveAttribute("aria-current");
+    expect(screen.getByRole("link", { name: "Início" })).not.toHaveAttribute("aria-current");
+  });
+
+  it("marks Início only on the home page", () => {
+    navigation.pathname = "/";
+    renderTopBar();
+    expect(screen.getByRole("link", { name: "Início" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getAllByRole("link", { current: "page" })).toHaveLength(1);
   });
 
   it("starts with a link that skips the menu to the page's content", () => {
