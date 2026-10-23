@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 
-import { Button, Panel, SelectField, YearRange } from "@alishenriques/atlas-design-system";
+import { Button, SelectField, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -19,14 +19,15 @@ import {
 } from "@/lib/trajectory";
 import { CountryFlag } from "@/shared/components/CountryFlag";
 import { MapPopup } from "@/shared/components/MapPopup";
+import { MapScreen, SIDE_INSET } from "@/shared/components/MapScreen";
 import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
 
 import { styles } from "./styles/index.styles";
 
-// Room the map leaves on desktop for the floating blocks: their width or height plus the gaps.
-const MAP_INSET = { left: 360, bottom: 152 };
+// Room the map leaves on desktop for the counters along the bottom: their height plus the gaps.
+const FOOTER_INSET = 152;
 const NO_INSET = { top: 0, right: 0, bottom: 0, left: 0 };
 
 export type ExplorarProps = {
@@ -62,7 +63,7 @@ export function Explorar({ artists, intro, footer }: ExplorarProps) {
   const filtered = originCountry !== "" || period[0] !== FULL_PERIOD[0] || period[1] !== FULL_PERIOD[1];
   // Keeps the trajectories clear of the floating blocks when the map fits them.
   const padding = useMemo(
-    () => (isDesktop ? { top: 0, right: 0, bottom: footer ? MAP_INSET.bottom : 0, left: MAP_INSET.left } : NO_INSET),
+    () => (isDesktop ? { top: 0, right: 0, bottom: footer ? FOOTER_INSET : 0, left: SIDE_INSET } : NO_INSET),
     [isDesktop, footer],
   );
 
@@ -120,8 +121,8 @@ export function Explorar({ artists, intro, footer }: ExplorarProps) {
   };
 
   return (
-    <section className={styles.root}>
-      <div className={styles.map}>
+    <MapScreen
+      map={
         <TrajectoryMap
           trajectories={visible}
           selectedSlug={selected?.artist.slug ?? null}
@@ -129,101 +130,93 @@ export function Explorar({ artists, intro, footer }: ExplorarProps) {
           renderPlace={renderPlace}
           padding={padding}
         />
+      }
+      intro={intro}
+      footer={footer}
+      title={t("FILTERS")}
+      action={
+        filtered || selected ? (
+          <button type="button" className={styles.clear} onClick={clear}>
+            {t("CLEAR")}
+          </button>
+        ) : undefined
+      }
+    >
+      <SelectField
+        label={t("ORIGIN")}
+        value={originCountry}
+        onChange={setOriginCountry}
+        options={[
+          { value: "", label: t("ALL_COUNTRIES") },
+          ...countries.map((c) => ({ value: c, label: c, icon: <CountryFlag country={c} /> })),
+        ]}
+      />
+      <YearRange
+        label={t("PERIOD")}
+        fromLabel={t("PERIOD_FROM")}
+        toLabel={t("PERIOD_TO")}
+        min={FULL_PERIOD[0]}
+        max={FULL_PERIOD[1]}
+        value={period}
+        onChange={setPeriod}
+      />
+      <div role="group" aria-label={t("LEGEND")} className={styles.legend}>
+        <p className={styles.listTitle}>{t("LEGEND")}</p>
+        <p className={styles.legendItem}>
+          <span aria-hidden className={styles.legendMigration} />
+          {t("LEGEND_MIGRATION")}
+        </p>
+        <p className={styles.legendItem}>
+          <span aria-hidden className={styles.legendRoute} />
+          {t("LEGEND_ROUTE")}
+        </p>
       </div>
 
-      <div className={styles.overlay}>
-        <div className={styles.side}>
-          {intro && <div className={styles.intro}>{intro}</div>}
-          <Panel
-            title={t("FILTERS")}
-            className={styles.panel}
-            action={
-              filtered || selected ? (
-                <button type="button" className={styles.clear} onClick={clear}>
-                  {t("CLEAR")}
-                </button>
-              ) : undefined
-            }
+      {selected ? (
+        <div className={styles.detail}>
+          <div className={styles.detailHeader}>
+            <h2 className={styles.detailName}>{selected.artist.name}</h2>
+            <Button variant="ghost" onClick={() => setSelectedSlug(null)}>
+              {t("BACK")}
+            </Button>
+          </div>
+          <TrajectoryStops trajectory={selected} stops={selected.visible} />
+          <Link
+            href={{
+              pathname: "/trajetorias/[slug]",
+              params: { slug: selected.artist.slug },
+            }}
+            className={styles.recordLink}
           >
-            <SelectField
-              label={t("ORIGIN")}
-              value={originCountry}
-              onChange={setOriginCountry}
-              options={[
-                { value: "", label: t("ALL_COUNTRIES") },
-                ...countries.map((c) => ({ value: c, label: c, icon: <CountryFlag country={c} /> })),
-              ]}
-            />
-            <YearRange
-              label={t("PERIOD")}
-              fromLabel={t("PERIOD_FROM")}
-              toLabel={t("PERIOD_TO")}
-              min={FULL_PERIOD[0]}
-              max={FULL_PERIOD[1]}
-              value={period}
-              onChange={setPeriod}
-            />
-            <div role="group" aria-label={t("LEGEND")} className={styles.legend}>
-              <p className={styles.listTitle}>{t("LEGEND")}</p>
-              <p className={styles.legendItem}>
-                <span aria-hidden className={styles.legendMigration} />
-                {t("LEGEND_MIGRATION")}
-              </p>
-              <p className={styles.legendItem}>
-                <span aria-hidden className={styles.legendRoute} />
-                {t("LEGEND_ROUTE")}
-              </p>
-            </div>
-
-            {selected ? (
-              <div className={styles.detail}>
-                <div className={styles.detailHeader}>
-                  <h2 className={styles.detailName}>{selected.artist.name}</h2>
-                  <Button variant="ghost" onClick={() => setSelectedSlug(null)}>
-                    {t("BACK")}
-                  </Button>
-                </div>
-                <TrajectoryStops trajectory={selected} stops={selected.visible} />
-                <Link
-                  href={{
-                    pathname: "/trajetorias/[slug]",
-                    params: { slug: selected.artist.slug },
-                  }}
-                  className={styles.recordLink}
-                >
-                  {t("OPEN_RECORD")}
-                </Link>
-              </div>
-            ) : (
-              <div className={styles.list}>
-                <p className={styles.listTitle}>{t("ARTISTS", { count: visible.length })}</p>
-                {visible.length === 0 ? (
-                  <p className={styles.note}>{t("NO_RESULTS")}</p>
-                ) : (
-                  <ul className={styles.artists}>
-                    {visible.map((trajectory) => (
-                      <li key={trajectory.artist.slug}>
-                        <button
-                          type="button"
-                          className={styles.artist}
-                          onClick={() => setSelectedSlug(trajectory.artist.slug)}
-                        >
-                          <span>{trajectory.artist.name}</span>
-                          <span className={styles.artistOrigin}>
-                            <CountryFlag country={trajectory.artist.birthPlace?.country} />
-                            {trajectory.artist.birthPlace?.country}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            )}
-          </Panel>
+            {t("OPEN_RECORD")}
+          </Link>
         </div>
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </section>
+      ) : (
+        <div className={styles.list}>
+          <p className={styles.listTitle}>{t("ARTISTS", { count: visible.length })}</p>
+          {visible.length === 0 ? (
+            <p className={styles.note}>{t("NO_RESULTS")}</p>
+          ) : (
+            <ul className={styles.artists}>
+              {visible.map((trajectory) => (
+                <li key={trajectory.artist.slug}>
+                  <button
+                    type="button"
+                    className={styles.artist}
+                    onClick={() => setSelectedSlug(trajectory.artist.slug)}
+                  >
+                    <span>{trajectory.artist.name}</span>
+                    <span className={styles.artistOrigin}>
+                      <CountryFlag country={trajectory.artist.birthPlace?.country} />
+                      {trajectory.artist.birthPlace?.country}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </MapScreen>
   );
 }
