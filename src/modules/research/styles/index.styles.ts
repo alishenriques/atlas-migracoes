@@ -9,3 +9,7 @@ export const styles = {
   picker: "w-full max-w-sm lg:shrink-0",
   muted: "text-sm text-muted",
 };
+
+export const skeletonStyles = {
+  picker: "flex w-full max-w-sm flex-col gap-2 lg:shrink-0",
+};
