@@ -1,0 +1,641 @@
+{
+  "Albania": [
+    {
+      "until": "1939-04-06",
+      "pt": "Albânia",
+      "en": "Albania"
+    },
+    {
+      "until": "1943-09-08",
+      "pt": "Albânia (anexada pela Itália)",
+      "en": "Albania (annexed by Italy)"
+    },
+    {
+      "until": "1944-11-29",
+      "pt": "Albânia (ocupada pela Alemanha)",
+      "en": "Albania (occupied by Germany)"
+    },
+    {
+      "pt": "Albânia",
+      "en": "Albania"
+    }
+  ],
+  "Algeria": [
+    {
+      "until": "1962-07-04",
+      "pt": "Argélia (colônia francesa)",
+      "en": "Algeria (French colony)"
+    },
+    {
+      "pt": "Argélia",
+      "en": "Algeria"
+    }
+  ],
+  "Armenia": [
+    {
+      "pt": "Armênia",
+      "en": "Armenia"
+    }
+  ],
+  "Austria": [
+    {
+      "until": "1919-10-20",
+      "pt": "Áustria Alemã",
+      "en": "German-Austria"
+    },
+    {
+      "until": "1938-03-12",
+      "pt": "Áustria",
+      "en": "Austria"
+    },
+    {
+      "until": "1945-04-26",
+      "pt": "Áustria (anexada pela Alemanha)",
+      "en": "Austria (annexed by Germany)"
+    },
+    {
+      "until": "1955-07-26",
+      "pt": "Áustria (ocupação aliada)",
+      "en": "Austria (Allied occupation)"
+    },
+    {
+      "pt": "Áustria",
+      "en": "Austria"
+    }
+  ],
+  "Austria-Hungary": [
+    {
+      "pt": "Áustria-Hungria",
+      "en": "Austria-Hungary"
+    }
+  ],
+  "Azerbaijan": [
+    {
+      "pt": "Azerbaijão",
+      "en": "Azerbaijan"
+    }
+  ],
+  "Belarus (Byelorussia)": [
+    {
+      "pt": "Belarus",
+      "en": "Belarus"
+    }
+  ],
+  "Belgium": [
+    {
+      "pt": "Bélgica",
+      "en": "Belgium"
+    }
+  ],
+  "Bosnia": [
+    {
+      "pt": "Bósnia (ocupação austro-húngara)",
+      "en": "Bosnia (Austro-Hungarian occupation)"
+    }
+  ],
+  "Bosnia-Herzegovina": [
+    {
+      "pt": "Bósnia e Herzegovina",
+      "en": "Bosnia and Herzegovina"
+    }
+  ],
+  "Bulgaria": [
+    {
+      "until": "1908-10-04",
+      "pt": "Principado da Bulgária",
+      "en": "Principality of Bulgaria"
+    },
+    {
+      "pt": "Bulgária",
+      "en": "Bulgaria"
+    }
+  ],
+  "Croatia": [
+    {
+      "pt": "Croácia",
+      "en": "Croatia"
+    }
+  ],
+  "Cyprus": [
+    {
+      "until": "1960-08-15",
+      "pt": "Chipre (colônia britânica)",
+      "en": "Cyprus (British colony)"
+    },
+    {
+      "pt": "Chipre",
+      "en": "Cyprus"
+    }
+  ],
+  "Czech Republic": [
+    {
+      "pt": "Tchéquia",
+      "en": "Czech Republic"
+    }
+  ],
+  "Czechoslovakia": [
+    {
+      "until": "1939-03-14",
+      "pt": "Tchecoslováquia",
+      "en": "Czechoslovakia"
+    },
+    {
+      "until": "1945-05-08",
+      "pt": "Tchecoslováquia (ocupada e desmembrada)",
+      "en": "Czechoslovakia (occupied and partitioned)"
+    },
+    {
+      "pt": "Tchecoslováquia",
+      "en": "Czechoslovakia"
+    }
+  ],
+  "Danzig": [
+    {
+      "pt": "Cidade Livre de Danzig",
+      "en": "Free City of Danzig"
+    }
+  ],
+  "Denmark": [
+    {
+      "pt": "Dinamarca",
+      "en": "Denmark"
+    }
+  ],
+  "Estonia": [
+    {
+      "pt": "Estônia",
+      "en": "Estonia"
+    }
+  ],
+  "Finland": [
+    {
+      "pt": "Finlândia",
+      "en": "Finland"
+    }
+  ],
+  "France": [
+    {
+      "pt": "França",
+      "en": "France"
+    }
+  ],
+  "Georgia": [
+    {
+      "pt": "Geórgia",
+      "en": "Georgia"
+    }
+  ],
+  "German Democratic Republic": [
+    {
+      "until": "1949-10-06",
+      "pt": "Alemanha (zona de ocupação soviética)",
+      "en": "Germany (Soviet occupation zone)"
+    },
+    {
+      "pt": "Alemanha Oriental (RDA)",
+      "en": "East Germany (GDR)"
+    }
+  ],
+  "German Federal Republic": [
+    {
+      "until": "1949-05-22",
+      "pt": "Alemanha (zonas de ocupação ocidentais)",
+      "en": "Germany (Western occupation zones)"
+    },
+    {
+      "until": "1990-10-02",
+      "pt": "Alemanha Ocidental (RFA)",
+      "en": "West Germany (FRG)"
+    },
+    {
+      "pt": "Alemanha",
+      "en": "Germany"
+    }
+  ],
+  "Germany (Prussia)": [
+    {
+      "until": "1918-11-09",
+      "pt": "Império Alemão",
+      "en": "German Empire"
+    },
+    {
+      "until": "1933-01-29",
+      "pt": "Alemanha (República de Weimar)",
+      "en": "Germany (Weimar Republic)"
+    },
+    {
+      "pt": "Alemanha nazista",
+      "en": "Nazi Germany"
+    }
+  ],
+  "Greece": [
+    {
+      "pt": "Grécia",
+      "en": "Greece"
+    }
+  ],
+  "Herzegovina": [
+    {
+      "pt": "Herzegovina (ocupação austro-húngara)",
+      "en": "Herzegovina (Austro-Hungarian occupation)"
+    }
+  ],
+  "Hungary": [
+    {
+      "pt": "Hungria",
+      "en": "Hungary"
+    }
+  ],
+  "Iceland": [
+    {
+      "until": "1918-11-30",
+      "pt": "Islândia (dependência dinamarquesa)",
+      "en": "Iceland (Danish dependency)"
+    },
+    {
+      "until": "1944-06-16",
+      "pt": "Reino da Islândia",
+      "en": "Kingdom of Iceland"
+    },
+    {
+      "pt": "Islândia",
+      "en": "Iceland"
+    }
+  ],
+  "Iran (Persia)": [
+    {
+      "until": "1935-03-20",
+      "pt": "Pérsia",
+      "en": "Persia"
+    },
+    {
+      "pt": "Irã",
+      "en": "Iran"
+    }
+  ],
+  "Iraq": [
+    {
+      "until": "1932-10-02",
+      "pt": "Iraque (mandato britânico)",
+      "en": "Iraq (British mandate)"
+    },
+    {
+      "pt": "Iraque",
+      "en": "Iraq"
+    }
+  ],
+  "Ireland": [
+    {
+      "until": "1937-12-28",
+      "pt": "Estado Livre Irlandês",
+      "en": "Irish Free State"
+    },
+    {
+      "pt": "Irlanda",
+      "en": "Ireland"
+    }
+  ],
+  "Israel": [
+    {
+      "pt": "Israel",
+      "en": "Israel"
+    }
+  ],
+  "Italy/Sardinia": [
+    {
+      "pt": "Itália",
+      "en": "Italy"
+    }
+  ],
+  "Jordan": [
+    {
+      "until": "1946-05-24",
+      "pt": "Transjordânia (mandato britânico)",
+      "en": "Transjordan (British mandate)"
+    },
+    {
+      "until": "1949-04-25",
+      "pt": "Transjordânia",
+      "en": "Transjordan"
+    },
+    {
+      "pt": "Jordânia",
+      "en": "Jordan"
+    }
+  ],
+  "Kazakhstan": [
+    {
+      "pt": "Cazaquistão",
+      "en": "Kazakhstan"
+    }
+  ],
+  "Khiva": [
+    {
+      "pt": "Canato de Khiva (protetorado russo)",
+      "en": "Khanate of Khiva (Russian protectorate)"
+    }
+  ],
+  "Kosovo": [
+    {
+      "pt": "Kosovo",
+      "en": "Kosovo"
+    }
+  ],
+  "Latvia": [
+    {
+      "pt": "Letônia",
+      "en": "Latvia"
+    }
+  ],
+  "Lebanon": [
+    {
+      "until": "1943-11-21",
+      "pt": "Líbano (mandato francês)",
+      "en": "Lebanon (French mandate)"
+    },
+    {
+      "pt": "Líbano",
+      "en": "Lebanon"
+    }
+  ],
+  "Libya": [
+    {
+      "until": "1943-05-12",
+      "pt": "Líbia (colônia italiana)",
+      "en": "Libya (Italian colony)"
+    },
+    {
+      "until": "1951-12-23",
+      "pt": "Líbia (administração britânica e francesa)",
+      "en": "Libya (British and French administration)"
+    },
+    {
+      "pt": "Líbia",
+      "en": "Libya"
+    }
+  ],
+  "Lithuania": [
+    {
+      "pt": "Lituânia",
+      "en": "Lithuania"
+    }
+  ],
+  "Luxembourg": [
+    {
+      "pt": "Luxemburgo",
+      "en": "Luxembourg"
+    }
+  ],
+  "Macedonia (FYROM/North Macedonia)": [
+    {
+      "until": "2019-02-11",
+      "pt": "Macedônia",
+      "en": "Macedonia"
+    },
+    {
+      "pt": "Macedônia do Norte",
+      "en": "North Macedonia"
+    }
+  ],
+  "Malta": [
+    {
+      "until": "1964-09-20",
+      "pt": "Malta (colônia britânica)",
+      "en": "Malta (British colony)"
+    },
+    {
+      "pt": "Malta",
+      "en": "Malta"
+    }
+  ],
+  "Moldova": [
+    {
+      "pt": "Moldávia",
+      "en": "Moldova"
+    }
+  ],
+  "Montenegro": [
+    {
+      "pt": "Montenegro",
+      "en": "Montenegro"
+    }
+  ],
+  "Morocco": [
+    {
+      "until": "1912-03-29",
+      "pt": "Marrocos",
+      "en": "Morocco"
+    },
+    {
+      "until": "1956-03-01",
+      "pt": "Marrocos (protetorado francês)",
+      "en": "Morocco (French protectorate)"
+    },
+    {
+      "pt": "Marrocos",
+      "en": "Morocco"
+    }
+  ],
+  "Netherlands": [
+    {
+      "pt": "Países Baixos",
+      "en": "Netherlands"
+    }
+  ],
+  "Norway": [
+    {
+      "pt": "Noruega",
+      "en": "Norway"
+    }
+  ],
+  "Palestine": [
+    {
+      "pt": "Palestina (mandato britânico)",
+      "en": "Palestine (British mandate)"
+    }
+  ],
+  "Poland": [
+    {
+      "until": "1939-09-27",
+      "pt": "Polônia",
+      "en": "Poland"
+    },
+    {
+      "until": "1945-05-07",
+      "pt": "Polônia (ocupada e dividida)",
+      "en": "Poland (occupied and partitioned)"
+    },
+    {
+      "pt": "Polônia",
+      "en": "Poland"
+    }
+  ],
+  "Portugal": [
+    {
+      "pt": "Portugal",
+      "en": "Portugal"
+    }
+  ],
+  "Rumania": [
+    {
+      "pt": "Romênia",
+      "en": "Romania"
+    }
+  ],
+  "Russia (Soviet Union)": [
+    {
+      "until": "1917-03-15",
+      "pt": "Império Russo",
+      "en": "Russian Empire"
+    },
+    {
+      "until": "1917-11-07",
+      "pt": "Rússia (Governo Provisório)",
+      "en": "Russia (Provisional Government)"
+    },
+    {
+      "until": "1922-12-29",
+      "pt": "Rússia Soviética",
+      "en": "Soviet Russia"
+    },
+    {
+      "until": "1991-12-25",
+      "pt": "União Soviética",
+      "en": "Soviet Union"
+    },
+    {
+      "pt": "Rússia",
+      "en": "Russia"
+    }
+  ],
+  "Serbia": [
+    {
+      "pt": "Sérvia",
+      "en": "Serbia"
+    }
+  ],
+  "Slovakia": [
+    {
+      "pt": "Eslováquia",
+      "en": "Slovakia"
+    }
+  ],
+  "Slovenia": [
+    {
+      "pt": "Eslovênia",
+      "en": "Slovenia"
+    }
+  ],
+  "Spain": [
+    {
+      "pt": "Espanha",
+      "en": "Spain"
+    }
+  ],
+  "Spanish Morocco": [
+    {
+      "pt": "Marrocos espanhol (protetorado)",
+      "en": "Spanish Morocco (protectorate)"
+    }
+  ],
+  "Sweden": [
+    {
+      "pt": "Suécia",
+      "en": "Sweden"
+    }
+  ],
+  "Switzerland": [
+    {
+      "pt": "Suíça",
+      "en": "Switzerland"
+    }
+  ],
+  "Syria": [
+    {
+      "until": "1946-04-16",
+      "pt": "Síria (mandato francês)",
+      "en": "Syria (French mandate)"
+    },
+    {
+      "pt": "Síria",
+      "en": "Syria"
+    }
+  ],
+  "Tunisia": [
+    {
+      "until": "1956-03-19",
+      "pt": "Tunísia (protetorado francês)",
+      "en": "Tunisia (French protectorate)"
+    },
+    {
+      "pt": "Tunísia",
+      "en": "Tunisia"
+    }
+  ],
+  "Turkey (Ottoman Empire)": [
+    {
+      "until": "1922-11-01",
+      "pt": "Império Otomano",
+      "en": "Ottoman Empire"
+    },
+    {
+      "pt": "Turquia",
+      "en": "Turkey"
+    }
+  ],
+  "Turkmenistan": [
+    {
+      "pt": "Turcomenistão",
+      "en": "Turkmenistan"
+    }
+  ],
+  "Ukraine": [
+    {
+      "pt": "Ucrânia",
+      "en": "Ukraine"
+    }
+  ],
+  "United Kingdom": [
+    {
+      "pt": "Reino Unido",
+      "en": "United Kingdom"
+    }
+  ],
+  "Uzbekistan": [
+    {
+      "pt": "Uzbequistão",
+      "en": "Uzbekistan"
+    }
+  ],
+  "Yugoslavia": [
+    {
+      "until": "1929-10-02",
+      "pt": "Reino dos Sérvios, Croatas e Eslovenos",
+      "en": "Kingdom of Serbs, Croats and Slovenes"
+    },
+    {
+      "until": "1941-04-16",
+      "pt": "Iugoslávia",
+      "en": "Yugoslavia"
+    },
+    {
+      "until": "1945-05-08",
+      "pt": "Iugoslávia (ocupada e desmembrada)",
+      "en": "Yugoslavia (occupied and partitioned)"
+    },
+    {
+      "until": "1992-04-26",
+      "pt": "Iugoslávia",
+      "en": "Yugoslavia"
+    },
+    {
+      "until": "2003-02-03",
+      "pt": "República Federal da Iugoslávia",
+      "en": "Federal Republic of Yugoslavia"
+    },
+    {
+      "pt": "Sérvia e Montenegro",
+      "en": "Serbia and Montenegro"
+    }
+  ]
+}
