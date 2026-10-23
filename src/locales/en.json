@@ -59,6 +59,49 @@
           "CTA": "Discover Relational AI"
         }
       }
+    },
+    "COUNTERS": {
+      "TITLE": "The collection in numbers",
+      "UNAVAILABLE": "The collection figures could not be loaded right now."
+    },
+    "NEED": {
+      "EYEBROW": "Why an atlas",
+      "TITLE": "A collection read in relation",
+      "CONTEXT": "Between 1918 and 1989, artists born in Eastern Europe and Austria migrated to Brazil. Their works are in the MAC USP collection, but the museum's records do not show, on their own, where these artists came from, where they went and whom they were connected to.",
+      "PROBLEM": "The Atlas brings these records together and reads them in relation: on the map, in time, within the borders of each period and in a network of links, always with the source of each piece of information and without filling in what the source does not give."
+    },
+    "IMPACTS": {
+      "EYEBROW": "Impact",
+      "TITLE": "What changes for research and for the collection",
+      "RESEARCH": {
+        "TITLE": "For research",
+        "ITEMS": {
+          "1": "The artists' trajectories gathered on one map, filtered by country of origin and period.",
+          "2": "Relations between artists, works, exhibitions and publications that were scattered across separate records.",
+          "3": "Findings from open sources with their source, reliability and prompt in view, ready to be checked."
+        }
+      },
+      "COLLECTION": {
+        "TITLE": "For the collection",
+        "ITEMS": {
+          "1": "The MAC USP records gain geographical and historical context, with the borders of each period.",
+          "2": "Every piece of information keeps its provenance, and what is inferred stays apart from what is documented.",
+          "3": "Gaps stay visible: what the source does not give shows as unknown and is never filled in."
+        }
+      }
+    },
+    "SCREENS": {
+      "EYEBROW": "Through the atlas",
+      "TITLE": "Five ways to read the collection",
+      "EXPLORAR": "The trajectories on the map, with filters by country of origin and period and the collection figures.",
+      "TRAJECTORIES": "Each artist's record: trajectory, works, exhibitions, publications and sources.",
+      "HISTORICAL_LAYER": "Europe year by year, from 1910 to 1989, with the borders of each period and the places of origin.",
+      "NETWORK": "The graph linking artists, works, exhibitions, publications, institutions and places.",
+      "RELATIONAL_AI": "Research in open sources, each finding tied to its source and to the period's geopolitics."
+    },
+    "METHOD": {
+      "TITLE": "Reading, relation and reliability",
+      "MORE": "About the project and its method"
     }
   },
   "EXPLORAR": {
