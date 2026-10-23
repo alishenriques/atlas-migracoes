@@ -94,7 +94,7 @@
     "DECADE": "Década",
     "DECADE_LABEL": "{decade}",
     "YEAR": "Ano",
-    "SOURCE_NOTE": "Fronteiras em 1º de julho do ano escolhido, segundo a CShapes 2.0. A base segue o sistema de Estados de Gleditsch e Ward: Estados ocupados ou anexados na Segunda Guerra, como a Polônia e a Áustria, mantêm as fronteiras, e territórios que não pertenciam a nenhum Estado naquele dia ficam sem fronteira. Os nomes dos Estados estão como na fonte, em inglês.",
+    "SOURCE_NOTE": "Fronteiras em 1º de julho do ano escolhido, segundo a CShapes 2.0. A base segue o sistema de Estados de Gleditsch e Ward: Estados ocupados ou anexados na Segunda Guerra, como a Polônia e a Áustria, mantêm as fronteiras, e territórios que não pertenciam a nenhum Estado naquele dia ficam sem fronteira. Cada Estado leva o nome que tinha naquele dia (Império Russo até 1917, Rússia Soviética até 1922 e União Soviética depois; Áustria-Hungria até 1918), e os anexados ou desmembrados na guerra trazem essa indicação.",
     "ORIGINS_TITLE": "Lugares de origem",
     "INFERRED": "Território inferido",
     "ORIGINS_METHOD": "O Estado de cada lugar foi deduzido pela posição do lugar dentro das fronteiras da época. Quando a data de nascimento é só um ano e a fronteira mudou nesse ano, os dois Estados aparecem.",
