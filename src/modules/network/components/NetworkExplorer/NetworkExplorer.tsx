@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 
 import { Legend, Panel, ReliabilityTag, SelectField, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
@@ -28,12 +28,20 @@ export type NetworkExplorerProps = {
   data: NetworkData;
   /** Artist to center on at first; an unknown slug falls back to the overview. */
   initialSlug: string | null;
+  /** The screen's presentation, at the top of the left column. */
+  intro?: ReactNode;
+  /** The source credit, at the foot of the left column. */
+  footer?: ReactNode;
 };
 
 const KEY = (kind: NodeKind) => kind.toUpperCase() as Uppercase<NodeKind>;
 
-/** The interactive part of the Rede Relacional: center and period controls, legend, graph and node detail. */
-export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
+/**
+ * The interactive part of the Rede Relacional: center and period controls, legend, graph and node detail.
+ * On desktop it fills the screen in two columns, the presentation over the controls on the left and the
+ * graph on the rest, with no page scroll; on smaller screens they stack.
+ */
+export function NetworkExplorer({ data, initialSlug, intro, footer }: NetworkExplorerProps) {
   const t = useTranslations("NETWORK");
   const tStop = useTranslations("TRAJECTORY");
   const locale = useLocale();
@@ -77,6 +85,8 @@ export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
 
   return (
     <section className={styles.root}>
+      <div className={styles.side}>
+      {intro && <div className={styles.intro}>{intro}</div>}
       <Panel
         title={t("FILTERS")}
         className={styles.panel}
@@ -159,6 +169,8 @@ export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
           )}
         </div>
       </Panel>
+      {footer && <div className={styles.footer}>{footer}</div>}
+      </div>
 
       <div className={styles.graph}>
         {graph.edges.length === 0 ? (

@@ -85,6 +85,16 @@ describe("NetworkExplorer", () => {
     expect(within(graph()).getByRole("button", { name: "Obra: Paisagem" })).toBeInTheDocument();
   });
 
+  it("lays the presentation and the credit around the controls", () => {
+    render(
+      <NextIntlClientProvider locale="pt" messages={messages}>
+        <NetworkExplorer data={data} initialSlug={null} intro={<h1>Rede</h1>} footer={<p>Fonte</p>} />
+      </NextIntlClientProvider>,
+    );
+    expect(screen.getByRole("heading", { level: 1, name: "Rede" })).toBeInTheDocument();
+    expect(screen.getByText("Fonte")).toBeInTheDocument();
+  });
+
   it("falls back to the overview for an unknown artist", () => {
     renderExplorer("nobody");
     expect(screen.getByRole("combobox", { name: "Centro da rede" })).toHaveValue("");

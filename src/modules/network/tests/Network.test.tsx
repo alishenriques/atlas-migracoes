@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import type { NetworkData } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
+import { type NetworkExplorerProps } from "../components/NetworkExplorer";
 import { Network } from "../Network";
 
 vi.mock("next-intl/server", async () => {
@@ -17,10 +18,14 @@ vi.mock("next-intl/server", async () => {
 
 // The interactive part has its own tests.
 vi.mock("../components/NetworkExplorer", () => ({
-  NetworkExplorer: ({ data, initialSlug }: { data: NetworkData; initialSlug: string | null }) => (
-    <div data-testid="explorer">
-      {data.artists.length} {initialSlug}
-    </div>
+  NetworkExplorer: ({ data, initialSlug, intro, footer }: NetworkExplorerProps) => (
+    <>
+      {intro}
+      <div data-testid="explorer">
+        {data.artists.length} {initialSlug}
+      </div>
+      {footer}
+    </>
   ),
 }));
 
@@ -36,6 +41,7 @@ describe("Network", () => {
     await renderNetwork({ meta: { source: "database" }, artists: [] });
     expect(screen.getByRole("heading", { level: 1, name: "Rede Relacional" })).toBeInTheDocument();
     expect(screen.getByTestId("explorer")).toHaveTextContent("0 lasar-segall");
+    expect(screen.getByText(/Ligações tiradas do acervo/)).toBeInTheDocument();
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 
