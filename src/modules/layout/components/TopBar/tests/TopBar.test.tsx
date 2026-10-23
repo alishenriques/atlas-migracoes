@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { NextIntlClientProvider } from "next-intl";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -25,12 +26,14 @@ vi.mock("@/i18n/navigation", () => ({
   ),
 }));
 
+const topBar = () => (
+  <NextIntlClientProvider locale="pt" messages={messages}>
+    <TopBar />
+  </NextIntlClientProvider>
+);
+
 function renderTopBar() {
-  return render(
-    <NextIntlClientProvider locale="pt" messages={messages}>
-      <TopBar />
-    </NextIntlClientProvider>,
-  );
+  return render(topBar());
 }
 
 describe("TopBar", () => {
@@ -84,5 +87,61 @@ describe("TopBar", () => {
       "href",
       "/en/trajetorias/lasar-segall",
     );
+  });
+
+  describe("menu on small screens", () => {
+    it("folds the screens behind a Menu button that controls the nav", async () => {
+      renderTopBar();
+      const button = screen.getByRole("button", { name: "Menu" });
+      const nav = screen.getByRole("navigation", { name: "Navegação principal" });
+      expect(button).toHaveAttribute("aria-controls", nav.id);
+      expect(button).toHaveAttribute("aria-expanded", "false");
+      expect(nav).toHaveClass("hidden");
+
+      await userEvent.click(button);
+      expect(button).toHaveAttribute("aria-expanded", "true");
+      expect(nav).not.toHaveClass("hidden");
+
+      await userEvent.click(button);
+      expect(button).toHaveAttribute("aria-expanded", "false");
+    });
+
+    it("closes on Escape and gives the focus back to the button", async () => {
+      renderTopBar();
+      const button = screen.getByRole("button", { name: "Menu" });
+      await userEvent.click(button);
+      screen.getByRole("link", { name: "Sobre" }).focus();
+      await userEvent.keyboard("{Escape}");
+      expect(button).toHaveAttribute("aria-expanded", "false");
+      expect(button).toHaveFocus();
+    });
+
+    it("ignores other keys", async () => {
+      renderTopBar();
+      const button = screen.getByRole("button", { name: "Menu" });
+      await userEvent.click(button);
+      await userEvent.keyboard("{Tab}");
+      expect(button).toHaveAttribute("aria-expanded", "true");
+    });
+
+    it("closes on a touch outside the header, not inside it", async () => {
+      renderTopBar();
+      const button = screen.getByRole("button", { name: "Menu" });
+      await userEvent.click(button);
+      fireEvent.pointerDown(screen.getByRole("navigation", { name: "Navegação principal" }));
+      expect(button).toHaveAttribute("aria-expanded", "true");
+      fireEvent.pointerDown(document.body);
+      expect(button).toHaveAttribute("aria-expanded", "false");
+    });
+
+    it("closes when the page changes", async () => {
+      const { rerender } = renderTopBar();
+      const button = screen.getByRole("button", { name: "Menu" });
+      await userEvent.click(button);
+      navigation.pathname = "/sobre";
+      rerender(topBar());
+      expect(button).toHaveAttribute("aria-expanded", "false");
+      expect(screen.getByRole("link", { name: "Sobre" })).toHaveAttribute("aria-current", "page");
+    });
   });
 });

@@ -9,6 +9,7 @@
   },
   "NAV": {
     "LABEL": "Main navigation",
+    "MENU": "Menu",
     "HOME": "Explore",
     "TRAJECTORIES": "Trajectories",
     "HISTORICAL_LAYER": "Historical Layer",
