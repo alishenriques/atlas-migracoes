@@ -1,12 +1,15 @@
 export const styles = {
   index: "flex w-full flex-1 flex-col gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
-  record: "mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6 sm:py-12",
+  record: "flex w-full flex-1 flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
   back: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
   header: "flex flex-col gap-3",
   links: "flex flex-wrap gap-x-6 gap-y-2",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   intro: "max-w-2xl text-muted",
   life: "flex flex-col gap-2 text-sm sm:flex-row sm:gap-10",
+  // The icon sits left of both the label and the value, centred on the pair.
+  lifeItem: "relative pl-10",
+  lifeIcon: "absolute left-0 top-1/2 -translate-y-1/2",
   lifeLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   columns: "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:items-start",
   aside: "lg:sticky lg:top-20",
