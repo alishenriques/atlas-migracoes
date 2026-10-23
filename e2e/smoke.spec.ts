@@ -73,13 +73,17 @@ test("on a phone the Menu button drops the screens and closes after a choice", a
 
   await menu.click();
   await expect(menu).toHaveAttribute("aria-expanded", "true");
-  await expect(nav.getByRole("link")).toHaveCount(6);
+  await expect(nav.getByRole("link")).toHaveCount(7);
   await expect(nav.getByRole("link", { name: "IA Relacional" })).toBeInViewport();
 
   await nav.getByRole("link", { name: "Trajetórias" }).click();
   await expect(page).toHaveURL(/\/pt\/trajetorias$/);
   await expect(nav).toBeHidden();
   await expect(menu).toHaveAttribute("aria-expanded", "false");
+
+  await menu.click();
+  await nav.getByRole("link", { name: "Início" }).click();
+  await expect(page).toHaveURL(/\/pt$/);
 });
 
 test("the language switch keeps the page, in English", async ({ page }) => {
