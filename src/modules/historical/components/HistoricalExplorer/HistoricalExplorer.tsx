@@ -9,6 +9,7 @@ import { Link } from "@/i18n/navigation";
 import { DECADES, mapDate, statesOn, yearsOf, type Decade, type StateAtDate } from "@/lib/cartography";
 import { formatFuzzyDate } from "@/lib/dates";
 import type { MapArtist } from "@/lib/schemas";
+import { stateNameLocale } from "@/lib/stateNames";
 import { placeName } from "@/lib/trajectory";
 import { MapPopup } from "@/shared/components/MapPopup";
 
@@ -30,7 +31,7 @@ export function HistoricalExplorer({ artists }: HistoricalExplorerProps) {
   const [year, setYear] = useState(FIRST_DECADE + 5);
 
   const states = loaded.status === "ready" ? loaded.states : null;
-  const inForce = useMemo(() => (states ? statesOn(states, mapDate(year)) : null), [states, year]);
+  const inForce = useMemo(() => (states ? statesOn(states, mapDate(year), stateNameLocale(locale)) : null), [states, year, locale]);
   const origins = useMemo(() => (states ? originsIn(artists, states, year, locale) : []), [artists, states, year, locale]);
   const birthplaces = useMemo(() => birthplacesOf(origins), [origins]);
 

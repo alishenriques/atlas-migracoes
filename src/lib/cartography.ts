@@ -2,6 +2,7 @@ import { booleanPointInPolygon } from "@turf/boolean-point-in-polygon";
 import { z } from "zod";
 
 import type { FuzzyDate } from "@/lib/schemas";
+import { periodName, type StateNameLocale } from "@/lib/stateNames";
 
 import type { FeatureCollection, MultiPolygon, Point, Polygon } from "geojson";
 
@@ -39,7 +40,7 @@ const geometrySchema = z.union([
 const isoDay = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
 const statePropertiesSchema = z.object({
-  /** Name of the state as the source gives it. */
+  /** Name of the state as the source gives it, for its whole existence; see periodName. */
   name: z.string(),
   start: isoDay,
   end: isoDay,
@@ -53,17 +54,25 @@ export const statesSchema = z.object({
 export type StateProperties = z.infer<typeof statePropertiesSchema>;
 export type States = FeatureCollection<Polygon | MultiPolygon, StateProperties>;
 
-/** The state polygons in force on a day. */
-export function statesOn(states: States, day: string): States {
+/** The state polygons in force on a day, each named as the state was called that day. */
+export function statesOn(states: States, day: string, locale: StateNameLocale): States {
   return {
     type: "FeatureCollection",
-    features: states.features.filter(({ properties }) => properties.start <= day && day <= properties.end),
+    features: states.features
+      .filter(({ properties }) => properties.start <= day && day <= properties.end)
+      .map((feature) => ({
+        ...feature,
+        properties: { ...feature.properties, name: periodName(feature.properties.name, day, locale) },
+      })),
   };
 }
 
-/** The state that contained a point on a day, or null (sea, a territory that was no state's, or outside coverage). */
-export function stateAt(states: States, day: string, lng: number, lat: number): string | null {
-  const inForce = statesOn(states, day).features;
+/**
+ * The state that contained a point on a day, by its name that day, or null (sea,
+ * a territory that was no state's, or outside coverage).
+ */
+export function stateAt(states: States, day: string, lng: number, lat: number, locale: StateNameLocale): string | null {
+  const inForce = statesOn(states, day, locale).features;
   return inForce.find((feature) => booleanPointInPolygon([lng, lat], feature))?.properties.name ?? null;
 }
 
@@ -81,20 +90,27 @@ export type StateAtDate =
   | { kind: "unknown" }
   /** The same state on the first and last day the date can mean. */
   | { kind: "state"; name: string | null; circa: boolean }
-  /** The border moved within the date's span: the state on each end. */
+  /** The border moved, or the state changed its name, within the date's span: the state on each end. */
   | { kind: "changed"; from: string | null; to: string | null };
 
 /**
  * The state that held a place at a date as exact as the source gives it: if
  * the date is a year and the border moved during that year, both states are
- * returned rather than picking one. "c." dates are flagged.
+ * returned rather than picking one (the same goes for a state renamed that year,
+ * such as the Russian Empire in 1917). "c." dates are flagged.
  */
-export function stateAtDate(states: States, date: FuzzyDate, lng: number, lat: number): StateAtDate {
+export function stateAtDate(
+  states: States,
+  date: FuzzyDate,
+  lng: number,
+  lat: number,
+  locale: StateNameLocale,
+): StateAtDate {
   const span = dateSpan(date);
   if (!span || span[0] < COVERAGE.start || span[1] > COVERAGE.end) return { kind: "unknown" };
   const [first, last] = span;
-  const from = stateAt(states, first, lng, lat);
-  const to = stateAt(states, last, lng, lat);
+  const from = stateAt(states, first, lng, lat, locale);
+  const to = stateAt(states, last, lng, lat, locale);
   if (from !== to) return { kind: "changed", from, to };
   return { kind: "state", name: from, circa: date.precision === "circa" };
 }

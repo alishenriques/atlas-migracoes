@@ -26,7 +26,7 @@ vi.mock("next/dynamic", () => ({
         <div role="region" aria-label={label}>
           <p data-testid="states">{states.features.map((f) => f.properties.name).join(",")}</p>
           <div data-testid="place-popup">{birthplaces[0] && renderPlace(birthplaces[0].placeId)}</div>
-          <div data-testid="state-popup">{renderState("Poland")}</div>
+          <div data-testid="state-popup">{renderState("Polônia")}</div>
           <div data-testid="empty-popup">{renderPlace("nowhere")}</div>
         </div>
       );
@@ -82,7 +82,7 @@ const square: [number, number][][] = [
 const states: States = {
   type: "FeatureCollection",
   features: [
-    { type: "Feature", properties: { name: "Russia", start: "1886-01-01", end: "1917-12-31" }, geometry: { type: "Polygon", coordinates: square } },
+    { type: "Feature", properties: { name: "Russia (Soviet Union)", start: "1886-01-01", end: "1917-12-31" }, geometry: { type: "Polygon", coordinates: square } },
     { type: "Feature", properties: { name: "Poland", start: "1922-03-24", end: "1939-09-28" }, geometry: { type: "Polygon", coordinates: square } },
   ],
 };
@@ -110,17 +110,17 @@ describe("HistoricalExplorer", () => {
     respond(states);
     renderExplorer();
     expect(await screen.findByRole("region", { name: "Mapa da Europa com as fronteiras de 1925" })).toBeInTheDocument();
-    expect(screen.getByTestId("states")).toHaveTextContent("Poland");
+    expect(screen.getByTestId("states")).toHaveTextContent("Polônia");
     expect(screen.getByRole("heading", { name: "Fronteiras de 1925" })).toBeInTheDocument();
 
     const segall = screen.getByRole("link", { name: "Lasar Segall" }).closest("li");
     expect(segall).toHaveTextContent("Nasceu em Vilna, 1889");
-    expect(segall).toHaveTextContent("No nascimento: Russia");
-    expect(segall).toHaveTextContent("Em 1925: Poland");
+    expect(segall).toHaveTextContent("No nascimento: Império Russo");
+    expect(segall).toHaveTextContent("Em 1925: Polônia");
 
     const origin = (name: string) => screen.getByRole("link", { name }).closest("li");
-    expect(origin("Nascida em 1939")).toHaveTextContent("Poland ou nenhum Estado na base");
-    expect(origin("Circa")).toHaveTextContent("Poland (data aproximada)");
+    expect(origin("Nascida em 1939")).toHaveTextContent("Polônia ou nenhum Estado na base");
+    expect(origin("Circa")).toHaveTextContent("Polônia (data aproximada)");
     expect(origin("Sem data")).toHaveTextContent("não determinado");
     expect(screen.queryByRole("link", { name: "Sem lugar" })).not.toBeInTheDocument();
   });
@@ -141,7 +141,7 @@ describe("HistoricalExplorer", () => {
     await screen.findByRole("region");
     fireEvent.click(screen.getByRole("radio", { name: "1910" }));
     expect(screen.getByRole("combobox", { name: "Ano" })).toHaveValue("1915");
-    expect(screen.getByTestId("states")).toHaveTextContent("Russia");
+    expect(screen.getByTestId("states")).toHaveTextContent("Império Russo");
     expect(screen.getByTestId("state-popup")).toHaveTextContent("Nenhum artista nasceu");
 
     fireEvent.change(screen.getByRole("combobox", { name: "Ano" }), { target: { value: "1919" } });

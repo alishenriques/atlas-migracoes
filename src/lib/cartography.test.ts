@@ -20,7 +20,7 @@ const states: States = {
   features: [
     {
       type: "Feature",
-      properties: { name: "Russia", start: "1886-01-01", end: "1917-12-31" },
+      properties: { name: "Russia (Soviet Union)", start: "1886-01-01", end: "1917-12-31" },
       geometry: { type: "Polygon", coordinates: square(20, 50, 10) },
     },
     {
@@ -49,15 +49,21 @@ describe("yearsOf and mapDate", () => {
 
 describe("statesOn and stateAt", () => {
   it("keeps only the polygons in force on the day", () => {
-    expect(statesOn(states, "1930-07-01").features.map((f) => f.properties.name)).toEqual(["Poland"]);
-    expect(statesOn(states, "1920-07-01").features).toHaveLength(0);
+    expect(statesOn(states, "1930-07-01", "pt").features.map((f) => f.properties.name)).toEqual(["Polônia"]);
+    expect(statesOn(states, "1920-07-01", "pt").features).toHaveLength(0);
+  });
+
+  it("names each state as it was called on the day, in the locale", () => {
+    expect(statesOn(states, "1900-07-01", "pt").features[0]?.properties.name).toBe("Império Russo");
+    expect(statesOn(states, "1917-07-01", "pt").features[0]?.properties.name).toBe("Rússia (Governo Provisório)");
+    expect(statesOn(states, "1900-07-01", "en").features[0]?.properties.name).toBe("Russian Empire");
   });
 
   it("names the state containing the point on the day, or null", () => {
-    expect(stateAt(states, "1900-07-01", 25.3, 54.7)).toBe("Russia");
-    expect(stateAt(states, "1930-07-01", 25.3, 54.7)).toBe("Poland");
-    expect(stateAt(states, "1920-07-01", 25.3, 54.7)).toBeNull();
-    expect(stateAt(states, "1930-07-01", -46.6, -23.5)).toBeNull();
+    expect(stateAt(states, "1900-07-01", 25.3, 54.7, "pt")).toBe("Império Russo");
+    expect(stateAt(states, "1930-07-01", 25.3, 54.7, "pt")).toBe("Polônia");
+    expect(stateAt(states, "1920-07-01", 25.3, 54.7, "pt")).toBeNull();
+    expect(stateAt(states, "1930-07-01", -46.6, -23.5, "pt")).toBeNull();
   });
 });
 
@@ -73,32 +79,40 @@ describe("dateSpan", () => {
 
 describe("stateAtDate", () => {
   it("gives one state when the border held for the whole span", () => {
-    expect(stateAtDate(states, date({ year: 1889, endYear: 1889, precision: "year" }), 25.3, 54.7)).toEqual({
+    expect(stateAtDate(states, date({ year: 1889, endYear: 1889, precision: "year" }), 25.3, 54.7, "pt")).toEqual({
       kind: "state",
-      name: "Russia",
+      name: "Império Russo",
       circa: false,
     });
   });
 
   it("flags circa dates", () => {
-    expect(stateAtDate(states, date({ year: 1930, precision: "circa" }), 25.3, 54.7)).toEqual({
+    expect(stateAtDate(states, date({ year: 1930, precision: "circa" }), 25.3, 54.7, "pt")).toEqual({
       kind: "state",
-      name: "Poland",
+      name: "Polônia",
       circa: true,
     });
   });
 
   it("gives both ends when the border moved within the span, instead of picking one", () => {
-    expect(stateAtDate(states, date({ year: 1939, endYear: 1939, precision: "year" }), 25.3, 54.7)).toEqual({
+    expect(stateAtDate(states, date({ year: 1939, endYear: 1939, precision: "year" }), 25.3, 54.7, "pt")).toEqual({
       kind: "changed",
-      from: "Poland",
+      from: "Polônia",
       to: null,
     });
   });
 
+  it("gives both names when the state was renamed within the span", () => {
+    expect(stateAtDate(states, date({ year: 1917, endYear: 1917, precision: "year" }), 25.3, 54.7, "pt")).toEqual({
+      kind: "changed",
+      from: "Império Russo",
+      to: "Rússia Soviética",
+    });
+  });
+
   it("is unknown without a year or outside the source's coverage", () => {
-    expect(stateAtDate(states, date({}), 25.3, 54.7)).toEqual({ kind: "unknown" });
-    expect(stateAtDate(states, date({ year: 1880, endYear: 1880, precision: "year" }), 25.3, 54.7)).toEqual({
+    expect(stateAtDate(states, date({}), 25.3, 54.7, "pt")).toEqual({ kind: "unknown" });
+    expect(stateAtDate(states, date({ year: 1880, endYear: 1880, precision: "year" }), 25.3, 54.7, "pt")).toEqual({
       kind: "unknown",
     });
   });
@@ -126,7 +140,7 @@ describe("labelPoints", () => {
     };
     expect(labelPoints(islands).features).toEqual([
       { type: "Feature", properties: { name: "Greece" }, geometry: { type: "Point", coordinates: [22, 38] } },
-      { type: "Feature", properties: { name: "Russia" }, geometry: { type: "Point", coordinates: [25, 55] } },
+      { type: "Feature", properties: { name: "Russia (Soviet Union)" }, geometry: { type: "Point", coordinates: [25, 55] } },
     ]);
   });
 
