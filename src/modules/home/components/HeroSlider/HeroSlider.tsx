@@ -33,14 +33,14 @@ function Arrow({ direction }: { direction: "prev" | "next" }) {
 }
 
 /**
- * The home page's opening: the Atlas name over an illustration of the collection in relation, and a slider that
+ * The home page's opening: the Atlas name over a night map of the crossing from Europe to Brazil, and a slider that
  * walks through the project's argument (the collection, the problem, the relations, the AI), each slide leading to
  * the screen that answers it. Modelled on the home slider of Alisson's portfolio.
  *
  * Autoplay is driven by the progress line: the slide advances when its fill animation ends, so pausing (WCAG 2.2.2)
  * only freezes the animation and resuming picks up where it stopped. The line is not displayed under
- * prefers-reduced-motion, so it never ends and the slides only change by hand there. The illustration zooms into the
- * part each slide talks about.
+ * prefers-reduced-motion, so it never ends and the slides only change by hand there. The map zooms into the part
+ * each slide talks about.
  */
 export function HeroSlider() {
   const t = useTranslations("HOME.HERO");
@@ -53,7 +53,7 @@ export function HeroSlider() {
 
   return (
     <section className={styles.root} aria-roledescription={t("ROLE")} aria-label={t("LABEL")}>
-      <div className={`${styles.illustration} ${focusStyles[slide.focus]}`} aria-hidden="true" />
+      <div className={`${styles.backdrop} ${focusStyles[slide.focus]}`} aria-hidden="true" />
       <div className={styles.shade} aria-hidden="true" />
 
       <div className={styles.progressTrack} aria-hidden="true">

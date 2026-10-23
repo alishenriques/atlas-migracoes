@@ -7,11 +7,11 @@ const control =
 export const styles = {
   // Fills the first screen under the top bar, without growing past a comfortable height on tall monitors.
   root: "relative isolate flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden border-b border-line px-4 py-16 sm:px-6 lg:max-h-[60rem]",
-  illustration:
-    "absolute inset-0 -z-20 bg-[url(/home/hero.svg)] bg-cover bg-center transition-[transform,transform-origin] duration-[1800ms] ease-out motion-reduce:transition-none",
+  backdrop:
+    "absolute inset-0 -z-20 bg-[url(/home/mapa-noturno-sm.webp)] bg-cover bg-center md:bg-[url(/home/mapa-noturno.webp)] transition-[transform,transform-origin] duration-[1800ms] ease-out motion-reduce:transition-none",
   // Darkens the middle, where the text sits, and fades into the page at the bottom.
   shade:
-    "absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgb(7_13_24/0.86)_0%,rgb(7_13_24/0.6)_45%,rgb(7_13_24/0.15)_80%),linear-gradient(to_bottom,transparent_70%,var(--atlas-color-bg))]",
+    "absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgb(7_13_24/0.8)_0%,rgb(7_13_24/0.5)_45%,rgb(7_13_24/0.05)_80%),linear-gradient(to_bottom,transparent_70%,var(--atlas-color-bg))]",
   progressTrack: "absolute inset-x-0 top-0 h-0.5 bg-line motion-reduce:hidden",
   progressFill: "h-full w-0 bg-accent [animation-fill-mode:forwards] [animation-name:atlas-hero-progress] [animation-timing-function:linear]",
   content: "flex w-full max-w-3xl flex-col items-center gap-5 text-center",
@@ -36,10 +36,11 @@ export const styles = {
   pauseIcon: "size-3.5",
 };
 
-// Each slide zooms into the part of the illustration it talks about (public/home/hero.svg).
+// Each slide zooms into a part of the map (public/home/mapa-noturno.webp): the origins in Europe, the crossing,
+// the arrival in São Paulo and Rio de Janeiro.
 export const focusStyles: Record<SlideFocus, string> = {
   whole: "scale-100 origin-center",
-  collections: "scale-[1.18] origin-[88%_50%]",
-  globe: "scale-[1.12] origin-center",
-  researcher: "scale-[1.2] origin-[8%_90%]",
+  europe: "scale-[1.2] origin-[63%_14%]",
+  atlantic: "scale-[1.1] origin-[48%_45%]",
+  brazil: "scale-[1.2] origin-[33%_80%]",
 };

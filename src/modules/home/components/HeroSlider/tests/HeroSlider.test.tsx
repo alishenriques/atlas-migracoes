@@ -39,17 +39,17 @@ describe("HeroSlider", () => {
     expect(screen.getByText("Leste Europeu e da Áustria")).toHaveClass("text-accent");
     expect(screen.getByRole("group", { name: "1 de 4" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explorar o mapa" })).toHaveAttribute("href", "/explorar");
-    expect(container.querySelector("[class*='bg-[url(/home/hero.svg)]']")).toHaveClass("scale-100");
+    expect(container.querySelector("[class*='bg-[url(/home/mapa-noturno-sm.webp)]']")).toHaveClass("scale-100");
   });
 
-  it("moves with the arrows, wrapping around, and zooms into the part of the illustration each slide talks about", () => {
+  it("moves with the arrows, wrapping around, and zooms into the part of the map each slide talks about", () => {
     const { container } = renderSlider();
-    const illustration = () => container.querySelector("[class*='bg-[url(/home/hero.svg)]']");
+    const backdrop = () => container.querySelector("[class*='bg-[url(/home/mapa-noturno-sm.webp)]']");
 
     fireEvent.click(screen.getByRole("button", { name: "Próximo slide" }));
     expect(headline()).toMatch(/A digitalização ampliou o acesso/);
     expect(screen.getByRole("link", { name: "Ver as trajetórias" })).toHaveAttribute("href", "/trajetorias");
-    expect(illustration()).toHaveClass("scale-[1.18]");
+    expect(backdrop()).toHaveClass("scale-[1.2]", "origin-[63%_14%]");
 
     fireEvent.click(screen.getByRole("button", { name: "Slide anterior" }));
     fireEvent.click(screen.getByRole("button", { name: "Slide anterior" }));
