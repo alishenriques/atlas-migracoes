@@ -10,6 +10,7 @@
   "NAV": {
     "LABEL": "Navegação principal",
     "MENU": "Menu",
+    "HOME": "Início",
     "EXPLORAR": "Explorar",
     "TRAJECTORIES": "Trajetórias",
     "HISTORICAL_LAYER": "Camada Histórica",
