@@ -94,7 +94,7 @@
     "DECADE": "Decade",
     "DECADE_LABEL": "{decade}s",
     "YEAR": "Year",
-    "SOURCE_NOTE": "Borders on 1 July of the chosen year, according to CShapes 2.0. The dataset follows Gleditsch and Ward's list of states: states occupied or annexed in the Second World War, such as Poland and Austria, keep their borders, and territories that belonged to no state on that day have no border. State names are as in the source.",
+    "SOURCE_NOTE": "Borders on 1 July of the chosen year, according to CShapes 2.0. The dataset follows Gleditsch and Ward's list of states: states occupied or annexed in the Second World War, such as Poland and Austria, keep their borders, and territories that belonged to no state on that day have no border. Each state bears the name it had on that day (Russian Empire until 1917, Soviet Russia until 1922 and Soviet Union after; Austria-Hungary until 1918), and those annexed or partitioned in the war say so.",
     "ORIGINS_TITLE": "Places of origin",
     "INFERRED": "Inferred territory",
     "ORIGINS_METHOD": "Each place's state was derived from its position inside the borders of the time. When the birth date is only a year and the border moved during that year, both states are shown.",
