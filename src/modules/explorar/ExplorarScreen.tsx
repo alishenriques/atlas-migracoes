@@ -1,8 +1,9 @@
-import { CollectionIcon, Eyebrow, Panel, StatGrid, type Stat } from "@alishenriques/atlas-design-system";
-import { getLocale, getTranslations } from "next-intl/server";
+import { Eyebrow, Panel } from "@alishenriques/atlas-design-system";
+import { getTranslations } from "next-intl/server";
 
 import { getMapData, getOverview } from "@/lib/atlas";
 import type { MapData, Overview } from "@/lib/schemas";
+import { CollectionStats } from "@/shared/components/CollectionStats";
 import { DemoNotice } from "@/shared/components/DemoNotice";
 
 import { Explorar } from "./components/Explorar";
@@ -20,39 +21,11 @@ async function attempt<T>(what: string, load: () => Promise<T>): Promise<T | nul
 
 /** The Explorar screen: the trajectories map, with the filters, the presentation and the collection counters over it. */
 export async function ExplorarScreen() {
-  const [t, locale, overview, mapData] = await Promise.all([
+  const [t, overview, mapData] = await Promise.all([
     getTranslations("EXPLORAR"),
-    getLocale(),
     attempt<Overview>("the collection overview", getOverview),
     attempt<MapData>("the map data", getMapData),
   ]);
-  const format = new Intl.NumberFormat(locale);
-
-  const stats: Stat[] = overview
-    ? [
-        {
-          value: format.format(overview.stats.artists),
-          label: t("STATS.ARTISTS"),
-          icon: <CollectionIcon name="artists" />,
-        },
-        { value: format.format(overview.stats.works), label: t("STATS.WORKS"), icon: <CollectionIcon name="works" /> },
-        {
-          value: format.format(overview.stats.exhibitions),
-          label: t("STATS.EXHIBITIONS"),
-          icon: <CollectionIcon name="exhibitions" />,
-        },
-        {
-          value: format.format(overview.stats.publications),
-          label: t("STATS.PUBLICATIONS"),
-          icon: <CollectionIcon name="publications" />,
-        },
-        {
-          value: format.format(overview.stats.originCountries),
-          label: t("STATS.ORIGIN_COUNTRIES"),
-          icon: <CollectionIcon name="countries" />,
-        },
-      ]
-    : [];
 
   const notice = overview?.meta.source === "demo" && <DemoNotice />;
 
@@ -66,7 +39,7 @@ export async function ExplorarScreen() {
 
   const counters = (
     <Panel title={t("STATS_TITLE")}>
-      {overview ? <StatGrid stats={stats} /> : <p className={styles.muted}>{t("STATS_UNAVAILABLE")}</p>}
+      {overview ? <CollectionStats stats={overview.stats} /> : <p className={styles.muted}>{t("STATS_UNAVAILABLE")}</p>}
     </Panel>
   );
 

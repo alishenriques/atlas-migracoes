@@ -25,13 +25,6 @@
     "TITLE": "Atlas Migrações Leste-Sul",
     "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, a partir do acervo do MAC USP.",
     "STATS_TITLE": "Acervo",
-    "STATS": {
-      "ARTISTS": "artistas",
-      "WORKS": "obras",
-      "EXHIBITIONS": "exposições",
-      "PUBLICATIONS": "publicações",
-      "ORIGIN_COUNTRIES": "países de origem"
-    },
     "STATS_UNAVAILABLE": "Não foi possível carregar os números do acervo agora.",
     "MAP_UNAVAILABLE": "Não foi possível carregar as trajetórias agora.",
     "MAP": {
@@ -53,6 +46,13 @@
       "POPUP_SUMMARY": "{artists, plural, one {# artista} other {# artistas}} · {records, plural, one {# registro} other {# registros}}",
       "SHOW_TRAJECTORY": "Ver a trajetória de {name} no mapa"
     }
+  },
+  "COLLECTION_STATS": {
+    "ARTISTS": "artistas",
+    "WORKS": "obras",
+    "EXHIBITIONS": "exposições",
+    "PUBLICATIONS": "publicações",
+    "ORIGIN_COUNTRIES": "países de origem"
   },
   "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
   "COMING_SOON": {
