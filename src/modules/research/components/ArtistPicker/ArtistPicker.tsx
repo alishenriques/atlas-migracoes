@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useTransition } from "react";
+import { useMemo } from "react";
 
 import { SelectField } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useRouter } from "@/i18n/navigation";
 import type { ArtistList } from "@/lib/schemas";
+
+import { useResearchTransition } from "../ResearchTransition";
 
 export type ArtistPickerProps = {
   artists: ArtistList["artists"];
@@ -19,14 +21,14 @@ export function ArtistPicker({ artists, selected }: ArtistPickerProps) {
   const t = useTranslations("RESEARCH");
   const locale = useLocale();
   const router = useRouter();
-  const [pending, startTransition] = useTransition();
+  const { pending, start } = useResearchTransition();
   const options = useMemo(
     () => [...artists].sort((a, b) => a.name.localeCompare(b.name, locale)).map(({ slug, name }) => ({ value: slug, label: name })),
     [artists, locale],
   );
 
   const choose = (slug: string) =>
-    startTransition(() => router.push(slug ? { pathname: "/ia-relacional", query: { artista: slug } } : "/ia-relacional"));
+    start(() => router.push(slug ? { pathname: "/ia-relacional", query: { artista: slug } } : "/ia-relacional"));
 
   return (
     <SelectField

@@ -2,10 +2,10 @@ import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import type { ArtistList, Research as ResearchData } from "@/lib/schemas";
+import type { ArtistList } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
-import { Research, type ResearchState } from "../Research";
+import { Research } from "../Research";
 
 vi.mock("next-intl/server", async () => {
   const { createTranslator } = await import("next-intl");
@@ -23,44 +23,36 @@ vi.mock("../components/ArtistPicker", () => ({
     </div>
   ),
 }));
-vi.mock("../components/ResearchResults", () => ({
-  ResearchResults: ({ research }: { research: ResearchData }) => <div data-testid="results">{research.artist.name}</div>,
+vi.mock("../components/ResearchLoader", () => ({
+  ResearchLoader: ({ slug }: { slug: string }) => <div data-testid="results">{slug}</div>,
 }));
 
 const list: ArtistList = { meta: { source: "database" }, artists: [{ slug: "lasar-segall", name: "Lasar Segall" }] };
 
-const renderResearch = async (props: { list: ArtistList | null; slug: string | null; state: ResearchState }) =>
+const renderResearch = async (props: { list: ArtistList | null; slug: string | null }) =>
   render(<NextIntlClientProvider locale="pt" messages={messages}>{await Research(props)}</NextIntlClientProvider>);
 
 describe("Research", () => {
   it("introduces the screen and asks for an artist", async () => {
-    await renderResearch({ list, slug: null, state: { status: "idle" } });
+    await renderResearch({ list, slug: null });
     expect(screen.getByRole("heading", { level: 1, name: "IA Relacional" })).toBeInTheDocument();
     expect(screen.getByTestId("picker")).toHaveTextContent("1");
     expect(screen.getByText(/Escolha um artista para pesquisar/)).toBeInTheDocument();
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 
-  it("shows the findings for the chosen artist", async () => {
-    const research = { artist: { name: "Lasar Segall" } } as ResearchData;
-    await renderResearch({ list, slug: "lasar-segall", state: { status: "found", research } });
+  it("loads the findings for the chosen artist", async () => {
+    await renderResearch({ list, slug: "lasar-segall" });
     expect(screen.getByTestId("picker")).toHaveTextContent("1 lasar-segall");
-    expect(screen.getByTestId("results")).toHaveTextContent("Lasar Segall");
-  });
-
-  it("says when the artist is unknown or the sources cannot be reached", async () => {
-    const { unmount } = await renderResearch({ list, slug: "x", state: { status: "not_found" } });
-    expect(screen.getByText("Este artista não está no acervo.")).toBeInTheDocument();
-    unmount();
-    await renderResearch({ list, slug: "x", state: { status: "unavailable" } });
-    expect(screen.getByText(/não está disponível agora/)).toBeInTheDocument();
+    expect(screen.getByTestId("results")).toHaveTextContent("lasar-segall");
+    expect(screen.queryByText(/Escolha um artista para pesquisar/)).not.toBeInTheDocument();
   });
 
   it("flags simulated records and says when the list could not be loaded", async () => {
-    const { unmount } = await renderResearch({ list: { ...list, meta: { source: "demo" } }, slug: null, state: { status: "idle" } });
+    const { unmount } = await renderResearch({ list: { ...list, meta: { source: "demo" } }, slug: null });
     expect(screen.getByRole("status")).toBeInTheDocument();
     unmount();
-    await renderResearch({ list: null, slug: null, state: { status: "idle" } });
+    await renderResearch({ list: null, slug: null });
     expect(screen.getByText(/lista de artistas/)).toBeInTheDocument();
     expect(screen.queryByTestId("picker")).not.toBeInTheDocument();
     expect(screen.queryByText(/Escolha um artista para pesquisar/)).not.toBeInTheDocument();

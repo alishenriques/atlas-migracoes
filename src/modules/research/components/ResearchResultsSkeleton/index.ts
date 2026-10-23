@@ -1,0 +1,1 @@
+export { ResearchResultsSkeleton } from "./ResearchResultsSkeleton";
