@@ -14,8 +14,8 @@ export type MapScreenProps = {
   intro?: ReactNode;
   /** Floats along the bottom of the map on desktop. */
   footer?: ReactNode;
-  /** Title of the left panel (the controls). */
-  title: string;
+  /** Title of the left panel (the controls); left out while they load. */
+  title?: string;
   /** Next to the panel title, such as a link to clear the filters. */
   action?: ReactNode;
   /** The panel's content: the controls and lists. */

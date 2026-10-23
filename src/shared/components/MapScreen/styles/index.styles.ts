@@ -14,3 +14,13 @@ export const styles = {
   // buttons and the map attribution stay visible.
   footer: "md:pointer-events-auto md:col-span-2 md:row-start-2 md:mr-12",
 };
+
+export const skeletonStyles = {
+  // The status region takes the place the screen fills.
+  root: "flex flex-col md:flex-1",
+  // The map bleeds to the edges, so its skeleton has no rounded frame.
+  map: "h-full w-full [&>span]:rounded-none!",
+  intro: "flex flex-col gap-3",
+  controls: "flex flex-col gap-4",
+  stats: "grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5",
+};
