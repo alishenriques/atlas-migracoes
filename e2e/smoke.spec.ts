@@ -31,16 +31,40 @@ test("a trajectory record lists the works and leads to the open-source research"
   await expect(page.getByText("Prompt enviado à IA")).toBeVisible();
 });
 
-test("Camada Histórica, Rede Relacional and Sobre open", async ({ page }) => {
+test("Camada Histórica, Rede Relacional and Sobre open", async ({ page, isMobile }) => {
+  // On a phone the screens fold behind the Menu button.
+  const openMenu = async () => {
+    if (isMobile) await page.getByRole("button", { name: "Menu" }).click();
+  };
   await page.goto("/pt/camada-historica");
   await expect(page.getByRole("heading", { level: 1, name: "Camada Histórica" })).toBeVisible();
 
+  await openMenu();
   await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name: "Rede Relacional" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Rede Relacional" })).toBeVisible();
   await expect(page.getByRole("group", { name: /^Rede de 7 elementos/ })).toBeVisible();
 
+  await openMenu();
   await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name: "Sobre" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Sobre o projeto" })).toBeVisible();
+});
+
+test("on a phone the Menu button drops the screens and closes after a choice", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "the full menu is always visible on a wide screen");
+  await page.goto("/pt/sobre");
+  const nav = page.getByRole("navigation", { name: "Navegação principal" });
+  const menu = page.getByRole("button", { name: "Menu" });
+  await expect(nav).toBeHidden();
+
+  await menu.click();
+  await expect(menu).toHaveAttribute("aria-expanded", "true");
+  await expect(nav.getByRole("link")).toHaveCount(6);
+  await expect(nav.getByRole("link", { name: "IA Relacional" })).toBeInViewport();
+
+  await nav.getByRole("link", { name: "Trajetórias" }).click();
+  await expect(page).toHaveURL(/\/pt\/trajetorias$/);
+  await expect(nav).toBeHidden();
+  await expect(menu).toHaveAttribute("aria-expanded", "false");
 });
 
 test("the language switch keeps the page, in English", async ({ page }) => {
