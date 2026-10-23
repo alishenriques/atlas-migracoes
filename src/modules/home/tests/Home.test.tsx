@@ -69,6 +69,13 @@ describe("Home", () => {
     expect(screen.getByRole("link", { name: "Conheça o projeto e a metodologia" })).toHaveAttribute("href", "/sobre");
   });
 
+  it("ends with the developer's credit, after the main content", () => {
+    renderHome();
+    const footer = screen.getByRole("contentinfo");
+    expect(screen.getByRole("main")).not.toContainElement(footer);
+    expect(footer).toHaveTextContent("Desenvolvido por");
+  });
+
   it("is in English too", () => {
     renderHome("en");
     expect(screen.getByRole("heading", { level: 2, name: "What changes for research and for the collection" })).toBeInTheDocument();

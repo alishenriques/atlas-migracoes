@@ -103,6 +103,10 @@
     "METHOD": {
       "TITLE": "Reading, relation and reliability",
       "MORE": "About the project and its method"
+    },
+    "FOOTER": {
+      "DEVELOPED_BY": "Developed by",
+      "AUTHOR": "Alisson Henriques"
     }
   },
   "EXPLORAR": {
