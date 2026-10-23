@@ -31,13 +31,13 @@ export async function Research({ list, slug, state }: ResearchProps) {
     <main className={styles.page}>
       {list?.meta.source === "demo" && <DemoNotice />}
 
-      <header className={styles.header}>
-        <Eyebrow>{t("EYEBROW")}</Eyebrow>
-        <h1 className={styles.title}>{t("TITLE")}</h1>
-        <p className={styles.intro}>{t("INTRO")}</p>
-      </header>
+      <div className={styles.top}>
+        <header className={styles.header}>
+          <Eyebrow>{t("EYEBROW")}</Eyebrow>
+          <h1 className={styles.title}>{t("TITLE")}</h1>
+          <p className={styles.intro}>{t("INTRO")}</p>
+        </header>
 
-      <div className={styles.body}>
         {list ? (
           <div className={styles.picker}>
             <ArtistPicker artists={list.artists} selected={slug} />
@@ -45,12 +45,12 @@ export async function Research({ list, slug, state }: ResearchProps) {
         ) : (
           <p className={styles.muted}>{t("LIST_UNAVAILABLE")}</p>
         )}
-
-        {state.status === "idle" && list && <p className={styles.muted}>{t("PICK_HINT")}</p>}
-        {state.status === "not_found" && <p className={styles.muted}>{t("NOT_FOUND")}</p>}
-        {state.status === "unavailable" && <p className={styles.muted}>{t("UNAVAILABLE")}</p>}
-        {state.status === "found" && <ResearchResults research={state.research} />}
       </div>
+
+      {state.status === "idle" && list && <p className={styles.muted}>{t("PICK_HINT")}</p>}
+      {state.status === "not_found" && <p className={styles.muted}>{t("NOT_FOUND")}</p>}
+      {state.status === "unavailable" && <p className={styles.muted}>{t("UNAVAILABLE")}</p>}
+      {state.status === "found" && <ResearchResults research={state.research} />}
     </main>
   );
 }
