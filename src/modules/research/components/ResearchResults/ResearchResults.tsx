@@ -66,33 +66,37 @@ export function ResearchResults({ research }: ResearchResultsProps) {
         </Link>
       </Panel>
 
+      {/* The reading column; from xl up the findings leave it for a column of their own,
+          beside the summaries that cite them. */}
       <div className={styles.main}>
-        <ResearchOverview research={research} />
+        <div className={match ? styles.reading : styles.readingWide}>
+          <ResearchOverview research={research} />
+
+          {match && (
+            <Panel title={t("MATCH")}>
+              <p className={styles.matchTitle}>{match.label}</p>
+              {match.description && <p className={styles.text}>{match.description}</p>}
+              <p className={styles.note}>{t(`BASIS.${BASIS[match.basis]}`)}</p>
+              <a href={match.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                {t("SOURCE_LINK")}: Wikidata {match.id}
+              </a>
+            </Panel>
+          )}
+
+          <AiSummary summary={summary} findingCount={findings.length} />
+
+          {summaries.map((item) => (
+            <Panel key={item.sourceUrl} title={t("SUMMARY")}>
+              <div id={findingAnchor(item.n)} className={styles.anchored}>
+                <p className={styles.text}>{item.value}</p>
+                <FindingMeta finding={item} />
+              </div>
+            </Panel>
+          ))}
+        </div>
 
         {match && (
-          <Panel title={t("MATCH")}>
-            <p className={styles.matchTitle}>{match.label}</p>
-            {match.description && <p className={styles.text}>{match.description}</p>}
-            <p className={styles.note}>{t(`BASIS.${BASIS[match.basis]}`)}</p>
-            <a href={match.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
-              {t("SOURCE_LINK")}: Wikidata {match.id}
-            </a>
-          </Panel>
-        )}
-
-        <AiSummary summary={summary} findingCount={findings.length} />
-
-        {summaries.map((item) => (
-          <Panel key={item.sourceUrl} title={t("SUMMARY")}>
-            <div id={findingAnchor(item.n)} className={styles.anchored}>
-              <p className={styles.text}>{item.value}</p>
-              <FindingMeta finding={item} />
-            </div>
-          </Panel>
-        ))}
-
-        {match && (
-          <Panel title={t("FINDINGS")}>
+          <Panel title={t("FINDINGS")} className={styles.findingsPanel}>
             {groups.length === 0 ? (
               <p className={styles.text}>{t("NO_FINDINGS")}</p>
             ) : (

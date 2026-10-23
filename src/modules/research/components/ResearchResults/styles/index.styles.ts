@@ -1,11 +1,18 @@
 export const styles = {
   root: "flex flex-col gap-6",
-  // On small screens the findings come right after the collection's record; from lg up the
-  // record, the sources and the method sit in the left column.
-  columns: "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start",
+  // On small screens the reading comes right after the collection's record, then the findings,
+  // then the period, the sources and the method. From lg up the record, the period, the sources
+  // and the method sit in the left column; from xl up the findings get a third column, so each
+  // [n] of the summaries has its finding beside it.
+  columns:
+    "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:grid-rows-[auto_1fr] lg:items-start xl:grid-cols-[minmax(18rem,1fr)_minmax(0,2fr)_minmax(0,1.5fr)]",
   collection: "lg:col-start-1 lg:row-start-1",
   aside: "flex flex-col gap-6 lg:col-start-1 lg:row-start-2",
-  main: "flex flex-col gap-6 lg:col-start-2 lg:row-span-2 lg:row-start-1",
+  main: "flex flex-col gap-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 xl:contents",
+  reading: "flex flex-col gap-6 xl:col-start-2 xl:row-span-2 xl:row-start-1",
+  // With no match there are no findings, so the reading takes their column too.
+  readingWide: "flex flex-col gap-6 xl:col-span-2 xl:col-start-2 xl:row-span-2 xl:row-start-1",
+  findingsPanel: "xl:col-start-3 xl:row-span-2 xl:row-start-1",
   facts: "flex flex-col gap-2 text-sm",
   factLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   matchTitle: "font-serif text-xl leading-snug",
