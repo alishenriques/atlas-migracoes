@@ -20,6 +20,47 @@
     "SWITCH_TO": "Português",
     "SKIP_TO_CONTENT": "Skip to content"
   },
+  "HOME": {
+    "HERO": {
+      "TITLE": "Atlas Migrações Leste-Sul",
+      "EYEBROW": "Contributions of immigrant art, 1918⁠–⁠1989",
+      "LABEL": "About the project",
+      "ROLE": "carousel",
+      "SLIDE_ROLE": "slide",
+      "POSITION": "{number} of {count}",
+      "PREV": "Previous slide",
+      "NEXT": "Next slide",
+      "GOTO": "Go to slide {number}: {title}",
+      "PAUSE": "Pause the presentation",
+      "PLAY": "Resume the presentation",
+      "SLIDES": {
+        "COLLECTION": {
+          "EYEBROW": "The collection",
+          "TITLE": "Trajectories of artists from <hl>Eastern Europe and Austria</hl> in Brazil",
+          "BODY": "An atlas built from the MAC USP collection: works, exhibitions and publications linked to the places and dates of each artist's trajectory.",
+          "CTA": "Explore the map"
+        },
+        "PROBLEM": {
+          "EYEBROW": "The starting problem",
+          "TITLE": "Digitisation widened access, but not the <hl>intelligibility</hl> of collections",
+          "BODY": "Works, exhibitions and publications sit in separate records. The Atlas brings them together in each artist's record, with the source of every piece of information.",
+          "CTA": "See the trajectories"
+        },
+        "RELATIONS": {
+          "EYEBROW": "Goal",
+          "TITLE": "From static cataloguing to a <hl>dynamic logic of relations</hl>",
+          "BODY": "The network links artists, works, exhibitions, publications, institutions and places; the historical layer shows the borders of each period.",
+          "CTA": "Open the Relational Network"
+        },
+        "AI": {
+          "EYEBROW": "Hypothesis",
+          "TITLE": "AI as an <hl>assistive and exploratory</hl> tool, with critical mediation",
+          "BODY": "Relational AI searches open sources and shows each finding with its source, its reliability and the prompt used: verifiable, auditable hypotheses.",
+          "CTA": "Discover Relational AI"
+        }
+      }
+    }
+  },
   "EXPLORAR": {
     "EYEBROW": "Contributions of immigrant art, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",

@@ -119,3 +119,20 @@ html {
 .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   filter: invert(1);
 }
+
+/* Home slider (modules/home/components/HeroSlider): the autoplay line fills up, and each slide settles in. */
+@keyframes atlas-hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes atlas-slide-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
