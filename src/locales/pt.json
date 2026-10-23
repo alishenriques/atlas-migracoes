@@ -59,6 +59,9 @@
     "EYEBROW": "Em construção",
     "BODY": "Esta tela faz parte do MVP e está sendo construída."
   },
+  "LOADING": {
+    "LABEL": "Carregando…"
+  },
   "TRAJECTORIES": {
     "TITLE": "Trajetórias",
     "EYEBROW": "Trajetórias",
