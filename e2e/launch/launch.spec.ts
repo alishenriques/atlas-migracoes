@@ -10,7 +10,7 @@ async function expectRealData(page: Page) {
 }
 
 test("Explorar shows the real collection and opens an artist's trajectory", async ({ page }) => {
-  await page.goto("/pt");
+  await page.goto("/pt/explorar");
   await expect(page.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeVisible();
   await expect(page.getByRole("region", { name: "Mapa das trajetórias dos artistas" })).toBeVisible();
   await expect(page.getByText(/^\d+ artistas$/)).toBeVisible();

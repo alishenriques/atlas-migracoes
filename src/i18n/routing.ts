@@ -8,6 +8,7 @@ export const routing = defineRouting({
   // ./navigation build the localized URL from the internal key.
   pathnames: {
     "/": "/",
+    "/explorar": { pt: "/explorar", en: "/explore" },
     "/trajetorias": { pt: "/trajetorias", en: "/trajectories" },
     "/trajetorias/[slug]": { pt: "/trajetorias/[slug]", en: "/trajectories/[slug]" },
     "/camada-historica": { pt: "/camada-historica", en: "/historical-layer" },

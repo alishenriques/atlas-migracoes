@@ -19,9 +19,9 @@ async function attempt<T>(what: string, load: () => Promise<T>): Promise<T | nul
 }
 
 /** The Explorar screen: the trajectories map, with the filters, the presentation and the collection counters over it. */
-export async function Home() {
+export async function ExplorarScreen() {
   const [t, locale, overview, mapData] = await Promise.all([
-    getTranslations("HOME"),
+    getTranslations("EXPLORAR"),
     getLocale(),
     attempt<Overview>("the collection overview", getOverview),
     attempt<MapData>("the map data", getMapData),

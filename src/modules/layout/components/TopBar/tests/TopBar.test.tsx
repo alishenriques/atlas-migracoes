@@ -46,6 +46,7 @@ describe("TopBar", () => {
     renderTopBar();
     const nav = screen.getByRole("navigation", { name: "Navegação principal" });
     expect(nav.querySelectorAll("a")).toHaveLength(6);
+    expect(screen.getByRole("link", { name: "Explorar" })).toHaveAttribute("href", "/explorar");
     expect(screen.getByRole("link", { name: "Camada Histórica" })).toHaveAttribute("href", "/camada-historica");
     expect(screen.getByRole("link", { name: "Rede Relacional" })).toHaveAttribute("href", "/rede");
     expect(screen.getByRole("link", { name: "IA Relacional" })).toHaveAttribute("href", "/ia-relacional");

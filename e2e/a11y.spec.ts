@@ -4,6 +4,7 @@ import { expect, test } from "@playwright/test";
 // Every screen, in both languages, with no serious or critical WCAG 2.1 A/AA violation that axe can detect.
 const PAGES = [
   "/pt",
+  "/pt/explorar",
   "/pt/trajetorias",
   "/pt/trajetorias/artista-a",
   "/pt/camada-historica",
@@ -12,6 +13,7 @@ const PAGES = [
   "/pt/ia-relacional?artista=artista-a",
   "/pt/sobre",
   "/en",
+  "/en/explore",
   "/en/relational-ai?artista=artista-a",
 ];
 
