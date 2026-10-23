@@ -1,4 +1,4 @@
-import { Eyebrow, Panel, ReliabilityTag } from "@alishenriques/atlas-design-system";
+import { Eyebrow, EventIcon, Panel, ReliabilityTag } from "@alishenriques/atlas-design-system";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
@@ -44,12 +44,18 @@ export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
         <Eyebrow>{t("EYEBROW")}</Eyebrow>
         <h1 className={styles.title}>{artist.name}</h1>
         <dl className={styles.life}>
-          <div>
-            <dt className={styles.lifeLabel}>{t("BORN")}</dt>
+          <div className={styles.lifeItem}>
+            <dt className={styles.lifeLabel}>
+              <EventIcon name="birth" size={28} className={styles.lifeIcon} />
+              {t("BORN")}
+            </dt>
             <dd>{born ?? unknown}</dd>
           </div>
-          <div>
-            <dt className={styles.lifeLabel}>{t("DIED")}</dt>
+          <div className={styles.lifeItem}>
+            <dt className={styles.lifeLabel}>
+              <EventIcon name="death" size={28} className={styles.lifeIcon} />
+              {t("DIED")}
+            </dt>
             <dd>{died ?? unknown}</dd>
           </div>
         </dl>

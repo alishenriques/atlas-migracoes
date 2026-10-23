@@ -135,6 +135,12 @@ describe("ArtistRecord", () => {
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 
+  it("marks birth and death with their icons", async () => {
+    await renderRecord({ meta: { source: "database" }, artist });
+    expect(screen.getByText("Nascimento").querySelector('[data-icon="birth"]')).toBeInTheDocument();
+    expect(screen.getByText("Morte").querySelector('[data-icon="death"]')).toBeInTheDocument();
+  });
+
   it("flags demo data", async () => {
     await renderRecord({ meta: { source: "demo" }, artist });
     expect(screen.getByRole("status")).toHaveTextContent("Dados de demonstração");
