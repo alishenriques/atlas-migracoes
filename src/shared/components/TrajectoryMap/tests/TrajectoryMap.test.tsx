@@ -17,6 +17,7 @@ type MapProps = {
   children: ReactNode;
   onClick: (event: unknown) => void;
   onLoad: () => void;
+  initialViewState: unknown;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   cursor: string;
@@ -109,6 +110,18 @@ describe("TrajectoryMap", () => {
     renderMap("segall");
     expect(fitBounds).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ duration: 0 }));
     matchMedia.mockRestore();
+  });
+
+  it("opens on the origins and Brazil, fitted into the space the panels leave", () => {
+    const padding = { top: 0, right: 0, bottom: 152, left: 360 };
+    render(<TrajectoryMap trajectories={[]} selectedSlug={null} label="Mapa" renderPlace={() => null} padding={padding} />);
+    expect(mapProps?.initialViewState).toEqual({
+      bounds: [
+        [-100, -35],
+        [71, 58],
+      ],
+      fitBoundsOptions: { padding },
+    });
   });
 
   it("does not move the map when nothing is selected", () => {

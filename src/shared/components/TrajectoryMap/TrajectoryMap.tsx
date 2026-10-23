@@ -33,8 +33,13 @@ export type TrajectoryMapProps = {
   padding?: { top: number; right: number; bottom: number; left: number };
 };
 
-// Europe and Brazil in one view.
-const INITIAL_VIEW = { longitude: -18, latitude: 18, zoom: 1.6 };
+// The opening frame, from Mexico to the Black Sea and from the Baltic to the River Plate:
+// every origin and the routes to Brazil. Fitted into the space the floating panels leave,
+// so it holds on any screen (chosen by Alisson on 2026-10-23).
+const INITIAL_BOUNDS: [[number, number], [number, number]] = [
+  [-100, -35],
+  [71, 58],
+];
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -84,7 +89,7 @@ export function TrajectoryMap({
     <div className={styles.root} role="region" aria-label={label}>
       <Map
         ref={mapRef}
-        initialViewState={INITIAL_VIEW}
+        initialViewState={{ bounds: INITIAL_BOUNDS, fitBoundsOptions: { padding } }}
         mapStyle={mapStyle}
         interactiveLayerIds={["places"]}
         onClick={onClick}
