@@ -16,6 +16,7 @@ type MapProps = {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   cursor: string;
+  initialViewState: { padding: { left: number } };
 };
 let mapProps: MapProps | undefined;
 const sources: Record<string, unknown> = {};
@@ -69,9 +70,10 @@ beforeEach(() => {
   mapProps = undefined;
 });
 
-function renderMap() {
+function renderMap(padding?: { top: number; right: number; bottom: number; left: number }) {
   return render(
     <HistoricalMap
+      padding={padding}
       states={states}
       birthplaces={[{ placeId: "vilna", lng: 25.3, lat: 54.7, artists: 2 }]}
       label="Mapa da Europa"
@@ -125,6 +127,13 @@ describe("HistoricalMap", () => {
     click("states-fill", { name: "Poland" });
     act(() => mapProps?.onClick({ features: [], lngLat: { lng: -30, lat: 40 } }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("opens centered in the room the floating blocks leave", () => {
+    renderMap();
+    expect(mapProps?.initialViewState.padding.left).toBe(0);
+    renderMap({ top: 0, right: 0, bottom: 0, left: 360 });
+    expect(mapProps?.initialViewState.padding.left).toBe(360);
   });
 
   it("shows a pointer while hovering", () => {
