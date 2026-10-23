@@ -17,5 +17,11 @@ Changes from the source, made by `scripts/build-cartography.mts`:
   state's border was valid (from the `gws*`/`gwe*` year, month and day fields).
 
 CShapes maps independent states (the Gleditsch–Ward list). Territories that were no state's on a given day, such as
-Germany between May 1945 and the founding of the two German states in 1949, have no polygon on that day. State names
-are the source's, in English.
+Germany between May 1945 and the founding of the two German states in 1949, have no polygon on that day.
+
+CShapes gives each state one English name for its whole existence (`Russia (Soviet Union)` from 1886 to 2019). The
+app and the API never show that name: `state-names.json` (written by the Atlas, not part of CShapes) names each state
+as it was on a given day, in Portuguese and English, as a list of periods per source name, each valid through `until`
+(inclusive) and the last one open-ended. It also marks the states CShapes keeps through the Second World War although
+they were annexed or partitioned (Austria, Czechoslovakia, Poland, Yugoslavia, Albania). Every name in the geojson must
+have an entry; `src/lib/stateNames.test.ts` checks it.
