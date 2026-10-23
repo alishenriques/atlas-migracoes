@@ -132,7 +132,7 @@ describe("Explorar", () => {
     expect(stops.map((stop) => stop.textContent)).toEqual([
       "Nascimento · 1889Vilna (Vilnius, Lituânia)",
       "Exposição · c. 1943Rio de JaneiroMostra de 1943",
-      "Morte · 1957São Paulo",
+      "Falecimento · 1957São Paulo",
     ]);
     expect(screen.getByText("1 exposição póstuma fica fora do traçado.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Abrir a ficha" })).toHaveAttribute("href", "/trajetorias/lasar-segall");
