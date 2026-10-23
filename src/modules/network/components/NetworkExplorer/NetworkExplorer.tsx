@@ -10,7 +10,6 @@ import { formatFuzzyDate } from "@/lib/dates";
 import {
   countByKind,
   egoGraph,
-  layoutGraph,
   neighborsOf,
   networkExtent,
   NODE_KINDS,
@@ -18,6 +17,7 @@ import {
   overviewGraph,
   type NodeKind,
 } from "@/lib/network";
+import { columnsLayout, radialLayout, type ColumnKey } from "@/lib/networkLayout";
 import type { NetworkData } from "@/lib/schemas";
 import type { Period } from "@/lib/trajectory";
 
@@ -55,7 +55,11 @@ export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
     const filter = { period, includeUndated: fullPeriod };
     return (center && egoGraph(data, center, filter)) || overviewGraph(data, filter);
   }, [data, center, period, fullPeriod]);
-  const layout = useMemo(() => layoutGraph(graph, { center: centerId ?? undefined }), [graph, centerId]);
+  // The ego network reads outward from the artist; the overview reads left to right, origin to venue.
+  const layout = useMemo(
+    () => (centerId ? radialLayout(graph, centerId) : columnsLayout(graph)),
+    [graph, centerId],
+  );
   const counts = countByKind(graph);
   const selected = graph.nodes.find((node) => node.id === selectedId) ?? null;
   const neighbors = selected ? neighborsOf(graph, selected.id) : [];
@@ -106,7 +110,7 @@ export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
           />
         )}
         <p className={styles.note}>
-          {centerName ? t("EGO_NOTE", { name: centerName }) : t("OVERVIEW_NOTE")} {t("UNDATED_NOTE")}
+          {centerName ? t("EGO_NOTE", { name: centerName }) : t("OVERVIEW_NOTE")} {t("LINES_NOTE")} {t("UNDATED_NOTE")}
         </p>
         <Legend
           label={t("LEGEND")}
@@ -167,6 +171,8 @@ export function NetworkExplorer({ data, initialSlug }: NetworkExplorerProps) {
             onSelect={setSelectedId}
             label={t("GRAPH_LABEL", { count: graph.nodes.length })}
             kindLabel={(kind) => t(`KIND.${KEY(kind)}`)}
+            columnLabel={(key) => t(`COLUMNS.${key.toUpperCase() as Uppercase<ColumnKey>}`)}
+            zoomLabels={{ in: t("ZOOM_IN"), out: t("ZOOM_OUT"), fit: t("ZOOM_FIT") }}
           />
         )}
       </div>

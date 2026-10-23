@@ -4,7 +4,6 @@ import {
   countByKind,
   egoGraph,
   inPeriod,
-  layoutGraph,
   neighborsOf,
   networkExtent,
   nodeIds,
@@ -205,30 +204,5 @@ describe("neighborsOf", () => {
     const graph = overviewGraph(data, all);
     const neighbors = neighborsOf(graph, nodeIds.place("sp")).map((node) => node.id);
     expect(neighbors.sort()).toEqual([nodeIds.artist("lasar-segall"), nodeIds.institution("MAC USP")].sort());
-  });
-});
-
-describe("layoutGraph", () => {
-  const graph = egoGraph(data, "lasar-segall", all) as Graph;
-
-  it("places every node and frames them all", () => {
-    const layout = layoutGraph(graph, { center: nodeIds.artist("lasar-segall") });
-    expect(layout.nodes).toHaveLength(graph.nodes.length);
-    expect(layout.nodes.find((node) => node.kind === "artist" && node.slug === "lasar-segall")).toMatchObject({ x: 0, y: 0 });
-    const [minX, minY, width, height] = layout.viewBox;
-    for (const node of layout.nodes) {
-      expect(node.x).toBeGreaterThan(minX);
-      expect(node.x).toBeLessThan(minX + width);
-      expect(node.y).toBeGreaterThan(minY);
-      expect(node.y).toBeLessThan(minY + height);
-    }
-  });
-
-  it("gives the same picture every time", () => {
-    expect(layoutGraph(graph, { ticks: 50 })).toEqual(layoutGraph(graph, { ticks: 50 }));
-  });
-
-  it("frames an empty graph around the origin", () => {
-    expect(layoutGraph({ nodes: [], edges: [] }).viewBox).toEqual([-40, -40, 200, 80]);
   });
 });

@@ -68,6 +68,10 @@ describe("NetworkExplorer", () => {
     expect(within(legend()).getByText("Instituições").closest("li")).toHaveTextContent("Instituições3");
     expect(within(legend()).queryByText(/Obras/)).not.toBeInTheDocument();
     expect(screen.getByText(/Na visão geral/)).toBeInTheDocument();
+    // The overview reads in columns, from birthplace to the cities of the exhibitions.
+    expect(within(graph()).getByText("Nascimento")).toBeInTheDocument();
+    expect(within(graph()).getByText("Cidades")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Aproximar" })).toBeInTheDocument();
     expect(screen.getByText("Selecione um elemento da rede para ver suas ligações.")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Limpar" })).not.toBeInTheDocument();
   });
@@ -75,7 +79,9 @@ describe("NetworkExplorer", () => {
   it("opens centered on the artist from the link, and ignores an unknown one", () => {
     renderExplorer("lasar-segall");
     expect(screen.getByRole("combobox", { name: "Centro da rede" })).toHaveValue("lasar-segall");
-    expect(screen.getByText(/As obras de Lasar Segall/)).toBeInTheDocument();
+    expect(screen.getByText(/Lasar Segall fica no centro/)).toBeInTheDocument();
+    // The ego network reads in rings: no column headings.
+    expect(within(graph()).queryByText("Nascimento")).not.toBeInTheDocument();
     expect(within(graph()).getByRole("button", { name: "Obra: Paisagem" })).toBeInTheDocument();
   });
 
