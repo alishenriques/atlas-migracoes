@@ -270,8 +270,10 @@
     "MATCH": "Person found on Wikidata",
     "BASIS": {
       "BIRTH_YEAR": "Chosen as the only person with this name born in the year the collection records.",
-      "NAME": "The collection has no birth year; chosen as the only person with exactly this name."
+      "NAME": "The collection has no birth year; chosen as the only person with exactly this name.",
+      "REVIEWED": "Link checked by a project researcher, without an automatic search."
     },
+    "REVIEW_NOTE": "Researcher's note: {note}",
     "SUMMARY": "Encyclopedia summary",
     "FINDINGS": "Findings",
     "NO_FINDINGS": "The person found has none of this information on Wikidata.",
