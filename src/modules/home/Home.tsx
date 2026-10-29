@@ -11,13 +11,15 @@ import { HomeFooter } from "./components/HomeFooter";
 import { SCREENS } from "./constants/screens";
 import { styles } from "./styles/index.styles";
 
-const IMPACTS = ["RESEARCH", "COLLECTION"] as const;
-const IMPACT_ITEMS = ["1", "2", "3"] as const;
+const IMPACTS = [
+  { impact: "RESEARCH", items: ["1", "2", "3"] },
+  { impact: "COLLECTION", items: ["1", "2", "3", "4"] },
+] as const;
 const METHOD = ["READING", "RELATION", "RELIABILITY"] as const;
 
 /**
- * The home page: the slider that presents the project, then why the Atlas is needed, what it changes for research
- * and for the collection, the screens it offers and its method, with the collection's counters from the API, and the
+ * The home page: the slider that presents the project, then why the Atlas is needed, what it makes possible for
+ * research and for the collection, the screens it offers and its method, with the collection's counters from the API, and the
  * developer's credit at the foot.
  */
 export function Home() {
@@ -68,11 +70,11 @@ export function Home() {
               </h2>
             </div>
             <div className={styles.impacts}>
-              {IMPACTS.map((impact) => (
+              {IMPACTS.map(({ impact, items }) => (
                 <article key={impact} className={styles.impact}>
                   <h3 className={styles.impactTitle}>{t(`IMPACTS.${impact}.TITLE`)}</h3>
                   <ul className={styles.impactList}>
-                    {IMPACT_ITEMS.map((item) => (
+                    {items.map((item) => (
                       <li key={item} className={styles.impactItem}>
                         {t(`IMPACTS.${impact}.ITEMS.${item}`)}
                       </li>

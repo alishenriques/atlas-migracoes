@@ -72,21 +72,22 @@
     },
     "IMPACTS": {
       "EYEBROW": "Impact",
-      "TITLE": "What changes for research and for the collection",
+      "TITLE": "What the project makes possible for research and for the collection",
       "RESEARCH": {
         "TITLE": "For research",
         "ITEMS": {
-          "1": "The artists' trajectories gathered on one map, filtered by country of origin and period.",
-          "2": "Relations between artists, works, exhibitions and publications that were scattered across separate records.",
-          "3": "Findings from open sources with their source, reliability and prompt in view, ready to be checked."
+          "1": "The artists' trajectories can be explored together in space and time, with different ways of slicing and filtering them.",
+          "2": "Works, exhibitions, publications, places and artists can be seen in relation, prompting new questions and lines of inquiry.",
+          "3": "Information from different sources is shown with its provenance and reliability criteria, so it can be consulted and checked."
         }
       },
       "COLLECTION": {
-        "TITLE": "For the collection",
+        "TITLE": "Starting from the collection",
         "ITEMS": {
-          "1": "The MAC USP records gain geographical and historical context, with the borders of each period.",
-          "2": "Every piece of information keeps its provenance, and what is inferred stays apart from what is documented.",
-          "3": "Gaps stay visible: what the source does not give shows as unknown and is never filled in."
+          "1": "The MAC USP records are the basis for new ways of visualising and exploring the trajectories of the artists and their works.",
+          "2": "Collection information can be related to geographical, historical and biographical contexts from other research sources.",
+          "3": "Provenance is kept throughout these relations, so what comes from the collection, from external sources or from inference stays identifiable.",
+          "4": "Different levels of information and of documentary precision stay visible, respecting the particularities of each source and the limits of available knowledge."
         }
       }
     },

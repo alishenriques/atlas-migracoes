@@ -37,7 +37,7 @@ describe("Home", () => {
       "Trajetórias de artistas do Leste Europeu e da Áustria no Brasil",
       "O acervo em números",
       "Um acervo lido em relação",
-      "O que muda para a pesquisa e para o acervo",
+      "O que o projeto possibilita para a pesquisa e para o acervo",
       "Cinco maneiras de ler o acervo",
       "Leitura, relação e confiabilidade",
     ]);
@@ -45,14 +45,16 @@ describe("Home", () => {
     expect(screen.getByText(/Como a IA pode contribuir/)).toBeInTheDocument();
   });
 
-  it("says what changes for research and for the collection", () => {
+  it("says what the project makes possible for research and for the collection", () => {
     renderHome();
-    const impacts = screen.getByRole("region", { name: "O que muda para a pesquisa e para o acervo" });
+    const impacts = screen.getByRole("region", { name: "O que o projeto possibilita para a pesquisa e para o acervo" });
     expect(within(impacts).getAllByRole("heading", { level: 3 }).map((heading) => heading.textContent)).toEqual([
       "Para a pesquisa",
-      "Para o acervo",
+      "A partir do acervo",
     ]);
-    expect(within(impacts).getAllByRole("listitem")).toHaveLength(6);
+    const [research, collection] = within(impacts).getAllByRole("list");
+    expect(within(research).getAllByRole("listitem")).toHaveLength(3);
+    expect(within(collection).getAllByRole("listitem")).toHaveLength(4);
   });
 
   it("leads to each screen of the atlas and to the project's method", () => {
@@ -78,7 +80,7 @@ describe("Home", () => {
 
   it("is in English too", () => {
     renderHome("en");
-    expect(screen.getByRole("heading", { level: 2, name: "What changes for research and for the collection" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "What the project makes possible for research and for the collection" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explore the map" })).toHaveAttribute("href", "/explorar");
   });
 });
