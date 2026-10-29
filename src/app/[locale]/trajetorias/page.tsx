@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { getMapData } from "@/lib/atlas";
+import { getArtistIndex } from "@/lib/atlas";
 import { TrajectoryIndex } from "@/modules/trajectories";
 
 import type { Metadata } from "next";
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/trajetor
 }
 
 export default async function Page() {
-  const data = await getMapData().catch((error: unknown) => {
+  const data = await getArtistIndex().catch((error: unknown) => {
     console.error("Failed to load the artists:", error instanceof Error ? error.message : error);
     return null;
   });

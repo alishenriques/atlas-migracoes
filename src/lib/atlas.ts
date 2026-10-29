@@ -1,11 +1,13 @@
 import { graphqlRequest } from "./graphql-client";
 import {
+  artistIndexSchema,
   artistListSchema,
   artistRecordResponseSchema,
   mapDataSchema,
   networkDataSchema,
   overviewSchema,
   researchResponseSchema,
+  type ArtistIndex,
   type ArtistList,
   type ArtistRecordResponse,
   type MapData,
@@ -92,6 +94,38 @@ export function getMapData(): Promise<MapData> {
   return graphqlRequest(mapDataSchema, MAP_QUERY);
 }
 
+const ARTIST_INDEX_QUERY = /* GraphQL */ `
+  ${FRAGMENTS}
+
+  query ArtistIndex {
+    artists {
+      slug
+      name
+      birthPlace {
+        ...MapPlace
+      }
+      birthDate {
+        ...MapDate
+      }
+      deathPlace {
+        ...MapPlace
+      }
+      deathDate {
+        ...MapDate
+      }
+      photo {
+        url
+        credit
+      }
+    }
+  }
+`;
+
+/** Every artist, alphabetically, with their photo when the base has one, for the Trajetórias list. */
+export function getArtistIndex(): Promise<ArtistIndex> {
+  return graphqlRequest(artistIndexSchema, ARTIST_INDEX_QUERY);
+}
+
 const ARTIST_RECORD_QUERY = /* GraphQL */ `
   ${FRAGMENTS}
 
@@ -153,6 +187,10 @@ const ARTIST_RECORD_QUERY = /* GraphQL */ `
         }
         category
         periodical
+      }
+      photo {
+        url
+        credit
       }
     }
   }

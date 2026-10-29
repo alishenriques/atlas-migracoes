@@ -13,6 +13,8 @@ import { styles } from "./styles/index.styles";
 export type ArtistCard = {
   slug: string;
   name: string;
+  /** Photo URL; null while the base has none. */
+  photo: string | null;
   /** Country and life span, already formatted, e.g. "Polônia · 1889–1957". */
   meta: string;
 };
@@ -50,8 +52,12 @@ export function ArtistGrid({ artists }: { artists: ArtistCard[] }) {
                   <span className={styles.cardName}>{artist.name}</span>
                   <span className={styles.cardMeta}>{artist.meta}</span>
                 </span>
-                {/* No artist photos in the collection yet: the avatar marks the empty slot. */}
-                <Avatar label={t("NO_PHOTO")} title={t("NO_PHOTO")} size={52} />
+                {/* Without a photo, the avatar marks the empty slot. The name beside it already labels a photo. */}
+                {artist.photo ? (
+                  <Avatar src={artist.photo} size={52} />
+                ) : (
+                  <Avatar label={t("NO_PHOTO")} title={t("NO_PHOTO")} size={52} />
+                )}
               </Link>
             </li>
           ))}

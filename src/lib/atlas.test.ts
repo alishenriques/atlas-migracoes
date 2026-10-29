@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const post = vi.fn();
 vi.spyOn(axios, "create").mockReturnValue({ post } as unknown as ReturnType<typeof axios.create>);
 
-const { getArtistList, getArtistRecord, getMapData, getNetworkData, getOverview, getResearch } = await import("./atlas");
+const { getArtistIndex, getArtistList, getArtistRecord, getMapData, getNetworkData, getOverview, getResearch } = await import("./atlas");
 
 const reply = (data: unknown) => post.mockResolvedValue({ data: { data } });
 
@@ -55,6 +55,25 @@ describe("getMapData", () => {
   });
 });
 
+describe("getArtistIndex", () => {
+  it("returns each artist with their photo, or null without one", async () => {
+    const artist = { ...mapArtist, exhibitions: undefined };
+    const artists = [
+      { ...artist, photo: null },
+      { ...artist, slug: "anatol", photo: { url: "https://api.example/photos/anatol?v=1", credit: "Família" } },
+    ];
+    reply({ artists });
+    await expect(getArtistIndex()).resolves.toEqual({ artists });
+    expect(post.mock.calls[0]?.[1]).toMatchObject({ query: expect.stringContaining("photo") });
+  });
+
+  it("rejects a photo without a valid URL", async () => {
+    const artist = { ...mapArtist, exhibitions: undefined };
+    reply({ artists: [{ ...artist, photo: { url: "foto.webp", credit: null } }] });
+    await expect(getArtistIndex()).rejects.toThrow();
+  });
+});
+
 describe("getArtistRecord", () => {
   it("asks for the slug and returns the whole record", async () => {
     const record = {
@@ -83,6 +102,7 @@ describe("getArtistRecord", () => {
           periodical: null,
         },
       ],
+      photo: { url: "https://api.example/photos/lasar-segall?v=abc", credit: null },
     };
     reply({ meta: { source: "database" }, artist: record });
 
