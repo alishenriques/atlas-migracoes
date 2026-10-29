@@ -13,7 +13,7 @@ import { TrajectoryMap } from "@/shared/components/TrajectoryMap";
 import { styles } from "./styles/index.styles";
 
 /** The artist's whole trajectory on the map, in the record. */
-export function RecordMap({ artist, label }: { artist: MapArtist; label: string }) {
+export function RecordMap({ artist, label, className }: { artist: MapArtist; label: string; className?: string }) {
   const t = useTranslations("TRAJECTORY");
   const locale = useLocale();
   const trajectories = useMemo(() => {
@@ -43,7 +43,7 @@ export function RecordMap({ artist, label }: { artist: MapArtist; label: string 
   };
 
   return (
-    <div className={styles.root}>
+    <div className={[styles.root, className].filter(Boolean).join(" ")}>
       <TrajectoryMap
         trajectories={trajectories}
         selectedSlug={artist.slug}
