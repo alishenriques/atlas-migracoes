@@ -261,6 +261,7 @@ const RESEARCH_QUERY = /* GraphQL */ `
         description
         url
         basis
+        note
       }
       searchedNames
       candidates {

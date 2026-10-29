@@ -237,7 +237,9 @@ export const researchSchema = z.object({
       label: z.string(),
       description: z.string().nullable(),
       url: sourceUrlSchema,
-      basis: z.enum(["birth_year", "name"]),
+      basis: z.enum(["birth_year", "name", "reviewed"]),
+      /** The researcher's note on a reviewed link. */
+      note: z.string().nullable(),
     })
     .nullable(),
   candidates: z.array(researchCandidateSchema),
