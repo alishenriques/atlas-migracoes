@@ -29,6 +29,7 @@ Source of truth: `atlas-migracoes-api/src/schemas/domain.ts` (Zod) and `src/db/s
 - `artists`: name, slug, birth/death place and date.
 - `works` (id = MAC USP tombo), `exhibitions` (EH./EX./EM. ids) and `publications` (PB. ids), linked through `work_exhibitions` and `work_publications`.
 - `import_batches`: one row per import with counts, unresolved references and warnings, for review.
+- `artist_photos`: one photo per artist (base64, mime, hash, credit, source URL), written by `yarn photos:import` on Alisson's machine, never committed. The API serves it at `/photos/<slug>?v=<hash>` (cached for a year) and as `Artist.photo { url credit sourceUrl }`; null while an artist has none. The Trajetórias list and the record show it; the demo dataset has no photos.
 - **`FuzzyDate`** (jsonb): `{ raw, year, endYear, iso, precision }`, precision `day | month | year | circa | range | unknown`. The UI must render a date according to its precision, never as more exact than it is.
 
 What the data does **not** have: arrival year or route to Brazil, images. The map links each artist's documented points in date order (atlas-migracoes#11, decided by Alisson, 2026-10-20): the leg from the birthplace to the first documented place in Brazil is drawn in gold, with no intermediate route reconstructed, and the rest dashed; exhibitions in the artist's lifetime and the place of death are further points of the trajectory. Sobre says the same in "Dados". This holds until the migration event becomes editable in the admin area.
