@@ -52,8 +52,7 @@ export function Home() {
               </h2>
             </div>
             <div className={styles.needBody}>
-              <p className={styles.lead}>{t("NEED.CONTEXT")}</p>
-              <p className={styles.text}>{t("NEED.PROBLEM")}</p>
+              <p className={styles.lead}>{t("NEED.BODY")}</p>
               <blockquote className={styles.question}>
                 <p className={styles.label}>{tAbout("PROJECT.QUESTION_LABEL")}</p>
                 <p className={styles.questionText}>{tAbout("PROJECT.QUESTION")}</p>
