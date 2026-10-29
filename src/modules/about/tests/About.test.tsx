@@ -32,4 +32,11 @@ describe("About", () => {
     expect(screen.getByText(/© OpenStreetMap contributors, ODbL/)).toBeInTheDocument();
     expect(screen.getByText(/Museum of Contemporary Art of the University of São Paulo/, { selector: "li" })).toBeInTheDocument();
   });
+
+  it("ends with the developer's footer, outside main", () => {
+    renderAbout("pt");
+    const footer = screen.getByRole("contentinfo");
+    expect(screen.getByRole("main")).not.toContainElement(footer);
+    expect(footer).toHaveTextContent("Desenvolvido por");
+  });
 });
