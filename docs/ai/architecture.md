@@ -31,7 +31,7 @@ Source of truth: `atlas-migracoes-api/src/schemas/domain.ts` (Zod) and `src/db/s
 - `import_batches`: one row per import with counts, unresolved references and warnings, for review.
 - **`FuzzyDate`** (jsonb): `{ raw, year, endYear, iso, precision }`, precision `day | month | year | circa | range | unknown`. The UI must render a date according to its precision, never as more exact than it is.
 
-What the data does **not** have: arrival year or route to Brazil, images. The map draws one line per artist, from the birthplace to the first documented place in Brazil (no intermediate routes, per the spec; decided by Alisson, 2026-10-18); exhibitions and the place of death are points. This holds until the migration event becomes editable in the admin area.
+What the data does **not** have: arrival year or route to Brazil, images. The map links each artist's documented points in date order (atlas-migracoes#11, decided by Alisson, 2026-10-20): the leg from the birthplace to the first documented place in Brazil is drawn in gold, with no intermediate route reconstructed, and the rest dashed; exhibitions in the artist's lifetime and the place of death are further points of the trajectory. Sobre says the same in "Dados". This holds until the migration event becomes editable in the admin area.
 
 ## API (`atlas-migracoes-api`)
 
