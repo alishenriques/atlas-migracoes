@@ -15,9 +15,9 @@ vi.mock("@/i18n/navigation", () => ({
 }));
 
 const artists: ArtistCard[] = [
-  { slug: "lasar-segall", name: "Lasar Segall", meta: "Lituânia · 1889–1957" },
-  { slug: "samson-flexor", name: "Samson Flexor", meta: "Moldávia · 1907–1971" },
-  { slug: "yolanda-mohalyi", name: "Yolanda Mohályi", meta: "Hungria · 1909–1978" },
+  { slug: "lasar-segall", name: "Lasar Segall", meta: "Lituânia · 1889–1957", photo: null },
+  { slug: "samson-flexor", name: "Samson Flexor", meta: "Moldávia · 1907–1971", photo: null },
+  { slug: "yolanda-mohalyi", name: "Yolanda Mohályi", meta: "Hungria · 1909–1978", photo: null },
 ];
 
 function setup() {

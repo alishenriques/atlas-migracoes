@@ -50,6 +50,12 @@ export const mapExhibitionSchema = z.object({
   place: placeSchema.nullable(),
 });
 
+/** An artist's photo, served by the API; credit stays null while unknown. */
+export const artistPhotoSchema = z.object({
+  url: z.url(),
+  credit: z.string().nullable(),
+});
+
 /** What the Explorar map needs from each artist to draw a trajectory. */
 export const mapArtistSchema = z.object({
   slug: z.string(),
@@ -65,11 +71,23 @@ export const mapDataSchema = z.object({
   artists: z.array(mapArtistSchema),
 });
 
+/** What the Trajetórias list shows of each artist. */
+export const indexArtistSchema = mapArtistSchema.omit({ exhibitions: true }).extend({
+  photo: artistPhotoSchema.nullable(),
+});
+
+export const artistIndexSchema = z.object({
+  artists: z.array(indexArtistSchema),
+});
+
 export type DatePrecision = z.infer<typeof datePrecisionSchema>;
 export type FuzzyDate = z.infer<typeof fuzzyDateSchema>;
 export type Place = z.infer<typeof placeSchema>;
+export type ArtistPhoto = z.infer<typeof artistPhotoSchema>;
 export type MapArtist = z.infer<typeof mapArtistSchema>;
 export type MapData = z.infer<typeof mapDataSchema>;
+export type IndexArtist = z.infer<typeof indexArtistSchema>;
+export type ArtistIndex = z.infer<typeof artistIndexSchema>;
 
 export const recordWorkSchema = z.object({
   id: z.string(),
@@ -100,6 +118,7 @@ export const recordPublicationSchema = z.object({
 
 /** Everything the Trajetórias record shows about one artist. */
 export const artistRecordSchema = mapArtistSchema.extend({
+  photo: artistPhotoSchema.nullable(),
   exhibitions: z.array(recordExhibitionSchema),
   works: z.array(recordWorkSchema),
   publications: z.array(recordPublicationSchema),
