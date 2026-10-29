@@ -100,7 +100,7 @@ const research = (slug: string): Research | null => {
   return {
     artist,
     searchedNames: [artist.name],
-    match: { id: "Q1", label: artist.name, description: "pintor (registro simulado)", url: wikidata, basis: "birth_year" },
+    match: { id: "Q1", label: artist.name, description: "pintor (registro simulado)", url: wikidata, basis: "birth_year", note: null },
     candidates: [],
     findings: [finding("birthDate", "1900", 1), finding("birthPlace", "Varsóvia"), finding("occupation", "pintor", 1)],
     sources: [
