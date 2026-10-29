@@ -10,19 +10,21 @@ export type TrajectoryStopsProps = {
   trajectory: Trajectory;
   /** The stops to list; defaults to the whole trajectory. */
   stops?: Stop[];
+  /** Shows the "inferred" tag; off where the tag is already beside the list, e.g. in the record's section header. */
+  tag?: boolean;
 };
 
 /**
  * An artist's trajectory as a dated list, tagged as inferred and explaining
  * what was left out, so the reader knows how the line on the map was drawn.
  */
-export function TrajectoryStops({ trajectory, stops = trajectory.stops }: TrajectoryStopsProps) {
+export function TrajectoryStops({ trajectory, stops = trajectory.stops, tag = true }: TrajectoryStopsProps) {
   const t = useTranslations("TRAJECTORY");
   const locale = useLocale();
 
   return (
     <div className={styles.root}>
-      <ReliabilityTag level="inferred" label={t("INFERRED")} />
+      {tag && <ReliabilityTag level="inferred" label={t("INFERRED")} />}
       <p className={styles.note}>{t("METHOD")}</p>
       <ol className={styles.stops}>
         {stops.map((stop, index) => (
