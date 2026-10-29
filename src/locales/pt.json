@@ -103,10 +103,6 @@
     "METHOD": {
       "TITLE": "Leitura, relação e confiabilidade",
       "MORE": "Conheça o projeto e a metodologia"
-    },
-    "FOOTER": {
-      "DEVELOPED_BY": "Desenvolvido por",
-      "AUTHOR": "Alisson Henriques"
     }
   },
   "EXPLORAR": {
@@ -398,6 +394,10 @@
       "SOFTWARE": "Visualização cartográfica: MapLibre GL, software livre utilizado para a renderização interativa dos dados geográficos.",
       "COLLECTION": "Dados do acervo: Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP)."
     }
+  },
+  "FOOTER": {
+    "DEVELOPED_BY": "Desenvolvido por",
+    "AUTHOR": "Alisson Henriques"
   },
   "NOT_FOUND": {
     "TITLE": "Página não encontrada",

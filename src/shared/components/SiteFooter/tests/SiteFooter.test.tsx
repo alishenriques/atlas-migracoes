@@ -5,13 +5,13 @@ import { describe, expect, it } from "vitest";
 import en from "@/locales/en.json";
 import pt from "@/locales/pt.json";
 
-import { HomeFooter } from "../HomeFooter";
+import { SiteFooter } from "../SiteFooter";
 
-describe("HomeFooter", () => {
+describe("SiteFooter", () => {
   it("credits the developer with his AH logo, linking to the portfolio in a new tab", () => {
     render(
       <NextIntlClientProvider locale="pt" messages={pt}>
-        <HomeFooter />
+        <SiteFooter />
       </NextIntlClientProvider>,
     );
     const link = screen.getByRole("link", { name: "Desenvolvido por Alisson Henriques" });
@@ -25,7 +25,7 @@ describe("HomeFooter", () => {
   it("is in English too", () => {
     render(
       <NextIntlClientProvider locale="en" messages={en}>
-        <HomeFooter />
+        <SiteFooter />
       </NextIntlClientProvider>,
     );
     expect(screen.getByRole("link", { name: "Developed by Alisson Henriques" })).toBeInTheDocument();

@@ -4,10 +4,10 @@ import { Eyebrow, Panel } from "@alishenriques/atlas-design-system";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { SiteFooter } from "@/shared/components/SiteFooter";
 
 import { HeroSlider } from "./components/HeroSlider";
 import { HomeCounters, HomeCountersSkeleton } from "./components/HomeCounters";
-import { HomeFooter } from "./components/HomeFooter";
 import { SCREENS } from "./constants/screens";
 import { styles } from "./styles/index.styles";
 
@@ -129,7 +129,7 @@ export function Home() {
         </div>
       </main>
       {/* Outside main, so it is the page's contentinfo landmark. */}
-      <HomeFooter />
+      <SiteFooter />
     </>
   );
 }
