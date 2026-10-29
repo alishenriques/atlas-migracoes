@@ -387,15 +387,15 @@
     },
     "DATA": {
       "TITLE": "Data",
-      "SOURCE": "The base comes from three MAC USP collection spreadsheets of 16 July 2026: selected works, and the exhibitions and publications related to them.",
-      "PRECISION": "Place names are kept as in the source, with the present-day name alongside when the source gives it. Dates show the precision the source gives (“c. 1949”, “1940–1945”, “n.d.”), and nothing missing from the source is filled in.",
-      "GAPS": "The sources do not record the year of arrival or the route to Brazil, so the map draws a single line from the birthplace to the first documented place in Brazil, with no intermediate route. Exhibitions of the works during the artist's lifetime and the place of death appear as points."
+      "SOURCE": "The database was built from three MAC USP collection spreadsheets, made available on 16 July 2026, bringing together information on the selected works and their related exhibitions and publications.",
+      "PRECISION": "Place names keep the form recorded in the sources, with the present-day name alongside when that information is available. Dates keep the same level of precision as the original documentation, including entries such as “c. 1949”, “1940–1945” and “n.d.”. Undocumented information stays marked as unknown.",
+      "GAPS": "To represent the movements, only the points actually documented in the sources consulted are used. When there is no information on the year of arrival or on intermediate stages of the journey to Brazil, the map connects the birthplace to the first documented place in the country, without reconstructing possible routes. Exhibitions held during the artist's lifetime and the place of death are added as further points of their trajectory."
     },
     "CREDITS": {
       "TITLE": "Cartography and credits",
-      "BASEMAP": "Basemap: OpenFreeMap, with OpenStreetMap data (© OpenStreetMap contributors, ODbL) in the OpenMapTiles schema. It shows only land and water, with no present-day borders or names.",
-      "HISTORICAL": "Historical borders: CShapes 2.0 by Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann and Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), CC BY-NC-SA 4.0 license. The Atlas clipped and simplified the borders for Europe, and the derived file keeps the same license.",
-      "SOFTWARE": "Map rendered with MapLibre GL, free software.",
+      "BASEMAP": "Basemap: OpenFreeMap, with OpenStreetMap data (© OpenStreetMap contributors, ODbL license), in the OpenMapTiles schema. The visualisation uses only the land and water layers, with no political borders or present-day place names.",
+      "HISTORICAL": "Historical borders: CShapes 2.0, developed by Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann and Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), under the CC BY-NC-SA 4.0 license. For the Atlas, the data were clipped to European territory and simplified for visualisation. The derived dataset is made available under the same license.",
+      "SOFTWARE": "Cartographic visualisation: MapLibre GL, free software used for the interactive rendering of the geographic data.",
       "COLLECTION": "Collection data: Museum of Contemporary Art of the University of São Paulo (MAC USP)."
     }
   },
