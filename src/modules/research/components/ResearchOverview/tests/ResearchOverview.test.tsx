@@ -97,7 +97,7 @@ describe("ResearchOverview", () => {
   it("says where and when the findings were found, and which AI wrote the summary", () => {
     const found: Research = {
       ...research,
-      match: { id: "Q1", label: "Lasar Segall", description: null, url: "https://www.wikidata.org/wiki/Q1", basis: "birth_year" },
+      match: { id: "Q1", label: "Lasar Segall", description: null, url: "https://www.wikidata.org/wiki/Q1", basis: "birth_year", note: null },
       sources: [
         { source: "wikidata", status: "ok", detail: null },
         { source: "wikipedia", status: "ok", detail: null },
