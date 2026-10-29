@@ -1,7 +1,7 @@
 export const styles = {
   index: "flex w-full flex-1 flex-col gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
-  record: "flex w-full flex-1 flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
-  back: "self-start text-xs uppercase tracking-[0.12em] text-accent hover:underline",
+  // Close to the menu: the record opens straight on the artist.
+  record: "flex w-full flex-1 flex-col gap-6 px-4 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:px-10",
   header: "flex flex-col gap-3",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   // The title, a thin gold rule and a small label naming what the page holds.
@@ -10,22 +10,10 @@ export const styles = {
   titleSeparator: "h-8 w-px shrink-0 bg-accent/60 sm:h-10",
   titleNote: "min-w-0 text-xs font-medium uppercase tracking-[0.16em] text-accent sm:text-sm",
   intro: "max-w-2xl text-muted",
-  life: "flex flex-col gap-4 text-sm",
-  // The icon sits left of both the label and the value, centred on the pair.
-  lifeItem: "relative pl-10",
-  lifeIcon: "absolute left-0 top-1/2 -translate-y-1/2",
-  lifeLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   // The artist (1/3) beside the map (2/3); stacked below lg, the artist first.
   top: "grid gap-6 lg:grid-cols-3",
-  profile: "flex flex-col gap-6 rounded-xl border border-line bg-raised p-5 sm:p-6",
-  // Photo and name side by side: the photo stays a highlight without making the block tall.
-  identity: "flex items-end gap-5",
-  portrait: "w-32 shrink-0 sm:w-40",
-  naming: "flex min-w-0 flex-col gap-2",
-  name: "font-serif text-3xl leading-tight sm:text-4xl",
-  actions: "mt-auto flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row [&>*]:flex-1",
   // As tall as the artist's block beside it from lg up.
-  map: "lg:col-span-2 lg:h-auto lg:min-h-[480px]",
+  map: "lg:col-span-2 lg:h-auto lg:min-h-[560px]",
   sources: "flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3",
   sourcesLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   sections: "flex flex-col gap-3",
