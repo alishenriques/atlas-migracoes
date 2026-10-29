@@ -12,7 +12,6 @@ export const styles = {
   needIntro: "flex flex-col gap-3",
   needBody: "flex flex-col gap-5",
   lead: "text-lg leading-relaxed sm:text-xl",
-  text: "leading-relaxed text-foreground/80",
   question: "flex flex-col gap-2 border-l-2 border-accent pl-5",
   questionText: "font-serif text-2xl leading-snug italic sm:text-[1.7rem]",
   impacts: "grid gap-6 md:grid-cols-2",
