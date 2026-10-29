@@ -33,6 +33,9 @@ export const styles = {
 };
 
 export const skeletonStyles = {
+  // The search box above the cards, as tall as its label and field.
+  list: "flex flex-col gap-5",
+  search: "w-full sm:max-w-sm",
   // A card's frame, without the hover of a link.
   card: "flex h-full items-center justify-between gap-4 rounded-xl border border-line bg-raised px-4 py-3",
   // Takes the card's width, which the skeleton lines size themselves against.
