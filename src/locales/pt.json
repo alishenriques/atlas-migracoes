@@ -38,19 +38,19 @@
         "COLLECTION": {
           "EYEBROW": "O acervo",
           "TITLE": "Trajetórias de artistas do <hl>Leste Europeu e da Áustria</hl> no Brasil",
-          "BODY": "Um atlas construído a partir do acervo do MAC USP: obras, exposições e publicações ligadas aos lugares e às datas da trajetória de cada artista.",
+          "BODY": "Obras, exposições e publicações conectadas aos lugares e acontecimentos que compõem as trajetórias de cada artista.",
           "CTA": "Explorar o mapa"
         },
         "PROBLEM": {
           "EYEBROW": "Problema de partida",
           "TITLE": "A digitalização ampliou o acesso, mas não a <hl>inteligibilidade</hl> dos acervos",
-          "BODY": "Obras, exposições e publicações ficam em registros separados. O Atlas os reúne na ficha de cada artista, com a fonte de cada informação.",
+          "BODY": "Tornando visíveis relações entre obras, artistas, lugares e trajetórias antes dispersas nos acervos.",
           "CTA": "Ver as trajetórias"
         },
         "RELATIONS": {
           "EYEBROW": "Objetivo",
           "TITLE": "Da catalogação estática à <hl>lógica dinâmica de relações</hl>",
-          "BODY": "A Rede Relacional liga artistas, obras, exposições, publicações, instituições e lugares; a Camada Histórica mostra as fronteiras de cada época.",
+          "BODY": "A Rede Relacional conecta artistas, obras, exposições, publicações, instituições e lugares; a Camada Histórica mostra o contexto de cada época.",
           "CTA": "Abrir a Rede Relacional"
         },
         "AI": {
