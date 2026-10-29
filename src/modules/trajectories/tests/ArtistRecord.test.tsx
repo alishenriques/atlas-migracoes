@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
@@ -99,6 +99,7 @@ const artist: Record = {
     },
   ],
   publications: [],
+  photo: null,
 };
 
 async function renderRecord(data: ArtistRecordResponse) {
@@ -110,29 +111,67 @@ async function renderRecord(data: ArtistRecordResponse) {
 }
 
 describe("ArtistRecord", () => {
-  it("shows the artist's life, map, works, exhibitions and sources", async () => {
+  it("shows the artist beside the map, with the links as buttons", async () => {
     await renderRecord({ meta: { source: "database" }, artist });
 
     expect(screen.getByRole("heading", { level: 1, name: "Lasar Segall" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Ainda sem foto" })).toBeInTheDocument();
     expect(screen.getByText("Vilna (Vilnius, Lituânia), 1889")).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Mapa da trajetória de Lasar Segall" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Ver na Rede Relacional" })).toHaveAttribute("href", "/rede?artista=lasar-segall");
+    const network = screen.getByRole("link", { name: "Ver na Rede Relacional" });
+    expect(network).toHaveAttribute("href", "/rede?artista=lasar-segall");
+    expect(network).toHaveAttribute("data-variant", "primary");
     expect(screen.getByRole("link", { name: "Pesquisar em fontes abertas" })).toHaveAttribute(
       "href",
       "/ia-relacional?artista=lasar-segall",
     );
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+  });
 
-    const works = screen.getByRole("region", { name: "1 obra" });
+  it("shows the artist's photo with its credit", async () => {
+    await renderRecord({
+      meta: { source: "database" },
+      artist: { ...artist, photo: { url: "https://api.example/photos/lasar-segall?v=1", credit: "Acervo da família" } },
+    });
+    expect(screen.getByRole("img", { name: "Lasar Segall" })).toHaveAttribute(
+      "src",
+      "https://api.example/photos/lasar-segall?v=1",
+    );
+    expect(screen.getByText("Foto: Acervo da família")).toBeInTheDocument();
+  });
+
+  it("folds each section to its title, count and source status", async () => {
+    await renderRecord({ meta: { source: "database" }, artist });
+
+    // The trajectory starts open; the lists start folded.
+    expect(screen.getByRole("button", { name: /^Trajetória\s?\(3\)$/ })).toHaveAttribute("aria-expanded", "true");
+    const worksToggle = screen.getByRole("button", { name: /^Obras\s?\(1\)$/ });
+    expect(worksToggle).toHaveAttribute("aria-expanded", "false");
+
+    fireEvent.click(worksToggle);
+    const works = screen.getByRole("region", { name: /^Obras/ });
     expect(within(works).getByText("Paisagem")).toBeInTheDocument();
     expect(within(works).getByText("c. 1930 · óleo sobre tela")).toBeInTheDocument();
     expect(within(works).getByText("Tombo 1963.1.1 · Doação")).toBeInTheDocument();
 
-    const exhibitions = screen.getByRole("region", { name: "1 exposição" });
-    expect(within(exhibitions).getByText("1951 · MAM · São Paulo")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^Exposições\s?\(1\)$/ }));
+    expect(within(screen.getByRole("region", { name: /^Exposições/ })).getByText("1951 · MAM · São Paulo")).toBeInTheDocument();
 
-    expect(within(screen.getByRole("region", { name: "Publicações" })).getByText("Nenhum registro no acervo.")).toBeInTheDocument();
-    expect(screen.getByText("Trajetória traçada pela plataforma a partir desses registros; não é um percurso documentado.")).toBeInTheDocument();
-    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^Publicações\s?\(0\)$/ }));
+    expect(within(screen.getByRole("region", { name: /^Publicações/ })).getByText("Nenhum registro no acervo.")).toBeInTheDocument();
+  });
+
+  it("explains each source status in a tip opened by clicking it", async () => {
+    await renderRecord({ meta: { source: "database" }, artist });
+    const sources = screen.getByRole("region", { name: "Fontes" });
+    expect(screen.queryByText(/Trajetória traçada pela plataforma/)).not.toBeInTheDocument();
+
+    fireEvent.click(within(sources).getByRole("button", { name: /Trajetória inferida/ }));
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "Trajetória traçada pela plataforma a partir desses registros; não é um percurso documentado.",
+    );
+    fireEvent.click(within(sources).getByRole("button", { name: /Documentado/ }));
+    expect(screen.getByText(/Acervo do MAC USP: obras selecionadas/)).toBeInTheDocument();
   });
 
   it("marks birth and death with their icons", async () => {
@@ -172,9 +211,15 @@ describe("TrajectoryIndex", () => {
     expect(screen.getByText("Polônia · 1889–1957")).toBeInTheDocument();
   });
 
-  it("marks that there is no photo of the artist yet", async () => {
-    await renderIndex({ artists: [artist] });
+  it("marks that there is no photo of the artist yet, and shows the photo when there is one", async () => {
+    await renderIndex({
+      artists: [artist, { ...artist, slug: "anatol", name: "Anatol", photo: { url: "https://api.example/photos/anatol", credit: null } }],
+    });
     expect(screen.getByRole("img", { name: "Ainda sem foto" })).toHaveAttribute("data-empty", "true");
+    expect(screen.getByRole("link", { name: /Anatol/ }).querySelector("img")).toHaveAttribute(
+      "src",
+      "https://api.example/photos/anatol",
+    );
   });
 
   it("still renders when the artists cannot be loaded", async () => {
