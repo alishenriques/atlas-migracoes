@@ -47,7 +47,7 @@ const research: Research = {
     deathDate: year(null),
   },
   searchedNames: ["Lasar Segall"],
-  match: { id: "Q1", label: "Lasar Segall", description: "pintor lituano-brasileiro", url: item, basis: "birth_year" },
+  match: { id: "Q1", label: "Lasar Segall", description: "pintor lituano-brasileiro", url: item, basis: "birth_year", note: null },
   candidates: [],
   findings: [
     statement("birthDate", "1891-07-21", { references: 2, reliability: "documented", reviews: ["conflicts_with_collection"] }),
@@ -129,6 +129,12 @@ describe("ResearchResults", () => {
   it("explains the name-only match", () => {
     renderResults({ ...research, match: { ...research.match!, basis: "name", description: null } });
     expect(screen.getByText(/O acervo não registra o ano de nascimento/)).toBeInTheDocument();
+  });
+
+  it("says a researcher checked the link, with their note", () => {
+    renderResults({ ...research, match: { ...research.match!, basis: "reviewed", note: "Mesma data de nascimento." } });
+    expect(screen.getByText(/Vínculo conferido por um pesquisador do projeto/)).toBeInTheDocument();
+    expect(screen.getByText("Nota do pesquisador: Mesma data de nascimento.")).toBeInTheDocument();
   });
 
   it("says when the person found has none of the statements read", () => {

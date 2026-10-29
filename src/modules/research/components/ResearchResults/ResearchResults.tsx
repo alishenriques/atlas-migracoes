@@ -16,7 +16,7 @@ export type ResearchResultsProps = { research: Research };
 
 // Message keys for the API's enum values.
 const STATUS = { ok: "OK", no_match: "NO_MATCH", error: "ERROR" } as const;
-const BASIS = { birth_year: "BIRTH_YEAR", name: "NAME" } as const;
+const BASIS = { birth_year: "BIRTH_YEAR", name: "NAME", reviewed: "REVIEWED" } as const;
 const RELIABILITY = { documented: "DOCUMENTED", undetermined: "UNDETERMINED" } as const;
 const REVIEW = { present_day_name: "PRESENT_DAY_NAME", conflicts_with_collection: "CONFLICTS_WITH_COLLECTION" } as const;
 const PROPERTY = {
@@ -77,6 +77,7 @@ export function ResearchResults({ research }: ResearchResultsProps) {
               <p className={styles.matchTitle}>{match.label}</p>
               {match.description && <p className={styles.text}>{match.description}</p>}
               <p className={styles.note}>{t(`BASIS.${BASIS[match.basis]}`)}</p>
+              {match.note && <p className={styles.note}>{t("REVIEW_NOTE", { note: match.note })}</p>}
               <a href={match.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
                 {t("SOURCE_LINK")}: Wikidata {match.id}
               </a>
