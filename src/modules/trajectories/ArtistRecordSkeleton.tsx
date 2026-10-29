@@ -1,8 +1,9 @@
-import { Eyebrow, Skeleton } from "@alishenriques/atlas-design-system";
+import { Skeleton } from "@alishenriques/atlas-design-system";
 import { useTranslations } from "next-intl";
 
 import { Loading } from "@/shared/components/Loading";
 
+import { styles as card } from "./components/ProfileCard/styles/index.styles";
 import { skeletonStyles, styles } from "./styles/index.styles";
 
 /** An artist's record while it loads: the artist's block, the map and the folded sections in skeleton. */
@@ -12,22 +13,18 @@ export function ArtistRecordSkeleton() {
   return (
     <main className={styles.record}>
       <Loading className={skeletonStyles.record}>
-        <Skeleton shape="text" width={120} />
-
         <div className={styles.top}>
-          <div className={styles.profile}>
-            <div className={styles.identity}>
-              <Skeleton className={`${styles.portrait} ${skeletonStyles.portrait}`} />
-              <div className={styles.naming}>
-                <Eyebrow>{t("EYEBROW")}</Eyebrow>
-                <Skeleton height={40} width="12rem" />
+          <div className={card.card}>
+            <Skeleton shape="text" width={80} />
+            <div className={card.identity}>
+              <Skeleton className={`${card.portrait} ${skeletonStyles.portrait}`} />
+              <div className={card.naming}>
+                <Skeleton height={40} width="10rem" />
+                <Skeleton shape="text" width="6rem" />
               </div>
             </div>
-            <div className={styles.life}>
-              <Skeleton height={36} width={200} />
-              <Skeleton height={36} width={200} />
-            </div>
-            <Skeleton height={42} />
+            <Skeleton shape="text" lines={4} />
+            <Skeleton shape="text" lines={6} />
           </div>
           <Skeleton className={`${skeletonStyles.map} ${styles.map}`} height="100%" />
         </div>

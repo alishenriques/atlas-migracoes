@@ -1,33 +1,25 @@
-import {
-  Accordion,
-  Button,
-  Eyebrow,
-  EventIcon,
-  Portrait,
-  ReliabilityTag,
-  Toggletip,
-} from "@alishenriques/atlas-design-system";
+import { Accordion, ReliabilityTag, Toggletip } from "@alishenriques/atlas-design-system";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { Link } from "@/i18n/navigation";
 import { formatFuzzyDate } from "@/lib/dates";
-import type { ArtistRecordResponse, FuzzyDate } from "@/lib/schemas";
+import type { ArtistRecordResponse, FuzzyDate, Research } from "@/lib/schemas";
 import { buildTrajectory, placeName } from "@/lib/trajectory";
 import { DemoNotice } from "@/shared/components/DemoNotice";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 
+import { ProfileCard } from "./components/ProfileCard";
 import { RecordMap } from "./components/RecordMap";
 import { styles } from "./styles/index.styles";
-import { lifeEvent } from "./utils/life";
 
 const joined = (...parts: (string | null | undefined)[]) => parts.filter(Boolean).join(" · ");
 
 /**
- * An artist's record: who they were beside their trajectory on the map, then
+ * An artist's record: who they were (with what the Relational AI found in open
+ * sources) beside their trajectory on the map, then
  * the trajectory, works, exhibitions and publications as sections that fold.
  */
-export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
+export async function ArtistRecord({ data, research = null }: { data: ArtistRecordResponse; research?: Research | null }) {
   const { artist } = data;
   if (!artist) notFound();
 
@@ -38,8 +30,6 @@ export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
   ]);
   const unknown = tStop("UNKNOWN_DATE");
   const date = (value: FuzzyDate) => formatFuzzyDate(value, locale, unknown);
-  const born = lifeEvent(artist.birthPlace, artist.birthDate, locale, unknown);
-  const died = lifeEvent(artist.deathPlace, artist.deathDate, locale, unknown);
   const trajectory = buildTrajectory(artist);
   // Each status opens what it means on click, so the legend no longer needs a block of its own.
   const documented = (align?: "end") => (
@@ -58,53 +48,8 @@ export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
     <main className={styles.record}>
       {data.meta.source === "demo" && <DemoNotice />}
 
-      <Link href="/trajetorias" className={styles.back}>
-        {t("BACK")}
-      </Link>
-
       <div className={styles.top}>
-        <section className={styles.profile} aria-labelledby="artist-name">
-          <div className={styles.identity}>
-            <Portrait
-              src={artist.photo?.url}
-              label={artist.photo ? artist.name : t("NO_PHOTO")}
-              caption={artist.photo?.credit ? t("PHOTO_CREDIT", { credit: artist.photo.credit }) : null}
-              className={styles.portrait}
-            />
-            <div className={styles.naming}>
-              <Eyebrow>{t("EYEBROW")}</Eyebrow>
-              <h1 id="artist-name" className={styles.name}>
-                {artist.name}
-              </h1>
-            </div>
-          </div>
-
-          <dl className={styles.life}>
-            <div className={styles.lifeItem}>
-              <dt className={styles.lifeLabel}>
-                <EventIcon name="birth" size={28} className={styles.lifeIcon} />
-                {t("BORN")}
-              </dt>
-              <dd>{born ?? unknown}</dd>
-            </div>
-            <div className={styles.lifeItem}>
-              <dt className={styles.lifeLabel}>
-                <EventIcon name="death" size={28} className={styles.lifeIcon} />
-                {t("DIED")}
-              </dt>
-              <dd>{died ?? unknown}</dd>
-            </div>
-          </dl>
-
-          <div className={styles.actions}>
-            <Button asChild>
-              <Link href={{ pathname: "/rede", query: { artista: artist.slug } }}>{t("OPEN_NETWORK")}</Link>
-            </Button>
-            <Button asChild variant="ghost">
-              <Link href={{ pathname: "/ia-relacional", query: { artista: artist.slug } }}>{t("OPEN_RESEARCH")}</Link>
-            </Button>
-          </div>
-        </section>
+        <ProfileCard artist={artist} research={research} />
 
         <RecordMap
           artist={{
@@ -130,7 +75,7 @@ export async function ArtistRecord({ data }: { data: ArtistRecordResponse }) {
       </section>
 
       <div className={styles.sections}>
-        <Accordion title={t("TRAJECTORY")} count={trajectory.stops.length} status={inferred("end")} defaultOpen>
+        <Accordion title={t("TRAJECTORY")} count={trajectory.stops.length} status={inferred("end")}>
           <TrajectoryStops trajectory={trajectory} tag={false} />
         </Accordion>
 

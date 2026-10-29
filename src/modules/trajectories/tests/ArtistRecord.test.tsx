@@ -2,7 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import type { ArtistRecord as Record, ArtistRecordResponse, FuzzyDate, Place } from "@/lib/schemas";
+import type { ArtistRecord as Record, ArtistRecordResponse, FuzzyDate, Place, Research } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
 import { ArtistRecord } from "../ArtistRecord";
@@ -102,13 +102,38 @@ const artist: Record = {
   photo: null,
 };
 
-async function renderRecord(data: ArtistRecordResponse) {
+async function renderRecord(data: ArtistRecordResponse, research: Research | null = null) {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      {await ArtistRecord({ data })}
+      {await ArtistRecord({ data, research })}
     </NextIntlClientProvider>,
   );
 }
+
+const wikidata = (property: Research["findings"][number]["property"], value: string) => ({
+  source: "wikidata" as const,
+  sourceUrl: "https://www.wikidata.org/wiki/Q1",
+  sourceTitle: "Wikidata",
+  property,
+  propertyId: null,
+  value,
+  references: 1,
+  reliability: "documented" as const,
+  reviews: [],
+});
+
+const research = {
+  findings: [wikidata("occupation", "pintor"), wikidata("occupation", "gravador"), wikidata("citizenship", "Brasil")],
+  summary: {
+    status: "ok",
+    text: "Lasar Segall nasceu em Vilna [1] e chegou ao Brasil [2].",
+    citations: [1, 2],
+    prompt: null,
+    model: "gemini-3.5-flash-lite",
+    detail: null,
+  },
+  retrievedAt: "2026-10-21T15:00:00.000Z",
+} as unknown as Research;
 
 describe("ArtistRecord", () => {
   it("shows the artist beside the map, with the links as buttons", async () => {
@@ -128,6 +153,42 @@ describe("ArtistRecord", () => {
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 
+  it("tells who the artist was from the Relational AI, with the source of the bio in a tip", async () => {
+    await renderRecord({ meta: { source: "database" }, artist }, research);
+
+    expect(screen.getByRole("link", { name: /Voltar/ })).toHaveAttribute("href", "/trajetorias");
+    expect(screen.getByText("(1889 – 1957)")).toBeInTheDocument();
+    expect(screen.getByText("Pintor e gravador.")).toBeInTheDocument();
+    expect(screen.getByText("Lasar Segall nasceu em Vilna e chegou ao Brasil.")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /Resumo gerado por IA/ }));
+    expect(screen.getByRole("status")).toHaveTextContent("gemini-3.5-flash-lite");
+    expect(within(screen.getByRole("status")).getByRole("link")).toHaveAttribute("href", "/ia-relacional?artista=lasar-segall");
+
+    const about = screen.getByRole("tabpanel", { name: "Sobre" });
+    expect(within(about).getByText("Cidadania")).toBeInTheDocument();
+    expect(within(about).getByText("Brasil")).toBeInTheDocument();
+    expect(within(about).getAllByRole("link", { name: "Wikidata" })[0]).toHaveAttribute("href", "https://www.wikidata.org/wiki/Q1");
+    expect(within(about).getByText("1930 – 1951")).toBeInTheDocument();
+    expect(within(about).getByText("MAM")).toBeInTheDocument();
+  });
+
+  it("shows the first institutions and counts the rest", async () => {
+    const exhibition = artist.exhibitions[0]!;
+    const exhibitions = ["A", "B", "C", "D", "E", "F"].map((name, index) => ({ ...exhibition, id: `EX.${index}`, institution: name }));
+    await renderRecord({ meta: { source: "database" }, artist: { ...artist, exhibitions } });
+    expect(within(screen.getByRole("tabpanel", { name: "Sobre" })).getByText("A · B · C · D · mais 2 instituições")).toBeInTheDocument();
+  });
+
+  it("shows only the collection's facts without the research", async () => {
+    await renderRecord({ meta: { source: "database" }, artist: { ...artist, works: [], exhibitions: [] } });
+    const about = screen.getByRole("tabpanel", { name: "Sobre" });
+    expect(within(about).getByText("Nascimento")).toBeInTheDocument();
+    expect(within(about).queryByText("Cidadania")).not.toBeInTheDocument();
+    expect(within(about).queryByText("Atividade no acervo")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Resumo gerado por IA/ })).not.toBeInTheDocument();
+  });
+
   it("shows the artist's photo with its credit", async () => {
     await renderRecord({
       meta: { source: "database" },
@@ -143,8 +204,8 @@ describe("ArtistRecord", () => {
   it("folds each section to its title, count and source status", async () => {
     await renderRecord({ meta: { source: "database" }, artist });
 
-    // The trajectory starts open; the lists start folded.
-    expect(screen.getByRole("button", { name: /^Trajetória\s?\(3\)$/ })).toHaveAttribute("aria-expanded", "true");
+    // Every section starts folded.
+    expect(screen.getByRole("button", { name: /^Trajetória\s?\(3\)$/ })).toHaveAttribute("aria-expanded", "false");
     const worksToggle = screen.getByRole("button", { name: /^Obras\s?\(1\)$/ });
     expect(worksToggle).toHaveAttribute("aria-expanded", "false");
 
