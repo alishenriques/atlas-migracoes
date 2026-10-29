@@ -152,6 +152,12 @@ describe("ArtistRecord", () => {
 });
 
 describe("TrajectoryIndex", () => {
+  it("names what the page holds beside the title", async () => {
+    render(await TrajectoryIndex({ data: { artists: [artist] } }));
+    expect(screen.getByRole("heading", { level: 1, name: "Trajetórias" })).toBeInTheDocument();
+    expect(screen.getByText("Fichas dos artistas")).toBeInTheDocument();
+  });
+
   it("links every artist to their record", async () => {
     render(await TrajectoryIndex({ data: { artists: [artist] } }));
     expect(screen.getByRole("link", { name: /Lasar Segall/ })).toHaveAttribute("href", "/trajetorias/lasar-segall");

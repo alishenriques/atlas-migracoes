@@ -153,6 +153,7 @@
   },
   "TRAJECTORIES": {
     "TITLE": "Trajectories",
+    "TITLE_NOTE": "Artist records",
     "EYEBROW": "Trajectories",
     "INTRO": "The artists in the collection, each with the record of their trajectory: works, exhibitions, publications and sources.",
     "NO_PHOTO": "No photo yet",

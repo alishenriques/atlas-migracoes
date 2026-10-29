@@ -153,6 +153,7 @@
   },
   "TRAJECTORIES": {
     "TITLE": "Trajetórias",
+    "TITLE_NOTE": "Fichas dos artistas",
     "EYEBROW": "Trajetórias",
     "INTRO": "Os artistas do acervo, cada um com a ficha de sua trajetória: obras, exposições, publicações e fontes.",
     "NO_PHOTO": "Ainda sem foto",

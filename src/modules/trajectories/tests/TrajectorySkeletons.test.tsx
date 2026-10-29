@@ -18,6 +18,7 @@ describe("TrajectoryIndexSkeleton", () => {
   it("shows the presentation and the artist cards in skeleton", () => {
     const { container } = renderPt(<TrajectoryIndexSkeleton />);
     expect(screen.getByRole("heading", { level: 1, name: "Trajetórias" })).toBeInTheDocument();
+    expect(screen.getByText("Fichas dos artistas")).toBeInTheDocument();
     expect(screen.getByRole("status")).toHaveTextContent("Carregando…");
     expect(container.querySelectorAll('[data-shape="circle"]')).toHaveLength(12);
   });

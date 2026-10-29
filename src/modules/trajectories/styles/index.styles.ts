@@ -5,6 +5,11 @@ export const styles = {
   header: "flex flex-col gap-3",
   links: "flex flex-wrap gap-x-6 gap-y-2",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
+  // The title, a thin gold rule and a small label naming what the page holds.
+  // Kept on one line: on narrow screens the label wraps beside the rule instead.
+  titleRow: "flex items-center gap-4 sm:gap-5",
+  titleSeparator: "h-8 w-px shrink-0 bg-accent/60 sm:h-10",
+  titleNote: "min-w-0 text-xs font-medium uppercase tracking-[0.16em] text-accent sm:text-sm",
   intro: "max-w-2xl text-muted",
   life: "flex flex-col gap-2 text-sm sm:flex-row sm:gap-10",
   // The icon sits left of both the label and the value, centred on the pair.
