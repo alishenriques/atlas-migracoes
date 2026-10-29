@@ -274,8 +274,10 @@
     "MATCH": "Pessoa encontrada no Wikidata",
     "BASIS": {
       "BIRTH_YEAR": "Escolhida por ser a única pessoa com este nome nascida no ano que o acervo registra.",
-      "NAME": "O acervo não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome."
+      "NAME": "O acervo não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome.",
+      "REVIEWED": "Vínculo conferido por um pesquisador do projeto, sem busca automática."
     },
+    "REVIEW_NOTE": "Nota do pesquisador: {note}",
     "SUMMARY": "Resumo da enciclopédia",
     "FINDINGS": "Achados",
     "NO_FINDINGS": "A pessoa encontrada não tem nenhuma destas informações no Wikidata.",
