@@ -1,9 +1,9 @@
-import { Avatar, Eyebrow } from "@alishenriques/atlas-design-system";
+import { Eyebrow } from "@alishenriques/atlas-design-system";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { Link } from "@/i18n/navigation";
 import type { MapData } from "@/lib/schemas";
 
+import { ArtistGrid } from "./components/ArtistGrid";
 import { styles } from "./styles/index.styles";
 import { lifeSpan } from "./utils/life";
 
@@ -28,24 +28,15 @@ export async function TrajectoryIndex({ data }: { data: MapData | null }) {
       </header>
 
       {data ? (
-        <ul className={styles.grid}>
-          {data.artists.map((artist) => (
-            <li key={artist.slug}>
-              <Link href={{ pathname: "/trajetorias/[slug]", params: { slug: artist.slug } }} className={styles.card}>
-                <span className={styles.cardText}>
-                  <span className={styles.cardName}>{artist.name}</span>
-                  <span className={styles.itemMeta}>
-                    {[artist.birthPlace?.country, lifeSpan(artist.birthDate, artist.deathDate, locale, tStop("UNKNOWN_DATE"))]
-                      .filter(Boolean)
-                      .join(" · ")}
-                  </span>
-                </span>
-                {/* No artist photos in the collection yet: the avatar marks the empty slot. */}
-                <Avatar label={t("NO_PHOTO")} title={t("NO_PHOTO")} size={52} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ArtistGrid
+          artists={data.artists.map((artist) => ({
+            slug: artist.slug,
+            name: artist.name,
+            meta: [artist.birthPlace?.country, lifeSpan(artist.birthDate, artist.deathDate, locale, tStop("UNKNOWN_DATE"))]
+              .filter(Boolean)
+              .join(" · "),
+          }))}
+        />
       ) : (
         <p className={styles.muted}>{t("LIST_UNAVAILABLE")}</p>
       )}

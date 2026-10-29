@@ -21,7 +21,9 @@ export function TrajectoryIndexSkeleton() {
         <p className={styles.intro}>{t("INTRO")}</p>
       </header>
 
-      <Loading className={styles.grid}>
+      <Loading className={skeletonStyles.list}>
+        <Skeleton height={60} className={skeletonStyles.search} />
+        <span className={styles.grid}>
         {Array.from({ length: 12 }, (_, index) => (
           <span key={index} className={skeletonStyles.card}>
             <span className={skeletonStyles.cardText}>
@@ -30,7 +32,8 @@ export function TrajectoryIndexSkeleton() {
             </span>
             <Skeleton shape="circle" width={52} />
           </span>
-        ))}
+          ))}
+        </span>
       </Loading>
     </main>
   );

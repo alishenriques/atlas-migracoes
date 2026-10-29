@@ -151,26 +151,34 @@ describe("ArtistRecord", () => {
   });
 });
 
+async function renderIndex(data: Parameters<typeof TrajectoryIndex>[0]["data"]) {
+  render(
+    <NextIntlClientProvider locale="pt" messages={messages}>
+      {await TrajectoryIndex({ data })}
+    </NextIntlClientProvider>,
+  );
+}
+
 describe("TrajectoryIndex", () => {
   it("names what the page holds beside the title", async () => {
-    render(await TrajectoryIndex({ data: { artists: [artist] } }));
+    await renderIndex({ artists: [artist] });
     expect(screen.getByRole("heading", { level: 1, name: "Trajetórias" })).toBeInTheDocument();
     expect(screen.getByText("Fichas dos artistas")).toBeInTheDocument();
   });
 
   it("links every artist to their record", async () => {
-    render(await TrajectoryIndex({ data: { artists: [artist] } }));
+    await renderIndex({ artists: [artist] });
     expect(screen.getByRole("link", { name: /Lasar Segall/ })).toHaveAttribute("href", "/trajetorias/lasar-segall");
     expect(screen.getByText("Polônia · 1889–1957")).toBeInTheDocument();
   });
 
   it("marks that there is no photo of the artist yet", async () => {
-    render(await TrajectoryIndex({ data: { artists: [artist] } }));
+    await renderIndex({ artists: [artist] });
     expect(screen.getByRole("img", { name: "Ainda sem foto" })).toHaveAttribute("data-empty", "true");
   });
 
   it("still renders when the artists cannot be loaded", async () => {
-    render(await TrajectoryIndex({ data: null }));
+    await renderIndex(null);
     expect(screen.getByText("Não foi possível carregar os artistas agora.")).toBeInTheDocument();
   });
 });
