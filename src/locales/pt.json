@@ -72,21 +72,22 @@
     },
     "IMPACTS": {
       "EYEBROW": "Impactos",
-      "TITLE": "O que muda para a pesquisa e para o acervo",
+      "TITLE": "O que o projeto possibilita para a pesquisa e para o acervo",
       "RESEARCH": {
         "TITLE": "Para a pesquisa",
         "ITEMS": {
-          "1": "As trajetórias dos artistas reunidas num só mapa, filtráveis por país de origem e por período.",
-          "2": "Relações entre artistas, obras, exposições e publicações que estavam dispersas em registros separados.",
-          "3": "Achados em fontes abertas com a fonte, a confiabilidade e o prompt à vista, prontos para serem verificados."
+          "1": "As trajetórias dos artistas podem ser exploradas conjuntamente no espaço e no tempo, com diferentes possibilidades de recorte e filtragem.",
+          "2": "Obras, exposições, publicações, lugares e artistas podem ser observados em relação, favorecendo novas perguntas e percursos de investigação.",
+          "3": "Informações provenientes de diferentes fontes são apresentadas com sua procedência e critérios de confiabilidade, permitindo sua consulta e verificação."
         }
       },
       "COLLECTION": {
-        "TITLE": "Para o acervo",
+        "TITLE": "A partir do acervo",
         "ITEMS": {
-          "1": "Os registros do MAC USP ganham contexto geográfico e histórico, com as fronteiras de cada período.",
-          "2": "Toda informação preserva a sua proveniência, e o que é inferido se distingue do que é documentado.",
-          "3": "As lacunas ficam visíveis: o que a fonte não traz aparece como desconhecido e nunca é completado."
+          "1": "Os registros do MAC USP constituem a base para novas formas de visualização e exploração das trajetórias dos artistas e de suas obras.",
+          "2": "Informações do acervo podem ser relacionadas a contextos geográficos, históricos e biográficos provenientes de outras fontes de pesquisa.",
+          "3": "A proveniência das informações é preservada ao longo dessas relações, mantendo identificável aquilo que provém do acervo, de fontes externas ou de processos de inferência.",
+          "4": "Diferentes níveis de informação e de precisão documental são mantidos visíveis, respeitando as particularidades de cada fonte e os limites do conhecimento disponível."
         }
       }
     },
