@@ -9,9 +9,9 @@ const MONOGRAM_PATH =
   "M250 0 160 0 0 400 280 400 252 330 118 330 205 112.5 320 400 410 400 350 250 465 250 525 400 615 400 455 0 365 0 435 175 320 175Z";
 const TRIANGLE_PATH = "M615 185 700 185 657.5 275Z";
 
-/** The home page's footer: a quiet credit, the developer's AH logo in the Atlas colours, linking to the developer's portfolio. */
-export function HomeFooter() {
-  const t = useTranslations("HOME.FOOTER");
+/** The footer of the home page and Sobre: a quiet credit, the developer's AH logo in the Atlas colours, linking to the developer's portfolio. */
+export function SiteFooter() {
+  const t = useTranslations("FOOTER");
 
   return (
     <footer className={styles.root}>

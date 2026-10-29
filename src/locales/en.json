@@ -103,10 +103,6 @@
     "METHOD": {
       "TITLE": "Reading, relation and reliability",
       "MORE": "About the project and its method"
-    },
-    "FOOTER": {
-      "DEVELOPED_BY": "Developed by",
-      "AUTHOR": "Alisson Henriques"
     }
   },
   "EXPLORAR": {
@@ -398,6 +394,10 @@
       "SOFTWARE": "Cartographic visualisation: MapLibre GL, free software used for the interactive rendering of the geographic data.",
       "COLLECTION": "Collection data: Museum of Contemporary Art of the University of São Paulo (MAC USP)."
     }
+  },
+  "FOOTER": {
+    "DEVELOPED_BY": "Developed by",
+    "AUTHOR": "Alisson Henriques"
   },
   "NOT_FOUND": {
     "TITLE": "Page not found",
