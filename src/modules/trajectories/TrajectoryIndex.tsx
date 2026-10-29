@@ -19,7 +19,11 @@ export async function TrajectoryIndex({ data }: { data: MapData | null }) {
     <main className={styles.index}>
       <header className={styles.header}>
         <Eyebrow>{t("EYEBROW")}</Eyebrow>
-        <h1 className={styles.title}>{t("TITLE")}</h1>
+        <div className={styles.titleRow}>
+          <h1 className={styles.title}>{t("TITLE")}</h1>
+          <span aria-hidden="true" className={styles.titleSeparator} />
+          <p className={styles.titleNote}>{t("TITLE_NOTE")}</p>
+        </div>
         <p className={styles.intro}>{t("INTRO")}</p>
       </header>
 
