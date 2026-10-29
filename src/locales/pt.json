@@ -387,15 +387,15 @@
     },
     "DATA": {
       "TITLE": "Dados",
-      "SOURCE": "A base vem de três planilhas do acervo do MAC USP, de 16 de julho de 2026: obras selecionadas, exposições e publicações relacionadas a essas obras.",
-      "PRECISION": "Nomes de lugares são mantidos como na fonte, com o nome atual ao lado quando a fonte o indica. Datas aparecem com a precisão que a fonte dá (“c. 1949”, “1940–1945”, “s.d.”), e nada que a fonte não traga é completado.",
-      "GAPS": "As fontes não registram o ano de chegada nem a rota até o Brasil. Por isso, o mapa traça uma única linha, do local de nascimento ao primeiro lugar documentado no Brasil, sem rotas intermediárias. As exposições das obras em vida e o local de falecimento aparecem como pontos."
+      "SOURCE": "A base de dados foi estruturada a partir de três planilhas do acervo do MAC USP, disponibilizadas em 16 de julho de 2026, reunindo informações sobre as obras selecionadas, suas exposições e publicações relacionadas.",
+      "PRECISION": "Os nomes dos lugares preservam a forma registrada nas fontes, acompanhada da denominação atual quando essa informação está disponível. As datas mantêm o mesmo nível de precisão da documentação original, incluindo registros como “c. 1949”, “1940–1945” e “s.d.”. Informações não documentadas permanecem indicadas como desconhecidas.",
+      "GAPS": "Para representar os deslocamentos, são considerados os pontos efetivamente documentados nas fontes consultadas. Quando não há informações sobre o ano de chegada ou sobre etapas intermediárias do percurso até o Brasil, o mapa estabelece uma conexão entre o local de nascimento e o primeiro local documentado no país, sem reconstruir possíveis rotas. Exposições realizadas durante a vida do artista e o local de falecimento são incorporados como pontos adicionais de sua trajetória."
     },
     "CREDITS": {
       "TITLE": "Cartografia e créditos",
-      "BASEMAP": "Mapa de base: OpenFreeMap, com dados do OpenStreetMap (© colaboradores do OpenStreetMap, licença ODbL) no esquema OpenMapTiles. O mapa de base mostra só terra e água, sem fronteiras nem nomes atuais.",
-      "HISTORICAL": "Fronteiras históricas: CShapes 2.0, de Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann e Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), licença CC BY-NC-SA 4.0. O Atlas recortou e simplificou as fronteiras para a Europa, e o arquivo derivado segue a mesma licença.",
-      "SOFTWARE": "Mapa renderizado com MapLibre GL, software livre.",
+      "BASEMAP": "Cartografia de base: OpenFreeMap, com dados do OpenStreetMap (© colaboradores do OpenStreetMap, licença ODbL), no esquema OpenMapTiles. A visualização utiliza apenas as camadas de terra e água, sem fronteiras políticas ou denominações geográficas atuais.",
+      "HISTORICAL": "Fronteiras históricas: CShapes 2.0, desenvolvido por Guy Schvitz, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann e Kristian Skrede Gleditsch (ETH Zürich; Journal of Conflict Resolution, 2022), sob licença CC BY-NC-SA 4.0. Para o Atlas, os dados foram recortados para o território europeu e simplificados para fins de visualização. O conjunto derivado é disponibilizado sob a mesma licença.",
+      "SOFTWARE": "Visualização cartográfica: MapLibre GL, software livre utilizado para a renderização interativa dos dados geográficos.",
       "COLLECTION": "Dados do acervo: Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP)."
     }
   },
