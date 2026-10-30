@@ -38,24 +38,32 @@ describe("InstitutionsCard", () => {
       "Bienal1 exposição · 1955",
       "Galeria X1 exposição",
     ]);
+    expect(screen.getAllByRole("list")).toHaveLength(1);
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
-  it("shows five, then all of them on See all", () => {
+  it("shows five, then slides the rest open on See all", () => {
     setup(Array.from({ length: 7 }, (_, index) => institution(`Instituição ${index + 1}`)));
-    const list = screen.getByRole("list");
-    expect(within(list).getAllByRole("listitem")).toHaveLength(5);
+    const [first, rest] = screen.getAllByRole("list");
+    expect(within(first!).getAllByRole("listitem")).toHaveLength(5);
+    expect(within(rest!).getAllByRole("listitem").map((item) => item.textContent)).toEqual([
+      "Instituição 61 exposição",
+      "Instituição 71 exposição",
+    ]);
+    const panel = rest!.closest("[data-open]")!;
+    expect(panel).toHaveAttribute("inert");
 
     const more = screen.getByRole("button", { name: /Ver todas \(7\)/ });
     expect(more).toHaveAttribute("aria-expanded", "false");
-    expect(more).toHaveAttribute("aria-controls", list.id);
+    expect(more).toHaveAttribute("aria-controls", panel.id);
     fireEvent.click(more);
-    expect(within(list).getAllByRole("listitem")).toHaveLength(7);
+    expect(panel).toHaveAttribute("data-open", "true");
+    expect(panel).not.toHaveAttribute("inert");
     expect(more).toHaveAttribute("aria-expanded", "true");
     expect(more).toHaveTextContent("Ver menos");
 
     fireEvent.click(more);
-    expect(within(list).getAllByRole("listitem")).toHaveLength(5);
+    expect(panel).toHaveAttribute("inert");
   });
 
   it("says when the collection records none", () => {
