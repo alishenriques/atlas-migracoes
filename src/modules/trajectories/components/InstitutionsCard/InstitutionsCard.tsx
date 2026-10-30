@@ -51,20 +51,23 @@ export function InstitutionsCard({ institutions }: { institutions: InstitutionSu
         {t("INSTITUTIONS")}
       </h2>
 
-      {institutions.length === 0 ? (
-        <p className={styles.empty}>{t("NO_INSTITUTIONS")}</p>
-      ) : (
-        <ul className={styles.list}>{first.map(item)}</ul>
-      )}
+      {/* Takes the block's free height and scrolls the list inside it. */}
+      <div className={styles.body}>
+        {institutions.length === 0 ? (
+          <p className={styles.empty}>{t("NO_INSTITUTIONS")}</p>
+        ) : (
+          <ul className={styles.list}>{first.map(item)}</ul>
+        )}
 
-      {rest.length > 0 && (
-        // The rest slides open below the first ones; closed, it is out of reach.
-        <div id={restId} className={styles.rest} data-open={expanded} inert={!expanded}>
-          <div className={styles.restInner}>
-            <ul className={styles.list}>{rest.map(item)}</ul>
+        {rest.length > 0 && (
+          // The rest slides open below the first ones; closed, it is out of reach.
+          <div id={restId} className={styles.rest} data-open={expanded} inert={!expanded}>
+            <div className={styles.restInner}>
+              <ul className={styles.list}>{rest.map(item)}</ul>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {rest.length > 0 && (
         <button
