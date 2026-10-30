@@ -43,7 +43,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@vitejs/plugin-react": "^5",
+    "@vitejs/plugin-react": "^6",
     "@vitest/coverage-v8": "^5.0.5",
     "eslint": "^10",
     "eslint-config-next": "16.4.2",
