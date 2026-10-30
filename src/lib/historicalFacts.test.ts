@@ -1,7 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import shipped from "../../public/historical/facts.json";
-
 import {
   asFuzzyDate,
   factSpan,
@@ -11,6 +9,7 @@ import {
   type FactDate,
   type HistoricalFact,
 } from "./historicalFacts";
+import shipped from "../../public/historical/facts.json";
 
 const day = (iso: string): FactDate => ({ iso, precision: "day" });
 
