@@ -88,11 +88,21 @@ const byKindThenLabel = (a: NetworkNode, b: NetworkNode) =>
 const labelRoom = (nodes: NetworkNode[]) =>
   Math.min(LABEL_MAX, Math.max(8, ...nodes.map((node) => node.label.length))) * CHAR_WIDTH + 16;
 
+/**
+ * Rounds an angle to a billionth of a radian. Angles are compared to order each
+ * ring, and the server and the browser can differ in the last digit of a sine:
+ * two nodes that tie on one side must tie on the other too, so the tie goes to
+ * their names in both and the drawing does not change on hydration.
+ */
+const roundAngle = (value: number) => Math.round(value * 1e9) / 1e9 || 0;
+
 /** The mean of some angles, read on the circle (so 350° and 10° average to 0°). */
 const meanAngle = (angles: number[]) =>
-  Math.atan2(
-    angles.reduce((sum, angle) => sum + Math.sin(angle), 0),
-    angles.reduce((sum, angle) => sum + Math.cos(angle), 0),
+  roundAngle(
+    Math.atan2(
+      angles.reduce((sum, angle) => sum + Math.sin(angle), 0),
+      angles.reduce((sum, angle) => sum + Math.cos(angle), 0),
+    ),
   );
 
 /**
@@ -104,7 +114,7 @@ const round = (value: number) => Math.round(value * 100) / 100 || 0;
 const TOP = -Math.PI / 2;
 const TURN = 2 * Math.PI;
 /** An angle brought into one turn read clockwise from the top, so angles sort in reading order. */
-const fromTop = (angle: number) => (((angle - TOP) % TURN) + TURN) % TURN + TOP;
+const fromTop = (angle: number) => roundAngle((((angle - TOP) % TURN) + TURN) % TURN + TOP);
 
 /**
  * Spreads a ring's nodes over the circle in the order given. Each tries to sit at its
