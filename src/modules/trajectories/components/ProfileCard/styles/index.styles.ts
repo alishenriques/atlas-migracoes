@@ -1,5 +1,5 @@
 export const styles = {
-  card: "@container flex flex-col gap-5 rounded-xl border border-line bg-raised p-5 sm:p-6 lg:h-full lg:overflow-y-auto",
+  card: "@container flex flex-col gap-5 rounded-xl border border-line bg-raised p-5 sm:p-6 lg:h-full lg:overflow-y-auto scrollbar-atlas",
   back: "inline-flex items-center gap-2 self-start text-xs uppercase tracking-[0.12em] text-foreground hover:text-accent",
   // Photo and name side by side, as on a museum label, once the column is wide
   // enough for both; stacked in a narrow one.
