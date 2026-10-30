@@ -12,7 +12,7 @@ export const styles = {
   empty: "absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-muted",
   note: "text-xs leading-relaxed text-muted",
   centerName: "-mb-2 font-serif text-2xl leading-tight text-foreground",
-  centerRecord: "self-start",
+  centerRecord: "w-full",
   clear: "text-xs uppercase tracking-[0.12em] text-accent hover:underline",
   detail: "flex flex-col gap-2 border-t border-line pt-3",
   detailHeader: "flex flex-wrap items-center justify-between gap-2",
