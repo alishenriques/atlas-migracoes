@@ -23,7 +23,7 @@ vi.mock("next/dynamic", () => ({
   default: () =>
     function MapStub({ states, birthplaces, label, renderPlace, renderState, padding }: HistoricalMapProps) {
       return (
-        <div role="region" aria-label={label} data-padding-left={padding?.left}>
+        <div role="region" aria-label={label} data-padding-left={padding?.left} data-padding-right={padding?.right}>
           <p data-testid="states">{states.features.map((f) => f.properties.name).join(",")}</p>
           <div data-testid="place-popup">{birthplaces[0] && renderPlace(birthplaces[0].placeId)}</div>
           <div data-testid="state-popup">{renderState("Polônia")}</div>
@@ -164,7 +164,9 @@ describe("HistoricalExplorer", () => {
     );
     respond(states);
     renderExplorer({ intro: <h1>Camada Histórica</h1>, credit: <p>Fronteiras: CShapes 2.0</p> });
-    expect(await screen.findByRole("region", { name: /Mapa da Europa/ })).toHaveAttribute("data-padding-left", "360");
+    const map = await screen.findByRole("region", { name: /Mapa da Europa/ });
+    expect(map).toHaveAttribute("data-padding-left", "360");
+    expect(map).toHaveAttribute("data-padding-right", "344");
     expect(screen.getByRole("heading", { level: 1, name: "Camada Histórica" })).toBeInTheDocument();
     expect(screen.getByText("Fronteiras: CShapes 2.0")).toBeInTheDocument();
   });
