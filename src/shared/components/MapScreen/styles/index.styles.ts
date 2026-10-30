@@ -12,6 +12,10 @@ export const styles = {
   panel: "md:pointer-events-auto md:min-h-0 md:overflow-y-auto scrollbar-atlas",
   // Stops short of the right edge, and the overlay leaves a strip under it, so MapLibre's zoom
   // buttons and the map attribution stay visible.
+  // The right column: as wide as the left one, at the top, and short of the bottom so MapLibre's
+  // zoom buttons stay visible; its block scrolls inside it.
+  aside:
+    "flex flex-col md:pointer-events-auto md:col-start-2 md:row-start-1 md:w-[320px] md:min-h-0 md:max-h-[calc(100%-6rem)] md:self-start md:justify-self-end",
   footer: "md:pointer-events-auto md:col-span-2 md:row-start-2 md:mr-12",
 };
 

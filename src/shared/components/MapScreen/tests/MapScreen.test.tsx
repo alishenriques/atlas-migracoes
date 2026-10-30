@@ -10,6 +10,7 @@ describe("MapScreen", () => {
         map={<div>Mapa</div>}
         intro={<p>Apresentação</p>}
         footer={<p>Acervo</p>}
+        aside={<p>Fatos</p>}
         title="Filtros"
         action={<button type="button">Limpar</button>}
       >
@@ -22,6 +23,7 @@ describe("MapScreen", () => {
     expect(screen.getByRole("button", { name: "Limpar" })).toBeInTheDocument();
     expect(screen.getByText("Controles")).toBeInTheDocument();
     expect(screen.getByText("Acervo")).toBeInTheDocument();
+    expect(screen.getByText("Fatos")).toBeInTheDocument();
   });
 
   it("leaves out the optional blocks", () => {
