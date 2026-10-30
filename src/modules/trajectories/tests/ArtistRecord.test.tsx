@@ -2,7 +2,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import type { ArtistRecord as Record, ArtistRecordResponse, FuzzyDate, Place, Research } from "@/lib/schemas";
+import type { ArtistRecord as Record, ArtistRecordResponse, FuzzyDate, NetworkData, Place, Research } from "@/lib/schemas";
 import messages from "@/locales/pt.json";
 
 import { ArtistRecord } from "../ArtistRecord";
@@ -102,10 +102,10 @@ const artist: Record = {
   photo: null,
 };
 
-async function renderRecord(data: ArtistRecordResponse, research: Research | null = null) {
+async function renderRecord(data: ArtistRecordResponse, research: Research | null = null, network?: NetworkData) {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      {await ArtistRecord({ data, research })}
+      {await ArtistRecord({ data, research, network })}
     </NextIntlClientProvider>,
   );
 }
@@ -180,6 +180,31 @@ describe("ArtistRecord", () => {
     const block = screen.getByRole("region", { name: "Instituições relacionadas" });
     expect(within(within(block).getAllByRole("list")[0]!).getAllByRole("listitem")).toHaveLength(5);
     expect(within(block).getByRole("button", { name: /Ver todas \(6\)/ })).toBeInTheDocument();
+  });
+
+  it("draws the artist's connections over the institutions, linked to the full network", async () => {
+    const shared = { id: "EX.1", title: "Bienal", startDate: date(1951), institution: "MAC USP", place: null };
+    const network: NetworkData = {
+      meta: { source: "database" },
+      artists: [
+        { ...artist, works: [{ id: "W1", title: "Obra", date: date(1930), exhibitions: [shared], publications: [] }] },
+        { ...artist, slug: "mario-gruber", name: "Mario Gruber", works: [{ id: "W9", title: "Gravura", date: date(1960), exhibitions: [shared], publications: [] }] },
+      ],
+    };
+    await renderRecord({ meta: { source: "database" }, artist }, null, network);
+    const block = screen.getByRole("region", { name: "Rede de conexões" });
+    expect(within(block).getByText("Exposição conjunta: Mario Gruber")).toBeInTheDocument();
+    expect(within(block).getByText("Instituição: MAC USP")).toBeInTheDocument();
+    expect(within(block).getByRole("link", { name: /Ver rede expandida/ })).toHaveAttribute(
+      "href",
+      "/rede?artista=lasar-segall",
+    );
+  });
+
+  it("keeps the connections block, without a drawing, when the network could not load", async () => {
+    await renderRecord({ meta: { source: "database" }, artist });
+    const block = screen.getByRole("region", { name: "Rede de conexões" });
+    expect(within(block).getByText("Não foi possível carregar a rede agora.")).toBeInTheDocument();
   });
 
   it("shows only the collection's facts without the research", async () => {

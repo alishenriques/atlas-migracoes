@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { formatFuzzyDate } from "@/lib/dates";
-import type { ArtistRecordResponse, FuzzyDate, Research } from "@/lib/schemas";
+import { connectionsOf } from "@/lib/network";
+import type { ArtistRecordResponse, FuzzyDate, NetworkData, Research } from "@/lib/schemas";
 import { buildTrajectory, placeName } from "@/lib/trajectory";
 import { institutionsOf } from "@/modules/trajectories/utils/profile";
 import { DemoNotice } from "@/shared/components/DemoNotice";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 
+import { ConnectionsCard } from "./components/ConnectionsCard";
 import { InstitutionsCard } from "./components/InstitutionsCard";
 import { ProfileCard } from "./components/ProfileCard";
 import { RecordMap } from "./components/RecordMap";
@@ -19,9 +21,19 @@ const joined = (...parts: (string | null | undefined)[]) => parts.filter(Boolean
 /**
  * An artist's record in three columns: who they were (with what the Relational
  * AI found in open sources), their map with the trajectory, works, exhibitions
- * and publications folded below it, and the institutions that showed them.
+ * and publications folded below it, and beside them a small view of their
+ * network over the institutions that showed them.
  */
-export async function ArtistRecord({ data, research = null }: { data: ArtistRecordResponse; research?: Research | null }) {
+export async function ArtistRecord({
+  data,
+  research = null,
+  network = null,
+}: {
+  data: ArtistRecordResponse;
+  research?: Research | null;
+  /** The whole base's network, for the artist's connections; null leaves the block without a drawing. */
+  network?: NetworkData | null;
+}) {
   const { artist } = data;
   if (!artist) notFound();
 
@@ -156,6 +168,11 @@ export async function ArtistRecord({ data, research = null }: { data: ArtistReco
         </div>
 
         <div className={styles.aside}>
+          <ConnectionsCard
+            slug={artist.slug}
+            name={artist.name}
+            connections={network ? connectionsOf(network, artist.slug) : null}
+          />
           <InstitutionsCard institutions={institutionsOf(artist)} />
         </div>
       </div>

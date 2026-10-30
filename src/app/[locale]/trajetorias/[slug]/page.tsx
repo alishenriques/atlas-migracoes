@@ -2,7 +2,7 @@ import { cache } from "react";
 
 import { getTranslations } from "next-intl/server";
 
-import { getArtistRecord, getResearch } from "@/lib/atlas";
+import { getArtistRecord, getNetworkData, getResearch } from "@/lib/atlas";
 import { ArtistRecord } from "@/modules/trajectories";
 
 import type { Metadata } from "next";
@@ -21,14 +21,18 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/trajetor
 
 export default async function Page({ params }: PageProps<"/[locale]/trajetorias/[slug]">) {
   const { slug } = await params;
-  // The bio and open-source facts are extras: without the research the record still opens.
-  const [data, research] = await Promise.all([
+  // The bio, the open-source facts and the connections are extras: without them the record still opens.
+  const [data, research, network] = await Promise.all([
     loadRecord(slug),
     getResearch(slug).catch((error: unknown) => {
       console.error("Failed to load the research:", error instanceof Error ? error.message : error);
       return null;
     }),
+    getNetworkData().catch((error: unknown) => {
+      console.error("Failed to load the network:", error instanceof Error ? error.message : error);
+      return null;
+    }),
   ]);
   // A failed record request goes to the localized error boundary; an unknown slug to the 404.
-  return <ArtistRecord data={data} research={research} />;
+  return <ArtistRecord data={data} research={research} network={network} />;
 }

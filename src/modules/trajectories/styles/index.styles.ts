@@ -22,7 +22,7 @@ export const styles = {
   center:
     "relative flex min-w-0 flex-col gap-6 lg:col-span-6 lg:-mr-3 lg:min-h-0 lg:overflow-y-auto lg:pr-3 scrollbar-atlas",
   map: "shrink-0 lg:h-[min(560px,70svh)]",
-  // Each block takes an equal share of the column (only the institutions for now).
+  // Each block takes an equal share of the column: the connections over the institutions.
   aside: "flex flex-col gap-6 lg:col-span-3 lg:min-h-0 lg:[&>*]:min-h-0 lg:[&>*]:flex-1",
   sources: "flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3",
   sourcesLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
@@ -47,6 +47,8 @@ export const skeletonStyles = {
   // Takes the card's width, which the skeleton lines size themselves against.
   cardText: "flex min-w-0 flex-1 flex-col gap-2",
   record: "flex flex-col gap-6",
+  // The connections' drawing: 4:3 when stacked, the block's free height from lg up.
+  connections: "aspect-[4/3] w-full lg:aspect-auto lg:min-h-0 lg:flex-1",
   // As tall as the record's map.
   map: "h-[50svh] min-h-[320px] w-full",
   portrait: "aspect-[4/5] h-auto",
