@@ -3,10 +3,11 @@ import { useTranslations } from "next-intl";
 
 import { Loading } from "@/shared/components/Loading";
 
+import { styles as institutions } from "./components/InstitutionsCard/styles/index.styles";
 import { styles as card } from "./components/ProfileCard/styles/index.styles";
 import { skeletonStyles, styles } from "./styles/index.styles";
 
-/** An artist's record while it loads: the artist's block, the map and the folded sections in skeleton. */
+/** An artist's record while it loads: the artist's block, the map, the institutions and the folded sections in skeleton. */
 export function ArtistRecordSkeleton() {
   const t = useTranslations("TRAJECTORIES");
 
@@ -14,7 +15,7 @@ export function ArtistRecordSkeleton() {
     <main className={styles.record}>
       <Loading className={skeletonStyles.record}>
         <div className={styles.top}>
-          <div className={card.card}>
+          <div className={`${card.card} ${styles.profile}`}>
             <Skeleton shape="text" width={80} />
             <div className={card.identity}>
               <Skeleton className={`${card.portrait} ${skeletonStyles.portrait}`} />
@@ -27,6 +28,10 @@ export function ArtistRecordSkeleton() {
             <Skeleton shape="text" lines={6} />
           </div>
           <Skeleton className={`${skeletonStyles.map} ${styles.map}`} height="100%" />
+          <div className={`${institutions.card} ${styles.aside}`}>
+            <h2 className={institutions.title}>{t("INSTITUTIONS")}</h2>
+            <Skeleton shape="text" lines={5} />
+          </div>
         </div>
 
         <Skeleton height={44} />

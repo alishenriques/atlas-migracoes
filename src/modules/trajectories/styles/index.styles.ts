@@ -10,10 +10,13 @@ export const styles = {
   titleSeparator: "h-8 w-px shrink-0 bg-accent/60 sm:h-10",
   titleNote: "min-w-0 text-xs font-medium uppercase tracking-[0.16em] text-accent sm:text-sm",
   intro: "max-w-2xl text-muted",
-  // The artist (1/3) beside the map (2/3); stacked below lg, the artist first.
-  top: "grid gap-6 lg:grid-cols-3",
-  // As tall as the artist's block beside it from lg up.
-  map: "lg:col-span-2 lg:h-auto lg:min-h-[560px]",
+  // The artist (3/12), the map (6/12) and the institutions (3/12) from lg up;
+  // stacked below, in that order. Each block keeps its own height.
+  top: "grid items-start gap-6 lg:grid-cols-12",
+  profile: "lg:col-span-3",
+  // Never taller than the screen below the top bar.
+  map: "lg:col-span-6 lg:h-[min(640px,calc(100svh-8rem))]",
+  aside: "flex flex-col gap-6 lg:col-span-3",
   sources: "flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3",
   sourcesLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   sections: "flex flex-col gap-3",

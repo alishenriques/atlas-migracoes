@@ -170,14 +170,16 @@ describe("ArtistRecord", () => {
     expect(within(about).getByText("Brasil")).toBeInTheDocument();
     expect(within(about).getAllByRole("link", { name: "Wikidata" })[0]).toHaveAttribute("href", "https://www.wikidata.org/wiki/Q1");
     expect(within(about).getByText("1930 – 1951")).toBeInTheDocument();
-    expect(within(about).getByText("MAM")).toBeInTheDocument();
+    expect(within(about).queryByText("Instituições relacionadas")).not.toBeInTheDocument();
   });
 
-  it("shows the first institutions and counts the rest", async () => {
+  it("lists the institutions in a block of their own, the first five at once", async () => {
     const exhibition = artist.exhibitions[0]!;
     const exhibitions = ["A", "B", "C", "D", "E", "F"].map((name, index) => ({ ...exhibition, id: `EX.${index}`, institution: name }));
     await renderRecord({ meta: { source: "database" }, artist: { ...artist, exhibitions } });
-    expect(within(screen.getByRole("tabpanel", { name: "Sobre" })).getByText("A · B · C · D · mais 2 instituições")).toBeInTheDocument();
+    const block = screen.getByRole("region", { name: "Instituições relacionadas" });
+    expect(within(block).getAllByRole("listitem")).toHaveLength(5);
+    expect(within(block).getByRole("button", { name: /Ver todas \(6\)/ })).toBeInTheDocument();
   });
 
   it("shows only the collection's facts without the research", async () => {
