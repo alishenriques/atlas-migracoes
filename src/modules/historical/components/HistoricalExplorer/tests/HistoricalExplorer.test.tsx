@@ -155,7 +155,12 @@ describe("HistoricalExplorer", () => {
     expect(about).toHaveAttribute("aria-expanded", "false");
     fireEvent.click(about);
     expect(about).toHaveAttribute("aria-expanded", "true");
-    expect(screen.getByText(/segundo a CShapes 2.0/)).toBeInTheDocument();
+    // One rule per line, with its lead in bold.
+    const note = screen.getByRole("status");
+    expect(note).toHaveTextContent("Como as fronteiras são desenhadas");
+    expect(within(note).getByText("CShapes 2.0").tagName).toBe("STRONG");
+    expect(within(note).getByText("Territórios sem Estado")).toBeInTheDocument();
+    expect(note).toHaveTextContent("Império Russo até 1917");
   });
 
   it("floats the presentation over the controls and leaves the map's opening view clear of them", async () => {

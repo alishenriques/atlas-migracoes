@@ -1,7 +1,11 @@
 export const styles = {
   mapStatus: "absolute inset-0 flex items-center justify-center bg-raised text-sm text-muted",
   note: "text-xs leading-relaxed text-muted",
-  infoText: "block max-w-xs text-xs leading-relaxed",
+  sourceNote: "flex max-w-xs flex-col gap-2 text-xs leading-relaxed",
+  sourceTitle: "text-[11px] uppercase tracking-[0.12em] text-accent",
+  sourceBase: "border-b border-line pb-2 text-muted",
+  sourceRule: "relative pl-3 before:absolute before:left-0 before:top-[0.55em] before:size-1 before:rounded-full before:bg-accent",
+  strong: "font-semibold text-foreground",
   list: "flex flex-col gap-2 border-t border-line pt-3",
   listHeader: "flex items-center justify-between gap-3",
   listTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",

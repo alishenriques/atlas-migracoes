@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { States } from "@/lib/cartography";
 
-import { HistoricalMap } from "../HistoricalMap";
+import { HistoricalMap, INITIAL_BOUNDS } from "../HistoricalMap";
 
 // MapLibre needs WebGL, which jsdom lacks: the stubs record what the map is
 // asked to draw and let the tests fire its events.
@@ -16,7 +16,7 @@ type MapProps = {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   cursor: string;
-  initialViewState: { padding: { left: number } };
+  initialViewState: { bounds: unknown; fitBoundsOptions: { padding: { left: number } } };
 };
 let mapProps: MapProps | undefined;
 const sources: Record<string, unknown> = {};
@@ -129,11 +129,12 @@ describe("HistoricalMap", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("opens centered in the room the floating blocks leave", () => {
+  it("opens on Central Europe, fitted to the room the floating blocks leave", () => {
     renderMap();
-    expect(mapProps?.initialViewState.padding.left).toBe(0);
+    expect(mapProps?.initialViewState.bounds).toEqual(INITIAL_BOUNDS);
+    expect(mapProps?.initialViewState.fitBoundsOptions.padding.left).toBe(0);
     renderMap({ top: 0, right: 0, bottom: 0, left: 360 });
-    expect(mapProps?.initialViewState.padding.left).toBe(360);
+    expect(mapProps?.initialViewState.fitBoundsOptions.padding.left).toBe(360);
   });
 
   it("shows a pointer while hovering", () => {

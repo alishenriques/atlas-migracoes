@@ -217,7 +217,14 @@
     "DECADE": "Década",
     "DECADE_LABEL": "{decade}",
     "YEAR": "Ano",
-    "SOURCE_NOTE": "Fronteiras em 1º de julho do ano escolhido, segundo a CShapes 2.0. A base segue o sistema de Estados de Gleditsch e Ward: Estados ocupados ou anexados na Segunda Guerra, como a Polônia e a Áustria, mantêm as fronteiras, e territórios que não pertenciam a nenhum Estado naquele dia ficam sem fronteira. Cada Estado leva o nome que tinha naquele dia (Império Russo até 1917, Rússia Soviética até 1922 e União Soviética depois; Áustria-Hungria até 1918), e os anexados ou desmembrados na guerra trazem essa indicação.",
+    "SOURCE_NOTE": {
+      "TITLE": "Como as fronteiras são desenhadas",
+      "DATE": "O mapa mostra as fronteiras de <b>1º de julho</b> do ano escolhido.",
+      "BASE": "Fonte: <b>CShapes 2.0</b>, que segue o sistema de Estados de Gleditsch e Ward.",
+      "OCCUPIED": "<b>Ocupados ou anexados na Segunda Guerra</b>, como a Polônia e a Áustria, continuam com as próprias fronteiras, e o nome indica a anexação ou o desmembramento.",
+      "NO_STATE": "<b>Territórios sem Estado</b> naquele dia ficam sem fronteira.",
+      "NAMES": "<b>Cada Estado leva o nome que tinha naquele dia</b>: Império Russo até 1917, Rússia Soviética até 1922 e União Soviética depois; Áustria-Hungria até 1918."
+    },
     "SOURCE_ABOUT": "Sobre as fronteiras",
     "FACTS": {
       "TITLE": "Fatos históricos",
