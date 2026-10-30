@@ -1,6 +1,7 @@
 export const styles = {
   mapStatus: "absolute inset-0 flex items-center justify-center bg-raised text-sm text-muted",
   note: "text-xs leading-relaxed text-muted",
+  infoText: "block max-w-xs text-xs leading-relaxed",
   list: "flex flex-col gap-2 border-t border-line pt-3",
   listHeader: "flex items-center justify-between gap-3",
   listTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",
