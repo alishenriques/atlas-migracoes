@@ -87,8 +87,29 @@ const states: States = {
   ],
 };
 
+const factsFile = {
+  meta: { generatedAt: "2026-10-30T00:00:00Z", fromYear: 1910, toYear: 1989 },
+  facts: [
+    {
+      id: "Q1",
+      start: { iso: "1925-12-01", precision: "day" },
+      end: null,
+      weight: 30,
+      pt: { title: "Tratado de Locarno", text: "Acordos assinados em Londres.", url: "https://pt.wikipedia.org/wiki/Tratados_de_Locarno" },
+      en: null,
+    },
+  ],
+};
+
+// The borders answer `body`; the historical facts file always loads.
 const respond = (body: unknown, ok = true) =>
-  vi.spyOn(globalThis, "fetch").mockResolvedValue({ ok, status: ok ? 200 : 500, json: () => Promise.resolve(body) } as Response);
+  vi.spyOn(globalThis, "fetch").mockImplementation((input) =>
+    Promise.resolve(
+      (String(input).includes("/historical/")
+        ? { ok: true, status: 200, json: () => Promise.resolve(factsFile) }
+        : { ok, status: ok ? 200 : 500, json: () => Promise.resolve(body) }) as Response,
+    ),
+  );
 
 const renderExplorer = (props: { intro?: React.ReactNode; credit?: React.ReactNode } = {}) =>
   render(
@@ -123,6 +144,18 @@ describe("HistoricalExplorer", () => {
     expect(origin("Circa")).toHaveTextContent("Polônia (data aproximada)");
     expect(origin("Sem data")).toHaveTextContent("não determinado");
     expect(screen.queryByRole("link", { name: "Sem lugar" })).not.toBeInTheDocument();
+  });
+
+  it("shows the year's historical facts and keeps the borders' note behind the info button", async () => {
+    respond(states);
+    renderExplorer();
+    expect(await screen.findByRole("link", { name: "Tratado de Locarno" })).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Fatos históricos" })).toHaveTextContent("Inferido");
+    const about = screen.getByRole("button", { name: /Sobre as fronteiras/ });
+    expect(about).toHaveAttribute("aria-expanded", "false");
+    fireEvent.click(about);
+    expect(about).toHaveAttribute("aria-expanded", "true");
+    expect(screen.getByText(/segundo a CShapes 2.0/)).toBeInTheDocument();
   });
 
   it("floats the presentation over the controls and leaves the map's opening view clear of them", async () => {

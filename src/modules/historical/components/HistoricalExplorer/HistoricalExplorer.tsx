@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 
-import { ReliabilityTag, SegmentedControl, SelectField } from "@alishenriques/atlas-design-system";
+import { ReliabilityTag, SegmentedControl, SelectField, Toggletip } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -17,6 +17,7 @@ import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
 
 import { useStates } from "../../hooks/useStates";
 import { birthplacesOf, originsIn } from "../../utils/origins";
+import { HistoricalFacts } from "../HistoricalFacts";
 import { HistoricalMap } from "../HistoricalMap";
 import { styles } from "./styles/index.styles";
 
@@ -119,6 +120,12 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
       }
       intro={intro}
       title={t("BORDERS_OF", { year })}
+      action={
+        // How the borders are drawn, out of the way of the facts (asked by Tânia, 2026-10-30).
+        <Toggletip align="end" trigger={<span className="sr-only">{t("SOURCE_ABOUT")}</span>}>
+          <span className={styles.infoText}>{t("SOURCE_NOTE")}</span>
+        </Toggletip>
+      }
     >
       <SegmentedControl
         label={t("DECADE")}
@@ -132,7 +139,7 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         onChange={(value) => setYear(Number(value))}
         options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
       />
-      <p className={styles.note}>{t("SOURCE_NOTE")}</p>
+      <HistoricalFacts year={year} />
 
       <div className={styles.list}>
         <div className={styles.listHeader}>
