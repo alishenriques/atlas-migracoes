@@ -39,9 +39,11 @@ export function ArtistRecordSkeleton() {
               ))}
             </div>
           </div>
-          <div className={`${institutions.card} ${styles.aside}`}>
-            <h2 className={institutions.title}>{t("INSTITUTIONS")}</h2>
-            <Skeleton shape="text" lines={5} />
+          <div className={styles.aside}>
+            <div className={institutions.card}>
+              <h2 className={institutions.title}>{t("INSTITUTIONS")}</h2>
+              <Skeleton shape="text" lines={5} />
+            </div>
           </div>
         </div>
       </Loading>

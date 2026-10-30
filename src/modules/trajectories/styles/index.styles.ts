@@ -1,7 +1,9 @@
 export const styles = {
   index: "flex w-full flex-1 flex-col gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:px-10",
   // Close to the menu: the record opens straight on the artist.
-  record: "flex w-full flex-1 flex-col gap-6 px-4 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:px-10",
+  // From lg up it fills the screen under the 61px top bar, without page scroll.
+  record:
+    "flex w-full flex-1 flex-col gap-6 px-4 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:h-[calc(100svh-61px)] lg:flex-none lg:overflow-hidden lg:px-10 lg:py-6",
   header: "flex flex-col gap-3",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   // The title, a thin gold rule and a small label naming what the page holds.
@@ -10,17 +12,15 @@ export const styles = {
   titleSeparator: "h-8 w-px shrink-0 bg-accent/60 sm:h-10",
   titleNote: "min-w-0 text-xs font-medium uppercase tracking-[0.16em] text-accent sm:text-sm",
   intro: "max-w-2xl text-muted",
-  // The artist (3/12), the map with the sections below it (6/12) and the
-  // institutions (3/12) from lg up; stacked below, in that order. The page
-  // scrolls the centre column while the side blocks stay in view.
-  top: "grid items-start gap-6 lg:grid-cols-12",
-  // Sticks where it starts (the 61px top bar plus the record's 24px top
-  // padding) and is as tall as the rest of the screen; its content scrolls inside.
-  profile: "lg:sticky lg:top-[85px] lg:col-span-3 lg:h-[calc(100svh-85px-1.5rem)]",
-  center: "flex min-w-0 flex-col gap-6 lg:col-span-6",
-  // Never taller than the screen below the top bar.
-  map: "lg:h-[min(640px,calc(100svh-8rem))]",
-  aside: "flex flex-col gap-6 lg:sticky lg:top-[85px] lg:col-span-3 lg:max-h-[calc(100svh-85px-1.5rem)] lg:overflow-y-auto",
+  // Three columns as tall as the screen from lg up: the artist (3/12), a
+  // scrolling centre with the map, sources and sections (6/12), and a side
+  // column whose blocks share its height (3/12). Stacked below lg, in that order.
+  top: "grid gap-6 lg:min-h-0 lg:flex-1 lg:grid-cols-12",
+  profile: "lg:col-span-3 lg:min-h-0",
+  center: "flex min-w-0 flex-col gap-6 lg:col-span-6 lg:-mr-3 lg:min-h-0 lg:overflow-y-auto lg:pr-3 scrollbar-atlas",
+  map: "shrink-0 lg:h-[min(560px,70svh)]",
+  // Each block takes an equal share of the column (only the institutions for now).
+  aside: "flex flex-col gap-6 lg:col-span-3 lg:min-h-0 lg:[&>*]:min-h-0 lg:[&>*]:flex-1",
   sources: "flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3",
   sourcesLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   sections: "flex flex-col gap-3",
