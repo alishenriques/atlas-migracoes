@@ -74,12 +74,17 @@ describe("NetworkExplorer", () => {
     expect(screen.getByRole("button", { name: "Aproximar" })).toBeInTheDocument();
     expect(screen.getByText("Selecione um elemento da rede para ver suas ligações.")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Limpar" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3 })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Ficha do artista" })).not.toBeInTheDocument();
   });
 
   it("opens centered on the artist from the link, and ignores an unknown one", () => {
     renderExplorer("lasar-segall");
     expect(screen.getByRole("combobox", { name: "Centro da rede" })).toHaveValue("lasar-segall");
     expect(screen.getByText(/Lasar Segall fica no centro/)).toBeInTheDocument();
+    // The artist is named over the note, and the record is a button below the legend.
+    expect(screen.getByRole("heading", { level: 3, name: "Lasar Segall" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Ficha do artista" })).toHaveAttribute("href", "/trajetorias/lasar-segall");
     // The ego network reads in rings: no column headings.
     expect(within(graph()).queryByText("Nascimento")).not.toBeInTheDocument();
     expect(within(graph()).getByRole("button", { name: "Obra: Paisagem" })).toBeInTheDocument();
