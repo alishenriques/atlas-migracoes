@@ -74,6 +74,22 @@ describe("collection facts", () => {
     // A show after the artist's death is not activity.
     expect(activityYears({ works, exhibitions, deathDate: year(1958) })).toEqual({ from: 1948, to: 1955 });
     expect(activityYears({ works: [], exhibitions: [], deathDate: year(1958) })).toBeNull();
-    expect(institutionsOf({ exhibitions })).toEqual(["MAM"]);
+    expect(institutionsOf({ exhibitions }).map(({ name }) => name)).toEqual(["MAM"]);
+  });
+
+  it("sums each institution's exhibitions, years and first place, earliest first", () => {
+    const sp = { id: "sp", label: "São Paulo", country: "Brasil", currentName: null, lat: null, lng: null };
+    const exhibitions = [
+      { startDate: year(null), institution: "Galeria X", place: null },
+      { startDate: year(1961), institution: "MAM", place: null },
+      { startDate: year(1951), institution: " MAM ", place: sp },
+      { startDate: year(1955), institution: "Bienal", place: sp },
+      { startDate: year(null), institution: "MAM", place: null },
+    ] as never;
+    expect(institutionsOf({ exhibitions })).toEqual([
+      { name: "MAM", place: sp, exhibitions: 3, years: { from: 1951, to: 1961 } },
+      { name: "Bienal", place: sp, exhibitions: 1, years: { from: 1955, to: 1955 } },
+      { name: "Galeria X", place: null, exhibitions: 1, years: null },
+    ]);
   });
 });

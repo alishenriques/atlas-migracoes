@@ -1,4 +1,4 @@
-import type { ArtistRecord, Finding, FindingProperty, Research } from "@/lib/schemas";
+import type { ArtistRecord, Finding, FindingProperty, Place, Research } from "@/lib/schemas";
 
 const SOURCE_NAMES: Record<Finding["source"], string> = { wikidata: "Wikidata", wikipedia: "Wikipédia" };
 
@@ -76,7 +76,36 @@ export function activityYears(
   return years.length ? { from: Math.min(...years), to: Math.max(...years) } : null;
 }
 
-/** The institutions that showed the artist's works, in order of their first exhibition, without repeats. */
-export function institutionsOf(artist: Pick<ArtistRecord, "exhibitions">): string[] {
-  return [...new Set(artist.exhibitions.flatMap((exhibition) => (exhibition.institution ? [exhibition.institution.trim()] : [])))];
+/** An institution that showed the artist's works, and when and where it did. */
+export type InstitutionSummary = {
+  name: string;
+  /** Where its first located exhibition of the artist took place; null when none is. */
+  place: Place | null;
+  exhibitions: number;
+  /** The dated exhibitions' first and last years; null when none is dated. */
+  years: { from: number; to: number } | null;
+};
+
+/**
+ * The institutions that showed the artist's works, without repeats, in order
+ * of their first dated exhibition (undated ones last, in collection order).
+ */
+export function institutionsOf(artist: Pick<ArtistRecord, "exhibitions">): InstitutionSummary[] {
+  const byName = new Map<string, InstitutionSummary>();
+  for (const exhibition of artist.exhibitions) {
+    const name = exhibition.institution?.trim();
+    if (!name) continue;
+    const summary = byName.get(name) ?? { name, place: null, exhibitions: 0, years: null };
+    const year = exhibition.startDate.year;
+    byName.set(name, {
+      ...summary,
+      place: summary.place ?? exhibition.place,
+      exhibitions: summary.exhibitions + 1,
+      years:
+        year === null
+          ? summary.years
+          : { from: Math.min(year, summary.years?.from ?? year), to: Math.max(year, summary.years?.to ?? year) },
+    });
+  }
+  return [...byName.values()].sort((a, b) => (a.years?.from ?? Infinity) - (b.years?.from ?? Infinity));
 }
