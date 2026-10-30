@@ -282,6 +282,7 @@
     "LINKED": "{count, plural, =0 {No links} one {# link} other {# links}}",
     "FOCUS": "Center the network on this artist",
     "OPEN_RECORD": "Open the trajectory record",
+    "CENTER_RECORD": "Artist record",
     "DOCUMENTED": "Documented",
     "SOURCE": "Links taken from the MAC USP collection (works, related exhibitions and publications). Institutions whose name is spelled in different ways are merged into one."
   },

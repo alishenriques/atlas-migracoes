@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 
-import { Legend, Panel, ReliabilityTag, SelectField, YearRange } from "@alishenriques/atlas-design-system";
+import { Button, Legend, Panel, ReliabilityTag, SelectField, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -119,6 +119,8 @@ export function NetworkExplorer({ data, initialSlug, intro, footer }: NetworkExp
             onChange={setPeriod}
           />
         )}
+        {/* The artist at the center, named before the note that reads their network. */}
+        {centerName && <h3 className={styles.centerName}>{centerName}</h3>}
         <p className={styles.note}>
           {centerName ? t("EGO_NOTE", { name: centerName }) : t("OVERVIEW_NOTE")} {t("LINES_NOTE")} {t("UNDATED_NOTE")}
         </p>
@@ -130,6 +132,11 @@ export function NetworkExplorer({ data, initialSlug, intro, footer }: NetworkExp
             count: counts[kind],
           }))}
         />
+        {center && (
+          <Button asChild className={styles.centerRecord}>
+            <Link href={{ pathname: "/trajetorias/[slug]", params: { slug: center } }}>{t("CENTER_RECORD")}</Link>
+          </Button>
+        )}
 
         <div className={styles.detail} aria-live="polite">
           {selected ? (

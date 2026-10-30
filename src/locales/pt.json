@@ -282,6 +282,7 @@
     "LINKED": "{count, plural, =0 {Sem ligações} one {# ligação} other {# ligações}}",
     "FOCUS": "Centralizar a rede neste artista",
     "OPEN_RECORD": "Abrir a ficha da trajetória",
+    "CENTER_RECORD": "Ficha do artista",
     "DOCUMENTED": "Documentado",
     "SOURCE": "Ligações tiradas do acervo do MAC USP (obras, exposições e publicações relacionadas). Instituições com o mesmo nome escrito de formas diferentes são somadas numa só."
   },
