@@ -15,13 +15,14 @@ export const INSTITUTIONS_SHOWN = 5;
 
 /**
  * The institutions that showed the artist's works, each with where and how
- * often; the first few at once, the rest behind "See all (N)".
+ * often; the first few at once, the rest sliding open behind "See all (N)".
  */
 export function InstitutionsCard({ institutions }: { institutions: InstitutionSummary[] }) {
   const t = useTranslations("TRAJECTORIES");
   const [expanded, setExpanded] = useState(false);
-  const listId = useId();
-  const shown = expanded ? institutions : institutions.slice(0, INSTITUTIONS_SHOWN);
+  const restId = useId();
+  const first = institutions.slice(0, INSTITUTIONS_SHOWN);
+  const rest = institutions.slice(INSTITUTIONS_SHOWN);
 
   const detail = ({ place, exhibitions, years }: InstitutionSummary) =>
     [
@@ -32,6 +33,18 @@ export function InstitutionsCard({ institutions }: { institutions: InstitutionSu
       .filter(Boolean)
       .join(" · ");
 
+  const item = (institution: InstitutionSummary) => (
+    <li key={institution.name} className={styles.item}>
+      <span className={styles.icon}>
+        <FactIcon name="institution" size={20} />
+      </span>
+      <span className={styles.text}>
+        <span className={styles.name}>{institution.name}</span>
+        <span className={styles.detail}>{detail(institution)}</span>
+      </span>
+    </li>
+  );
+
   return (
     <section className={styles.card} aria-labelledby="record-institutions">
       <h2 id="record-institutions" className={styles.title}>
@@ -41,27 +54,24 @@ export function InstitutionsCard({ institutions }: { institutions: InstitutionSu
       {institutions.length === 0 ? (
         <p className={styles.empty}>{t("NO_INSTITUTIONS")}</p>
       ) : (
-        <ul id={listId} className={styles.list}>
-          {shown.map((institution) => (
-            <li key={institution.name} className={styles.item}>
-              <span className={styles.icon}>
-                <FactIcon name="institution" size={20} />
-              </span>
-              <span className={styles.text}>
-                <span className={styles.name}>{institution.name}</span>
-                <span className={styles.detail}>{detail(institution)}</span>
-              </span>
-            </li>
-          ))}
-        </ul>
+        <ul className={styles.list}>{first.map(item)}</ul>
       )}
 
-      {institutions.length > INSTITUTIONS_SHOWN && (
+      {rest.length > 0 && (
+        // The rest slides open below the first ones; closed, it is out of reach.
+        <div id={restId} className={styles.rest} data-open={expanded} inert={!expanded}>
+          <div className={styles.restInner}>
+            <ul className={styles.list}>{rest.map(item)}</ul>
+          </div>
+        </div>
+      )}
+
+      {rest.length > 0 && (
         <button
           type="button"
           className={styles.more}
           aria-expanded={expanded}
-          aria-controls={listId}
+          aria-controls={restId}
           onClick={() => setExpanded((open) => !open)}
         >
           {expanded ? t("FEWER_INSTITUTIONS") : t("MORE_INSTITUTIONS", { count: institutions.length })}

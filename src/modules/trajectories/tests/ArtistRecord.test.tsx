@@ -178,7 +178,7 @@ describe("ArtistRecord", () => {
     const exhibitions = ["A", "B", "C", "D", "E", "F"].map((name, index) => ({ ...exhibition, id: `EX.${index}`, institution: name }));
     await renderRecord({ meta: { source: "database" }, artist: { ...artist, exhibitions } });
     const block = screen.getByRole("region", { name: "Instituições relacionadas" });
-    expect(within(block).getAllByRole("listitem")).toHaveLength(5);
+    expect(within(within(block).getAllByRole("list")[0]!).getAllByRole("listitem")).toHaveLength(5);
     expect(within(block).getByRole("button", { name: /Ver todas \(6\)/ })).toBeInTheDocument();
   });
 
