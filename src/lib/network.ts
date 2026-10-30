@@ -219,3 +219,70 @@ export function neighborsOf(graph: Graph, id: string): NetworkNode[] {
   );
   return graph.nodes.filter((node) => ids.has(node.id));
 }
+
+/** How an artist is linked to one of their connections. */
+export type ConnectionKind = "joint_exhibition" | "institution" | "place";
+
+/** The connection kinds in the order the record's legend lists them. */
+export const CONNECTION_KINDS: ConnectionKind[] = ["joint_exhibition", "institution", "place"];
+
+export type Connection = {
+  /** The node id in the Rede Relacional, so the two views name things alike. */
+  id: string;
+  kind: ConnectionKind;
+  label: string;
+  /** Artists only: the slug of their record. */
+  slug: string | null;
+  /** How many records back the link: shared exhibitions, exhibitions held there, or life events (birth, death). */
+  weight: number;
+};
+
+/** How many connections each kind gets first, before the free places go to the strongest left over. */
+const CONNECTION_QUOTA: Record<ConnectionKind, number> = { place: 2, joint_exhibition: 3, institution: 3 };
+
+const byWeight = (a: Connection, b: Connection) => b.weight - a.weight || a.label.localeCompare(b.label);
+
+/**
+ * An artist's closest connections in the base, for the record's small network:
+ * the places where they were born and died, the collection's artists shown with
+ * them in the same exhibitions, and the institutions that showed them, the
+ * strongest of each first. At most `limit`; null for an unknown slug.
+ */
+export function connectionsOf(data: NetworkData, slug: string, limit = 8): Connection[] | null {
+  const artist = data.artists.find((item) => item.slug === slug);
+  if (!artist) return null;
+
+  const pools = new Map<ConnectionKind, Map<string, Connection>>(CONNECTION_KINDS.map((kind) => [kind, new Map()]));
+  const add = (kind: ConnectionKind, id: string, label: string, slugOf: string | null = null) => {
+    const pool = pools.get(kind)!;
+    const entry = pool.get(id) ?? { id, kind, label, slug: slugOf, weight: 0 };
+    entry.weight += 1;
+    pool.set(id, entry);
+  };
+
+  for (const lifePlace of [artist.birthPlace, artist.deathPlace]) {
+    if (lifePlace) add("place", nodeIds.place(lifePlace.id), placeName(lifePlace));
+  }
+
+  const shown = exhibitionsOf(artist);
+  for (const exhibition of shown) {
+    if (exhibition.institution?.trim()) {
+      add("institution", nodeIds.institution(exhibition.institution), exhibition.institution.trim());
+    }
+  }
+
+  const shownIds = new Set(shown.map((exhibition) => exhibition.id));
+  for (const other of data.artists) {
+    if (other.slug === slug) continue;
+    for (const exhibition of exhibitionsOf(other)) {
+      if (shownIds.has(exhibition.id)) add("joint_exhibition", nodeIds.artist(other.slug), other.name, other.slug);
+    }
+  }
+
+  const sorted = CONNECTION_KINDS.map((kind) => [...pools.get(kind)!.values()].sort(byWeight));
+  const chosen = sorted.flatMap((pool, index) => pool.slice(0, CONNECTION_QUOTA[CONNECTION_KINDS[index]!]));
+  const rest = sorted.flatMap((pool, index) => pool.slice(CONNECTION_QUOTA[CONNECTION_KINDS[index]!])).sort(byWeight);
+  const picked = new Set([...chosen, ...rest].slice(0, limit));
+  // Grouped by kind, so each kind sits together around the artist.
+  return sorted.flatMap((pool) => pool.filter((connection) => picked.has(connection)));
+}
