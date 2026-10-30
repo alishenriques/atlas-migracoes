@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  connectionsOf,
   countByKind,
   egoGraph,
   inPeriod,
@@ -204,5 +205,40 @@ describe("neighborsOf", () => {
     const graph = overviewGraph(data, all);
     const neighbors = neighborsOf(graph, nodeIds.place("sp")).map((node) => node.id);
     expect(neighbors.sort()).toEqual([nodeIds.artist("lasar-segall"), nodeIds.institution("MAC USP")].sort());
+  });
+});
+
+describe("connectionsOf", () => {
+  it("links the artist to their places, the artists shown with them and the institutions that showed them", () => {
+    expect(connectionsOf(data, "lasar-segall")).toEqual([
+      { id: nodeIds.artist("mario-gruber"), kind: "joint_exhibition", label: "Mario Gruber", slug: "mario-gruber", weight: 1 },
+      // "MAC USP" and " Mac  Usp " are one institution, weighted by its two exhibitions.
+      { id: nodeIds.institution("MAC USP"), kind: "institution", label: "MAC USP", slug: null, weight: 2 },
+      { id: nodeIds.place("sp"), kind: "place", label: "São Paulo", slug: null, weight: 1 },
+      { id: nodeIds.place("vilna"), kind: "place", label: "Vilna (Vilnius, Lituânia)", slug: null, weight: 1 },
+    ]);
+  });
+
+  it("counts a place where the artist was born and died once, with both events", () => {
+    const local = { ...gruber, birthPlace: saoPaulo, deathPlace: saoPaulo, works: [] };
+    expect(connectionsOf({ meta: { source: "demo" }, artists: [local] }, "mario-gruber")).toEqual([
+      { id: nodeIds.place("sp"), kind: "place", label: "São Paulo", slug: null, weight: 2 },
+    ]);
+  });
+
+  it("keeps the strongest of each kind first and fills the free places with the strongest left", () => {
+    const show = (n: number): NetworkExhibition => ({ id: `S${n}`, title: `Show ${n}`, startDate: year(1960), institution: `Inst ${n}`, place: null });
+    const shows = [1, 2, 3, 4, 5, 6].map(show);
+    // Institution n holds n exhibitions of the artist: Inst 6 is the strongest.
+    const works = shows.flatMap((item, index) =>
+      Array.from({ length: index + 1 }, (_, k) => ({ ...item, id: `${item.id}.${k}` })),
+    ).map((exhibition, index) => ({ id: `W${index}`, title: "Obra", date: unknown, exhibitions: [exhibition], publications: [] }));
+    const artist: NetworkArtist = { ...gruber, works };
+    const result = connectionsOf({ meta: { source: "demo" }, artists: [artist] }, "mario-gruber", 4);
+    expect(result?.map((item) => item.label)).toEqual(["Inst 6", "Inst 5", "Inst 4", "Inst 3"]);
+  });
+
+  it("returns null for an unknown artist", () => {
+    expect(connectionsOf(data, "nobody")).toBeNull();
   });
 });
