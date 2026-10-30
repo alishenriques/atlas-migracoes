@@ -21,6 +21,7 @@ type MapProps = {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   cursor: string;
+  scrollZoom: boolean;
 };
 let mapProps: MapProps | undefined;
 const sources: Record<string, unknown> = {};
@@ -122,6 +123,13 @@ describe("TrajectoryMap", () => {
       ],
       fitBoundsOptions: { padding },
     });
+  });
+
+  it("zooms with the mouse wheel unless told not to", () => {
+    renderMap();
+    expect(mapProps?.scrollZoom).toBe(true);
+    render(<TrajectoryMap trajectories={trajectories} selectedSlug={null} label="Mapa" renderPlace={() => null} scrollZoom={false} />);
+    expect(mapProps?.scrollZoom).toBe(false);
   });
 
   it("does not move the map when nothing is selected", () => {
