@@ -25,7 +25,21 @@ const PRECISION: Record<number, FactDate["precision"]> = { 9: "year", 10: "month
  * time (P585) or a start time (P580); people (Q5) and sports events (P641) are
  * left out, and a Portuguese Wikipedia article is required, since its opening is
  * the fact's text.
+ *
+ * Things that also carry a start date but are not events are left out by
+ * their class (P31, or any subclass of it, P279): currencies (Q8142),
+ * newspapers (Q11032), magazines (Q41298), awards (Q618779), organizations
+ * (Q43229), administrative areas (Q56061), structures (Q811979), squares
+ * (Q174782), airports (Q1248784), art movements (Q968159) and sporting events
+ * (Q16510064). The first run of the script listed them
+ * among the best known "events" of their years.
  */
+export const NOT_EVENTS = ["Q8142", "Q11032", "Q41298", "Q618779", "Q43229", "Q56061", "Q811979", "Q174782", "Q1248784", "Q968159", "Q16510064"]
+  .map((id) => `wd:${id}`)
+  .join(" ");
+/** Articles that are lists of results, not events ("Quadro de medalhas dos Jogos Olímpicos…"). */
+const NOT_EVENT_TITLE = /^Quadro de medalhas/;
+
 const SELECT = `SELECT ?item ?sitelinks ?start ?startPrecision ?end ?endPrecision ?ptTitle ?enTitle WHERE {`;
 const DATES_AND_ARTICLES = `
   { ?item p:P585/psv:P585 ?time . } UNION { ?item p:P580/psv:P580 ?time . }
@@ -34,6 +48,7 @@ const DATES_AND_ARTICLES = `
   ?item wikibase:sitelinks ?sitelinks .
   FILTER NOT EXISTS { ?item wdt:P31 wd:Q5 . }
   FILTER NOT EXISTS { ?item wdt:P641 ?sport . }
+  FILTER NOT EXISTS { ?item wdt:P31/wdt:P279* ?notEvent . VALUES ?notEvent { ${NOT_EVENTS} } }
   ?ptArticle schema:about ?item ; schema:isPartOf <https://pt.wikipedia.org/> ; schema:name ?ptTitle .
   OPTIONAL { ?enArticle schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?enTitle . }
   OPTIONAL { ?item p:P582/psv:P582 ?endTime . ?endTime wikibase:timeValue ?end ; wikibase:timePrecision ?endPrecision . }`;
@@ -104,43 +119,50 @@ function factDate(time: string | undefined, precision: string | undefined): Fact
 
 const later = (a: FactDate | null, b: FactDate | null) => (!a ? b : !b ? a : a.iso >= b.iso ? a : b);
 
+const rank = (date: FactDate) => ["year", "month", "day"].indexOf(date.precision);
+
 /**
  * One candidate per Wikidata item. An item answers once per matching place
- * and per date, so its earliest start is kept (the most precise of equal
- * ones) and its latest end. Dates vaguer than a year are dropped.
+ * and per date, in the query of every year it has a date in, so its earliest
+ * start is kept (the most precise of equal ones) and its latest end.
  */
-export function candidatesFrom(answer: unknown): Candidate[] {
+export function mergeCandidates(candidates: Candidate[]): Candidate[] {
   const byId = new Map<string, Candidate>();
-  for (const row of sparqlAnswerSchema.parse(answer).results.bindings) {
-    const start = factDate(row.start.value, row.startPrecision.value);
-    if (!start || !row.item.value.startsWith(WIKIDATA_ENTITY)) continue;
-    const id = row.item.value.slice(WIKIDATA_ENTITY.length);
-    const end = factDate(row.end?.value, row.endPrecision?.value);
-    const known = byId.get(id);
+  for (const candidate of candidates) {
+    const known = byId.get(candidate.id);
     if (!known) {
-      byId.set(id, {
-        id,
-        start,
-        end,
-        weight: Number(row.sitelinks.value),
-        ptTitle: row.ptTitle.value,
-        enTitle: row.enTitle?.value ?? null,
-      });
+      byId.set(candidate.id, candidate);
       continue;
     }
-    const earlier = start.iso < known.start.iso;
-    const preciser = start.iso === known.start.iso && rank(start) > rank(known.start);
-    byId.set(id, {
+    const earlier = candidate.start.iso < known.start.iso;
+    const preciser = candidate.start.iso === known.start.iso && rank(candidate.start) > rank(known.start);
+    byId.set(candidate.id, {
       ...known,
-      start: earlier || preciser ? start : known.start,
-      end: later(known.end, end),
-      enTitle: known.enTitle ?? row.enTitle?.value ?? null,
+      start: earlier || preciser ? candidate.start : known.start,
+      end: later(known.end, candidate.end),
+      enTitle: known.enTitle ?? candidate.enTitle,
     });
   }
   return [...byId.values()];
 }
 
-const rank = (date: FactDate) => ["year", "month", "day"].indexOf(date.precision);
+/** The candidates in a query answer, merged per item. Dates vaguer than a year and list articles are dropped. */
+export function candidatesFrom(answer: unknown): Candidate[] {
+  const candidates: Candidate[] = [];
+  for (const row of sparqlAnswerSchema.parse(answer).results.bindings) {
+    const start = factDate(row.start.value, row.startPrecision.value);
+    if (!start || !row.item.value.startsWith(WIKIDATA_ENTITY) || NOT_EVENT_TITLE.test(row.ptTitle.value)) continue;
+    candidates.push({
+      id: row.item.value.slice(WIKIDATA_ENTITY.length),
+      start,
+      end: factDate(row.end?.value, row.endPrecision?.value),
+      weight: Number(row.sitelinks.value),
+      ptTitle: row.ptTitle.value,
+      enTitle: row.enTitle?.value ?? null,
+    });
+  }
+  return mergeCandidates(candidates);
+}
 
 const yearOf = (date: FactDate) => Number(date.iso.slice(0, 4));
 
@@ -153,10 +175,10 @@ export function selectCandidates(
   candidates: Candidate[],
   { exclude = [], include = [], perYear = STORED_PER_YEAR }: { exclude?: string[]; include?: string[]; perYear?: number } = {},
 ): Candidate[] {
-  const unique = new Map(candidates.map((candidate) => [candidate.id, candidate]));
   const kept: Candidate[] = [];
   const perStartYear = new Map<number, number>();
-  const ordered = [...unique.values()].sort((a, b) => b.weight - a.weight || a.id.localeCompare(b.id));
+  // An event found in the query of each year it has a date in counts once, from its start.
+  const ordered = mergeCandidates(candidates).sort((a, b) => b.weight - a.weight || a.id.localeCompare(b.id));
   for (const candidate of ordered) {
     if (exclude.includes(candidate.id)) continue;
     const year = yearOf(candidate.start);

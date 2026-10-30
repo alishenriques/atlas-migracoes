@@ -4,6 +4,7 @@ import {
   candidatesFrom,
   itemsQuery,
   MAX_TEXT,
+  NOT_EVENTS,
   reviewSchema,
   selectCandidates,
   shortText,
@@ -39,6 +40,12 @@ describe("yearQuery and itemsQuery", () => {
     expect(query).toContain("<https://pt.wikipedia.org/>");
     expect(query).toContain("FILTER(?sitelinks >= 15)");
     expect(yearQuery(1914, 30)).toContain("FILTER(?sitelinks >= 30)");
+  });
+
+  it("leaves out things with a start date that are not events, such as currencies and newspapers", () => {
+    expect(yearQuery(1914)).toContain("wdt:P31/wdt:P279* ?notEvent");
+    expect(NOT_EVENTS).toContain("wd:Q8142");
+    expect(NOT_EVENTS).toContain("wd:Q11032");
   });
 
   it("asks for the reviewer's events by id", () => {
@@ -99,6 +106,10 @@ describe("candidatesFrom", () => {
     expect(merged?.end).toEqual({ iso: "1945-01-01", precision: "year" });
   });
 
+  it("drops medal tables, which are lists of results", () => {
+    expect(candidatesFrom(answer(row("Q7", "1936-01-01T00:00:00Z", 9, { ptTitle: "Quadro de medalhas dos Jogos Olímpicos de Verão de 1936" })))).toEqual([]);
+  });
+
   it("refuses an answer that is not the query service's", () => {
     expect(() => candidatesFrom({ head: {} })).toThrow();
   });
@@ -124,6 +135,12 @@ describe("selectCandidates", () => {
   it("leaves out what the reviewer excluded and keeps what they included", () => {
     expect(selectCandidates(candidates, { perYear: 2, exclude: ["Q2"] }).map((c) => c.id)).toEqual(["Q3", "Q1", "Q4"]);
     expect(selectCandidates(candidates, { perYear: 1, include: ["Q1"] }).map((c) => c.id)).toEqual(["Q2", "Q1", "Q4"]);
+  });
+
+  it("counts an event found in several years once, from its start", () => {
+    const ended = { ...candidate("Q361", 1918, 265), start: { iso: "1918-11-11", precision: "day" as const } };
+    const began = { ...candidate("Q361", 1914, 265), start: { iso: "1914-07-28", precision: "day" as const }, enTitle: "World War I" };
+    expect(selectCandidates([ended, began])).toEqual([{ ...began, end: null }]);
   });
 
   it("breaks ties in fame by id", () => {
