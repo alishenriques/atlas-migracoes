@@ -37,8 +37,14 @@ const PRECISION: Record<number, FactDate["precision"]> = { 9: "year", 10: "month
 export const NOT_EVENTS = ["Q8142", "Q11032", "Q41298", "Q618779", "Q43229", "Q56061", "Q811979", "Q174782", "Q1248784", "Q968159", "Q16510064"]
   .map((id) => `wd:${id}`)
   .join(" ");
-/** Articles that are lists of results, not events ("Quadro de medalhas dos Jogos Olímpicos…"). */
-const NOT_EVENT_TITLE = /^Quadro de medalhas/;
+/**
+ * Articles that are not historical facts for the layer, by their Portuguese
+ * title: lists of results, song and film festivals, beauty contests, fashion
+ * weeks, concert tours and air crashes (the second run of the script, 2026-10-30,
+ * filled the 1950s–1980s with them).
+ */
+export const NOT_EVENT_TITLE =
+  /^(Quadro de medalhas|Lista de|Festival Eurovisão|Festival Intervisão|Festival de Cannes|Festival (Internacional )?de Cinema|Miss (Mundo|Universo)|Semana d[ae] [Mm]oda|Voo )|no Festival Eurovisão|Fashion Week| Tour$/;
 
 const SELECT = `SELECT ?item ?sitelinks ?start ?startPrecision ?end ?endPrecision ?ptTitle ?enTitle WHERE {`;
 const DATES_AND_ARTICLES = `
