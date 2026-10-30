@@ -7,7 +7,7 @@ import { styles as institutions } from "./components/InstitutionsCard/styles/ind
 import { styles as card } from "./components/ProfileCard/styles/index.styles";
 import { skeletonStyles, styles } from "./styles/index.styles";
 
-/** An artist's record while it loads: the artist's block, the map, the institutions and the folded sections in skeleton. */
+/** An artist's record while it loads: the artist's block, the map with the folded sections, and the institutions in skeleton. */
 export function ArtistRecordSkeleton() {
   const t = useTranslations("TRAJECTORIES");
 
@@ -27,22 +27,22 @@ export function ArtistRecordSkeleton() {
             <Skeleton shape="text" lines={4} />
             <Skeleton shape="text" lines={6} />
           </div>
-          <Skeleton className={`${skeletonStyles.map} ${styles.map}`} height="100%" />
+          <div className={styles.center}>
+            <Skeleton className={`${skeletonStyles.map} ${styles.map}`} height="100%" />
+            <Skeleton height={44} />
+            <div className={styles.sections}>
+              {[t("TRAJECTORY"), t("WORKS_TITLE"), t("EXHIBITIONS_TITLE"), t("PUBLICATIONS_TITLE")].map((title) => (
+                <div key={title} className={skeletonStyles.section}>
+                  <span className={skeletonStyles.sectionTitle}>{title}</span>
+                  <Skeleton height={20} width={110} />
+                </div>
+              ))}
+            </div>
+          </div>
           <div className={`${institutions.card} ${styles.aside}`}>
             <h2 className={institutions.title}>{t("INSTITUTIONS")}</h2>
             <Skeleton shape="text" lines={5} />
           </div>
-        </div>
-
-        <Skeleton height={44} />
-
-        <div className={styles.sections}>
-          {[t("TRAJECTORY"), t("WORKS_TITLE"), t("EXHIBITIONS_TITLE"), t("PUBLICATIONS_TITLE")].map((title) => (
-            <div key={title} className={skeletonStyles.section}>
-              <span className={skeletonStyles.sectionTitle}>{title}</span>
-              <Skeleton height={20} width={110} />
-            </div>
-          ))}
         </div>
       </Loading>
     </main>
