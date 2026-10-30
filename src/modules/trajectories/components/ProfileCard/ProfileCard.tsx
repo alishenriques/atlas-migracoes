@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { Button, EventIcon, FactIcon, Portrait, Tabs, Toggletip, type FactIconName } from "@alishenriques/atlas-design-system";
+import { EventIcon, FactIcon, Portrait, Tabs, Toggletip, type FactIconName } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -8,6 +8,7 @@ import type { ArtistRecord, Research } from "@/lib/schemas";
 import { lifeEvent, lifeSpan } from "@/modules/trajectories/utils/life";
 import { activityYears, artistProfile, institutionsOf, listOf, type SourcedFact } from "@/modules/trajectories/utils/profile";
 
+import { ProfileActions } from "./ProfileActions";
 import { styles } from "./styles/index.styles";
 
 const INSTITUTIONS_SHOWN = 4;
@@ -151,12 +152,7 @@ export function ProfileCard({ artist, research }: ProfileCardProps) {
       />
 
       <div className={styles.actions}>
-        <Button asChild>
-          <Link href={{ pathname: "/rede", query: { artista: artist.slug } }}>{t("OPEN_NETWORK")}</Link>
-        </Button>
-        <Button asChild variant="ghost">
-          <Link href={{ pathname: "/ia-relacional", query: { artista: artist.slug } }}>{t("OPEN_RESEARCH")}</Link>
-        </Button>
+        <ProfileActions slug={artist.slug} networkLabel={t("OPEN_NETWORK")} researchLabel={t("OPEN_RESEARCH")} />
       </div>
     </section>
   );
