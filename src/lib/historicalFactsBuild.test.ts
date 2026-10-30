@@ -4,6 +4,7 @@ import {
   candidatesFrom,
   itemsQuery,
   MAX_TEXT,
+  NOT_EVENT_TITLE,
   NOT_EVENTS,
   reviewSchema,
   selectCandidates,
@@ -108,6 +109,23 @@ describe("candidatesFrom", () => {
 
   it("drops medal tables, which are lists of results", () => {
     expect(candidatesFrom(answer(row("Q7", "1936-01-01T00:00:00Z", 9, { ptTitle: "Quadro de medalhas dos Jogos Olímpicos de Verão de 1936" })))).toEqual([]);
+  });
+
+  it("drops festivals, beauty contests, fashion weeks, tours and air crashes", () => {
+    for (const title of [
+      "Festival Eurovisão da Canção 1956",
+      "Áustria no Festival Eurovisão da Canção",
+      "Festival Internacional de Cinema de Berlim 1951",
+      "Miss Mundo 1951",
+      "Paris Fashion Week",
+      "Semana da Moda de Milão",
+      "Magic Tour",
+      "Voo LOT Polish Airlines 5055",
+      "Lista de filmes de James Bond",
+    ])
+      expect(NOT_EVENT_TITLE.test(title)).toBe(true);
+    for (const title of ["Bienal Internacional de Arte de São Paulo", "Primeira Guerra Mundial", "Revolução Húngara de 1956"])
+      expect(NOT_EVENT_TITLE.test(title)).toBe(false);
   });
 
   it("refuses an answer that is not the query service's", () => {
