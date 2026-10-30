@@ -217,7 +217,14 @@
     "DECADE": "Decade",
     "DECADE_LABEL": "{decade}s",
     "YEAR": "Year",
-    "SOURCE_NOTE": "Borders on 1 July of the chosen year, according to CShapes 2.0. The dataset follows Gleditsch and Ward's list of states: states occupied or annexed in the Second World War, such as Poland and Austria, keep their borders, and territories that belonged to no state on that day have no border. Each state bears the name it had on that day (Russian Empire until 1917, Soviet Russia until 1922 and Soviet Union after; Austria-Hungary until 1918), and those annexed or partitioned in the war say so.",
+    "SOURCE_NOTE": {
+      "TITLE": "How the borders are drawn",
+      "DATE": "The map shows the borders on <b>1 July</b> of the chosen year.",
+      "BASE": "Source: <b>CShapes 2.0</b>, which follows Gleditsch and Ward's system of states.",
+      "OCCUPIED": "<b>States occupied or annexed in the Second World War</b>, such as Poland and Austria, keep their own borders, and the name says they were annexed or partitioned.",
+      "NO_STATE": "<b>Territories with no state</b> on that day have no border.",
+      "NAMES": "<b>Each state bears the name it had on that day</b>: Russian Empire until 1917, Soviet Russia until 1922 and Soviet Union after; Austria-Hungary until 1918."
+    },
     "SOURCE_ABOUT": "About the borders",
     "FACTS": {
       "TITLE": "Historical facts",

@@ -30,6 +30,9 @@ export type HistoricalExplorerProps = {
 };
 
 const FIRST_DECADE: Decade = 1920;
+// The borders' note, one rule per line (Tânia found it hard to read as one paragraph, 2026-10-30).
+const SOURCE_RULES = ["OCCUPIED", "NO_STATE", "NAMES"] as const;
+const strong = (chunks: ReactNode) => <strong className={styles.strong}>{chunks}</strong>;
 // Keeps the opening view clear of the left column and of the facts on the right on desktop.
 const SIDE_PADDING = { top: 0, right: ASIDE_INSET, bottom: 0, left: SIDE_INSET };
 
@@ -124,7 +127,16 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
       action={
         // How the borders are drawn, out of the way of the facts (asked by Tânia, 2026-10-30).
         <Toggletip align="end" trigger={<span className="sr-only">{t("SOURCE_ABOUT")}</span>}>
-          <span className={styles.infoText}>{t("SOURCE_NOTE")}</span>
+          <span className={styles.sourceNote}>
+            <span className={styles.sourceTitle}>{t("SOURCE_NOTE.TITLE")}</span>
+            <span>{t.rich("SOURCE_NOTE.DATE", { b: strong })}</span>
+            <span className={styles.sourceBase}>{t.rich("SOURCE_NOTE.BASE", { b: strong })}</span>
+            {SOURCE_RULES.map((rule) => (
+              <span key={rule} className={styles.sourceRule}>
+                {t.rich(`SOURCE_NOTE.${rule}`, { b: strong })}
+              </span>
+            ))}
+          </span>
         </Toggletip>
       }
     >

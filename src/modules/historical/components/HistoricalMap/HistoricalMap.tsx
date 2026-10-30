@@ -32,8 +32,15 @@ export type HistoricalMapProps = {
   padding?: { top: number; right: number; bottom: number; left: number };
 };
 
-// Central Europe, where the artists were born.
-const INITIAL_VIEW = { longitude: 18, latitude: 50, zoom: 3.6 };
+/**
+ * The opening view: Central and Eastern Europe, where the artists were born,
+ * from France to the Black Sea and from Denmark to Malta (framed on Alisson's
+ * screenshot, 2026-10-30). Fitted to the room left between the floating blocks.
+ */
+export const INITIAL_BOUNDS: [[number, number], [number, number]] = [
+  [0, 36],
+  [38, 57.5],
+];
 const NO_PADDING = { top: 0, right: 0, bottom: 0, left: 0 };
 
 type Opened = { kind: "place" | "state"; id: string; lng: number; lat: number };
@@ -76,7 +83,7 @@ export function HistoricalMap({
   return (
     <div className={styles.root} role="region" aria-label={label}>
       <Map
-        initialViewState={{ ...INITIAL_VIEW, padding }}
+        initialViewState={{ bounds: INITIAL_BOUNDS, fitBoundsOptions: { padding } }}
         mapStyle={mapStyle}
         interactiveLayerIds={["birthplaces", "states-fill"]}
         onClick={onClick}
