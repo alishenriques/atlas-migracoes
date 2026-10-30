@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "build:cartography": "node --experimental-strip-types scripts/build-cartography.mts",
+    "build:historical-facts": "node --experimental-strip-types scripts/build-historical-facts.mts",
     "test:e2e": "playwright test",
     "test:launch": "playwright test --config playwright.launch.config.ts"
   },
