@@ -33,6 +33,8 @@ test("a trajectory record lists the works and leads to the open-source research"
   await page.goto("/pt/trajetorias");
   await page.getByRole("link", { name: /Artista A \(simulado\)/ }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Artista A (simulado)" })).toBeVisible();
+  // The sections start folded; the works show once Obras opens.
+  await page.getByRole("button", { name: /^Obras/ }).click();
   await expect(page.getByText("Obra simulada 1")).toBeVisible();
 
   await page.getByRole("link", { name: "Pesquisar em fontes abertas" }).click();

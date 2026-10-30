@@ -67,6 +67,7 @@ const artists = [
     exhibitions: [mostra, salao, bienal],
     works: [work("w1", "Obra simulada 1", 1930, [salao], []), work("w2", "Obra simulada 2", 1950, [bienal], [revista])],
     publications: [revista],
+    photo: null,
   },
   {
     slug: "artista-b",
@@ -78,6 +79,7 @@ const artists = [
     exhibitions: [bienal],
     works: [work("w3", "Obra simulada 3", 1951, [bienal], [])],
     publications: [],
+    photo: null,
   },
 ];
 
