@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import shipped from "../../public/historical/facts.json";
+
 import {
   asFuzzyDate,
   factSpan,
@@ -91,5 +93,15 @@ describe("historicalFactsFileSchema", () => {
     const http = { ...file, facts: [{ ...file.facts[0], pt: { ...file.facts[0]!.pt, url: "http://pt.wikipedia.org/wiki/X" } }] };
     expect(() => historicalFactsFileSchema.parse(http)).toThrow();
     expect(() => historicalFactsFileSchema.parse({ ...file, facts: [{ ...file.facts[0], id: "361" }] })).toThrow();
+  });
+});
+
+describe("the shipped facts file", () => {
+  it("is valid and has facts across the whole period", () => {
+    const { facts, meta } = historicalFactsFileSchema.parse(shipped);
+    expect(meta).toMatchObject({ fromYear: 1910, toYear: 1989 });
+    const decades = new Set(facts.map((f) => f.start.iso.slice(0, 3)));
+    expect([...decades].sort()).toEqual(["191", "192", "193", "194", "195", "196", "197", "198"]);
+    expect(new Set(facts.map((f) => f.id)).size).toBe(facts.length);
   });
 });
