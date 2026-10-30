@@ -3,7 +3,7 @@ export const styles = {
   // Close to the menu: the record opens straight on the artist.
   // From lg up it fills the screen under the 61px top bar, without page scroll.
   record:
-    "flex w-full flex-1 flex-col gap-6 px-4 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:h-[calc(100svh-61px)] lg:flex-none lg:overflow-hidden lg:px-10 lg:py-6",
+    "flex w-full flex-1 flex-col gap-6 px-4 pb-12 pt-4 sm:px-6 sm:pb-16 sm:pt-6 lg:relative lg:h-[calc(100svh-61px)] lg:flex-none lg:overflow-hidden lg:px-10 lg:py-6",
   header: "flex flex-col gap-3",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   // The title, a thin gold rule and a small label naming what the page holds.
@@ -15,9 +15,12 @@ export const styles = {
   // Three columns as tall as the screen from lg up: the artist (3/12), a
   // scrolling centre with the map, sources and sections (6/12), and a side
   // column whose blocks share its height (3/12). Stacked below lg, in that order.
+  // Each area that scrolls is positioned, so absolute pieces inside it (screen-reader
+  // text in the DS accordions) scroll with it instead of stretching the page.
   top: "grid gap-6 lg:min-h-0 lg:flex-1 lg:grid-cols-12",
   profile: "lg:col-span-3 lg:min-h-0",
-  center: "flex min-w-0 flex-col gap-6 lg:col-span-6 lg:-mr-3 lg:min-h-0 lg:overflow-y-auto lg:pr-3 scrollbar-atlas",
+  center:
+    "relative flex min-w-0 flex-col gap-6 lg:col-span-6 lg:-mr-3 lg:min-h-0 lg:overflow-y-auto lg:pr-3 scrollbar-atlas",
   map: "shrink-0 lg:h-[min(560px,70svh)]",
   // Each block takes an equal share of the column (only the institutions for now).
   aside: "flex flex-col gap-6 lg:col-span-3 lg:min-h-0 lg:[&>*]:min-h-0 lg:[&>*]:flex-1",
