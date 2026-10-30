@@ -12,8 +12,8 @@ import { RecordMap } from "../RecordMap";
 
 // MapLibre needs WebGL; the stub shows what the map receives and the popups it would open.
 vi.mock("@/shared/components/TrajectoryMap", () => ({
-  TrajectoryMap: ({ trajectories, selectedSlug, label, renderPlace }: TrajectoryMapProps) => (
-    <div role="region" aria-label={label} data-selected={selectedSlug ?? ""}>
+  TrajectoryMap: ({ trajectories, selectedSlug, label, renderPlace, scrollZoom }: TrajectoryMapProps) => (
+    <div role="region" aria-label={label} data-selected={selectedSlug ?? ""} data-scroll-zoom={String(scrollZoom)}>
       {trajectories[0]?.visible.map((stop) => stop.kind).join(",")}
       {(["sp", "nowhere"] as const).map((id) => (
         <div key={id} data-testid={`popup-${id}`}>
@@ -61,6 +61,8 @@ describe("RecordMap", () => {
     const map = screen.getByRole("region", { name: "Mapa da trajetória" });
     expect(map).toHaveAttribute("data-selected", "lasar-segall");
     expect(map).toHaveTextContent("birth,exhibition,death");
+    // The wheel scrolls the record's column instead of zooming.
+    expect(map).toHaveAttribute("data-scroll-zoom", "false");
   });
 
   it("lists every stop at the clicked place, and nothing for an unknown place", () => {

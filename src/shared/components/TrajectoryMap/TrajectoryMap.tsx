@@ -31,6 +31,11 @@ export type TrajectoryMapProps = {
   renderPlace: (placeId: string) => ReactNode;
   /** Space covered by a floating panel, so fitted bounds stay visible. */
   padding?: { top: number; right: number; bottom: number; left: number };
+  /**
+   * Whether the mouse wheel zooms the map. Off where the map sits in a column
+   * that scrolls, so the wheel scrolls the column; the zoom buttons and pinch still work.
+   */
+  scrollZoom?: boolean;
 };
 
 // The opening frame, from Mexico to the Black Sea and from the Baltic to the River Plate:
@@ -56,6 +61,7 @@ export function TrajectoryMap({
   label,
   renderPlace,
   padding = NO_PADDING,
+  scrollZoom = true,
 }: TrajectoryMapProps) {
   const mapRef = useRef<MapRef>(null);
   const [colors] = useState(() => readMapColors());
@@ -98,6 +104,7 @@ export function TrajectoryMap({
         onMouseLeave={() => setHovering(false)}
         cursor={hovering ? "pointer" : "grab"}
         renderWorldCopies={false}
+        scrollZoom={scrollZoom}
         attributionControl={{ compact: true }}
       >
         <NavigationControl position="bottom-right" showCompass={false} />

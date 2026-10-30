@@ -49,6 +49,8 @@ export function RecordMap({ artist, label, className }: { artist: MapArtist; lab
         selectedSlug={artist.slug}
         label={label}
         renderPlace={renderPlace}
+        // The map sits in the record's scrolling column: the wheel scrolls the column.
+        scrollZoom={false}
       />
     </div>
   );
