@@ -29,6 +29,10 @@ function setup(value: Connection[] | null) {
   );
 }
 
+/** The drawing of the network, not the info icon inside the Toggletip's button. */
+const drawing = (container: HTMLElement) =>
+  [...container.querySelectorAll("svg")].find((svg) => !svg.closest("button")) ?? null;
+
 describe("ConnectionsCard", () => {
   it("draws the artist with their connections and lists them by kind of relation", () => {
     const { container } = setup(connections);
@@ -36,10 +40,11 @@ describe("ConnectionsCard", () => {
     expect(within(card).getByRole("list", { name: "Tipos de relação" })).toHaveTextContent(
       "Exposição conjuntaInstituiçãoNascimento e morte",
     );
-    expect(container.querySelectorAll("svg circle")).toHaveLength(connections.length + 1);
-    expect(container.querySelector("svg")).toHaveTextContent(/AnatolWladyslaw/);
+    const svg = drawing(container);
+    expect(svg?.querySelectorAll("circle")).toHaveLength(connections.length + 1);
+    expect(svg).toHaveTextContent(/AnatolWladyslaw/);
     // Birth and death are dashed, the other links solid.
-    const dashed = [...container.querySelectorAll("svg line")].map((line) => line.getAttribute("stroke-dasharray"));
+    const dashed = [...(svg?.querySelectorAll("line") ?? [])].map((line) => line.getAttribute("stroke-dasharray"));
     expect(dashed).toEqual([null, null, "3 3"]);
     const items = screen.getAllByRole("listitem").map((item) => item.textContent);
     expect(items).toContain("Exposição conjunta: Yolanda Mohalyi");
@@ -63,7 +68,7 @@ describe("ConnectionsCard", () => {
   it("says so when the artist has no connections, or the network could not load", () => {
     const { container, unmount } = setup([]);
     expect(screen.getByText("Nenhuma conexão registrada no acervo.")).toBeInTheDocument();
-    expect(container.querySelector("svg circle")).toBeNull();
+    expect(drawing(container)).toBeNull();
     unmount();
     setup(null);
     expect(screen.getByText("Não foi possível carregar a rede agora.")).toBeInTheDocument();
