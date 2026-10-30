@@ -1,6 +1,6 @@
 export const styles = {
   card: "flex flex-col gap-4 rounded-xl border border-line bg-raised p-5 lg:h-full lg:min-h-0",
-  body: "flex flex-col gap-4 lg:-mr-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:pr-2 scrollbar-atlas",
+  body: "relative flex flex-col gap-4 lg:-mr-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:pr-2 scrollbar-atlas",
   title: "shrink-0 text-xs font-medium uppercase tracking-[0.14em] text-foreground",
   empty: "text-sm text-muted",
   list: "flex flex-col gap-3",
