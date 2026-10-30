@@ -3,11 +3,12 @@ import { useTranslations } from "next-intl";
 
 import { Loading } from "@/shared/components/Loading";
 
+import { styles as connections } from "./components/ConnectionsCard/styles/index.styles";
 import { styles as institutions } from "./components/InstitutionsCard/styles/index.styles";
 import { styles as card } from "./components/ProfileCard/styles/index.styles";
 import { skeletonStyles, styles } from "./styles/index.styles";
 
-/** An artist's record while it loads: the artist's block, the map with the folded sections, and the institutions in skeleton. */
+/** An artist's record while it loads: the artist's block, the map with the folded sections, and the connections and institutions in skeleton. */
 export function ArtistRecordSkeleton() {
   const t = useTranslations("TRAJECTORIES");
 
@@ -40,6 +41,10 @@ export function ArtistRecordSkeleton() {
             </div>
           </div>
           <div className={styles.aside}>
+            <div className={connections.card}>
+              <h2 className={connections.title}>{t("CONNECTIONS")}</h2>
+              <Skeleton className={skeletonStyles.connections} height="100%" />
+            </div>
             <div className={institutions.card}>
               <h2 className={institutions.title}>{t("INSTITUTIONS")}</h2>
               <Skeleton shape="text" lines={5} />
