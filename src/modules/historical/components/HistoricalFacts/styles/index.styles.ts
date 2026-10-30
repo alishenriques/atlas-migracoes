@@ -1,7 +1,6 @@
 export const styles = {
-  section: "flex flex-col gap-2 border-t border-line pt-3",
-  header: "flex items-center justify-between gap-3",
-  title: "text-[11px] uppercase tracking-[0.12em] text-muted",
+  // Scrolls inside the right column of the map screen.
+  panel: "flex flex-col gap-2 md:min-h-0 md:overflow-y-auto scrollbar-atlas",
   tags: "flex items-center gap-2",
   infoText: "block max-w-xs text-xs leading-relaxed",
   status: "text-xs leading-relaxed text-muted",

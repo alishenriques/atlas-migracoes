@@ -12,7 +12,7 @@ import type { MapArtist } from "@/lib/schemas";
 import { stateNameLocale } from "@/lib/stateNames";
 import { placeName } from "@/lib/trajectory";
 import { MapPopup } from "@/shared/components/MapPopup";
-import { MapScreen, SIDE_INSET } from "@/shared/components/MapScreen";
+import { ASIDE_INSET, MapScreen, SIDE_INSET } from "@/shared/components/MapScreen";
 import { useIsDesktop } from "@/shared/hooks/useIsDesktop";
 
 import { useStates } from "../../hooks/useStates";
@@ -30,8 +30,8 @@ export type HistoricalExplorerProps = {
 };
 
 const FIRST_DECADE: Decade = 1920;
-// Keeps the opening view clear of the left column on desktop.
-const SIDE_PADDING = { top: 0, right: 0, bottom: 0, left: SIDE_INSET };
+// Keeps the opening view clear of the left column and of the facts on the right on desktop.
+const SIDE_PADDING = { top: 0, right: ASIDE_INSET, bottom: 0, left: SIDE_INSET };
 
 /**
  * The interactive Camada Histórica: Europe's borders by decade and year, and where each artist was born.
@@ -119,6 +119,7 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         )
       }
       intro={intro}
+      aside={<HistoricalFacts year={year} />}
       title={t("BORDERS_OF", { year })}
       action={
         // How the borders are drawn, out of the way of the facts (asked by Tânia, 2026-10-30).
@@ -139,7 +140,6 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         onChange={(value) => setYear(Number(value))}
         options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
       />
-      <HistoricalFacts year={year} />
 
       <div className={styles.list}>
         <div className={styles.listHeader}>

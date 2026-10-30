@@ -1,6 +1,6 @@
 "use client";
 
-import { ReliabilityTag, Toggletip } from "@alishenriques/atlas-design-system";
+import { Panel, ReliabilityTag, Toggletip } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { formatFuzzyDate } from "@/lib/dates";
@@ -18,6 +18,7 @@ export type HistoricalFactsProps = {
  * The block of historical facts of the chosen year: what happened in Europe
  * and in Brazil that year and the longer events still under way, each linked
  * to its Wikipedia article. Chosen by the platform, so labelled inferred.
+ * A panel of its own, floating on the right of the map on desktop.
  */
 export function HistoricalFacts({ year }: HistoricalFactsProps) {
   const t = useTranslations("HISTORICAL_LAYER.FACTS");
@@ -26,19 +27,18 @@ export function HistoricalFacts({ year }: HistoricalFactsProps) {
   const { inYear, ongoing } = loaded.status === "ready" ? factsOfYear(loaded.facts, year) : { inYear: [], ongoing: [] };
 
   return (
-    <section className={styles.section} aria-labelledby="historical-facts">
-      <div className={styles.header}>
-        <h3 id="historical-facts" className={styles.title}>
-          {t("TITLE")}
-        </h3>
+    <Panel
+      title={t("TITLE")}
+      className={styles.panel}
+      action={
         <span className={styles.tags}>
           <ReliabilityTag level="inferred" label={t("INFERRED")} />
           <Toggletip align="end" trigger={<span className="sr-only">{t("ABOUT")}</span>}>
             <span className={styles.infoText}>{t("INFO")}</span>
           </Toggletip>
         </span>
-      </div>
-
+      }
+    >
       {loaded.status === "loading" && <p className={styles.status}>{t("LOADING")}</p>}
       {loaded.status === "error" && <p className={styles.status}>{t("UNAVAILABLE")}</p>}
       {loaded.status === "ready" && inYear.length === 0 && ongoing.length === 0 && (
@@ -47,7 +47,7 @@ export function HistoricalFacts({ year }: HistoricalFactsProps) {
 
       {inYear.length > 0 && (
         <>
-          <h4 className={styles.groupTitle}>{t("IN_YEAR", { year })}</h4>
+          <h3 className={styles.groupTitle}>{t("IN_YEAR", { year })}</h3>
           <ul className={styles.facts}>
             {inYear.map((fact) => {
               const { title, text, url } = factText(fact, locale);
@@ -67,7 +67,7 @@ export function HistoricalFacts({ year }: HistoricalFactsProps) {
 
       {ongoing.length > 0 && (
         <>
-          <h4 className={styles.groupTitle}>{t("ONGOING")}</h4>
+          <h3 className={styles.groupTitle}>{t("ONGOING")}</h3>
           <ul className={styles.ongoing}>
             {ongoing.map((fact) => {
               const { title, url } = factText(fact, locale);
@@ -84,6 +84,6 @@ export function HistoricalFacts({ year }: HistoricalFactsProps) {
       )}
 
       {loaded.status === "ready" && <p className={styles.credit}>{t("CREDIT")}</p>}
-    </section>
+    </Panel>
   );
 }
