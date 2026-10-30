@@ -5,9 +5,11 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { formatFuzzyDate } from "@/lib/dates";
 import type { ArtistRecordResponse, FuzzyDate, Research } from "@/lib/schemas";
 import { buildTrajectory, placeName } from "@/lib/trajectory";
+import { institutionsOf } from "@/modules/trajectories/utils/profile";
 import { DemoNotice } from "@/shared/components/DemoNotice";
 import { TrajectoryStops } from "@/shared/components/TrajectoryStops";
 
+import { InstitutionsCard } from "./components/InstitutionsCard";
 import { ProfileCard } from "./components/ProfileCard";
 import { RecordMap } from "./components/RecordMap";
 import { styles } from "./styles/index.styles";
@@ -16,7 +18,7 @@ const joined = (...parts: (string | null | undefined)[]) => parts.filter(Boolean
 
 /**
  * An artist's record: who they were (with what the Relational AI found in open
- * sources) beside their trajectory on the map, then
+ * sources), their trajectory on the map and the institutions that showed them, then
  * the trajectory, works, exhibitions and publications as sections that fold.
  */
 export async function ArtistRecord({ data, research = null }: { data: ArtistRecordResponse; research?: Research | null }) {
@@ -49,7 +51,9 @@ export async function ArtistRecord({ data, research = null }: { data: ArtistReco
       {data.meta.source === "demo" && <DemoNotice />}
 
       <div className={styles.top}>
-        <ProfileCard artist={artist} research={research} />
+        <div className={styles.profile}>
+          <ProfileCard artist={artist} research={research} />
+        </div>
 
         <RecordMap
           artist={{
@@ -64,6 +68,10 @@ export async function ArtistRecord({ data, research = null }: { data: ArtistReco
           label={t("MAP_LABEL", { name: artist.name })}
           className={styles.map}
         />
+
+        <div className={styles.aside}>
+          <InstitutionsCard institutions={institutionsOf(artist)} />
+        </div>
       </div>
 
       <section className={styles.sources} aria-labelledby="record-sources">

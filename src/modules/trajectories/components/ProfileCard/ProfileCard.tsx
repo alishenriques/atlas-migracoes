@@ -6,12 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { ArtistRecord, Research } from "@/lib/schemas";
 import { lifeEvent, lifeSpan } from "@/modules/trajectories/utils/life";
-import { activityYears, artistProfile, institutionsOf, listOf, type SourcedFact } from "@/modules/trajectories/utils/profile";
+import { activityYears, artistProfile, listOf, type SourcedFact } from "@/modules/trajectories/utils/profile";
 
 import { ProfileActions } from "./ProfileActions";
 import { styles } from "./styles/index.styles";
-
-const INSTITUTIONS_SHOWN = 4;
 
 export type ProfileCardProps = {
   artist: ArtistRecord;
@@ -32,7 +30,6 @@ export function ProfileCard({ artist, research }: ProfileCardProps) {
   const profile = artistProfile(research);
   const years = lifeSpan(artist.birthDate, artist.deathDate, locale, unknown);
   const activity = activityYears(artist);
-  const institutions = institutionsOf(artist);
   const list = (values: string[]) => listOf(values, locale);
   const capitalized = (text: string) => text.charAt(0).toLocaleUpperCase(locale) + text.slice(1);
 
@@ -70,21 +67,6 @@ export function ProfileCard({ artist, research }: ProfileCardProps) {
             icon: <FactIcon name="period" size={22} />,
             label: t("ACTIVITY"),
             value: activity.from === activity.to ? String(activity.from) : `${activity.from} – ${activity.to}`,
-          },
-        ]
-      : []),
-    ...(institutions.length
-      ? [
-          {
-            icon: <FactIcon name="institution" size={22} />,
-            label: t("INSTITUTIONS"),
-            // The first few, in order of their first exhibition; the full list is under Exposições.
-            value: [
-              ...institutions.slice(0, INSTITUTIONS_SHOWN),
-              ...(institutions.length > INSTITUTIONS_SHOWN
-                ? [t("MORE_INSTITUTIONS", { count: institutions.length - INSTITUTIONS_SHOWN })]
-                : []),
-            ].join(" · "),
           },
         ]
       : []),
