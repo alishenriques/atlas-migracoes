@@ -1812,28 +1812,6 @@
       }
     },
     {
-      "id": "Q462252",
-      "start": {
-        "iso": "1922-12-30",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1991-12-25",
-        "precision": "day"
-      },
-      "weight": 42,
-      "pt": {
-        "title": "História da União Soviética",
-        "text": "A história da União Soviética (URSS) (1922–1991) começou com os ideais da Revolução Bolchevique russa e terminou em dissolução em meio ao colapso econômico e à desintegração política.",
-        "url": "https://pt.wikipedia.org/wiki/Hist%C3%B3ria_da_Uni%C3%A3o_Sovi%C3%A9tica"
-      },
-      "en": {
-        "title": "History of the Soviet Union",
-        "text": "The history of the Soviet Union (USSR) (1922–1991) began with the ideals of the Russian Bolshevik Revolution and ended in dissolution amidst economic collapse and political disintegration.",
-        "url": "https://en.wikipedia.org/wiki/History_of_the_Soviet_Union"
-      }
-    },
-    {
       "id": "Q2008840",
       "start": {
         "iso": "1923-01-01",
@@ -2241,44 +2219,6 @@
       }
     },
     {
-      "id": "Q857351",
-      "start": {
-        "iso": "1927-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 34,
-      "pt": {
-        "title": "Concurso Internacional de Piano Frédéric Chopin",
-        "text": "O Concurso Internacional de Piano Frédéric Chopin é uma das mais antigas competições musicais de piano e goza de grande prestígio e reconhecimento mundial.",
-        "url": "https://pt.wikipedia.org/wiki/Concurso_Internacional_de_Piano_Fr%C3%A9d%C3%A9ric_Chopin"
-      },
-      "en": {
-        "title": "International Chopin Piano Competition",
-        "text": "The International Chopin Piano Competition, also known as the Chopin Competition, is a piano competition in Warsaw, Poland, held first in 1927 and every five years since 1955.",
-        "url": "https://en.wikipedia.org/wiki/International_Chopin_Piano_Competition"
-      }
-    },
-    {
-      "id": "Q1149219",
-      "start": {
-        "iso": "1927-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 23,
-      "pt": {
-        "title": "Miss Rússia",
-        "text": "Miss Rússia é o concurso de beleza nacional feminino da Rússia.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_R%C3%BAssia"
-      },
-      "en": {
-        "title": "Miss Russia",
-        "text": "Miss Russia is a national beauty pageant in Russia.",
-        "url": "https://en.wikipedia.org/wiki/Miss_Russia"
-      }
-    },
-    {
       "id": "Q1199213",
       "start": {
         "iso": "1927-01-01",
@@ -2487,28 +2427,6 @@
         "title": "Great Depression",
         "text": "The Great Depression was a severe global economic downturn from 1929 to 1939. The period was marked by high rates of unemployment and poverty, drastic reductions in industrial production and international trade, and widespread bank and business failures around the world.",
         "url": "https://en.wikipedia.org/wiki/Great_Depression"
-      }
-    },
-    {
-      "id": "Q104640811",
-      "start": {
-        "iso": "1930-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "2022-06-14",
-        "precision": "day"
-      },
-      "weight": 26,
-      "pt": {
-        "title": "Guerra do Uísque",
-        "text": "A Guerra do Uísque, também conhecida como Guerra do Licor, foi uma pseudo-confrontação e disputa territorial entre a Dinamarca e o Canadá sobre a Ilha de Hans.",
-        "url": "https://pt.wikipedia.org/wiki/Guerra_do_U%C3%ADsque"
-      },
-      "en": {
-        "title": "Whisky War",
-        "text": "The Whisky War, also known as the Liquor Wars, was an amicable border dispute between the Kingdom of Denmark and Canada over Hans Island.",
-        "url": "https://en.wikipedia.org/wiki/Whisky_War"
       }
     },
     {
@@ -3017,28 +2935,6 @@
         "title": "German–Polish declaration of non-aggression",
         "text": "The German–Polish declaration of non-aggression, also known as the German–Polish non-aggression pact, was an agreement between Nazi Germany and the Second Polish Republic that was signed on 26 January 1934 in Berlin.",
         "url": "https://en.wikipedia.org/wiki/German%E2%80%93Polish_declaration_of_non-aggression"
-      }
-    },
-    {
-      "id": "Q5384797",
-      "start": {
-        "iso": "1934-03-12",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1938-01-01",
-        "precision": "year"
-      },
-      "weight": 16,
-      "pt": {
-        "title": "Era do Silêncio",
-        "text": "A Era do Silêncio foi o período entre 1934 e 1938 na história da Estônia.",
-        "url": "https://pt.wikipedia.org/wiki/Era_do_Sil%C3%AAncio"
-      },
-      "en": {
-        "title": "History of Estonia (1920–1939)",
-        "text": "The history of Estonia from 1920 to 1939 spanned the interwar period from the end of the Estonian War of Independence until the outbreak of World War II. It covers the years of parliamentary democracy, the Great Depression and the period of corporatist authoritarian rule.",
-        "url": "https://en.wikipedia.org/wiki/History_of_Estonia_(1920%E2%80%931939)"
       }
     },
     {
@@ -3635,28 +3531,6 @@
         "title": "Battle of Lake Khasan",
         "text": "The Battle of Lake Khasan, also known as the Changkufeng Incident, was an attempted military incursion by Manchukuo, a Japanese puppet state, into territory claimed and controlled by the Soviet Union.",
         "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Khasan"
-      }
-    },
-    {
-      "id": "Q1070761",
-      "start": {
-        "iso": "1938-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1938-01-01",
-        "precision": "year"
-      },
-      "weight": 20,
-      "pt": {
-        "title": "Locomotiva a Vapor Classe A4 4468 - MALLARD - LNER",
-        "text": "A LNER Mallard é a locomotiva a vapor da classe Class A4, tipo \"Pacific\" (4-6-2), número 4 468, que recebeu o nome \"Mallard\" e foi construída pela London and North Eastern Railway (LNER) em Doncaster, Inglaterra, em 1938.",
-        "url": "https://pt.wikipedia.org/wiki/Locomotiva_a_Vapor_Classe_A4_4468_-_MALLARD_-_LNER"
-      },
-      "en": {
-        "title": "LNER Class A4 4468 Mallard",
-        "text": "LNER Class A4 4468 Mallard is a 4-6-2 (\"Pacific\") steam locomotive built in 1938 for operation on the London and North Eastern Railway (LNER) at Doncaster Works to a design of Nigel Gresley.",
-        "url": "https://en.wikipedia.org/wiki/LNER_Class_A4_4468_Mallard"
       }
     },
     {
@@ -5000,25 +4874,6 @@
       }
     },
     {
-      "id": "Q785043",
-      "start": {
-        "iso": "1946-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 28,
-      "pt": {
-        "title": "Festival de Cannes 1946",
-        "text": "A 1.ª edição do Festival anual de Cannes foi realizado de 20 de setembro a 5 de outubro de 1946.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_de_Cannes_1946"
-      },
-      "en": {
-        "title": "1946 Cannes Film Festival",
-        "text": "The 1st annual Cannes Film Festival was held from 20 September to 5 October 1946. Twenty-one countries presented their films at the \"First Cannes International Film Festival\", which took place at the former Casino of Cannes.",
-        "url": "https://en.wikipedia.org/wiki/1946_Cannes_Film_Festival"
-      }
-    },
-    {
       "id": "Q1376434",
       "start": {
         "iso": "1946-01-01",
@@ -5334,25 +5189,6 @@
       }
     },
     {
-      "id": "Q312390",
-      "start": {
-        "iso": "1948-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 35,
-      "pt": {
-        "title": "Milagre do Reno",
-        "text": "A expressão milagre do Reno descreve a rápida reconstrução e o desenvolvimento da economia da Alemanha Ocidental e Áustria após a Segunda Grande Guerra.",
-        "url": "https://pt.wikipedia.org/wiki/Milagre_do_Reno"
-      },
-      "en": {
-        "title": "Wirtschaftswunder",
-        "text": "The Wirtschaftswunder, also known as the Miracle on the Rhine, was the rapid reconstruction and development of the economies of West Germany and Austria after World War II. The expression was first used to refer to this phenomenon by The Times in 1950.",
-        "url": "https://en.wikipedia.org/wiki/Wirtschaftswunder"
-      }
-    },
-    {
       "id": "Q1137957",
       "start": {
         "iso": "1948-02-25",
@@ -5451,25 +5287,6 @@
         "title": "Berlin Blockade",
         "text": "The Berlin Blockade was one of the first major international crises of the Cold War. During the multinational occupation of post–World War II Germany, the Soviet Union blocked the Western Allies' railway, road, and canal access to the sectors of Berlin under Western control.",
         "url": "https://en.wikipedia.org/wiki/Berlin_Blockade"
-      }
-    },
-    {
-      "id": "Q3624278",
-      "start": {
-        "iso": "1948-10-12",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 20,
-      "pt": {
-        "title": "Relações entre Coreia do Norte e Rússia",
-        "text": "A Coreia do Norte e a Rússia compartilham estreitas relações militares e de segurança. Ambas as nações têm interesse em um alinhamento geopolítico voltado a desafiar o Ocidente.",
-        "url": "https://pt.wikipedia.org/wiki/Rela%C3%A7%C3%B5es_entre_Coreia_do_Norte_e_R%C3%BAssia"
-      },
-      "en": {
-        "title": "North Korea–Russia relations",
-        "text": "North Korea and Russia share close military and security relations. Both nations share interest in a geopolitical alignment in challenging the West.",
-        "url": "https://en.wikipedia.org/wiki/North_Korea%E2%80%93Russia_relations"
       }
     },
     {
@@ -5751,28 +5568,6 @@
       }
     },
     {
-      "id": "Q571110",
-      "start": {
-        "iso": "1951-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1951-06-17",
-        "precision": "day"
-      },
-      "weight": 15,
-      "pt": {
-        "title": "Festival Internacional de Cinema de Berlim 1951",
-        "text": "A 1ª edição anual do Festival Internacional de Cinema de Berlim foi realizado entre os dias 6 a 17 de junho de 1951.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Internacional_de_Cinema_de_Berlim_1951"
-      },
-      "en": {
-        "title": "1st Berlin International Film Festival",
-        "text": "The 1st annual Berlin International Film Festival was held from 6 to 17 June 1951 at the Titiana-Palast cinema.",
-        "url": "https://en.wikipedia.org/wiki/1st_Berlin_International_Film_Festival"
-      }
-    },
-    {
       "id": "Q724496",
       "start": {
         "iso": "1951-04-18",
@@ -5811,25 +5606,6 @@
         "title": "Convention Relating to the Status of Refugees",
         "text": "The Convention Relating to the Status of Refugees, also known as the 1951 Refugee Convention or the Geneva Convention of 28 July 1951, is a United Nations multilateral treaty originally designed to establish the legal status of displaced persons in post-World War II Europe.",
         "url": "https://en.wikipedia.org/wiki/Convention_Relating_to_the_Status_of_Refugees"
-      }
-    },
-    {
-      "id": "Q2414682",
-      "start": {
-        "iso": "1951-07-29",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Miss Mundo 1951",
-        "text": "Miss Mundo 1951 foi a 1ª edição do concurso de beleza feminino de Miss Mundo. O certame foi idealizado e produzido pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley como uma das atrações do \"Festival of Great Britain\" realizado pela primeira vez em 1951.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1951"
-      },
-      "en": {
-        "title": "Miss World 1951",
-        "text": "Miss World 1951 was the 1st edition of the Miss World pageant, held at the Lyceum Ballroom in London, United Kingdom, on 27 July 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1951"
       }
     },
     {
@@ -5874,25 +5650,6 @@
       }
     },
     {
-      "id": "Q571102",
-      "start": {
-        "iso": "1952-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Festival Internacional de Cinema de Berlim 1952",
-        "text": "A 2ª edição anual do Festival Internacional de Cinema de Berlim foi realizado entre os dias 12 a 25 de junho de 1952.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Internacional_de_Cinema_de_Berlim_1952"
-      },
-      "en": {
-        "title": "2nd Berlin International Film Festival",
-        "text": "The 2nd annual Berlin International Film Festival was held from 12 to 25 June 1952.",
-        "url": "https://en.wikipedia.org/wiki/2nd_Berlin_International_Film_Festival"
-      }
-    },
-    {
       "id": "Q469733",
       "start": {
         "iso": "1952-05-08",
@@ -5912,25 +5669,6 @@
         "title": "Night of the Murdered Poets",
         "text": "The Night of the Murdered Poets occurred on 12 August 1952, and it involved the execution of 13 Soviet Jews in the Lubyanka Prison in Moscow.",
         "url": "https://en.wikipedia.org/wiki/Night_of_the_Murdered_Poets"
-      }
-    },
-    {
-      "id": "Q2530355",
-      "start": {
-        "iso": "1952-11-14",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Miss Mundo 1952",
-        "text": "Miss Mundo 1952 foi a 2ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado e produzido pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 14 de novembro de 1952.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1952"
-      },
-      "en": {
-        "title": "Miss World 1952",
-        "text": "Miss World 1952 was the 2nd edition of the Miss World pageant, held at the Lyceum Ballroom in London, United Kingdom, on 14 November 1952.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1952"
       }
     },
     {
@@ -5972,28 +5710,6 @@
         "title": "De-Stalinization",
         "text": "De-Stalinization comprised a series of political reforms in the Soviet Union after the death of long-time leader Joseph Stalin in 1953, and the thaw brought about by the ascension of Nikita Khrushchev to power, and his 1956 speech \"On the Cult of Personality and Its Consequences\", which denounced Stalin's cult of…",
         "url": "https://en.wikipedia.org/wiki/De-Stalinization"
-      }
-    },
-    {
-      "id": "Q4567715",
-      "start": {
-        "iso": "1953-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1953-06-01",
-        "precision": "month"
-      },
-      "weight": 20,
-      "pt": {
-        "title": "Expedição Britânica ao Monte Everest de 1953",
-        "text": "A expedição britânica ao Monte Everest de 1953 foi a nona expedição de montanhismo a tentar a primeira ascensão do Monte Everest, e a primeira com sucesso confirmado, quando Tenzing Norgay e Edmund Hillary alcançaram o cume em 29 de maio de 1953, às 11h30 da manhã.",
-        "url": "https://pt.wikipedia.org/wiki/Expedi%C3%A7%C3%A3o_Brit%C3%A2nica_ao_Monte_Everest_de_1953"
-      },
-      "en": {
-        "title": "1953 British Mount Everest expedition",
-        "text": "The 1953 British Mount Everest expedition was the ninth mountaineering expedition to attempt the first ascent of Mount Everest, and the first confirmed to have succeeded when Tenzing Norgay and Edmund Hillary reached the summit on 29 May 1953 at 11:30 a.m. Led by Colonel John Hunt, it was organised and financed by…",
-        "url": "https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"
       }
     },
     {
@@ -6161,28 +5877,6 @@
       }
     },
     {
-      "id": "Q938552",
-      "start": {
-        "iso": "1954-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1968-01-01",
-        "precision": "year"
-      },
-      "weight": 30,
-      "pt": {
-        "title": "AEC Routemaster",
-        "text": "O AEC Routemaster é um ônibus double decker com motor dianteiro, projetado pela London Transport e construído pela Associated Equipment Company (AEC) e pela Park Royal Vehicles.",
-        "url": "https://pt.wikipedia.org/wiki/AEC_Routemaster"
-      },
-      "en": {
-        "title": "AEC Routemaster",
-        "text": "The AEC Routemaster is a front-engined double-decker bus that was designed by London Transport and built by the Associated Equipment Company (AEC) and Park Royal Vehicles.",
-        "url": "https://en.wikipedia.org/wiki/AEC_Routemaster"
-      }
-    },
-    {
       "id": "Q1566342",
       "start": {
         "iso": "1954-01-01",
@@ -6199,25 +5893,6 @@
         "title": "Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict",
         "text": "The Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict is the first international treaty that focuses exclusively on the protection of cultural property in the event of armed conflict.",
         "url": "https://en.wikipedia.org/wiki/Hague_Convention_for_the_Protection_of_Cultural_Property_in_the_Event_of_Armed_Conflict"
-      }
-    },
-    {
-      "id": "Q962966",
-      "start": {
-        "iso": "1954-01-10",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Voo BOAC 781",
-        "text": "O voo BOAC 781 foi realizado pela empresa aérea britânica BOAC em 10 de janeiro de 1954 com um de Havilland DH.106 Comet, que afundou no Mar Tirreno, 16 quilômetros (9,94 milhas) ao sul do Monte Calamita, na Ilha de Elba, e onde todos os 35 ocupantes do avião, 29 passageiros e 6 tripulantes, morreram.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_BOAC_781"
-      },
-      "en": {
-        "title": "BOAC Flight 781",
-        "text": "BOAC Flight 781 was a scheduled British Overseas Airways Corporation passenger flight from Singapore to London.",
-        "url": "https://en.wikipedia.org/wiki/BOAC_Flight_781"
       }
     },
     {
@@ -6278,88 +5953,6 @@
         "title": "Algerian War",
         "text": "The Algerian War, also known as the Algerian Revolution, the Franco-Algerian War, or the Algerian War of Independence, was an armed conflict between France and the Algerian National Liberation Front (FLN) from 1954 to 1962, which led to Algeria winning its independence from France.",
         "url": "https://en.wikipedia.org/wiki/Algerian_War"
-      }
-    },
-    {
-      "id": "Q465966",
-      "start": {
-        "iso": "1955-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1975-01-01",
-        "precision": "year"
-      },
-      "weight": 45,
-      "pt": {
-        "title": "Citroën DS",
-        "text": "O Citroën DS, conhecido em Portugal por boca-de-sapo, foi um automóvel fabricado e comercializado pela fabricante de automóveis francesa Citroën de 1955 a 1975.",
-        "url": "https://pt.wikipedia.org/wiki/Citro%C3%ABn_DS"
-      },
-      "en": {
-        "title": "Citroën DS",
-        "text": "The Citroën DS is a front mid-engined, front-wheel drive executive car manufactured and marketed by Citroën from 1955 to 1975, in fastback/sedan, wagon/estate, and convertible body configurations, across a single generation comprising three series.",
-        "url": "https://en.wikipedia.org/wiki/Citro%C3%ABn_DS"
-      }
-    },
-    {
-      "id": "Q895688",
-      "start": {
-        "iso": "1955-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 18,
-      "pt": {
-        "title": "Relações entre Alemanha e Estados Unidos",
-        "text": "As relações entre Alemanha e Estados Unidos foram decisivas para a economia e a política mundial.",
-        "url": "https://pt.wikipedia.org/wiki/Rela%C3%A7%C3%B5es_entre_Alemanha_e_Estados_Unidos"
-      },
-      "en": {
-        "title": "Germany–United States relations",
-        "text": "Today, Germany and the United States are geopolitical and commercial trade partners. The two countries maintain a historically rooted but increasingly strained partnership.",
-        "url": "https://en.wikipedia.org/wiki/Germany%E2%80%93United_States_relations"
-      }
-    },
-    {
-      "id": "Q2530351",
-      "start": {
-        "iso": "1955-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1955",
-        "text": "Miss Mundo 1955 foi a 5ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado e produzido pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 20 de outubro de 1955.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1955"
-      },
-      "en": {
-        "title": "Miss World 1955",
-        "text": "Miss World 1955 was the 5th edition of the Miss World pageant, held at the Lyceum Ballroom in London, United Kingdom, on 20 October 1955.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1955"
-      }
-    },
-    {
-      "id": "Q1986828",
-      "start": {
-        "iso": "1955-03-03",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1992-01-01",
-        "precision": "year"
-      },
-      "weight": 28,
-      "pt": {
-        "title": "Almirante da Frota da União Soviética",
-        "text": "Almirante da Frota da União Soviética foi a mais alta patente da Frota Naval Militar da União Soviética, foi criada em 3 de março de 1955 pelo conselho de ministros da URSS e extinta em 26 de dezembro de 1991 com a queda da União Soviética",
-        "url": "https://pt.wikipedia.org/wiki/Almirante_da_Frota_da_Uni%C3%A3o_Sovi%C3%A9tica"
-      },
-      "en": {
-        "title": "Admiral of the Fleet of the Soviet Union",
-        "text": "An Admiral of the Fleet of the Soviet Union was the highest naval rank of the Soviet Union.",
-        "url": "https://en.wikipedia.org/wiki/Admiral_of_the_Fleet_of_the_Soviet_Union"
       }
     },
     {
@@ -6448,25 +6041,6 @@
       }
     },
     {
-      "id": "Q276",
-      "start": {
-        "iso": "1956-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 143,
-      "pt": {
-        "title": "Festival Eurovisão da Canção",
-        "text": "O Festival Eurovisão da Canção é uma competição internacional de canções organizada anualmente pela União Europeia de Radiodifusão (UER), que conta com participantes que representam países europeus, Israel, Turquia, países do Cáucaso, e mais recentemente, também a Austrália.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Eurovision Song Contest",
-        "text": "The Eurovision Song Contest, often known simply as Eurovision, is an international song competition organised annually by the European Broadcasting Union (EBU) since 1956.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest"
-      }
-    },
-    {
       "id": "Q164348",
       "start": {
         "iso": "1956-01-01",
@@ -6486,82 +6060,6 @@
         "title": "Hungarian Revolution of 1956",
         "text": "The Hungarian Revolution of 1956, also known as the Hungarian Uprising, was an attempted countrywide revolution against the government of the Hungarian People's Republic (1949–1989) and the policies caused by the government's subordination to the Union of Soviet Socialist Republics (USSR). The uprising lasted 15 days…",
         "url": "https://en.wikipedia.org/wiki/Hungarian_Revolution_of_1956"
-      }
-    },
-    {
-      "id": "Q332506",
-      "start": {
-        "iso": "1956-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 44,
-      "pt": {
-        "title": "Bélgica no Festival Eurovisão da Canção",
-        "text": "A Bélgica é um dos membros fundadores do Festival Eurovisão da Canção.",
-        "url": "https://pt.wikipedia.org/wiki/B%C3%A9lgica_no_Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Belgium in the Eurovision Song Contest",
-        "text": "Belgium has been represented at the Eurovision Song Contest 67 times since making its debut as one of seven countries at the first contest in 1956.",
-        "url": "https://en.wikipedia.org/wiki/Belgium_in_the_Eurovision_Song_Contest"
-      }
-    },
-    {
-      "id": "Q1543111",
-      "start": {
-        "iso": "1956-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 20,
-      "pt": {
-        "title": "Volvo Amazon",
-        "text": "O Volvo Amazon foi um carro de médio porte fabricado e comercializado pela Volvo Cars de 1956 a 1970.",
-        "url": "https://pt.wikipedia.org/wiki/Volvo_Amazon"
-      },
-      "en": {
-        "title": "Volvo Amazon",
-        "text": "The Volvo Amazon is a mid-sized car that was manufactured and marketed by Volvo Cars from 1956 to 1970.",
-        "url": "https://en.wikipedia.org/wiki/Volvo_Amazon"
-      }
-    },
-    {
-      "id": "Q2530342",
-      "start": {
-        "iso": "1956-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 17,
-      "pt": {
-        "title": "Miss Mundo 1956",
-        "text": "Miss Mundo 1956 foi a 6ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado e produzido pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 15 de outubro de 1956.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1956"
-      },
-      "en": {
-        "title": "Miss World 1956",
-        "text": "Miss World 1956 was the 6th edition of the Miss World pageant, held at the Lyceum Ballroom in London, United Kingdom, on 15 October 1956.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1956"
-      }
-    },
-    {
-      "id": "Q171784",
-      "start": {
-        "iso": "1956-05-24",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 67,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1956",
-        "text": "O Festival Eurovisão da Canção 1956 foi o primeiro Festival Eurovisão da Canção e teve lugar no dia 24 de Maio de 1956 na cidade suíça de Lugano.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1956"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1956",
-        "text": "The Eurovision Song Contest 1956, originally titled the Gran premio Eurovisione 1956 della canzone europea, was the first edition of the Eurovision Song Contest, held on 24 May 1956 at the Teatro Kursaal in Lugano, Switzerland, and presented by Lohengrin Filipello.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1956"
       }
     },
     {
@@ -6622,47 +6120,6 @@
         "title": "List of spacecraft called Sputnik",
         "text": "Sputnik is a name for multiple spacecraft launched under the Soviet space program. \"Sputnik 1\", \"Sputnik 2\" and \"Sputnik 3\" were the official Soviet names of those objects, and the remaining designations in the series were not official names but names applied in the West to objects whose original Soviet names may not…",
         "url": "https://en.wikipedia.org/wiki/List_of_spacecraft_called_Sputnik"
-      }
-    },
-    {
-      "id": "Q298750",
-      "start": {
-        "iso": "1957-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 45,
-      "pt": {
-        "title": "Áustria no Festival Eurovisão da Canção",
-        "text": "A Áustria participou no Festival Eurovisão da Canção 56 vezes desde sua estreia em 1957, tendo estado ausente 11 vezes: em 1969, 1970, 1973, 1974, 1975, 1998, 2001, 2006, 2008, 2009 e em 2010.",
-        "url": "https://pt.wikipedia.org/wiki/%C3%81ustria_no_Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Austria in the Eurovision Song Contest",
-        "text": "Austria has been represented at the Eurovision Song Contest 58 times since its debut in 1957.",
-        "url": "https://en.wikipedia.org/wiki/Austria_in_the_Eurovision_Song_Contest"
-      }
-    },
-    {
-      "id": "Q154846",
-      "start": {
-        "iso": "1957-03-03",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1957-03-03",
-        "precision": "day"
-      },
-      "weight": 61,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1957",
-        "text": "O Festival Eurovisão da Canção 1957 foi o segundo Festival Eurovisão da Canção e realizou-se a 3 de Março de 1957, em Frankfurt am Main.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1957"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1957",
-        "text": "The Eurovision Song Contest 1957, originally known as the Grand Prix Eurovision de la Chanson Européenne 1957, was the second edition of the Eurovision Song Contest, held on Sunday 3 March 1957 at the Großer Sendesaal des Hessischen Rundfunks in Frankfurt, West Germany, and presented by Anaid Iplicjian.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1957"
       }
     },
     {
@@ -6786,44 +6243,6 @@
       }
     },
     {
-      "id": "Q503685",
-      "start": {
-        "iso": "1958-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 33,
-      "pt": {
-        "title": "Mod",
-        "text": "Mod é uma subcultura que surgiu na segunda metade da década de 1950 em Londres e se espalhou por todo o Reino Unido, tendo forte influência em outras partes do mundo na década seguinte.",
-        "url": "https://pt.wikipedia.org/wiki/Mod"
-      },
-      "en": {
-        "title": "Mod (subculture)",
-        "text": "Mod, from the word modernist, is a subculture that began in the late 1950s London and spread throughout Great Britain, eventually influencing fashions and trends in other countries.",
-        "url": "https://en.wikipedia.org/wiki/Mod_(subculture)"
-      }
-    },
-    {
-      "id": "Q130829",
-      "start": {
-        "iso": "1958-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 29,
-      "pt": {
-        "title": "Semana da Moda de Milão",
-        "text": "A Semana da Moda de Milão é uma famosa semana de moda realizada semestralmente, em Milão, Itália.",
-        "url": "https://pt.wikipedia.org/wiki/Semana_da_Moda_de_Mil%C3%A3o"
-      },
-      "en": {
-        "title": "Milan Fashion Week",
-        "text": "Milan Fashion Week is a clothing trade show held semi-annually in Milan, Italy. Upcoming autumn/winter fashions are showcased in February/March of each year, and upcoming spring/summer fashions are showcased in September/October of each year.",
-        "url": "https://en.wikipedia.org/wiki/Milan_Fashion_Week"
-      }
-    },
-    {
       "id": "Q74035",
       "start": {
         "iso": "1958-01-01",
@@ -6862,28 +6281,6 @@
         "title": "Munich air disaster",
         "text": "The Munich air disaster occurred on 6 February 1958, when British European Airways Flight 609 crashed on its third attempt to take off at Munich-Riem Airport in Munich, West Germany.",
         "url": "https://en.wikipedia.org/wiki/Munich_air_disaster"
-      }
-    },
-    {
-      "id": "Q188517",
-      "start": {
-        "iso": "1958-03-12",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1958-03-12",
-        "precision": "day"
-      },
-      "weight": 59,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1958",
-        "text": "O Festival Eurovisão da Canção 1958 foi o 3.º Festival Eurovisão da Canção e realizou-se em 12 de Março de 1958 na cidade de Hilversum nos Países Baixos.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1958"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1958",
-        "text": "The Eurovision Song Contest 1958, originally known as the Grand Prix Eurovision de la Chanson Européenne 1958, was the third edition of the Eurovision Song Contest, held on Wednesday 12 March 1958 at the AVRO Studios in Hilversum, the Netherlands, and presented by Hannie Lips.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1958"
       }
     },
     {
@@ -6928,25 +6325,6 @@
       }
     },
     {
-      "id": "Q150609",
-      "start": {
-        "iso": "1959-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 71,
-      "pt": {
-        "title": "Mikoyan-Gurevich MiG-21",
-        "text": "Mikoyan-Gurevich MiG-21 - é um caça, originalmente construído pelo gabinete de design Mikoyan-Gurevich, na União Soviética.",
-        "url": "https://pt.wikipedia.org/wiki/Mikoyan-Gurevich_MiG-21"
-      },
-      "en": {
-        "title": "Mikoyan-Gurevich MiG-21",
-        "text": "The Mikoyan-Gurevich MiG-21 is a supersonic jet fighter and interceptor aircraft, designed by the Mikoyan-Gurevich Design Bureau in the Soviet Union.",
-        "url": "https://en.wikipedia.org/wiki/Mikoyan-Gurevich_MiG-21"
-      }
-    },
-    {
       "id": "Q3315831",
       "start": {
         "iso": "1959-01-01",
@@ -6969,25 +6347,6 @@
       }
     },
     {
-      "id": "Q2530320",
-      "start": {
-        "iso": "1959-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1959",
-        "text": "Miss Mundo 1959 foi a 9ª edição do concurso de beleza feminino Miss Mundo. O certame foi idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group Eric Douglas Morley, cuja realização foi concretizada pela primeira vez em 10 de novembro de 1959.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1959"
-      },
-      "en": {
-        "title": "Miss World 1959",
-        "text": "Miss World 1959 was the 9th edition of the Miss World pageant, held at the Lyceum Ballroom, London, United Kingdom, on 10 November 1959.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1959"
-      }
-    },
-    {
       "id": "Q814484",
       "start": {
         "iso": "1959-02-02",
@@ -7004,28 +6363,6 @@
         "title": "Dyatlov Pass incident",
         "text": "The Dyatlov Pass incident was an event in which nine Soviet ski hikers died in the northern part of the Ural Mountains ridge in the Russian SFSR on 1 or 2 February 1959 under undetermined circumstances.",
         "url": "https://en.wikipedia.org/wiki/Dyatlov_Pass_incident"
-      }
-    },
-    {
-      "id": "Q199924",
-      "start": {
-        "iso": "1959-03-11",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1959-03-11",
-        "precision": "day"
-      },
-      "weight": 58,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1959",
-        "text": "O Festival Eurovisão da Canção 1959 foi o 4º Festival Eurovisão da Canção e realizou-se no dia 11 de março de 1959 na cidade da Riviera Francesa de Cannes.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1959"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1959",
-        "text": "The Eurovision Song Contest 1959, originally known as the Grand Prix Eurovision 1959 de la Chanson Européenne, was the fourth edition of the Eurovision Song Contest, held on Wednesday 11 March 1959 at the Palais des Festivals et des Congrès in Cannes, France, and presented by Jacqueline Joubert.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1959"
       }
     },
     {
@@ -7048,63 +6385,6 @@
         "title": "Basque conflict",
         "text": "The Basque conflict, also known as the Spain–ETA conflict, was an armed and territorial conflict from 1959 to 2011 between Spain and the Basque National Liberation Movement, a group of social and political Basque organizations which sought independence from Spain and France.",
         "url": "https://en.wikipedia.org/wiki/Basque_conflict"
-      }
-    },
-    {
-      "id": "Q42490",
-      "start": {
-        "iso": "1959-10-29",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 92,
-      "pt": {
-        "title": "Asterix",
-        "text": "Asterix ou Astérix, é uma série de histórias em quadrinhos criada na França por René Goscinny e Albert Uderzo no ano de 1959, baseada no povo gaulês e em grande parte no tempo do seu grande chefe guerreiro Vercingetorix.",
-        "url": "https://pt.wikipedia.org/wiki/Asterix"
-      },
-      "en": {
-        "title": "Asterix",
-        "text": "Asterix is a French comic album series about a Gaulish village which, thanks to a magic potion that enhances strength, resists the forces of Julius Caesar's Roman Republic Army in the time after the Gallic Wars.",
-        "url": "https://en.wikipedia.org/wiki/Asterix"
-      }
-    },
-    {
-      "id": "Q2529950",
-      "start": {
-        "iso": "1960-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1960",
-        "text": "Miss Mundo 1960 foi a 10ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 8 de novembro de 1960.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1960"
-      },
-      "en": {
-        "title": "Miss World 1960",
-        "text": "Miss World 1960 was the 10th edition of the Miss World pageant, held at the Lyceum Ballroom, London, United Kingdom, on 8 November 1960.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1960"
-      }
-    },
-    {
-      "id": "Q203245",
-      "start": {
-        "iso": "1960-03-29",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 56,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1960",
-        "text": "O Festival Eurovisão da Canção 1960 foi o 5º Festival Eurovisão da Canção e teve lugar a 29 de março de 1960 em Londres.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1960"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1960",
-        "text": "The Eurovision Song Contest 1960 was the fifth edition of the Eurovision Song Contest, held on Tuesday 29 March 1960 at the Royal Festival Hall in London, United Kingdom, and presented by Catherine Boyle.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1960"
       }
     },
     {
@@ -7143,25 +6423,6 @@
         "title": "1960 Turkish coup d'état",
         "text": "The 1960 Turkish coup d'état, also known as the 27 May Revolution, was the first coup d'état in the Republic of Turkey.",
         "url": "https://en.wikipedia.org/wiki/1960_Turkish_coup_d'%C3%A9tat"
-      }
-    },
-    {
-      "id": "Q1995107",
-      "start": {
-        "iso": "1960-06-05",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 25,
-      "pt": {
-        "title": "Assassinatos do lago Bodom",
-        "text": "Os assassinatos do lago Bodom é um dos casos de homicídio não resolvidos mais famosos da história criminal finlandesa.",
-        "url": "https://pt.wikipedia.org/wiki/Assassinatos_do_lago_Bodom"
-      },
-      "en": {
-        "title": "Lake Bodom murders",
-        "text": "The Lake Bodom murders is an unsolved 1960 homicide case in which three teenage campers were killed and another seriously injured in Finland.",
-        "url": "https://en.wikipedia.org/wiki/Lake_Bodom_murders"
       }
     },
     {
@@ -7225,28 +6486,6 @@
         "title": "Portuguese Colonial War",
         "text": "The Portuguese Colonial War, also known in Portugal as the Overseas War or in the former colonies as the War of Liberation, and also known as the Angolan, Guinea-Bissau and Mozambican Wars of Independence, was a 13-year-long conflict fought between Portugal's military and the emerging nationalist movements in…",
         "url": "https://en.wikipedia.org/wiki/Portuguese_Colonial_War"
-      }
-    },
-    {
-      "id": "Q200794",
-      "start": {
-        "iso": "1961-03-18",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1961-03-18",
-        "precision": "day"
-      },
-      "weight": 55,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1961",
-        "text": "O Festival Eurovisão da Canção 1961 foi o sexto Festival Eurovisão da Canção e realizou-se na noite do dia 18 de março de 1961 em Cannes, em França.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1961"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1961",
-        "text": "The Eurovision Song Contest 1961, originally known as the Grand Prix Eurovision 1961 de la Chanson Européenne, was the 6th edition of the Eurovision Song Contest, held on 18 March 1961 at the Palais des Festivals et des Congrès in Cannes, France, and presented by Jacqueline Joubert.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1961"
       }
     },
     {
@@ -7373,66 +6612,6 @@
       }
     },
     {
-      "id": "Q151472",
-      "start": {
-        "iso": "1962-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 39,
-      "pt": {
-        "title": "Lista de filmes de James Bond",
-        "text": "James Bond é um personagem fictício criado pelo escritor Ian Fleming em 1953. Bond é um agente secreto do MI6 que também responde pelo codinome 007.",
-        "url": "https://pt.wikipedia.org/wiki/Lista_de_filmes_de_James_Bond"
-      },
-      "en": {
-        "title": "List of James Bond films",
-        "text": "James Bond is a fictional character created by British novelist Ian Fleming in 1953. A British secret agent working for MI6 under the codename 007, Bond has been portrayed on film in twenty-seven productions by actors Sean Connery, David Niven, George Lazenby, Roger Moore, Timothy Dalton, Pierce Brosnan, and Daniel…",
-        "url": "https://en.wikipedia.org/wiki/List_of_James_Bond_films"
-      }
-    },
-    {
-      "id": "Q188374",
-      "start": {
-        "iso": "1962-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 23,
-      "pt": {
-        "title": "Festivali i Këngës",
-        "text": "Festivali i Këngës é um concurso anual de música na Albânia, organizado pela emissora nacional Radio Televizioni Shqiptar (RTSH). Ele determina o representante do país para o Eurovision Song Contest e transmite quase todos os anos desde a sua inauguração em 1962.",
-        "url": "https://pt.wikipedia.org/wiki/Festivali_i_K%C3%ABng%C3%ABs"
-      },
-      "en": {
-        "title": "Festivali i Këngës",
-        "text": "Festivali i Këngës në RTSH, commonly known as Festivali i Këngës and also referred to as simply FiK or Fest, is an annual music competition in Albania organised by the national broadcaster Radio Televizioni Shqiptar (RTSH). Broadcast every year since its inauguration in 1962, the festival has determined the country's…",
-        "url": "https://en.wikipedia.org/wiki/Festivali_i_K%C3%ABng%C3%ABs"
-      }
-    },
-    {
-      "id": "Q203254",
-      "start": {
-        "iso": "1962-03-18",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1962-03-18",
-        "precision": "day"
-      },
-      "weight": 54,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1962",
-        "text": "O Festival Eurovisão da Canção 1962 foi o 7º Festival Eurovisão da Canção e foi realizado a 18 de março de 1962 no Luxemburgo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1962"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1962",
-        "text": "The Eurovision Song Contest 1962, originally known as the Grand Prix Eurovision de la Chanson Européenne 1962, was the 7th edition of the Eurovision Song Contest, held on 18 March 1962 at the Grand Auditorium of Villa Louvigny in Luxembourg City, Luxembourg, and presented by Mireille Delannoy.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1962"
-      }
-    },
-    {
       "id": "Q1471139",
       "start": {
         "iso": "1962-03-18",
@@ -7468,104 +6647,6 @@
         "title": "Novocherkassk massacre",
         "text": "The Novocherkassk massacre took place on 2 June 1962 in Novocherkassk, Russian SFSR, Soviet Union, when Soviet Army soldiers and MVD Internal Troops, supported by KGB units, fired on unarmed demonstrators protesting economic conditions.",
         "url": "https://en.wikipedia.org/wiki/Novocherkassk_massacre"
-      }
-    },
-    {
-      "id": "Q4697992",
-      "start": {
-        "iso": "1962-06-03",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 17,
-      "pt": {
-        "title": "Voo Air France 007",
-        "text": "O Voo Air France 007, foi um voo internacional, que caiu em 3 de junho de 1962 durante a decolagem do Aeroporto de Orly.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Air_France_007"
-      },
-      "en": {
-        "title": "Air France Flight 007",
-        "text": "Air France Flight 007 crashed on 3 June 1962 while on take-off from Orly Airport. The only survivors of the disaster were two flight attendants; the other eight crew members, and all 122 passengers on board were killed.",
-        "url": "https://en.wikipedia.org/wiki/Air_France_Flight_007"
-      }
-    },
-    {
-      "id": "Q1056800",
-      "start": {
-        "iso": "1962-10-01",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 31,
-      "pt": {
-        "title": "Irish Recorded Music Association",
-        "text": "A Irish Recorded Music Association é a associação da indústria da música irlandesa que defende e representa as companhias discográficas e os distribuidores de fonografia e videografia.",
-        "url": "https://pt.wikipedia.org/wiki/Irish_Recorded_Music_Association"
-      },
-      "en": {
-        "title": "Irish Singles Chart",
-        "text": "The Irish Singles Chart is the Republic of Ireland's music industry standard singles popularity chart issued weekly by the Irish Recorded Music Association (IRMA) and compiled on their behalf by the Official Charts Company.",
-        "url": "https://en.wikipedia.org/wiki/Irish_Singles_Chart"
-      }
-    },
-    {
-      "id": "Q2636914",
-      "start": {
-        "iso": "1963-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1963",
-        "text": "Miss Mundo 1963 foi a 13ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 7 de novembro de 1963.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1963"
-      },
-      "en": {
-        "title": "Miss World",
-        "text": "Miss World is the oldest existing international beauty pageant. It was created in the United Kingdom by Eric Morley in 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World"
-      }
-    },
-    {
-      "id": "Q7707426",
-      "start": {
-        "iso": "1963-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Caso do metílico",
-        "text": "A denominação popular Caso do metílico designa um surto de intoxicação alimentar acontecido na Galícia e nas ilhas Canárias durante a primavera de 1963, por consumo de bebidas alcoólicas elaboradas a partir de álcool metílico, com o resultado de 51 falecidos e 9 pessoas cegas, apesar que se estima que a cifra real de…",
-        "url": "https://pt.wikipedia.org/wiki/Caso_do_met%C3%ADlico"
-      },
-      "en": {
-        "title": "Spanish methanol poisonings",
-        "text": "Methanol poisonings in Spain took place in early 1963, when an alcohol merchant Rogelio Aguiar from Ourense, Galicia, Spain sold drinks containing dangerous amounts of methanol.",
-        "url": "https://en.wikipedia.org/wiki/Spanish_methanol_poisonings"
-      }
-    },
-    {
-      "id": "Q203968",
-      "start": {
-        "iso": "1963-03-23",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1963-03-23",
-        "precision": "day"
-      },
-      "weight": 53,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1963",
-        "text": "O Festival Eurovisão da Canção 1963 foi o 8º Festival Eurovisão da Canção, que teve lugar no Reino Unido.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1963"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1963",
-        "text": "The Eurovision Song Contest 1963 was the eighth edition of the Eurovision Song Contest, held on Saturday 23 March 1963 at the BBC Television Centre in London, United Kingdom, and presented by Katie Boyle for a second time.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1963"
       }
     },
     {
@@ -7623,25 +6704,6 @@
         "title": "Partial Nuclear Test Ban Treaty",
         "text": "The Partial Test Ban Treaty (PTBT), formally known as the 1963 Treaty Banning Nuclear Weapon Tests in the Atmosphere, in Outer Space and Under Water, prohibited all test detonations of nuclear weapons except for those conducted underground.",
         "url": "https://en.wikipedia.org/wiki/Partial_Nuclear_Test_Ban_Treaty"
-      }
-    },
-    {
-      "id": "Q1140155",
-      "start": {
-        "iso": "1963-08-08",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 27,
-      "pt": {
-        "title": "Assalto ao trem pagador (Inglaterra)",
-        "text": "Assalto ao trem pagador é uma referência a um roubo a uma locomotiva postal ocorrido em 8 de agosto de 1963 no condado de Buckinghamshire, na Inglaterra.",
-        "url": "https://pt.wikipedia.org/wiki/Assalto_ao_trem_pagador_(Inglaterra)"
-      },
-      "en": {
-        "title": "Great Train Robbery (1963)",
-        "text": "The Great Train Robbery was the robbery of £2.61 million from a Royal Mail train travelling from Glasgow to London, on the West Coast Main Line, in the early hours of 8 August 1963.",
-        "url": "https://en.wikipedia.org/wiki/Great_Train_Robbery_(1963)"
       }
     },
     {
@@ -7708,66 +6770,6 @@
       }
     },
     {
-      "id": "Q3070476",
-      "start": {
-        "iso": "1964-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 23,
-      "pt": {
-        "title": "Festival de Cinema de Antália",
-        "text": "O Festival Internacional de Cinema de Antália, anteriormente conhecido como o Golden Orange Film Festival de Antalya é um festival de cinema que acontece anualmente desde 1963 em Antália.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_de_Cinema_de_Ant%C3%A1lia"
-      },
-      "en": {
-        "title": "Antalya Golden Orange Film Festival",
-        "text": "The Antalya Golden Orange Film Festival, known for a few years from 2015 as Antalya International Film Festival, is a film festival, held annually since 1963 in Antalya, and is the second most important film festival in Turkey.",
-        "url": "https://en.wikipedia.org/wiki/Antalya_Golden_Orange_Film_Festival"
-      }
-    },
-    {
-      "id": "Q748969",
-      "start": {
-        "iso": "1964-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Miss Mundo 1964",
-        "text": "Miss Mundo 1964 foi a 14ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 12 de novembro de 1964.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1964"
-      },
-      "en": {
-        "title": "Miss World",
-        "text": "Miss World is the oldest existing international beauty pageant. It was created in the United Kingdom by Eric Morley in 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World"
-      }
-    },
-    {
-      "id": "Q203983",
-      "start": {
-        "iso": "1964-03-21",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1964-03-21",
-        "precision": "day"
-      },
-      "weight": 55,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1964",
-        "text": "O Festival Eurovisão da Canção 1964 foi o 9º Festival Eurovisão da Canção e teve lugar no dia 21 de março de 1964, em Copenhaga, na Dinamarca.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1964"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1964",
-        "text": "The Eurovision Song Contest 1964 was the 9th edition of the Eurovision Song Contest, held on 21 March 1964 at Tivolis Koncertsal in Copenhagen, Denmark, and presented by Lotte Wæver.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1964"
-      }
-    },
-    {
       "id": "Q4571496",
       "start": {
         "iso": "1964-04-01",
@@ -7809,25 +6811,6 @@
       }
     },
     {
-      "id": "Q1030987",
-      "start": {
-        "iso": "1965-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 33,
-      "pt": {
-        "title": "Festival Intervisão da Canção",
-        "text": "O Festival Intervisão da Canção (ISC) é um concurso de canções organizado para aos Estados pós-soviéticos e aos membros da Organização para Cooperação de Xangai, assim como dos BRICS.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Intervis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Intervision Song Contest",
-        "text": "The Intervision Song Contest (ISC) is an international song competition originally organised by the International Radio and Television Organisation (OIRT) and broadcast live via the Intervision network.",
-        "url": "https://en.wikipedia.org/wiki/Intervision_Song_Contest"
-      }
-    },
-    {
       "id": "Q4530429",
       "start": {
         "iso": "1965-01-01",
@@ -7844,47 +6827,6 @@
         "title": "1965 Soviet economic reform",
         "text": "The 1965 Soviet economic reform, sometimes called the Kosygin reform or Liberman reform, named after E.G. Liberman, was a set of planned changes in the economy of the USSR.",
         "url": "https://en.wikipedia.org/wiki/1965_Soviet_economic_reform"
-      }
-    },
-    {
-      "id": "Q684990",
-      "start": {
-        "iso": "1965-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1965",
-        "text": "Miss Mundo 1965 foi a 15.ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 19 de novembro de 1965.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1965"
-      },
-      "en": {
-        "title": "Miss World 1965",
-        "text": "Miss World 1965 was the 15th edition of the Miss World pageant, held at the Lyceum Ballroom in London, England, United Kingdom, on 19 November 1965.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1965"
-      }
-    },
-    {
-      "id": "Q203975",
-      "start": {
-        "iso": "1965-03-20",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1965-03-20",
-        "precision": "day"
-      },
-      "weight": 50,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1965",
-        "text": "O Festival Eurovisão da Canção 1965 foi o 10º Festival Eurovisão da Canção e realizou-se em 20 de março de 1965 em Nápoles, na Itália.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1965"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1965",
-        "text": "The Eurovision Song Contest 1965 was the 10th edition of the Eurovision Song Contest, held on 20 March 1965 at the Sala di Concerto della RAI in Naples, Italy, and presented by Renata Mauro.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1965"
       }
     },
     {
@@ -7964,28 +6906,6 @@
       }
     },
     {
-      "id": "Q207889",
-      "start": {
-        "iso": "1966-03-05",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1966-03-05",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1966",
-        "text": "O Festival Eurovisão da Canção 1966 foi o 11º Festival Eurovisão da Canção e realizou-se a 5 de março de 1966 no Luxemburgo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1966"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1966",
-        "text": "The Eurovision Song Contest 1966, originally known as the Grand Prix Eurovision de la Chanson Européenne 1966, was the 11th edition of the Eurovision Song Contest, held on 5 March 1966 at Villa Louvigny in Luxembourg City, Luxembourg, and presented by Josiane Shen.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1966"
-      }
-    },
-    {
       "id": "Q688783",
       "start": {
         "iso": "1966-03-06",
@@ -8043,47 +6963,6 @@
       }
     },
     {
-      "id": "Q2636333",
-      "start": {
-        "iso": "1966-11-17",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1966",
-        "text": "Miss Mundo 1966 foi a 16ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 17 de novembro de 1966.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1966"
-      },
-      "en": {
-        "title": "Miss World",
-        "text": "Miss World is the oldest existing international beauty pageant. It was created in the United Kingdom by Eric Morley in 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World"
-      }
-    },
-    {
-      "id": "Q644335",
-      "start": {
-        "iso": "1967-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1986-01-01",
-        "precision": "year"
-      },
-      "weight": 24,
-      "pt": {
-        "title": "Casamatas na Albânia",
-        "text": "As casamatas da Albânia foram construídas a mando de Enver Hoxha, líder da República Popular Socialista da Albânia por mais de quarenta anos, em um programa nacional de defesa.",
-        "url": "https://pt.wikipedia.org/wiki/Casamatas_na_Alb%C3%A2nia"
-      },
-      "en": {
-        "title": "Bunkers in Albania",
-        "text": "Concrete military bunkers are a ubiquitous sight in Albania, where more than 170,000 bunkers were built by the Hoxhaist government from the 1960s to the 1980s. This is an average of 5.7 bunkers for every square kilometer.",
-        "url": "https://en.wikipedia.org/wiki/Bunkers_in_Albania"
-      }
-    },
-    {
       "id": "Q256608",
       "start": {
         "iso": "1967-01-27",
@@ -8100,28 +6979,6 @@
         "title": "Outer Space Treaty",
         "text": "The Outer Space Treaty, formally called the Treaty on Principles Governing the Activities of States in the Exploration and Use of Outer Space, including the Moon and Other Celestial Bodies, is a multilateral treaty that forms the basis of international space law.",
         "url": "https://en.wikipedia.org/wiki/Outer_Space_Treaty"
-      }
-    },
-    {
-      "id": "Q205192",
-      "start": {
-        "iso": "1967-04-08",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1967-04-08",
-        "precision": "day"
-      },
-      "weight": 48,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1967",
-        "text": "O Festival Eurovisão da Canção 1967 foi o 12º Festival Eurovisão da Canção e realizou-se a 8 de Abril de 1967, em Viena, Áustria.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1967"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1967",
-        "text": "The Eurovision Song Contest 1967 was the 12th edition of the Eurovision Song Contest, held on 8 April 1967 at the Großer Festsaal der Wiener Hofburg in Vienna, Austria, and presented by Erica Vaal.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1967"
       }
     },
     {
@@ -8166,44 +7023,6 @@
       }
     },
     {
-      "id": "Q376921",
-      "start": {
-        "iso": "1967-09-03",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 37,
-      "pt": {
-        "title": "Dagen H",
-        "text": "Dagen H, hoje mais conhecido por Högertrafikomläggningen, foi o dia 3 de setembro de 1967, no qual o tráfego na Suécia passou do lado esquerdo para o lado direito das vias.",
-        "url": "https://pt.wikipedia.org/wiki/Dagen_H"
-      },
-      "en": {
-        "title": "Dagen H",
-        "text": "Dagen H (H-day), today usually called \"Högertrafikomläggningen\", was on 3 September 1967, the day on which Sweden switched from driving on the left-hand side of the road to the right.",
-        "url": "https://en.wikipedia.org/wiki/Dagen_H"
-      }
-    },
-    {
-      "id": "Q2631493",
-      "start": {
-        "iso": "1967-11-16",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1967",
-        "text": "Miss Mundo 1967 foi a 17ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 16 de novembro de 1967.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1967"
-      },
-      "en": {
-        "title": "Miss World",
-        "text": "Miss World is the oldest existing international beauty pageant. It was created in the United Kingdom by Eric Morley in 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World"
-      }
-    },
-    {
       "id": "Q162401",
       "start": {
         "iso": "1968-01-01",
@@ -8223,25 +7042,6 @@
       }
     },
     {
-      "id": "Q2467434",
-      "start": {
-        "iso": "1968-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1968",
-        "text": "Miss Mundo 1968 foi a 18ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 14 de novembro de 1968.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1968"
-      },
-      "en": {
-        "title": "Miss World",
-        "text": "Miss World is the oldest existing international beauty pageant. It was created in the United Kingdom by Eric Morley in 1951.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World"
-      }
-    },
-    {
       "id": "Q3084040",
       "start": {
         "iso": "1968-04-01",
@@ -8258,28 +7058,6 @@
         "title": "Socialism with a human face",
         "text": "Socialism with a human face was a slogan referring to the social democratic and democratic socialist programme of Alexander Dubček and his colleagues, agreed at the Presidium of the Communist Party of Czechoslovakia in April 1968, after he became chairman of the KSČ in January 1968.",
         "url": "https://en.wikipedia.org/wiki/Socialism_with_a_human_face"
-      }
-    },
-    {
-      "id": "Q204010",
-      "start": {
-        "iso": "1968-04-06",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1968-04-06",
-        "precision": "day"
-      },
-      "weight": 50,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1968",
-        "text": "O Festival Eurovisão da Canção 1968 foi o 13º Festival Eurovisão da Canção e realizou-se a 6 de abril de 1968, em Londres, no Reino Unido.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1968"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1968",
-        "text": "The Eurovision Song Contest 1968 was the 13th edition of the Eurovision Song Contest, held on 6 April 1968 at the Royal Albert Hall in London, United Kingdom, and presented by Katie Boyle.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1968"
       }
     },
     {
@@ -8387,25 +7165,6 @@
       }
     },
     {
-      "id": "Q11349248",
-      "start": {
-        "iso": "1969-01-30",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 22,
-      "pt": {
-        "title": "Rooftop Concert",
-        "text": "Rooftop Concert foi a última apresentação pública da banda de rock inglesa The Beatles, com a participação do tecladista Billy Preston.",
-        "url": "https://pt.wikipedia.org/wiki/Rooftop_Concert"
-      },
-      "en": {
-        "title": "The Beatles' rooftop concert",
-        "text": "On 30 January 1969, the Beatles performed a concert from the rooftop of their Apple Corps headquarters at 3 Savile Row, in central London's office and fashion district.",
-        "url": "https://en.wikipedia.org/wiki/The_Beatles'_rooftop_concert"
-      }
-    },
-    {
       "id": "Q244932",
       "start": {
         "iso": "1969-03-02",
@@ -8425,28 +7184,6 @@
         "title": "Sino-Soviet border conflict",
         "text": "The Sino-Soviet border conflict, also known as the Sino-Soviet crisis, was a seven-month undeclared military conflict between the Soviet Union and China in 1969, following the Sino-Soviet split.",
         "url": "https://en.wikipedia.org/wiki/Sino-Soviet_border_conflict"
-      }
-    },
-    {
-      "id": "Q203329",
-      "start": {
-        "iso": "1969-03-29",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1969-03-29",
-        "precision": "day"
-      },
-      "weight": 55,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1969",
-        "text": "O Festival Eurovisão da Canção 1969 foi o 14º Festival Eurovisão da Canção e realizou-se em 29 de março de 1969 em Madrid.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1969"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1969",
-        "text": "The Eurovision Song Contest 1969 was the 14th edition of the Eurovision Song Contest, held on 29 March 1969 at the Teatro Real in Madrid, Spain, and presented by Laurita Valenzuela.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1969"
       }
     },
     {
@@ -8526,50 +7263,6 @@
       }
     },
     {
-      "id": "Q209673",
-      "start": {
-        "iso": "1970-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1970-03-21",
-        "precision": "day"
-      },
-      "weight": 51,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1970",
-        "text": "O Festival Eurovisão da Canção 1970 foi o 15º Festival Eurovisão da Canção e teve lugar em 21 de março de 1970 em Amesterdão com a canção \"All Kinds of Everything\".",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1970"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1970",
-        "text": "The Eurovision Song Contest 1970 was the 15th edition of the Eurovision Song Contest, held on 21 March 1970 at the RAI International Congress Centre in Amsterdam, Netherlands, and presented by Willy Dobbe.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1970"
-      }
-    },
-    {
-      "id": "Q159599",
-      "start": {
-        "iso": "1970-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "2018-01-01",
-        "precision": "year"
-      },
-      "weight": 38,
-      "pt": {
-        "title": "CeBIT",
-        "text": "A CeBIT foi a maior exposição comercial do mundo no domínio dos serviços de telecomunicações digitais e TI. A feira serviu como plataforma para mostrar inovações e os produtos no campo referido, e também para aproximar os potenciais compradores e fornecedores de todo o mundo.",
-        "url": "https://pt.wikipedia.org/wiki/CeBIT"
-      },
-      "en": {
-        "title": "CeBIT",
-        "text": "CeBIT was a computer expo held each year on the Hanover fairground, the world's largest fairground, in Hanover, Germany.",
-        "url": "https://en.wikipedia.org/wiki/CeBIT"
-      }
-    },
-    {
       "id": "Q658048",
       "start": {
         "iso": "1970-01-01",
@@ -8586,25 +7279,6 @@
         "title": "Treaty of Warsaw (1970)",
         "text": "The Treaty of Warsaw was a treaty between the Federal Republic of Germany and the Polish People’s Republic.",
         "url": "https://en.wikipedia.org/wiki/Treaty_of_Warsaw_(1970)"
-      }
-    },
-    {
-      "id": "Q2466694",
-      "start": {
-        "iso": "1970-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Miss Mundo 1970",
-        "text": "Miss Mundo 1970 foi a 20ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo gerente de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 20 de novembro de 1970.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1970"
-      },
-      "en": {
-        "title": "Miss World 1970",
-        "text": "Miss World 1970 was the 20th anniversary of the Miss World pageant, held on 20 November 1970 at the Royal Albert Hall in London, United Kingdom.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1970"
       }
     },
     {
@@ -8627,28 +7301,6 @@
       }
     },
     {
-      "id": "Q209429",
-      "start": {
-        "iso": "1971-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1971-04-03",
-        "precision": "day"
-      },
-      "weight": 52,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1971",
-        "text": "O Festival Eurovisão da Canção 1971 foi o 16ª edição anual do evento e teve lugar a 3 de abril de 1971 em Dublin.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1971"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1971",
-        "text": "The Eurovision Song Contest 1971 was the 16th edition of the Eurovision Song Contest, held on 3 April 1971 at the Gaiety Theatre in Dublin, Ireland, and presented by Bernadette Ní Ghallchóir.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1971"
-      }
-    },
-    {
       "id": "Q207933",
       "start": {
         "iso": "1971-01-01",
@@ -8668,25 +7320,6 @@
         "title": "Salyut programme",
         "text": "The Salyut programme was the first space station programme, undertaken by the Soviet Union.",
         "url": "https://en.wikipedia.org/wiki/Salyut_programme"
-      }
-    },
-    {
-      "id": "Q2636297",
-      "start": {
-        "iso": "1971-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 17,
-      "pt": {
-        "title": "Miss Mundo 1971",
-        "text": "Miss Mundo 1971 foi a 21ª edição do concurso de beleza feminino de Miss Mundo. O certame idealizado pelo diretor de vendas publicitárias da Mecca Leisure Group, Eric Douglas Morley, foi realizado no dia 10 de novembro de 1971.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Mundo_1971"
-      },
-      "en": {
-        "title": "Miss World 1971",
-        "text": "Miss World 1971 was the 21st Miss World pageant, held at the Royal Albert Hall in London, England, United Kingdom, on 10 November 1971.",
-        "url": "https://en.wikipedia.org/wiki/Miss_World_1971"
       }
     },
     {
@@ -8728,28 +7361,6 @@
       }
     },
     {
-      "id": "Q211942",
-      "start": {
-        "iso": "1972-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1972-03-25",
-        "precision": "day"
-      },
-      "weight": 53,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1972",
-        "text": "O Festival Eurovisão da Canção 1972 foi o 17º Festival Eurovisão da Canção realizou-se em 25 de março de 1972 em Edimburgo, Escócia, no Reino Unido.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1972"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1972",
-        "text": "The Eurovision Song Contest 1972 was the 17th edition of the Eurovision Song Contest, held on 25 March 1972 at the Usher Hall in Edinburgh, United Kingdom (UK), presented by Moira Shearer and organised by the European Broadcasting Union (EBU). The British Broadcasting Corporation (BBC) staged the event after Télé…",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1972"
-      }
-    },
-    {
       "id": "Q27851",
       "start": {
         "iso": "1972-01-01",
@@ -8788,25 +7399,6 @@
         "title": "United Nations Conference on the Human Environment",
         "text": "The United Nations Conference on the Human Environment was held in Stockholm, Sweden, during June 5–16, 1972.",
         "url": "https://en.wikipedia.org/wiki/United_Nations_Conference_on_the_Human_Environment"
-      }
-    },
-    {
-      "id": "Q1262739",
-      "start": {
-        "iso": "1972-01-26",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 26,
-      "pt": {
-        "title": "Voo JAT 367",
-        "text": "O Voo JAT Yugoslav Airlines 367 foi um voo de um McDonnell Douglas DC-9-32 que explodiu pouco após passar o NDB Hermsdorf, na Alemanha Oriental, a meio da rota entre Estocolmo e Belgrado em 26 de janeiro de 1972.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_JAT_367"
-      },
-      "en": {
-        "title": "JAT Flight 367",
-        "text": "JAT Flight 367 was a McDonnell Douglas DC-9-32 aircraft which exploded shortly after overflying NDB Hermsdorf, Germany, while en route from Stockholm, Sweden, to Belgrade, SFR Yugoslavia, on 26 January 1972.",
-        "url": "https://en.wikipedia.org/wiki/JAT_Flight_367"
       }
     },
     {
@@ -8889,47 +7481,6 @@
       }
     },
     {
-      "id": "Q211490",
-      "start": {
-        "iso": "1973-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1973-04-07",
-        "precision": "day"
-      },
-      "weight": 50,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1973",
-        "text": "O Festival Eurovisão da Canção 1973 foi o 18º Festival Eurovisão da Canção, realizado em 7 de abril de 1973 no Luxemburgo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1973"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1973",
-        "text": "The Eurovision Song Contest 1973 was the 18th edition of the Eurovision Song Contest, held on 7 April 1973 at the Nouveau Théâtre in Luxembourg City, Luxembourg, and presented by Helga Guitton.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1973"
-      }
-    },
-    {
-      "id": "Q2446003",
-      "start": {
-        "iso": "1973-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 29,
-      "pt": {
-        "title": "Paris Fashion Week",
-        "text": "Paris Fashion Week é uma Semana de Moda famosa realizada semestralmente, em Paris, França, com coleções de primavera/verão e outono/inverno.",
-        "url": "https://pt.wikipedia.org/wiki/Paris_Fashion_Week"
-      },
-      "en": {
-        "title": "Paris Fashion Week",
-        "text": "Paris Fashion Week is a series of designer presentations held semi-annually in Paris, France, with spring/summer and autumn/winter events held each year.",
-        "url": "https://en.wikipedia.org/wiki/Paris_Fashion_Week"
-      }
-    },
-    {
       "id": "Q696802",
       "start": {
         "iso": "1973-01-27",
@@ -8946,28 +7497,6 @@
         "title": "Paris Peace Accords",
         "text": "The Paris Peace Accords, officially the Agreement on ending the war and restoring peace in Viet-Nam, was a peace agreement signed on 27 January 1973 to establish peace in Vietnam and end the Vietnam War.",
         "url": "https://en.wikipedia.org/wiki/Paris_Peace_Accords"
-      }
-    },
-    {
-      "id": "Q660345",
-      "start": {
-        "iso": "1973-05-18",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "2017-02-22",
-        "precision": "day"
-      },
-      "weight": 20,
-      "pt": {
-        "title": "Soyuz-U",
-        "text": "O Soyuz-U ou foguete 11A511U na série de foguetes soviéticos é uma versão do veículo de lançamento Soyuz introduzida em 1973.",
-        "url": "https://pt.wikipedia.org/wiki/Soyuz-U"
-      },
-      "en": {
-        "title": "Soyuz-U",
-        "text": "Soyuz-U was a Soviet and later Russian expendable medium-lift launch vehicle designed by the TsSKB design bureau and constructed at the Progress factory in Samara, Russia.",
-        "url": "https://en.wikipedia.org/wiki/Soyuz-U"
       }
     },
     {
@@ -8990,47 +7519,6 @@
       }
     },
     {
-      "id": "Q2636327",
-      "start": {
-        "iso": "1973-07-21",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Miss Universo 1973",
-        "text": "Miss Universo 1973 foi a 22.ª edição do concurso Miss Universo, realizada em 21 de julho de 1973 no Odeão de Herodes Ático, em Atenas, na Grécia.",
-        "url": "https://pt.wikipedia.org/wiki/Miss_Universo_1973"
-      },
-      "en": {
-        "title": "Miss Universe 1973",
-        "text": "Miss Universe 1973 was the 22nd Miss Universe pageant, held at the Odeon of Herodes Atticus in Athens, Greece, on 21 July 1973.",
-        "url": "https://en.wikipedia.org/wiki/Miss_Universe_1973"
-      }
-    },
-    {
-      "id": "Q1498881",
-      "start": {
-        "iso": "1973-08-01",
-        "precision": "month"
-      },
-      "end": {
-        "iso": "1973-08-28",
-        "precision": "day"
-      },
-      "weight": 23,
-      "pt": {
-        "title": "Assalto de Norrmalmstorg",
-        "text": "O Assalto de Norrmalmstorg foi um assalto a banco e crise de reféns mais conhecido como a origem do termo síndrome de Estocolmo.",
-        "url": "https://pt.wikipedia.org/wiki/Assalto_de_Norrmalmstorg"
-      },
-      "en": {
-        "title": "Norrmalmstorg robbery",
-        "text": "The Norrmalmstorg robbery was a bank robbery and hostage crisis that occurred at the Norrmalmstorg Square in Stockholm, Sweden, in August 1973 and was the first crime in Sweden to be covered by live television.",
-        "url": "https://en.wikipedia.org/wiki/Norrmalmstorg_robbery"
-      }
-    },
-    {
       "id": "Q1378173",
       "start": {
         "iso": "1973-10-05",
@@ -9047,66 +7535,6 @@
         "title": "European Patent Convention",
         "text": "The European Patent Convention (EPC), also known as the Convention on the Grant of European Patents of 5 October 1973, is a multilateral treaty instituting the European Patent Organisation and providing an autonomous legal system according to which European patents are granted.",
         "url": "https://en.wikipedia.org/wiki/European_Patent_Convention"
-      }
-    },
-    {
-      "id": "Q207541",
-      "start": {
-        "iso": "1974-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1974-04-06",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1974",
-        "text": "O Festival Eurovisão da Canção 1974 foi o 19.º Festival Eurovisão da Canção e realizou-se em 6 de abril de 1974, em Brighton, Reino Unido.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1974"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1974",
-        "text": "The Eurovision Song Contest 1974 was the 19th edition of the Eurovision Song Contest, held on 6 April 1974 at the Brighton Dome in Brighton, United Kingdom, and presented by Katie Boyle.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1974"
-      }
-    },
-    {
-      "id": "Q320347",
-      "start": {
-        "iso": "1974-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 42,
-      "pt": {
-        "title": "Grécia no Festival Eurovisão da Canção",
-        "text": "A Grécia participou do Festival Eurovisão da Canção 45 vezes desde sua estreia em 1974, tendo feito presença em todos anos com exceção de 1975, 1982, 1984, 1986, 1999 e 2000.",
-        "url": "https://pt.wikipedia.org/wiki/Gr%C3%A9cia_no_Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Greece in the Eurovision Song Contest",
-        "text": "Greece has been represented at the Eurovision Song Contest 46 times since its debut in 1974, missing six contests in that time.",
-        "url": "https://en.wikipedia.org/wiki/Greece_in_the_Eurovision_Song_Contest"
-      }
-    },
-    {
-      "id": "Q1341143",
-      "start": {
-        "iso": "1974-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 26,
-      "pt": {
-        "title": "Volvo 200",
-        "text": "A Volvo Série 200 foi uma linha de automóveis do segmento E fabricados pela montadora sueca Volvo Cars de 1974 a 1993.. Projetada por Jan Wilsgaard, a série foi desenvolvida a partir da Volvo Série 140 e incorporou inovações de segurança do programa de veículos experimentais de segurança VESC da Volvo.",
-        "url": "https://pt.wikipedia.org/wiki/Volvo_200"
-      },
-      "en": {
-        "title": "Volvo 200 Series",
-        "text": "The Volvo 200 Series was a range of mid-size cars manufactured by Swedish automaker Volvo Cars from 1974 to 1993.",
-        "url": "https://en.wikipedia.org/wiki/Volvo_200_Series"
       }
     },
     {
@@ -9129,25 +7557,6 @@
         "title": "1974 Yugoslav Constitution",
         "text": "The 1974 Yugoslav Constitution was the fourth and final communist state constitution of the Socialist Federal Republic of Yugoslavia.",
         "url": "https://en.wikipedia.org/wiki/1974_Yugoslav_Constitution"
-      }
-    },
-    {
-      "id": "Q462716",
-      "start": {
-        "iso": "1974-03-03",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 35,
-      "pt": {
-        "title": "Voo Turkish Airlines 981",
-        "text": "O voo Turkish Airlines 981, também conhecido como desastre aéreo de Ermenonville era uma linha aérea da empresa turca Turkish Airlines que ligava o Aeroporto Internacional Atatürk, na Turquia ao Aeroporto de Londres-Heathrow, na Inglaterra.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Turkish_Airlines_981"
-      },
-      "en": {
-        "title": "Turkish Airlines Flight 981",
-        "text": "Turkish Airlines Flight 981 was a scheduled flight from Istanbul Yeşilköy Airport to London Heathrow Airport, with an intermediate stop at Orly Airport in Paris.",
-        "url": "https://en.wikipedia.org/wiki/Turkish_Airlines_Flight_981"
       }
     },
     {
@@ -9211,47 +7620,6 @@
       }
     },
     {
-      "id": "Q209745",
-      "start": {
-        "iso": "1975-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1975-03-22",
-        "precision": "day"
-      },
-      "weight": 50,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1975",
-        "text": "O Festival Eurovisão da Canção 1975 foi o 20º Festival Eurovisão da Canção e realizou-se em 22 de março de 1975 em Estocolmo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1975"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1975",
-        "text": "The Eurovision Song Contest 1975 was the 20th edition of the Eurovision Song Contest, held on 22 March 1975 at the Stockholmsmässan in Stockholm, Sweden, and presented by Karin Falck.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1975"
-      }
-    },
-    {
-      "id": "Q1426466",
-      "start": {
-        "iso": "1975-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 27,
-      "pt": {
-        "title": "Reserva Natural de Scandola",
-        "text": "A Reserva Natural de Scandola, estabelecida em dezembro de 1975 está localizada na Córsega, França, dentro do Parque Regional da Córsega.",
-        "url": "https://pt.wikipedia.org/wiki/Reserva_Natural_de_Scandola"
-      },
-      "en": {
-        "title": "Scandola Nature Reserve",
-        "text": "The Scandola Nature Reserve is located on the west coast of the French island of Corsica, within the Corsica Regional Park.",
-        "url": "https://en.wikipedia.org/wiki/Scandola_Nature_Reserve"
-      }
-    },
-    {
       "id": "Q1573466",
       "start": {
         "iso": "1975-01-01",
@@ -9287,25 +7655,6 @@
         "title": "Helsinki Accords",
         "text": "The Helsinki Final Act, also known as Helsinki Accords or Helsinki Declaration, was the document signed at the closing meeting of the third phase of the Conference on Security and Co-operation in Europe (CSCE) held in Helsinki, Finland, between 30 July and 1 August 1975, following two years of negotiations known as…",
         "url": "https://en.wikipedia.org/wiki/Helsinki_Accords"
-      }
-    },
-    {
-      "id": "Q497935",
-      "start": {
-        "iso": "1975-09-04",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 28,
-      "pt": {
-        "title": "Quê? Onde? Quando?",
-        "text": "O Quê? Onde?",
-        "url": "https://pt.wikipedia.org/wiki/Qu%C3%AA%3F_Onde%3F_Quando%3F"
-      },
-      "en": {
-        "title": "What? Where? When?",
-        "text": "What? Where?",
-        "url": "https://en.wikipedia.org/wiki/What%3F_Where%3F_When%3F"
       }
     },
     {
@@ -9369,50 +7718,6 @@
       }
     },
     {
-      "id": "Q209751",
-      "start": {
-        "iso": "1976-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1976-04-03",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1976",
-        "text": "O Festival Eurovisão da Canção 1976 foi o 21º Festival Eurovisão da Canção e realizou-se a 3 de abril de 1976 em Haia, nos Países Baixos.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1976"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1976",
-        "text": "The Eurovision Song Contest 1976 was the 21st edition of the Eurovision Song Contest, held on 3 April 1976 at the Nederlands Congresgebouw in The Hague, Netherlands, and presented by Corry Brokken.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1976"
-      }
-    },
-    {
-      "id": "Q2302710",
-      "start": {
-        "iso": "1976-02-01",
-        "precision": "month"
-      },
-      "end": {
-        "iso": "1992-01-01",
-        "precision": "year"
-      },
-      "weight": 19,
-      "pt": {
-        "title": "Mir-2",
-        "text": "A Mir-2 foi um projeto de estação espacial que começou em fevereiro de 1976.",
-        "url": "https://pt.wikipedia.org/wiki/Mir-2"
-      },
-      "en": {
-        "title": "Mir-2",
-        "text": "Mir-2 was a Soviet space station project which began in February 1976. Some of the modules built for Mir-2 have been incorporated into the International Space Station (ISS). The project underwent many changes, but was always based on the DOS-8 base block space station core module, built as a back-up to the DOS-7 base…",
-        "url": "https://en.wikipedia.org/wiki/Mir-2"
-      }
-    },
-    {
       "id": "Q2118997",
       "start": {
         "iso": "1976-02-16",
@@ -9448,25 +7753,6 @@
         "title": "1976 Friuli earthquake",
         "text": "The 1976 Friuli earthquake, also known in Italy as Terremoto del Friuli and Orcolat, occurred on 6 May 1976, at 21:00:13 with a moment magnitude of 6.5 and a maximum EMS intensity of X. The shock occurred in the Friuli region in northeast Italy near the town of Gemona del Friuli. 990 people were killed, up to about…",
         "url": "https://en.wikipedia.org/wiki/1976_Friuli_earthquake"
-      }
-    },
-    {
-      "id": "Q547784",
-      "start": {
-        "iso": "1976-06-17",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Super Sincrotrão a Protões",
-        "text": "O SPS, sigla em inglês de Super Proton Synchrotron é o segundo maior acelerador do CERN.",
-        "url": "https://pt.wikipedia.org/wiki/Super_Sincrotr%C3%A3o_a_Prot%C3%B5es"
-      },
-      "en": {
-        "title": "Super Proton Synchrotron",
-        "text": "The Super Proton Synchrotron (SPS) is a particle accelerator of the synchrotron type at CERN.",
-        "url": "https://en.wikipedia.org/wiki/Super_Proton_Synchrotron"
       }
     },
     {
@@ -9524,28 +7810,6 @@
         "title": "1976 West German federal election",
         "text": "A federal election was held in West Germany on 3 October 1976 to elect the members of the 8th Bundestag.",
         "url": "https://en.wikipedia.org/wiki/1976_West_German_federal_election"
-      }
-    },
-    {
-      "id": "Q211494",
-      "start": {
-        "iso": "1977-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1977-05-07",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1977",
-        "text": "O Festival Eurovisão da Canção 1977 foi o 22º Festival Eurovisão da Canção e realizou-se em 7 de maio de 1977 em Londres.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1977"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1977",
-        "text": "The Eurovision Song Contest 1977 was the 22nd edition of the Eurovision Song Contest, held on 7 May 1977 at the Wembley Conference Centre in London, United Kingdom, and presented by Angela Rippon.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1977"
       }
     },
     {
@@ -9625,66 +7889,6 @@
       }
     },
     {
-      "id": "Q2853075",
-      "start": {
-        "iso": "1977-11-19",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Voo TAP Portugal 425",
-        "text": "O Voo TAP Portugal 425 foi um voo comercial entre Bruxelas e Funchal operado pela TAP Portugal, no dia 19 de Novembro de 1977, com um Boeing 727-282 que se acidentou após uma tentativa de aterragem no Aeroporto da Madeira sob condições meteorológicas desfavoráveis.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_TAP_Portugal_425"
-      },
-      "en": {
-        "title": "TAP Flight 425",
-        "text": "TAP Flight 425 was a regular scheduled flight from Brussels, Belgium, to Santa Catarina Airport, Portugal, with an intermediate scheduled stop in Lisbon.",
-        "url": "https://en.wikipedia.org/wiki/TAP_Flight_425"
-      }
-    },
-    {
-      "id": "Q211754",
-      "start": {
-        "iso": "1978-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1978-04-22",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1978",
-        "text": "O Festival Eurovisão da Canção 1978 foi o 23º Festival Eurovisão da Canção e realizou-se em 22 de abril de 1978 em Paris.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1978"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1978",
-        "text": "The Eurovision Song Contest 1978 was the 23rd edition of the Eurovision Song Contest, held on 22 April 1978 at the Grand Amphitheatre of the Palais des Congrès in Paris, France, and presented by Denise Fabre and Léon Zitrone.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1978"
-      }
-    },
-    {
-      "id": "Q458321",
-      "start": {
-        "iso": "1978-04-20",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 25,
-      "pt": {
-        "title": "Voo Korean Air Lines 902",
-        "text": "O voo Korean Air Lines 902, conhecido também como KAL 902 ou KE902, era um avião civil coreano que foi derrubado por jatos interceptadores soviéticos em 20 de Abril de 1978 próximo de Murmansk, depois de ter entrado no espaço aéreo soviético e não ter respondido aos interceptadores.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Korean_Air_Lines_902"
-      },
-      "en": {
-        "title": "Korean Air Lines Flight 902",
-        "text": "Korean Air Lines Flight 902 was a scheduled Korean Air Lines flight from Paris to Seoul via Anchorage.",
-        "url": "https://en.wikipedia.org/wiki/Korean_Air_Lines_Flight_902"
-      }
-    },
-    {
       "id": "Q1250976",
       "start": {
         "iso": "1978-07-11",
@@ -9761,28 +7965,6 @@
       }
     },
     {
-      "id": "Q634171",
-      "start": {
-        "iso": "1979-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1979-10-22",
-        "precision": "day"
-      },
-      "weight": 26,
-      "pt": {
-        "title": "Tufão Tip",
-        "text": "O tufão Tip ou Warling foi o maior e o mais intenso ciclone tropical já registrado. Sendo o décimo nono sistema tropical nomeado, o décimo segundo tufão e o terceiro super tufão da temporada de tufões no Pacífico de 1979, Tip formou-se de uma perturbação num cavado de monção em 4 de Outubro perto de Pohnpei.",
-        "url": "https://pt.wikipedia.org/wiki/Tuf%C3%A3o_Tip"
-      },
-      "en": {
-        "title": "Typhoon Tip",
-        "text": "Typhoon Tip, known in the Philippines as Super Typhoon Warling, was the largest and most intense tropical cyclone ever recorded worldwide.",
-        "url": "https://en.wikipedia.org/wiki/Typhoon_Tip"
-      }
-    },
-    {
       "id": "Q22948406",
       "start": {
         "iso": "1979-02-11",
@@ -9843,25 +8025,6 @@
       }
     },
     {
-      "id": "Q573619",
-      "start": {
-        "iso": "1979-06-04",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 35,
-      "pt": {
-        "title": "Nossa Senhora de Częstochowa",
-        "text": "Nossa Senhora de Częstochowa é um título católico de Maria Santíssima, consagrada como a padroeira da Polônia.",
-        "url": "https://pt.wikipedia.org/wiki/Nossa_Senhora_de_Cz%C4%99stochowa"
-      },
-      "en": {
-        "title": "Black Madonna of Częstochowa",
-        "text": "The image of Our Lady the Black Madonna of Częstochowa is a venerated icon of the Madonna and Child enshrined at the Jasna Góra Monastery in Częstochowa, Poland.",
-        "url": "https://en.wikipedia.org/wiki/Black_Madonna_of_Cz%C4%99stochowa"
-      }
-    },
-    {
       "id": "Q623994",
       "start": {
         "iso": "1979-06-18",
@@ -9900,28 +8063,6 @@
       }
     },
     {
-      "id": "Q213942",
-      "start": {
-        "iso": "1980-04-19",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1980-04-19",
-        "precision": "day"
-      },
-      "weight": 47,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1980",
-        "text": "O Festival Eurovisão da Canção 1980 foi o 25º Festival Eurovisão da Canção e realizou-se em 19 de abril de 1980 em Haia.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1980"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1980",
-        "text": "The Eurovision Song Contest 1980 was the 25th edition of the Eurovision Song Contest, held on 19 April 1980 at the Nederlands Congresgebouw in The Hague, Netherlands, and presented by Marlous Fluitsma.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1980"
-      }
-    },
-    {
       "id": "Q370706",
       "start": {
         "iso": "1980-04-30",
@@ -9941,25 +8082,6 @@
         "title": "Iranian Embassy siege",
         "text": "The Iranian Embassy siege took place from 30 April to 5 May 1980, after a group of six armed men stormed the Iranian embassy on Prince's Gate in South Kensington, London.",
         "url": "https://en.wikipedia.org/wiki/Iranian_Embassy_siege"
-      }
-    },
-    {
-      "id": "Q784466",
-      "start": {
-        "iso": "1980-06-27",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 25,
-      "pt": {
-        "title": "Voo Aerolinee Itavia 870",
-        "text": "O Voo Aerolinee Itavia 870 foi um voo comercial italiano operado por um McDonnell Douglas DC-9-15, que caiu no Mar Tirreno entre Ponza e Ústica, matando todos a bordo, enquanto fazia um voo de Bolonha para Palermo em 1980.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Aerolinee_Itavia_870"
-      },
-      "en": {
-        "title": "Itavia Flight 870",
-        "text": "On 27 June 1980, Itavia Flight 870, a Douglas DC-9 passenger jet en route from Bologna to Palermo, Italy, crashed into the Tyrrhenian Sea between the islands of Ponza and Ustica at 20:59 CEST, killing all 81 occupants on board.",
-        "url": "https://en.wikipedia.org/wiki/Itavia_Flight_870"
       }
     },
     {
@@ -10036,66 +8158,6 @@
         "title": "Convention on Certain Conventional Weapons",
         "text": "The United Nations Convention on Certain Conventional Weapons, concluded at Geneva on October 10, 1980, and entered into force in December 1983, seeks to prohibit or restrict the use of certain conventional weapons which are considered excessively injurious or whose effects are indiscriminate.",
         "url": "https://en.wikipedia.org/wiki/Convention_on_Certain_Conventional_Weapons"
-      }
-    },
-    {
-      "id": "Q2271637",
-      "start": {
-        "iso": "1980-12-01",
-        "precision": "month"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Incidente da floresta de Rendlesham",
-        "text": "O Incidente da floresta de Rendlesham é o nome dado a uma série de avistamentos relatados de luzes inexplicáveis e o pouso de um objeto voador não identificado na floresta de Rendlesham, Suffolk, Inglaterra no final de Dezembro de 1980.",
-        "url": "https://pt.wikipedia.org/wiki/Incidente_da_floresta_de_Rendlesham"
-      },
-      "en": {
-        "title": "Rendlesham Forest incident",
-        "text": "The Rendlesham Forest incident was a series of reported sightings of unexplained lights near Rendlesham Forest in Suffolk, England, in December 1980, which became linked with alleged UFO landings.",
-        "url": "https://en.wikipedia.org/wiki/Rendlesham_Forest_incident"
-      }
-    },
-    {
-      "id": "Q211752",
-      "start": {
-        "iso": "1981-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1981-04-04",
-        "precision": "day"
-      },
-      "weight": 46,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1981",
-        "text": "O Festival Eurovisão da Canção 1981 foi o 26º Festival Eurovisão da Canção e realizou-se em 4 de abril de 1981 em Dublin.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1981"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1981",
-        "text": "The Eurovision Song Contest 1981 was the 26th edition of the Eurovision Song Contest, held on 4 April 1981 at the RDS Simmonscourt in Dublin, Ireland, and presented by Doireann Ní Bhriain.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1981"
-      }
-    },
-    {
-      "id": "Q245829",
-      "start": {
-        "iso": "1981-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 41,
-      "pt": {
-        "title": "Chipre no Festival Eurovisão da Canção",
-        "text": "O Chipre fez a sua estreia no Festival Eurovisão da Canção 1981, tendo alcançado o seu melhor resultado em 2018, quando a canção \"Fuego\", interpretada por Eleni Foureira, ficou classificada em 2º lugar.",
-        "url": "https://pt.wikipedia.org/wiki/Chipre_no_Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o"
-      },
-      "en": {
-        "title": "Cyprus in the Eurovision Song Contest",
-        "text": "Cyprus has been represented at the Eurovision Song Contest 42 times since its debut in 1981.",
-        "url": "https://en.wikipedia.org/wiki/Cyprus_in_the_Eurovision_Song_Contest"
       }
     },
     {
@@ -10241,104 +8303,6 @@
       }
     },
     {
-      "id": "Q211469",
-      "start": {
-        "iso": "1982-04-24",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 46,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1982",
-        "text": "O Festival Eurovisão da Canção 1982 foi o 27º Festival Eurovisão da Canção e realizou-se em 24 de abril de 1982 em Harrogate, Inglaterra.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1982"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1982",
-        "text": "The Eurovision Song Contest 1982 was the 27th edition of the Eurovision Song Contest, held on 24 April 1982 at the Harrogate International Centre in Harrogate, United Kingdom, and presented by Jan Leeming.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1982"
-      }
-    },
-    {
-      "id": "Q2239140",
-      "start": {
-        "iso": "1982-09-13",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Voo Spantax 995",
-        "text": "O voo Spantax 995 foi um voo charter do Aeroporto Madrid-Barajas para Nova York via Aeroporto de Málaga em 13 de setembro de 1982.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Spantax_995"
-      },
-      "en": {
-        "title": "Spantax Flight 995",
-        "text": "Spantax Flight 995 was an international charter flight from Madrid–Barajas Airport to New York via Málaga Airport.",
-        "url": "https://en.wikipedia.org/wiki/Spantax_Flight_995"
-      }
-    },
-    {
-      "id": "Q153578",
-      "start": {
-        "iso": "1983-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1983-04-23",
-        "precision": "day"
-      },
-      "weight": 49,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1983",
-        "text": "O Festival Eurovisão da Canção 1983 foi o 28º Festival Eurovisão da Canção e realizou-se a 23 de abril de 1983, em Munique.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1983"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1983",
-        "text": "The Eurovision Song Contest 1983 was the 28th edition of the Eurovision Song Contest, held on 23 April 1983 at the Rudi-Sedlmayer-Halle in Munich, West Germany, and presented by Marlene Charell.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1983"
-      }
-    },
-    {
-      "id": "Q248283",
-      "start": {
-        "iso": "1983-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 23,
-      "pt": {
-        "title": "Metal Hammer",
-        "text": "Metal Hammer é uma revista mensal que circula no Reino Unido e na Irlanda, e sob uma outra editora, em outros países da Europa.",
-        "url": "https://pt.wikipedia.org/wiki/Metal_Hammer"
-      },
-      "en": {
-        "title": "Metal Hammer",
-        "text": "Metal Hammer is a heavy metal music magazine and website founded in 1983, published in the United Kingdom by Future, with other language editions published by different companies available in numerous other countries.",
-        "url": "https://en.wikipedia.org/wiki/Metal_Hammer"
-      }
-    },
-    {
-      "id": "Q1330844",
-      "start": {
-        "iso": "1983-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Elite Model Look",
-        "text": "Elite Model Look é o maior concurso internacional de modelos, realizado desde 1983 pela agência Elite Model Management.",
-        "url": "https://pt.wikipedia.org/wiki/Elite_Model_Look"
-      },
-      "en": {
-        "title": "Elite Model Look",
-        "text": "Elite Model Look is a yearly fashion modeling event held by Elite Model Management, an international model management group.",
-        "url": "https://en.wikipedia.org/wiki/Elite_Model_Look"
-      }
-    },
-    {
       "id": "Q702022",
       "start": {
         "iso": "1983-03-06",
@@ -10377,25 +8341,6 @@
       }
     },
     {
-      "id": "Q18180",
-      "start": {
-        "iso": "1983-09-01",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 44,
-      "pt": {
-        "title": "Voo Korean Air Lines 007",
-        "text": "O voo Korean Airlines 007, conhecido também como KAL 007 ou KE007, era um avião civil sul-coreano que foi derrubado por jatos interceptadores soviéticos em 1 de setembro de 1983, sobre o mar de Okhotsk, a oeste da ilha de Sacalina.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Korean_Air_Lines_007"
-      },
-      "en": {
-        "title": "Korean Air Lines Flight 007",
-        "text": "Korean Air Lines Flight 007 was a scheduled Korean Air Lines flight from New York City to Seoul via Anchorage.",
-        "url": "https://en.wikipedia.org/wiki/Korean_Air_Lines_Flight_007"
-      }
-    },
-    {
       "id": "Q4581203",
       "start": {
         "iso": "1983-09-26",
@@ -10412,85 +8357,6 @@
         "title": "1983 Soviet nuclear false alarm incident",
         "text": "On 26 September 1983, during the Cold War, the Soviet nuclear early warning system Oko reported the launch of one intercontinental ballistic missile with four more missiles behind it, from the United States.",
         "url": "https://en.wikipedia.org/wiki/1983_Soviet_nuclear_false_alarm_incident"
-      }
-    },
-    {
-      "id": "Q3119385",
-      "start": {
-        "iso": "1983-11-27",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 19,
-      "pt": {
-        "title": "Voo Avianca 011",
-        "text": "O voo Avianca 011 foi um voo internacional regular entre Frankfurt e Bogotá com escalas em Paris, Madrid e Caracas.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Avianca_011"
-      },
-      "en": {
-        "title": "Avianca Flight 011",
-        "text": "Avianca Flight 011 was a Boeing 747-200BM Combi on an international scheduled passenger flight from Frankfurt to Bogotá via Paris, Madrid, and Caracas that crashed near Madrid on 27 November 1983.",
-        "url": "https://en.wikipedia.org/wiki/Avianca_Flight_011"
-      }
-    },
-    {
-      "id": "Q209846",
-      "start": {
-        "iso": "1984-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1984-05-05",
-        "precision": "day"
-      },
-      "weight": 46,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1984",
-        "text": "O Festival Eurovisão da Canção 1984 foi o 29º Festival Eurovisão da Canção e realizou-se em 5 de Maio de 1984 em Luxemburgo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1984"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1984",
-        "text": "The Eurovision Song Contest 1984 was the 29th edition of the Eurovision Song Contest, held on 5 May 1984 at the Théâtre Municipal in Luxembourg City, Luxembourg, and presented by Désirée Nosbusch.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1984"
-      }
-    },
-    {
-      "id": "Q2446735",
-      "start": {
-        "iso": "1984-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 25,
-      "pt": {
-        "title": "Semana de Moda de Londres",
-        "text": "A Semana de Moda de Londres é um dos mais importantes eventos de moda do mundo que ocorre duas vezes anualmente.",
-        "url": "https://pt.wikipedia.org/wiki/Semana_de_Moda_de_Londres"
-      },
-      "en": {
-        "title": "London Fashion Week",
-        "text": "London Fashion Week (LFW) is a clothing trade show that takes place in London, England, twice a year, in June and September.",
-        "url": "https://en.wikipedia.org/wiki/London_Fashion_Week"
-      }
-    },
-    {
-      "id": "Q6004958",
-      "start": {
-        "iso": "1984-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 15,
-      "pt": {
-        "title": "Programas de investidores imigrantes",
-        "text": "Os programas de investidores imigrantes, também conhecidos por vistos gold, são programas que permitem aos indivíduos obter a residência de um país mais rapidamente em troca de investimentos qualificados.",
-        "url": "https://pt.wikipedia.org/wiki/Programas_de_investidores_imigrantes"
-      },
-      "en": {
-        "title": "Immigrant investor programs",
-        "text": "Immigrant investor programs are immigration programs offered by countries or territories that allow individuals to more quickly obtain residence or citizenship of a country in return for making qualifying and substantive investments.",
-        "url": "https://en.wikipedia.org/wiki/Immigrant_investor_programs"
       }
     },
     {
@@ -10513,47 +8379,6 @@
         "title": "1984 European Parliament election",
         "text": "The 1984 European Parliament election was the first since the inaugural election of 1979 and the 1981 enlargement of the European Community to include Greece.",
         "url": "https://en.wikipedia.org/wiki/1984_European_Parliament_election"
-      }
-    },
-    {
-      "id": "Q1075835",
-      "start": {
-        "iso": "1984-08-24",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1985-05-15",
-        "precision": "day"
-      },
-      "weight": 17,
-      "pt": {
-        "title": "The Works Tour",
-        "text": "A The Works Tour foi uma turnê da banda de rock britânica Queen, e uma das maiores do grupo.",
-        "url": "https://pt.wikipedia.org/wiki/The_Works_Tour"
-      },
-      "en": {
-        "title": "The Works Tour",
-        "text": "The Works Tour was the tenth headlining concert tour by the British rock band Queen to promote their successful 1984 album The Works.",
-        "url": "https://en.wikipedia.org/wiki/The_Works_Tour"
-      }
-    },
-    {
-      "id": "Q2375420",
-      "start": {
-        "iso": "1984-10-11",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 16,
-      "pt": {
-        "title": "Voo Aeroflot 3352",
-        "text": "O voo Aeroflot 3352 foi um Tupolev Tu-154 em uma rota doméstica de Krasnodar para Novosibirsk, com uma escala intermediária em Omsk.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Aeroflot_3352"
-      },
-      "en": {
-        "title": "Aeroflot Flight 3352",
-        "text": "Aeroflot Flight 3352 was a regularly scheduled Aeroflot domestic flight in the Soviet Union from Krasnodar to Novosibirsk, with an intermediate landing in Omsk.",
-        "url": "https://en.wikipedia.org/wiki/Aeroflot_Flight_3352"
       }
     },
     {
@@ -10620,28 +8445,6 @@
       }
     },
     {
-      "id": "Q179853",
-      "start": {
-        "iso": "1985-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1985-05-04",
-        "precision": "day"
-      },
-      "weight": 48,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1985",
-        "text": "O Festival Eurovisão da Canção 1985 foi o 30º Festival Eurovisão da Canção e realizou-se em 4 de maio de 1985 em Gotemburgo.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1985"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1985",
-        "text": "The Eurovision Song Contest 1985 was the 30th edition of the Eurovision Song Contest, held on 4 May 1985 at the Scandinavium in Gothenburg, Sweden, and presented by Lill Lindfors.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1985"
-      }
-    },
-    {
       "id": "Q15059994",
       "start": {
         "iso": "1985-02-16",
@@ -10696,85 +8499,6 @@
         "title": "Schengen Agreement",
         "text": "The Schengen Agreement is a treaty which led to the creation of Europe's Schengen Area, in which internal border checks have largely been abolished.",
         "url": "https://en.wikipedia.org/wiki/Schengen_Agreement"
-      }
-    },
-    {
-      "id": "Q4055770",
-      "start": {
-        "iso": "1985-07-10",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 20,
-      "pt": {
-        "title": "Voo Aeroflot 7425",
-        "text": "O voo Aeroflot 7425 refere-se a um Tupolev Tu-154 B-2, registro CCCP-85311 da companhia aérea soviética Aeroflot, que operava um serviço de passageiros em Qarshi, Ufá, São Petersburgo, programado na divisão da companhia aérea no Uzbequistão, que caiu perto de Uchkuduk, República Socialista Soviética Uzbeque, União…",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Aeroflot_7425"
-      },
-      "en": {
-        "title": "Aeroflot Flight 5143",
-        "text": "Aeroflot Flight 5143 was a scheduled domestic passenger flight between the Soviet cities of Karshi and Leningrad with a stopover in Ufa, operated by the Uzbek division of Aeroflot.",
-        "url": "https://en.wikipedia.org/wiki/Aeroflot_Flight_5143"
-      }
-    },
-    {
-      "id": "Q193740",
-      "start": {
-        "iso": "1985-07-13",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 49,
-      "pt": {
-        "title": "Live Aid",
-        "text": "Live Aid foi um concerto realizado em 13 de julho de 1985. O evento foi organizado por Bob Geldof e Midge Ure com o objetivo de arrecadar fundos a fim de acabar com a fome na Etiópia.",
-        "url": "https://pt.wikipedia.org/wiki/Live_Aid"
-      },
-      "en": {
-        "title": "Live Aid",
-        "text": "Live Aid was a two-venue benefit concert and music-based fund-raising initiative held on Saturday, 13 July 1985.",
-        "url": "https://en.wikipedia.org/wiki/Live_Aid"
-      }
-    },
-    {
-      "id": "Q210578",
-      "start": {
-        "iso": "1986-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1986-05-03",
-        "precision": "day"
-      },
-      "weight": 46,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1986",
-        "text": "O Festival Eurovisão da Canção 1986 foi o 31º Festival Eurovisão da Canção e realizou-se em 3 de maio de 1986 na cidade de Bergen, na Noruega.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1986"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1986",
-        "text": "The Eurovision Song Contest 1986 was the 31st edition of the Eurovision Song Contest, held on 3 May 1986 at Grieghallen in Bergen, Norway, and presented by Åse Kleveland.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1986"
-      }
-    },
-    {
-      "id": "Q1377734",
-      "start": {
-        "iso": "1986-01-01",
-        "precision": "year"
-      },
-      "end": null,
-      "weight": 27,
-      "pt": {
-        "title": "Liquidador",
-        "text": "Liquidadores eram cerca de 600 mil homens e mulheres, civis ou militares, que se ocuparam em minimizar as consequências do desastre de 26 de abril de 1986 em Chernobil.",
-        "url": "https://pt.wikipedia.org/wiki/Liquidador"
-      },
-      "en": {
-        "title": "Chernobyl liquidators",
-        "text": "Chernobyl liquidators were the civil and military personnel who were called upon to deal with the consequences of the 1986 Chernobyl nuclear disaster in the Soviet Union on the site of the catastrophe and in affected areas.",
-        "url": "https://en.wikipedia.org/wiki/Chernobyl_liquidators"
       }
     },
     {
@@ -10835,28 +8559,6 @@
       }
     },
     {
-      "id": "Q1051803",
-      "start": {
-        "iso": "1986-06-07",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1986-08-09",
-        "precision": "day"
-      },
-      "weight": 18,
-      "pt": {
-        "title": "Magic Tour",
-        "text": "A Magic Tour foi a última turnê da banda britânica de rock Queen, e também vem a representar as últimas apresentações de Freddie Mercury e John Deacon junto à banda.",
-        "url": "https://pt.wikipedia.org/wiki/Magic_Tour"
-      },
-      "en": {
-        "title": "Magic Tour (Queen)",
-        "text": "The Magic Tour was a European concert tour by the British rock band Queen in 1986. The tour was in support of their twelfth studio album, A Kind of Magic, and featured 26 shows across Western Europe.",
-        "url": "https://en.wikipedia.org/wiki/Magic_Tour_(Queen)"
-      }
-    },
-    {
       "id": "Q1036702",
       "start": {
         "iso": "1986-10-11",
@@ -10876,25 +8578,6 @@
         "title": "Reykjavík Summit",
         "text": "The Reykjavík Summit was a summit meeting between U.S. president Ronald Reagan and Soviet general secretary Mikhail Gorbachev, held in Reykjavík, Iceland, on 11–12 October 1986.",
         "url": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk_Summit"
-      }
-    },
-    {
-      "id": "Q4055762",
-      "start": {
-        "iso": "1986-10-20",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 17,
-      "pt": {
-        "title": "Voo Aeroflot 6502",
-        "text": "O Voo Aeroflot 6502 foi um voo doméstico soviético de passageiros operado por um Tupolev Tu-134A de Sverdlovsk para Grozny, que caiu em 20 de outubro de 1986, 70 dos 94 passageiros e tripulação a bordo foram mortos.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Aeroflot_6502"
-      },
-      "en": {
-        "title": "Aeroflot Flight 6502",
-        "text": "Aeroflot Flight 6502 was a Soviet domestic passenger flight from Sverdlovsk to Grozny via Kuibyshev.",
-        "url": "https://en.wikipedia.org/wiki/Aeroflot_Flight_6502"
       }
     },
     {
@@ -10920,28 +8603,6 @@
       }
     },
     {
-      "id": "Q211474",
-      "start": {
-        "iso": "1987-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1987-05-09",
-        "precision": "day"
-      },
-      "weight": 45,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1987",
-        "text": "O Festival Eurovisão da Canção 1987 foi o 32º Festival Eurovisão da Canção e realizou-se em 9 de maio de 1987 em Bruxelas.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1987"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1987",
-        "text": "The Eurovision Song Contest 1987 was the 32nd edition of the Eurovision Song Contest, held on 9 May 1987 at the Centenary Palace in Brussels, Belgium, and presented by Viktor Lazlo.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1987"
-      }
-    },
-    {
       "id": "Q701794",
       "start": {
         "iso": "1987-01-25",
@@ -10958,25 +8619,6 @@
         "title": "1987 West German federal election",
         "text": "A federal election was held in West Germany on 25 January 1987 to elect the members of the 11th Bundestag.",
         "url": "https://en.wikipedia.org/wiki/1987_West_German_federal_election"
-      }
-    },
-    {
-      "id": "Q3270393",
-      "start": {
-        "iso": "1987-05-09",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 21,
-      "pt": {
-        "title": "Voo LOT Polish Airlines 5055",
-        "text": "Voo LOT Polish Airlines 5055 foi um voo fretado por um Ilyushin Il-62M da LOT Polish Airlines que caiu no horário da manhã de sábado, 9 de maio de 1987.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_LOT_Polish_Airlines_5055"
-      },
-      "en": {
-        "title": "LOT Polish Airlines Flight 5055",
-        "text": "LOT Polish Airlines Flight 5055 was a scheduled international passenger flight from Warsaw to New York City.",
-        "url": "https://en.wikipedia.org/wiki/LOT_Polish_Airlines_Flight_5055"
       }
     },
     {
@@ -11056,28 +8698,6 @@
       }
     },
     {
-      "id": "Q211478",
-      "start": {
-        "iso": "1988-01-01",
-        "precision": "year"
-      },
-      "end": {
-        "iso": "1988-04-30",
-        "precision": "day"
-      },
-      "weight": 50,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1988",
-        "text": "O Festival Eurovisão da Canção 1988 foi o 33.º Festival Eurovisão da Canção e realizou-se em 30 de abril de 1988, em Dublin, na Irlanda.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1988"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1988",
-        "text": "The Eurovision Song Contest 1988 was the 33rd edition of the Eurovision Song Contest, held on 30 April 1988 at the RDS Simmonscourt Pavilion in Dublin, Ireland, and presented by Pat Kenny and Michelle Rocca.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1988"
-      }
-    },
-    {
       "id": "Q16954835",
       "start": {
         "iso": "1988-01-01",
@@ -11116,25 +8736,6 @@
         "title": "1988 French presidential election",
         "text": "Presidential elections were held in France on 24 April and 8 May 1988.",
         "url": "https://en.wikipedia.org/wiki/1988_French_presidential_election"
-      }
-    },
-    {
-      "id": "Q406486",
-      "start": {
-        "iso": "1988-06-26",
-        "precision": "day"
-      },
-      "end": null,
-      "weight": 20,
-      "pt": {
-        "title": "Voo Air France 296",
-        "text": "O voo 296 da Air France foi um voo de demonstração do desempenho do Airbus, que acabou explodindo a 26 de junho de 1988 na floresta que havia no final da pista do aeroporto da cidade de Habsheim, sul da Alsácia, França.",
-        "url": "https://pt.wikipedia.org/wiki/Voo_Air_France_296"
-      },
-      "en": {
-        "title": "Air France Flight 296Q",
-        "text": "Air France Flight 296Q was a chartered flight of a new Airbus A320 operated by Air Charter International for Air France.",
-        "url": "https://en.wikipedia.org/wiki/Air_France_Flight_296Q"
       }
     },
     {
@@ -11274,28 +8875,6 @@
         "title": "Basel Convention",
         "text": "The Basel Convention on the Control of Transboundary Movements of Hazardous Wastes and Their Disposal, usually known as the Basel Convention, is an international treaty that was designed to reduce the movements of hazardous waste between nations, and specifically to restrict the transfer of hazardous waste from…",
         "url": "https://en.wikipedia.org/wiki/Basel_Convention"
-      }
-    },
-    {
-      "id": "Q208524",
-      "start": {
-        "iso": "1989-05-06",
-        "precision": "day"
-      },
-      "end": {
-        "iso": "1989-05-06",
-        "precision": "day"
-      },
-      "weight": 46,
-      "pt": {
-        "title": "Festival Eurovisão da Canção 1989",
-        "text": "O Festival Eurovisão da Canção 1989 foi o 34.º Festival Eurovisão da Canção e realizou-se em 6 de maio de 1989, em Lausana, na Suíça.",
-        "url": "https://pt.wikipedia.org/wiki/Festival_Eurovis%C3%A3o_da_Can%C3%A7%C3%A3o_1989"
-      },
-      "en": {
-        "title": "Eurovision Song Contest 1989",
-        "text": "The Eurovision Song Contest 1989 was the 34th edition of the Eurovision Song Contest, held on 6 May 1989 at the Palais de Beaulieu in Lausanne, Switzerland, and presented by Jacques Deschenaux and Lolita Morena.",
-        "url": "https://en.wikipedia.org/wiki/Eurovision_Song_Contest_1989"
       }
     },
     {
