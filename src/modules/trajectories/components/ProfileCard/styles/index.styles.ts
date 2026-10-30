@@ -1,5 +1,5 @@
 export const styles = {
-  card: "@container flex flex-col gap-5 rounded-xl border border-line bg-raised p-5 sm:p-6",
+  card: "@container flex flex-col gap-5 rounded-xl border border-line bg-raised p-5 sm:p-6 lg:h-full lg:overflow-y-auto",
   back: "inline-flex items-center gap-2 self-start text-xs uppercase tracking-[0.12em] text-foreground hover:text-accent",
   // Photo and name side by side, as on a museum label, once the column is wide
   // enough for both; stacked in a narrow one.
@@ -7,7 +7,8 @@ export const styles = {
   portrait: "w-28 shrink-0 @[22rem]:w-32 @[26rem]:w-40",
   naming: "flex min-w-0 flex-col gap-2 pt-1",
   name: "font-serif text-[28px] leading-[1.05] @[22rem]:text-3xl @[26rem]:text-4xl",
-  years: "font-serif text-lg text-accent",
+  // Lining sans figures, heavier than the name, read at a glance.
+  years: "font-sans text-base font-semibold tabular-nums tracking-wide text-accent",
   occupation: "text-sm leading-relaxed text-muted",
   bio: "flex flex-col items-start gap-2 text-sm leading-relaxed text-foreground/90",
   bioSource: "text-[11px] uppercase tracking-[0.12em] text-muted",
