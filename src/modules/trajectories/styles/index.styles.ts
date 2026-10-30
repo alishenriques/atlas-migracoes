@@ -10,13 +10,17 @@ export const styles = {
   titleSeparator: "h-8 w-px shrink-0 bg-accent/60 sm:h-10",
   titleNote: "min-w-0 text-xs font-medium uppercase tracking-[0.16em] text-accent sm:text-sm",
   intro: "max-w-2xl text-muted",
-  // The artist (3/12), the map (6/12) and the institutions (3/12) from lg up;
-  // stacked below, in that order. Each block keeps its own height.
+  // The artist (3/12), the map with the sections below it (6/12) and the
+  // institutions (3/12) from lg up; stacked below, in that order. The page
+  // scrolls the centre column while the side blocks stay in view.
   top: "grid items-start gap-6 lg:grid-cols-12",
-  profile: "lg:col-span-3",
+  // Sticks where it starts (the 61px top bar plus the record's 24px top
+  // padding) and is as tall as the rest of the screen; its content scrolls inside.
+  profile: "lg:sticky lg:top-[85px] lg:col-span-3 lg:h-[calc(100svh-85px-1.5rem)]",
+  center: "flex min-w-0 flex-col gap-6 lg:col-span-6",
   // Never taller than the screen below the top bar.
-  map: "lg:col-span-6 lg:h-[min(640px,calc(100svh-8rem))]",
-  aside: "flex flex-col gap-6 lg:col-span-3",
+  map: "lg:h-[min(640px,calc(100svh-8rem))]",
+  aside: "flex flex-col gap-6 lg:sticky lg:top-[85px] lg:col-span-3 lg:max-h-[calc(100svh-85px-1.5rem)] lg:overflow-y-auto",
   sources: "flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3",
   sourcesLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   sections: "flex flex-col gap-3",
