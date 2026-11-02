@@ -183,9 +183,11 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
               </span>
             </Toggletip>
           </span>
-          <ReliabilityTag level="inferred" label={t("INFERRED")} />
+          {/* What "inferred" means here opens from the tag itself, as on the artist record. */}
+          <Toggletip align="end" trigger={<ReliabilityTag level="inferred" label={t("INFERRED")} />}>
+            <span className={styles.inferredText}>{t("ORIGINS_METHOD")}</span>
+          </Toggletip>
         </div>
-        <p className={styles.note}>{t("ORIGINS_METHOD")}</p>
         <ul className={styles.origins}>
           {origins.map((origin) => (
             <li key={origin.artist.slug} className={styles.origin}>

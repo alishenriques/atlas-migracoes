@@ -240,7 +240,7 @@
     },
     "ORIGINS_TITLE": "Places of origin",
     "INFERRED": "Inferred territory",
-    "ORIGINS_METHOD": "Each place's state was derived from its position inside the borders of the time. When the birth date is only a year and the border moved during that year, both states are shown.",
+    "ORIGINS_METHOD": "Each place's state does not come from the MAC USP spreadsheet: the platform derives it from the place's position inside the borders of the time. When the birth date is only a year and the border moved during that year, both states are shown.",
     "ORIGINS_HOW": {
       "ABOUT": "How to read the list",
       "TITLE": "How to read the list",
