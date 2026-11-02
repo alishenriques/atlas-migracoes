@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 
-import { Button, Legend, Panel, ReliabilityTag, SelectField, YearRange } from "@alishenriques/atlas-design-system";
+import { Button, Legend, Panel, ReliabilityTag, SelectField, Toggletip, YearRange } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -35,6 +35,9 @@ export type NetworkExplorerProps = {
 };
 
 const KEY = (kind: NodeKind) => kind.toUpperCase() as Uppercase<NodeKind>;
+// The ways to set the network's center, explained next to the field, in order.
+const CENTER_HOW = ["OVERVIEW", "ARTIST", "PERIOD", "FOCUS"] as const;
+const strong = (chunks: ReactNode) => <strong className={styles.strong}>{chunks}</strong>;
 
 /**
  * The interactive part of the Rede Relacional: center and period controls, legend, graph and node detail.
@@ -98,19 +101,37 @@ export function NetworkExplorer({ data, initialSlug, intro, footer }: NetworkExp
           ) : undefined
         }
       >
-        <SelectField
-          label={t("CENTER")}
-          value={center}
-          onChange={changeCenter}
-          options={[
-            { value: "", label: t("OVERVIEW") },
-            ...artists.map((artist) => ({ value: artist.slug, label: artist.name })),
-          ]}
-        />
+        {/* How the center works opens next to its label (asked by Alisson, 2026-11-02). */}
+        <div className={styles.centerField}>
+          <SelectField
+            label={t("CENTER")}
+            className={styles.centerSelect}
+            value={center}
+            onChange={changeCenter}
+            options={[
+              { value: "", label: t("OVERVIEW") },
+              ...artists.map((artist) => ({ value: artist.slug, label: artist.name })),
+            ]}
+          />
+          <Toggletip
+            className={styles.centerHow}
+            trigger={<span className="sr-only">{t("CENTER_HOW.ABOUT")}</span>}
+          >
+            <span className={styles.howNote}>
+              <span className={styles.howTitle}>{t("CENTER_HOW.TITLE")}</span>
+              {CENTER_HOW.map((line) => (
+                <span key={line} className={styles.howRule}>
+                  {t.rich(`CENTER_HOW.${line}`, { b: strong, focus: t("FOCUS") })}
+                </span>
+              ))}
+            </span>
+          </Toggletip>
+        </div>
         {/* A base dated in one year only has no period to narrow. */}
         {extent[0] < extent[1] && (
           <YearRange
             label={t("PERIOD")}
+            className={styles.period}
             fromLabel={t("PERIOD_FROM")}
             toLabel={t("PERIOD_TO")}
             min={extent[0]}
