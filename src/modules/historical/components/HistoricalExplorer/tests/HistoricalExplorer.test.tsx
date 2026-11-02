@@ -150,7 +150,11 @@ describe("HistoricalExplorer", () => {
     respond(states);
     renderExplorer();
     expect(await screen.findByRole("link", { name: "Tratado de Locarno" })).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "Fatos históricos" })).toHaveTextContent("Inferido");
+    const facts = screen.getByRole("region", { name: "Fatos históricos" });
+    expect(facts).toHaveTextContent("Inferido");
+    // The decade and the year are chosen on top of the facts.
+    expect(within(facts).getByRole("combobox", { name: "Ano" })).toBeInTheDocument();
+    expect(within(facts).getByText("Década")).toBeInTheDocument();
     const about = screen.getByRole("button", { name: /Sobre as fronteiras/ });
     expect(about).toHaveAttribute("aria-expanded", "false");
     fireEvent.click(about);

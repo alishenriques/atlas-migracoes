@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import { Panel, ReliabilityTag, Toggletip } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -12,6 +14,8 @@ import { useHistoricalFacts } from "../../hooks/useHistoricalFacts";
 export type HistoricalFactsProps = {
   /** The year chosen on the Camada Histórica. */
   year: number;
+  /** Over the facts and kept in view while they scroll: the decade and year that choose them. */
+  controls?: ReactNode;
 };
 
 /**
@@ -20,7 +24,7 @@ export type HistoricalFactsProps = {
  * to its Wikipedia article. Chosen by the platform, so labelled inferred.
  * A panel of its own, floating on the right of the map on desktop.
  */
-export function HistoricalFacts({ year }: HistoricalFactsProps) {
+export function HistoricalFacts({ year, controls }: HistoricalFactsProps) {
   const t = useTranslations("HISTORICAL_LAYER.FACTS");
   const locale = useLocale();
   const loaded = useHistoricalFacts();
@@ -39,51 +43,55 @@ export function HistoricalFacts({ year }: HistoricalFactsProps) {
         </span>
       }
     >
-      {loaded.status === "loading" && <p className={styles.status}>{t("LOADING")}</p>}
-      {loaded.status === "error" && <p className={styles.status}>{t("UNAVAILABLE")}</p>}
-      {loaded.status === "ready" && inYear.length === 0 && ongoing.length === 0 && (
-        <p className={styles.status}>{t("NONE", { year })}</p>
-      )}
+      {controls && <div className={styles.controls}>{controls}</div>}
 
-      {inYear.length > 0 && (
-        <>
-          <h3 className={styles.groupTitle}>{t("IN_YEAR", { year })}</h3>
-          <ul className={styles.facts}>
-            {inYear.map((fact) => {
-              const { title, text, url } = factText(fact, locale);
-              return (
-                <li key={fact.id} className={styles.fact}>
-                  <span className={styles.date}>{formatFuzzyDate(asFuzzyDate(fact.start), locale, "")}</span>
-                  <a href={url} target="_blank" rel="noreferrer" className={styles.factTitle}>
-                    {title}
-                  </a>
-                  <p className={styles.text}>{text}</p>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
+      <div className={styles.body}>
+        {loaded.status === "loading" && <p className={styles.status}>{t("LOADING")}</p>}
+        {loaded.status === "error" && <p className={styles.status}>{t("UNAVAILABLE")}</p>}
+        {loaded.status === "ready" && inYear.length === 0 && ongoing.length === 0 && (
+          <p className={styles.status}>{t("NONE", { year })}</p>
+        )}
 
-      {ongoing.length > 0 && (
-        <>
-          <h3 className={styles.groupTitle}>{t("ONGOING")}</h3>
-          <ul className={styles.ongoing}>
-            {ongoing.map((fact) => {
-              const { title, url } = factText(fact, locale);
-              return (
-                <li key={fact.id}>
-                  <a href={url} target="_blank" rel="noreferrer" className={styles.ongoingItem}>
-                    {title} ({factSpan(fact)})
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
+        {inYear.length > 0 && (
+          <>
+            <h3 className={styles.groupTitle}>{t("IN_YEAR", { year })}</h3>
+            <ul className={styles.facts}>
+              {inYear.map((fact) => {
+                const { title, text, url } = factText(fact, locale);
+                return (
+                  <li key={fact.id} className={styles.fact}>
+                    <span className={styles.date}>{formatFuzzyDate(asFuzzyDate(fact.start), locale, "")}</span>
+                    <a href={url} target="_blank" rel="noreferrer" className={styles.factTitle}>
+                      {title}
+                    </a>
+                    <p className={styles.text}>{text}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
 
-      {loaded.status === "ready" && <p className={styles.credit}>{t("CREDIT")}</p>}
+        {ongoing.length > 0 && (
+          <>
+            <h3 className={styles.groupTitle}>{t("ONGOING")}</h3>
+            <ul className={styles.ongoing}>
+              {ongoing.map((fact) => {
+                const { title, url } = factText(fact, locale);
+                return (
+                  <li key={fact.id}>
+                    <a href={url} target="_blank" rel="noreferrer" className={styles.ongoingItem}>
+                      {title} ({factSpan(fact)})
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
+
+        {loaded.status === "ready" && <p className={styles.credit}>{t("CREDIT")}</p>}
+      </div>
     </Panel>
   );
 }

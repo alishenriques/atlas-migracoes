@@ -6,7 +6,7 @@ export const styles = {
   sourceBase: "border-b border-line pb-2 text-muted",
   sourceRule: "relative pl-3 before:absolute before:left-0 before:top-[0.55em] before:size-1 before:rounded-full before:bg-accent",
   strong: "font-semibold text-foreground",
-  list: "flex flex-col gap-2 border-t border-line pt-3",
+  list: "flex flex-col gap-2",
   listHeader: "flex items-center justify-between gap-3",
   listTitle: "text-[11px] uppercase tracking-[0.12em] text-muted",
   origins: "flex flex-col divide-y divide-white/5",
