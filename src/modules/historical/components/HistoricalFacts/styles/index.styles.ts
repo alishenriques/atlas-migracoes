@@ -1,6 +1,8 @@
 export const styles = {
-  // Scrolls inside the right column of the map screen.
-  panel: "flex flex-col gap-2 md:min-h-0 md:overflow-y-auto scrollbar-atlas",
+  // Fills the right column of the map screen: the controls stay on top and the facts scroll under them.
+  panel: "flex flex-col md:min-h-0",
+  controls: "flex flex-col gap-3 border-b border-line pb-3 md:shrink-0",
+  body: "flex flex-col gap-2 md:min-h-0 md:overflow-y-auto scrollbar-atlas",
   tags: "flex items-center gap-2",
   infoText: "block max-w-xs text-xs leading-relaxed",
   status: "text-xs leading-relaxed text-muted",

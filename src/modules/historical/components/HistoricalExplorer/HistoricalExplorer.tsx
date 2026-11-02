@@ -122,7 +122,28 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         )
       }
       intro={intro}
-      aside={<HistoricalFacts year={year} />}
+      aside={
+        <HistoricalFacts
+          year={year}
+          // Decade and year sit on top of the facts they choose (asked by Alisson, 2026-11-02).
+          controls={
+            <>
+              <SegmentedControl
+                label={t("DECADE")}
+                value={String(decade)}
+                onChange={chooseDecade}
+                options={DECADES.map((d) => ({ value: String(d), label: t("DECADE_LABEL", { decade: d }) }))}
+              />
+              <SelectField
+                label={t("YEAR")}
+                value={String(year)}
+                onChange={(value) => setYear(Number(value))}
+                options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
+              />
+            </>
+          }
+        />
+      }
       title={t("BORDERS_OF", { year })}
       action={
         // How the borders are drawn, out of the way of the facts (asked by Tânia, 2026-10-30).
@@ -140,19 +161,6 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         </Toggletip>
       }
     >
-      <SegmentedControl
-        label={t("DECADE")}
-        value={String(decade)}
-        onChange={chooseDecade}
-        options={DECADES.map((d) => ({ value: String(d), label: t("DECADE_LABEL", { decade: d }) }))}
-      />
-      <SelectField
-        label={t("YEAR")}
-        value={String(year)}
-        onChange={(value) => setYear(Number(value))}
-        options={yearsOf(decade).map((y) => ({ value: String(y), label: String(y) }))}
-      />
-
       <div className={styles.list}>
         <div className={styles.listHeader}>
           <p className={styles.listTitle}>{t("ORIGINS_TITLE")}</p>
