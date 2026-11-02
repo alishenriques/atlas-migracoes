@@ -12,6 +12,10 @@ export function ResearchResultsSkeleton() {
   return (
     <Loading className={styles.columns}>
       <Panel className={styles.collection}>
+        <span className={styles.identity}>
+          <Skeleton className={styles.portraitSkeleton} />
+          <Skeleton height={28} width="60%" />
+        </span>
         <Skeleton shape="text" lines={4} />
       </Panel>
 

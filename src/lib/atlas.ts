@@ -1,19 +1,18 @@
 import { graphqlRequest } from "./graphql-client";
 import {
   artistIndexSchema,
-  artistListSchema,
   artistRecordResponseSchema,
   mapDataSchema,
   networkDataSchema,
   overviewSchema,
   researchResponseSchema,
   type ArtistIndex,
-  type ArtistList,
   type ArtistRecordResponse,
   type MapData,
   type NetworkData,
   type Overview,
   type Research,
+  type ResearchResponse,
 } from "./schemas";
 
 const OVERVIEW_QUERY = /* GraphQL */ `
@@ -98,6 +97,9 @@ const ARTIST_INDEX_QUERY = /* GraphQL */ `
   ${FRAGMENTS}
 
   query ArtistIndex {
+    meta {
+      source
+    }
     artists {
       slug
       name
@@ -255,27 +257,13 @@ export function getNetworkData(): Promise<NetworkData> {
   return graphqlRequest(networkDataSchema, NETWORK_QUERY);
 }
 
-const ARTIST_LIST_QUERY = /* GraphQL */ `
-  query ArtistList {
-    meta {
-      source
-    }
-    artists {
-      slug
-      name
-    }
-  }
-`;
-
-/** Every artist's slug and name, for screens that start by picking one. */
-export function getArtistList(): Promise<ArtistList> {
-  return graphqlRequest(artistListSchema, ARTIST_LIST_QUERY);
-}
-
 const RESEARCH_QUERY = /* GraphQL */ `
   ${FRAGMENTS}
 
   query Research($slug: String!) {
+    meta {
+      source
+    }
     research(slug: $slug) {
       artist {
         slug
@@ -291,6 +279,10 @@ const RESEARCH_QUERY = /* GraphQL */ `
         }
         deathDate {
           ...MapDate
+        }
+        photo {
+          url
+          credit
         }
       }
       match {
@@ -346,7 +338,15 @@ const RESEARCH_QUERY = /* GraphQL */ `
   }
 `;
 
+/**
+ * What open sources say about an artist (null when the slug is unknown), each finding with its
+ * source, and whether the API serves the collection or its simulated demo records.
+ */
+export function getResearchResponse(slug: string): Promise<ResearchResponse> {
+  return graphqlRequest(researchResponseSchema, RESEARCH_QUERY, { slug });
+}
+
 /** What open sources say about an artist (null when the slug is unknown), each finding with its source. */
 export async function getResearch(slug: string): Promise<Research | null> {
-  return (await graphqlRequest(researchResponseSchema, RESEARCH_QUERY, { slug })).research;
+  return (await getResearchResponse(slug)).research;
 }

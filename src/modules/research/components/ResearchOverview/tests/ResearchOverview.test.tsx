@@ -23,6 +23,7 @@ const research: Research = {
     birthDate: year(1892),
     deathPlace: null,
     deathDate: year(null),
+    photo: null,
   },
   searchedNames: ["Dimitri Ismailovitch"],
   match: null,

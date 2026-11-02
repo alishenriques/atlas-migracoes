@@ -38,7 +38,7 @@ test("a trajectory record lists the works and leads to the open-source research"
   await expect(page.getByText("Obra simulada 1")).toBeVisible();
 
   await page.getByRole("link", { name: "Pesquisar em fontes abertas" }).click();
-  await expect(page).toHaveURL(/\/pt\/ia-relacional\?artista=artista-a$/);
+  await expect(page).toHaveURL(/\/pt\/ia-relacional\/artista-a$/);
   await expect(page.getByText(/nasceu em 1900/)).toBeVisible();
 
   // Each citation in the AI summary leads to the finding it cites.
@@ -46,6 +46,22 @@ test("a trajectory record lists the works and leads to the open-source research"
   await expect(page).toHaveURL(/#achado-2$/);
   await expect(page.locator("#achado-2")).toBeInViewport();
   await expect(page.getByText("Prompt enviado à IA")).toBeVisible();
+});
+
+test("IA Relacional lists the artists, and each opens a page of its own", async ({ page }) => {
+  await page.goto("/pt/ia-relacional");
+  await expect(page.getByRole("heading", { level: 1, name: "IA Relacional" })).toBeVisible();
+  await page.getByRole("searchbox", { name: "Buscar artista" }).fill("artista a");
+  await page.getByRole("link", { name: /Artista A \(simulado\)/ }).click();
+  await expect(page).toHaveURL(/\/pt\/ia-relacional\/artista-a$/);
+  await expect(page.getByRole("heading", { level: 3, name: "Artista A (simulado)" })).toBeVisible();
+  await expect(page.getByText(/nasceu em 1900/)).toBeVisible();
+
+  // Links from before each artist had a page of their own still land on it.
+  await page.goto("/pt/ia-relacional?artista=artista-a");
+  await expect(page).toHaveURL(/\/pt\/ia-relacional\/artista-a$/);
+  await page.goto("/en/relational-ai?artista=artista-a");
+  await expect(page).toHaveURL(/\/en\/relational-ai\/artista-a$/);
 });
 
 test("Camada Histórica, Rede Relacional and Sobre open", async ({ page, isMobile }) => {

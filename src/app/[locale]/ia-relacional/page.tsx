@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
-import { getArtistList } from "@/lib/atlas";
-import { Research } from "@/modules/research";
+import { redirect } from "@/i18n/navigation";
+import { getArtistIndex } from "@/lib/atlas";
+import { ResearchIndex } from "@/modules/research";
 
 import type { Metadata } from "next";
 
@@ -15,14 +16,15 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/ia-relac
   return { title: t("TITLE") };
 }
 
-export default async function Page({ searchParams }: PageProps<"/[locale]/ia-relacional">) {
-  // `?artista=<slug>` opens the research on that artist (linked from the record).
-  const { artista } = await searchParams;
-  const slug = typeof artista === "string" && artista ? artista : null;
-  // The findings stream in their own Suspense boundary (see Research); the page waits only for the list.
-  const list = await getArtistList().catch((error: unknown) => {
-    console.error("Failed to load the artist list:", error instanceof Error ? error.message : error);
+export default async function Page({ params, searchParams }: PageProps<"/[locale]/ia-relacional">) {
+  const [{ locale }, { artista }] = await Promise.all([params, searchParams]);
+  // Links from before each artist had a page of their own (`?artista=<slug>`) land on that page.
+  if (typeof artista === "string" && artista) {
+    redirect({ href: { pathname: "/ia-relacional/[slug]", params: { slug: artista } }, locale });
+  }
+  const data = await getArtistIndex().catch((error: unknown) => {
+    console.error("Failed to load the artists:", error instanceof Error ? error.message : error);
     return null;
   });
-  return <Research list={list} slug={slug} />;
+  return <ResearchIndex data={data} />;
 }

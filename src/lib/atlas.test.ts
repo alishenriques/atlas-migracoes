@@ -4,7 +4,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const post = vi.fn();
 vi.spyOn(axios, "create").mockReturnValue({ post } as unknown as ReturnType<typeof axios.create>);
 
-const { getArtistIndex, getArtistList, getArtistRecord, getMapData, getNetworkData, getOverview, getResearch } = await import("./atlas");
+const { getArtistIndex, getArtistRecord, getMapData, getNetworkData, getOverview, getResearch, getResearchResponse } = await import(
+  "./atlas"
+);
 
 const reply = (data: unknown) => post.mockResolvedValue({ data: { data } });
 
@@ -62,14 +64,14 @@ describe("getArtistIndex", () => {
       { ...artist, photo: null },
       { ...artist, slug: "anatol", photo: { url: "https://api.example/photos/anatol?v=1", credit: "Família" } },
     ];
-    reply({ artists });
-    await expect(getArtistIndex()).resolves.toEqual({ artists });
+    reply({ meta: { source: "database" }, artists });
+    await expect(getArtistIndex()).resolves.toEqual({ meta: { source: "database" }, artists });
     expect(post.mock.calls[0]?.[1]).toMatchObject({ query: expect.stringContaining("photo") });
   });
 
   it("rejects a photo without a valid URL", async () => {
     const artist = { ...mapArtist, exhibitions: undefined };
-    reply({ artists: [{ ...artist, photo: { url: "foto.webp", credit: null } }] });
+    reply({ meta: { source: "database" }, artists: [{ ...artist, photo: { url: "foto.webp", credit: null } }] });
     await expect(getArtistIndex()).rejects.toThrow();
   });
 });
@@ -162,17 +164,9 @@ describe("getNetworkData", () => {
   });
 });
 
-describe("getArtistList", () => {
-  it("returns every artist's slug and name", async () => {
-    const list = { meta: { source: "database" }, artists: [{ slug: "lasar-segall", name: "Lasar Segall" }] };
-    reply(list);
-    await expect(getArtistList()).resolves.toEqual(list);
-  });
-});
-
 describe("getResearch", () => {
   const research = {
-    artist: { ...mapArtist, exhibitions: undefined },
+    artist: { ...mapArtist, exhibitions: undefined, photo: { url: "https://api.example/photos/lasar-segall?v=1", credit: null } },
     searchedNames: ["Lasar Segall"],
     match: { id: "Q1", label: "Lasar Segall", description: null, url: "https://www.wikidata.org/wiki/Q1", basis: "birth_year", note: null },
     candidates: [],
@@ -195,20 +189,28 @@ describe("getResearch", () => {
     retrievedAt: "2026-10-18T12:00:00.000Z",
   };
 
+  const meta = { source: "database" };
+
   it("asks for the slug and returns the findings with their sources", async () => {
-    reply({ research });
+    reply({ meta, research });
     await expect(getResearch("lasar-segall")).resolves.toEqual(research);
     expect(post.mock.calls[0]?.[1]).toMatchObject({ variables: { slug: "lasar-segall" } });
   });
 
+  it("says whether the records are the collection's or the simulated demo", async () => {
+    reply({ meta: { source: "demo" }, research });
+    await expect(getResearchResponse("lasar-segall")).resolves.toEqual({ meta: { source: "demo" }, research });
+    expect(post.mock.calls[0]?.[1]).toMatchObject({ query: expect.stringContaining("photo") });
+  });
+
   it("returns null for an unknown artist", async () => {
-    reply({ research: null });
+    reply({ meta, research: null });
     await expect(getResearch("x")).resolves.toBeNull();
   });
 
   it("refuses a source link that is not https", async () => {
     const [finding] = research.findings;
-    reply({ research: { ...research, findings: [{ ...finding, sourceUrl: "javascript:alert(1)" }] } });
+    reply({ meta, research: { ...research, findings: [{ ...finding, sourceUrl: "javascript:alert(1)" }] } });
     await expect(getResearch("lasar-segall")).rejects.toThrow();
   });
 });

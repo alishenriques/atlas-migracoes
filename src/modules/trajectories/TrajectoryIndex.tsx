@@ -2,10 +2,10 @@ import { Eyebrow } from "@alishenriques/atlas-design-system";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { ArtistIndex } from "@/lib/schemas";
+import { ArtistGrid, artistCards } from "@/shared/components/ArtistGrid";
+import { DemoNotice } from "@/shared/components/DemoNotice";
 
-import { ArtistGrid } from "./components/ArtistGrid";
 import { styles } from "./styles/index.styles";
-import { lifeSpan } from "./utils/life";
 
 /** Every artist in the collection, alphabetically, each linking to their record. */
 export async function TrajectoryIndex({ data }: { data: ArtistIndex | null }) {
@@ -17,6 +17,7 @@ export async function TrajectoryIndex({ data }: { data: ArtistIndex | null }) {
 
   return (
     <main className={styles.index}>
+      {data?.meta.source === "demo" && <DemoNotice />}
       <header className={styles.header}>
         <Eyebrow>{t("EYEBROW")}</Eyebrow>
         <div className={styles.titleRow}>
@@ -29,14 +30,9 @@ export async function TrajectoryIndex({ data }: { data: ArtistIndex | null }) {
 
       {data ? (
         <ArtistGrid
-          artists={data.artists.map((artist) => ({
-            slug: artist.slug,
-            name: artist.name,
-            photo: artist.photo?.url ?? null,
-            meta: [artist.birthPlace?.country, lifeSpan(artist.birthDate, artist.deathDate, locale, tStop("UNKNOWN_DATE"))]
-              .filter(Boolean)
-              .join(" · "),
-          }))}
+          artists={artistCards(data.artists, locale, tStop("UNKNOWN_DATE"))}
+          route="/trajetorias/[slug]"
+          label={t("TITLE_NOTE")}
         />
       ) : (
         <p className={styles.muted}>{t("LIST_UNAVAILABLE")}</p>

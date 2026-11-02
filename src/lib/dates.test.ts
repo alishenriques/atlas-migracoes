@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatFuzzyDate } from "./dates";
+import { formatFuzzyDate, lifeSpan } from "./dates";
 
 import type { FuzzyDate } from "./schemas";
 
@@ -31,5 +31,14 @@ describe("formatFuzzyDate", () => {
 
   it("uses the unknown label when there is no year", () => {
     expect(formatFuzzyDate(date({ precision: "unknown", year: null, endYear: null }), "pt", "s.d.")).toBe("s.d.");
+  });
+});
+
+describe("lifeSpan", () => {
+  it("shows both ends, unknown ones labelled", () => {
+    expect(lifeSpan(date({}), date({ year: 1957, endYear: 1957 }), "pt", "s.d.")).toBe("1949–1957");
+    expect(lifeSpan(date({ precision: "circa" }), date({ precision: "unknown", year: null, endYear: null }), "pt", "s.d.")).toBe("c. 1949–s.d.");
+    const unknown = date({ precision: "unknown", year: null, endYear: null });
+    expect(lifeSpan(unknown, unknown, "pt", "s.d.")).toBeNull();
   });
 });

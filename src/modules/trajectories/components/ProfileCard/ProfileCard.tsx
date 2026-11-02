@@ -4,8 +4,9 @@ import { EventIcon, FactIcon, Portrait, Tabs, Toggletip, type FactIconName } fro
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { lifeSpan } from "@/lib/dates";
 import type { ArtistRecord, Research } from "@/lib/schemas";
-import { lifeEvent, lifeSpan } from "@/modules/trajectories/utils/life";
+import { lifeEvent } from "@/modules/trajectories/utils/life";
 import { activityYears, artistProfile, listOf, type SourcedFact } from "@/modules/trajectories/utils/profile";
 
 import { ProfileActions } from "./ProfileActions";
@@ -103,7 +104,7 @@ export function ProfileCard({ artist, research }: ProfileCardProps) {
           <p>{profile.bio.text}</p>
           <Toggletip trigger={<span className={styles.bioSource}>{t("BIO_SOURCE")}</span>}>
             {t("BIO_SOURCE_DETAIL", { model: profile.bio.model ?? "Gemini", date: retrieved ?? "" })}{" "}
-            <Link href={{ pathname: "/ia-relacional", query: { artista: artist.slug } }} className={styles.bioLink}>
+            <Link href={{ pathname: "/ia-relacional/[slug]", params: { slug: artist.slug } }} className={styles.bioLink}>
               {t("BIO_SOURCE_LINK")}
             </Link>
           </Toggletip>

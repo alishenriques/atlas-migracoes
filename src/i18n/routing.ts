@@ -14,6 +14,7 @@ export const routing = defineRouting({
     "/camada-historica": { pt: "/camada-historica", en: "/historical-layer" },
     "/rede": { pt: "/rede", en: "/network" },
     "/ia-relacional": { pt: "/ia-relacional", en: "/relational-ai" },
+    "/ia-relacional/[slug]": { pt: "/ia-relacional/[slug]", en: "/relational-ai/[slug]" },
     "/sobre": { pt: "/sobre", en: "/about" },
   },
 });

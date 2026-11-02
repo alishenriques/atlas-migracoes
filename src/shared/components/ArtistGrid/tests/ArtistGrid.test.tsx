@@ -4,11 +4,11 @@ import { describe, expect, it, vi } from "vitest";
 
 import messages from "@/locales/pt.json";
 
-import { ArtistGrid, type ArtistCard } from "../ArtistGrid";
+import { ArtistGrid, type ArtistCard, type ArtistCardRoute } from "../ArtistGrid";
 
 vi.mock("@/i18n/navigation", () => ({
-  Link: ({ children, href, ...props }: { children: React.ReactNode; href: { params: { slug: string } } }) => (
-    <a href={`/trajetorias/${href.params.slug}`} {...props}>
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: { pathname: string; params: { slug: string } } }) => (
+    <a href={href.pathname.replace("[slug]", href.params.slug)} {...props}>
       {children}
     </a>
   ),
@@ -20,10 +20,10 @@ const artists: ArtistCard[] = [
   { slug: "yolanda-mohalyi", name: "Yolanda Mohályi", meta: "Hungria · 1909–1978", photo: null },
 ];
 
-function setup() {
+function setup(route: ArtistCardRoute = "/trajetorias/[slug]") {
   render(
     <NextIntlClientProvider locale="pt" messages={messages}>
-      <ArtistGrid artists={artists} />
+      <ArtistGrid artists={artists} route={route} label="Fichas dos artistas" />
     </NextIntlClientProvider>,
   );
   return screen.getByRole("searchbox", { name: "Buscar artista" });
@@ -36,7 +36,18 @@ describe("ArtistGrid", () => {
     setup();
     expect(names()).toHaveLength(3);
     expect(screen.getByText("3 artistas")).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Fichas dos artistas" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Lasar Segall/ })).toHaveAttribute("href", "/trajetorias/lasar-segall");
+  });
+
+  it("leads each card to the page it is given, and shows the photo when there is one", () => {
+    artists[0] = { ...artists[0]!, photo: "https://api.example/photos/lasar-segall?v=1" };
+    setup("/ia-relacional/[slug]");
+    const card = screen.getByRole("link", { name: /Lasar Segall/ });
+    expect(card).toHaveAttribute("href", "/ia-relacional/lasar-segall");
+    expect(card.querySelector("img")).toHaveAttribute("src", "https://api.example/photos/lasar-segall?v=1");
+    expect(screen.getAllByTitle("Ainda sem foto")).toHaveLength(2);
+    artists[0] = { ...artists[0], photo: null };
   });
 
   it("filters by name, ignoring case and accents", () => {

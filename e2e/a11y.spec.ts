@@ -10,11 +10,11 @@ const PAGES = [
   "/pt/camada-historica",
   "/pt/rede",
   "/pt/ia-relacional",
-  "/pt/ia-relacional?artista=artista-a",
+  "/pt/ia-relacional/artista-a",
   "/pt/sobre",
   "/en",
   "/en/explore",
-  "/en/relational-ai?artista=artista-a",
+  "/en/relational-ai/artista-a",
 ];
 
 for (const path of PAGES) {

@@ -19,16 +19,27 @@ export type ArtistCard = {
   meta: string;
 };
 
+/** The per-artist pages a card can open: the Trajetórias record or the IA Relacional research. */
+export type ArtistCardRoute = "/trajetorias/[slug]" | "/ia-relacional/[slug]";
+
+export type ArtistGridProps = {
+  artists: ArtistCard[];
+  /** Where each card leads, with the artist's slug. */
+  route: ArtistCardRoute;
+  /** Names the list for assistive technology, e.g. "Fichas dos artistas". */
+  label: string;
+};
+
 /** The artists' cards, filtered by name as the visitor types (case- and accent-insensitive). */
-export function ArtistGrid({ artists }: { artists: ArtistCard[] }) {
-  const t = useTranslations("TRAJECTORIES");
+export function ArtistGrid({ artists, route, label }: ArtistGridProps) {
+  const t = useTranslations("ARTIST_GRID");
   const [query, setQuery] = useState("");
   const indexed = useMemo(() => artists.map((artist) => ({ ...artist, key: normalizeName(artist.name) })), [artists]);
   const needle = normalizeName(query);
   const shown = needle ? indexed.filter((artist) => artist.key.includes(needle)) : indexed;
 
   return (
-    <section className={styles.list} aria-label={t("TITLE_NOTE")}>
+    <section className={styles.list} aria-label={label}>
       <div className={styles.toolbar}>
         <SearchField
           className={styles.search}
@@ -47,7 +58,7 @@ export function ArtistGrid({ artists }: { artists: ArtistCard[] }) {
         <ul className={styles.grid}>
           {shown.map((artist) => (
             <li key={artist.slug}>
-              <Link href={{ pathname: "/trajetorias/[slug]", params: { slug: artist.slug } }} className={styles.card}>
+              <Link href={{ pathname: route, params: { slug: artist.slug } }} className={styles.card}>
                 <span className={styles.cardText}>
                   <span className={styles.cardName}>{artist.name}</span>
                   <span className={styles.cardMeta}>{artist.meta}</span>

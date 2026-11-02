@@ -45,6 +45,7 @@ const research: Research = {
     birthDate: year(1889),
     deathPlace: null,
     deathDate: year(null),
+    photo: null,
   },
   searchedNames: ["Lasar Segall"],
   match: { id: "Q1", label: "Lasar Segall", description: "pintor lituano-brasileiro", url: item, basis: "birth_year", note: null },
@@ -93,6 +94,20 @@ describe("ResearchResults", () => {
     expect(screen.getByText("pintor lituano-brasileiro")).toBeInTheDocument();
     expect(screen.getByText(/única pessoa com este nome nascida no ano/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Ver na fonte: Wikidata Q1" })).toHaveAttribute("href", item);
+  });
+
+  it("titles the collection's block with the artist's name and photo", () => {
+    const { unmount } = renderResults(research);
+    const collection = screen.getByRole("region", { name: "No acervo" });
+    expect(within(collection).getByRole("heading", { level: 3, name: "Lasar Segall" })).toBeInTheDocument();
+    expect(within(collection).getByRole("img", { name: "Ainda sem foto" })).toBeInTheDocument();
+    unmount();
+
+    const photo = { url: "https://api.example/photos/lasar-segall?v=1", credit: "Arquivo Lasar Segall" };
+    renderResults({ ...research, artist: { ...research.artist, photo } });
+    const withPhoto = screen.getByRole("region", { name: "No acervo" });
+    expect(within(withPhoto).getByRole("img", { name: "Lasar Segall" })).toHaveAttribute("src", photo.url);
+    expect(within(withPhoto).getByText("Foto: Arquivo Lasar Segall")).toBeInTheDocument();
   });
 
   it("shows each finding with its reliability, references, source and what needs review", () => {

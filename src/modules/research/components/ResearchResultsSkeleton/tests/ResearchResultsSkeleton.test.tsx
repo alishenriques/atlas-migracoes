@@ -14,6 +14,6 @@ describe("ResearchResultsSkeleton", () => {
       </NextIntlClientProvider>,
     );
     expect(screen.getByRole("status")).toHaveTextContent("Carregando…");
-    expect(container.querySelectorAll("[data-shape]")).toHaveLength(7);
+    expect(container.querySelectorAll("[data-shape]")).toHaveLength(9);
   });
 });
