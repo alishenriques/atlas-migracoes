@@ -155,6 +155,12 @@ describe("HistoricalExplorer", () => {
     // The decade and the year are chosen on top of the facts.
     expect(within(facts).getByRole("combobox", { name: "Ano" })).toBeInTheDocument();
     expect(within(facts).getByText("Década")).toBeInTheDocument();
+    // How to read each artist's three lines, before the list.
+    const how = screen.getByRole("button", { name: /Como ler a lista/ });
+    fireEvent.click(how);
+    expect(screen.getByRole("status")).toHaveTextContent("Cada artista tem três linhas:");
+    expect(screen.getByRole("status")).toHaveTextContent("Em 1925: o Estado que existia ali no ano escolhido");
+    fireEvent.click(how);
     const about = screen.getByRole("button", { name: /Sobre as fronteiras/ });
     expect(about).toHaveAttribute("aria-expanded", "false");
     fireEvent.click(about);

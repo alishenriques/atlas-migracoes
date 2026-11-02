@@ -241,6 +241,15 @@
     "ORIGINS_TITLE": "Lugares de origem",
     "INFERRED": "Território inferido",
     "ORIGINS_METHOD": "O Estado de cada lugar foi deduzido pela posição do lugar dentro das fronteiras da época. Quando a data de nascimento é só um ano e a fronteira mudou nesse ano, os dois Estados aparecem.",
+    "ORIGINS_HOW": {
+      "ABOUT": "Como ler a lista",
+      "TITLE": "Como ler a lista",
+      "INTRO": "Cada artista tem três linhas:",
+      "BORN": "<b>Nasceu em</b>: onde e quando nasceu, como está na base (ex.: Warszawa, 1913).",
+      "AT_BIRTH": "<b>No nascimento</b>: o Estado que existia naquele lugar na data do nascimento (ex.: Império Russo).",
+      "IN_YEAR": "<b>Em {year}</b>: o Estado que existia ali no ano escolhido no filtro (ex.: Polônia)."
+    },
+    "BIRTHPLACES_LEGEND": "Local de nascimento dos artistas da base (lugares com coordenadas)",
     "BORN": "Nasceu em {place}, {date}",
     "UNKNOWN_DATE": "data desconhecida",
     "AT_BIRTH": "No nascimento",
