@@ -48,6 +48,7 @@ Done when the demo script runs end to end at the final address.
 - [x] IA Relacional: search in open sources, findings traced to their source, results with reliability and the prompt shown, period-only geopolitics
   - [x] Open-source search in the API (Wikidata, Wikipedia), each finding with its source, reliability and review notes
   - [x] Screen in the app (`/ia-relacional`), opens from Trajetórias
+  - [x] Artists listed as on Trajetórias (cards with photo and name search), each with a page of their own at `/ia-relacional/[slug]`; old `?artista=` links redirect; the collection's block shows the photo and the name (requested by Alisson, 2026-11-02)
   - [x] Summary with the Gemini API free tier, prompt shown, the period's territories in the prompt (API: `research.summary`, `research.period`; app: summary with citations, prompt and the period's map)
 - [x] Accessibility pass, Playwright smoke flow, load optimization of the map and layers
   - [x] Playwright smoke flow and axe on every screen, in CI

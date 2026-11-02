@@ -77,6 +77,7 @@ export const indexArtistSchema = mapArtistSchema.omit({ exhibitions: true }).ext
 });
 
 export const artistIndexSchema = z.object({
+  meta: z.object({ source: dataSourceSchema }),
   artists: z.array(indexArtistSchema),
 });
 
@@ -180,13 +181,6 @@ export type NetworkArtist = z.infer<typeof networkArtistSchema>;
 export type NetworkData = z.infer<typeof networkDataSchema>;
 
 /** The artists to choose from, for screens that start by picking one. */
-export const artistListSchema = z.object({
-  meta: z.object({ source: dataSourceSchema }),
-  artists: z.array(z.object({ slug: z.string(), name: z.string() })),
-});
-
-export type ArtistList = z.infer<typeof artistListSchema>;
-
 export const researchSourceSchema = z.enum(["wikidata", "wikipedia"]);
 export const findingPropertySchema = z.enum([
   "birthDate",
@@ -248,7 +242,8 @@ export const researchCandidateSchema = z.object({
 });
 
 export const researchSchema = z.object({
-  artist: mapArtistSchema.omit({ exhibitions: true }),
+  // With the photo, shown beside the name in the collection's block.
+  artist: indexArtistSchema,
   searchedNames: z.array(z.string()),
   match: z
     .object({
@@ -275,12 +270,16 @@ export const researchSchema = z.object({
   retrievedAt: z.iso.datetime({ offset: true }),
 });
 
-export const researchResponseSchema = z.object({ research: researchSchema.nullable() });
+export const researchResponseSchema = z.object({
+  meta: z.object({ source: dataSourceSchema }),
+  research: researchSchema.nullable(),
+});
 
 export type FindingProperty = z.infer<typeof findingPropertySchema>;
 export type FindingReview = z.infer<typeof findingReviewSchema>;
 export type Finding = z.infer<typeof findingSchema>;
 export type Research = z.infer<typeof researchSchema>;
+export type ResearchResponse = z.infer<typeof researchResponseSchema>;
 export type ResearchPeriod = z.infer<typeof researchPeriodSchema>;
 export type ResearchSummary = z.infer<typeof researchSummarySchema>;
 export type ResearchCandidate = z.infer<typeof researchCandidateSchema>;

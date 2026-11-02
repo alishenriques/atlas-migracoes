@@ -133,7 +133,7 @@ function answer(operation: string, variables: Record<string, unknown>): unknown 
     case "ArtistRecord":
       return { meta, artist: artists.find((item) => item.slug === slug) ?? null };
     case "Research":
-      return { research: research(slug) };
+      return { meta, research: research(slug) };
     default:
       return { meta, artists };
   }

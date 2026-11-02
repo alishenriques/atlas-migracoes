@@ -31,14 +31,14 @@ vi.mock("@/i18n/navigation", () => ({
     ...props
   }: {
     children: React.ReactNode;
-    href: string | { params: { slug: string } } | { pathname: string; query: { [key: string]: string } };
+    href: string | { pathname: string; params: { slug: string } } | { pathname: string; query: { [key: string]: string } };
   }) => (
     <a
       href={
         typeof href === "string"
           ? href
           : "params" in href
-            ? `/trajetorias/${href.params.slug}`
+            ? href.pathname.replace("[slug]", href.params.slug)
             : `${href.pathname}?${new URLSearchParams(href.query).toString()}`
       }
       {...props}
@@ -148,7 +148,7 @@ describe("ArtistRecord", () => {
     expect(network).toHaveAttribute("data-variant", "primary");
     expect(screen.getByRole("link", { name: "Pesquisar em fontes abertas" })).toHaveAttribute(
       "href",
-      "/ia-relacional?artista=lasar-segall",
+      "/ia-relacional/lasar-segall",
     );
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
@@ -163,7 +163,7 @@ describe("ArtistRecord", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Resumo gerado por IA/ }));
     expect(screen.getByRole("status")).toHaveTextContent("gemini-3.5-flash-lite");
-    expect(within(screen.getByRole("status")).getByRole("link")).toHaveAttribute("href", "/ia-relacional?artista=lasar-segall");
+    expect(within(screen.getByRole("status")).getByRole("link")).toHaveAttribute("href", "/ia-relacional/lasar-segall");
 
     const about = screen.getByRole("tabpanel", { name: "Sobre" });
     expect(within(about).getByText("Cidadania")).toBeInTheDocument();
@@ -288,19 +288,20 @@ async function renderIndex(data: Parameters<typeof TrajectoryIndex>[0]["data"]) 
 
 describe("TrajectoryIndex", () => {
   it("names what the page holds beside the title", async () => {
-    await renderIndex({ artists: [artist] });
+    await renderIndex({ meta: { source: "database" }, artists: [artist] });
     expect(screen.getByRole("heading", { level: 1, name: "Trajetórias" })).toBeInTheDocument();
     expect(screen.getByText("Fichas dos artistas")).toBeInTheDocument();
   });
 
   it("links every artist to their record", async () => {
-    await renderIndex({ artists: [artist] });
+    await renderIndex({ meta: { source: "database" }, artists: [artist] });
     expect(screen.getByRole("link", { name: /Lasar Segall/ })).toHaveAttribute("href", "/trajetorias/lasar-segall");
     expect(screen.getByText("Polônia · 1889–1957")).toBeInTheDocument();
   });
 
   it("marks that there is no photo of the artist yet, and shows the photo when there is one", async () => {
     await renderIndex({
+      meta: { source: "database" },
       artists: [artist, { ...artist, slug: "anatol", name: "Anatol", photo: { url: "https://api.example/photos/anatol", credit: null } }],
     });
     expect(screen.getByRole("img", { name: "Ainda sem foto" })).toHaveAttribute("data-empty", "true");
@@ -308,6 +309,11 @@ describe("TrajectoryIndex", () => {
       "src",
       "https://api.example/photos/anatol",
     );
+  });
+
+  it("flags the simulated demo records", async () => {
+    await renderIndex({ meta: { source: "demo" }, artists: [artist] });
+    expect(screen.getByRole("status")).toHaveTextContent(/demonstração|simulad/i);
   });
 
   it("still renders when the artists cannot be loaded", async () => {

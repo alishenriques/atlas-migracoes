@@ -1,0 +1,1 @@
+export { ResearchHeader } from "./ResearchHeader";

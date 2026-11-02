@@ -22,7 +22,7 @@ export function ProfileActions({ slug, networkLabel, researchLabel }: ProfileAct
         <Link href={{ pathname: "/rede", query: { artista: slug } }}>{networkLabel}</Link>
       </Button>
       <Button asChild variant="ghost">
-        <Link href={{ pathname: "/ia-relacional", query: { artista: slug } }}>{researchLabel}</Link>
+        <Link href={{ pathname: "/ia-relacional/[slug]", params: { slug } }}>{researchLabel}</Link>
       </Button>
     </>
   );

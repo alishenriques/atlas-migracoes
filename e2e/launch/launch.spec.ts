@@ -37,7 +37,7 @@ test("a trajectory record leads to the open-source research with its prompt", as
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
   await page.getByRole("link", { name: "Pesquisar em fontes abertas" }).click();
-  await expect(page).toHaveURL(/\/pt\/ia-relacional\?artista=/);
+  await expect(page).toHaveURL(/\/pt\/ia-relacional\/[^/]+$/);
   await expect(page.getByText("Prompt enviado à IA")).toBeVisible({ timeout: 30_000 });
 });
 

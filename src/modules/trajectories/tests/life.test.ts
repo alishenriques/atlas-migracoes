@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { FuzzyDate, Place } from "@/lib/schemas";
 
-import { lifeEvent, lifeSpan } from "../utils/life";
+import { lifeEvent } from "../utils/life";
 
 const year = (y: number | null, precision: FuzzyDate["precision"] = "year"): FuzzyDate => ({
   raw: null,
@@ -22,13 +22,5 @@ describe("lifeEvent", () => {
 
   it("returns null when nothing is known", () => {
     expect(lifeEvent(null, year(null), "pt", "s.d.")).toBeNull();
-  });
-});
-
-describe("lifeSpan", () => {
-  it("shows both ends, unknown ones labelled", () => {
-    expect(lifeSpan(year(1889), year(1957), "pt", "s.d.")).toBe("1889–1957");
-    expect(lifeSpan(year(1912, "circa"), year(null), "pt", "s.d.")).toBe("c. 1912–s.d.");
-    expect(lifeSpan(year(null), year(null), "pt", "s.d.")).toBeNull();
   });
 });

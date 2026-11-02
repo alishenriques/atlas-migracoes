@@ -1,9 +1,9 @@
-import { Eyebrow, Skeleton } from "@alishenriques/atlas-design-system";
+import { Eyebrow } from "@alishenriques/atlas-design-system";
 import { useTranslations } from "next-intl";
 
-import { Loading } from "@/shared/components/Loading";
+import { ArtistGridSkeleton } from "@/shared/components/ArtistGrid";
 
-import { skeletonStyles, styles } from "./styles/index.styles";
+import { styles } from "./styles/index.styles";
 
 /** Trajetórias while the artists load: the presentation already, and the cards in skeleton. */
 export function TrajectoryIndexSkeleton() {
@@ -21,20 +21,7 @@ export function TrajectoryIndexSkeleton() {
         <p className={styles.intro}>{t("INTRO")}</p>
       </header>
 
-      <Loading className={skeletonStyles.list}>
-        <Skeleton height={60} className={skeletonStyles.search} />
-        <span className={styles.grid}>
-        {Array.from({ length: 12 }, (_, index) => (
-          <span key={index} className={skeletonStyles.card}>
-            <span className={skeletonStyles.cardText}>
-              <Skeleton height={22} width="70%" />
-              <Skeleton shape="text" width="50%" />
-            </span>
-            <Skeleton shape="circle" width={52} />
-          </span>
-          ))}
-        </span>
-      </Loading>
+      <ArtistGridSkeleton />
     </main>
   );
 }

@@ -13,6 +13,11 @@ export const styles = {
   // With no match there are no findings, so the reading takes their column too.
   readingWide: "flex flex-col gap-6 xl:col-span-2 xl:col-start-2 xl:row-span-2 xl:row-start-1",
   findingsPanel: "xl:col-start-3 xl:row-span-2 xl:row-start-1",
+  // The photo beside the name, as on a museum label.
+  identity: "flex items-center gap-4",
+  portrait: "w-20 shrink-0 sm:w-24",
+  portraitSkeleton: "aspect-[4/5] h-auto w-20 shrink-0 sm:w-24",
+  artistName: "min-w-0 font-serif text-2xl leading-tight sm:text-3xl",
   facts: "flex flex-col gap-2 text-sm",
   factLabel: "text-[11px] uppercase tracking-[0.12em] text-muted",
   matchTitle: "font-serif text-xl leading-snug",

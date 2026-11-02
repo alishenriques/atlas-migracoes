@@ -1,4 +1,4 @@
-import { Panel, ReliabilityTag } from "@alishenriques/atlas-design-system";
+import { Panel, Portrait, ReliabilityTag } from "@alishenriques/atlas-design-system";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -51,6 +51,16 @@ export function ResearchResults({ research }: ResearchResultsProps) {
   return (
     <div className={styles.columns}>
       <Panel title={t("COLLECTION")} className={styles.collection}>
+        {/* Photo and name, as on the artist's record; without a photo the frame marks the empty slot. */}
+        <div className={styles.identity}>
+          <Portrait
+            src={artist.photo?.url}
+            label={artist.photo ? artist.name : t("NO_PHOTO")}
+            caption={artist.photo?.credit ? t("PHOTO_CREDIT", { credit: artist.photo.credit }) : null}
+            className={styles.portrait}
+          />
+          <h3 className={styles.artistName}>{artist.name}</h3>
+        </div>
         <dl className={styles.facts}>
           <div>
             <dt className={styles.factLabel}>{t("BORN")}</dt>
