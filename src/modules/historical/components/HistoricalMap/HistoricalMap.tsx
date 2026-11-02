@@ -28,6 +28,8 @@ export type HistoricalMapProps = {
   renderPlace: (placeId: string) => ReactNode;
   /** Popup for a clicked state. */
   renderState: (name: string) => ReactNode;
+  /** What the green dots are, floating at the bottom of the map. */
+  legend?: string;
   /** Room to leave for blocks floating over the map, so the opening view centers in what stays visible. */
   padding?: { top: number; right: number; bottom: number; left: number };
 };
@@ -53,6 +55,7 @@ export function HistoricalMap({
   renderPlace,
   renderState,
   padding = NO_PADDING,
+  legend,
 }: HistoricalMapProps) {
   const [colors] = useState(() => readMapColors());
   const [opened, setOpened] = useState<Opened | null>(null);
@@ -146,6 +149,12 @@ export function HistoricalMap({
           </Popup>
         )}
       </Map>
+      {legend && (
+        <p className={styles.legend}>
+          <span aria-hidden className={styles.legendDot} />
+          {legend}
+        </p>
+      )}
     </div>
   );
 }

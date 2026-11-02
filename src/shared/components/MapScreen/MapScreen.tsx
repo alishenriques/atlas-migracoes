@@ -24,6 +24,8 @@ export type MapScreenProps = {
   action?: ReactNode;
   /** The panel's content: the controls and lists. */
   children: ReactNode;
+  /** Extra classes for the left panel, e.g. to stretch it or set its title apart. */
+  panelClassName?: string;
 };
 
 /**
@@ -32,7 +34,7 @@ export type MapScreenProps = {
  * column, which scrolls inside it, `aside` in a column on the right and `footer` along the bottom).
  * On mobile the blocks stack under the map.
  */
-export function MapScreen({ map, intro, footer, aside, title, action, children }: MapScreenProps) {
+export function MapScreen({ map, intro, footer, aside, title, action, children, panelClassName }: MapScreenProps) {
   return (
     <section className={styles.root}>
       <div className={styles.map}>{map}</div>
@@ -40,7 +42,7 @@ export function MapScreen({ map, intro, footer, aside, title, action, children }
       <div className={styles.overlay}>
         <div className={styles.side}>
           {intro && <div className={styles.intro}>{intro}</div>}
-          <Panel title={title} className={styles.panel} action={action}>
+          <Panel title={title} className={[styles.panel, panelClassName].filter(Boolean).join(" ")} action={action}>
             {children}
           </Panel>
         </div>

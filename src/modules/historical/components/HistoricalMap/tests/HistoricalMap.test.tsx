@@ -70,10 +70,11 @@ beforeEach(() => {
   mapProps = undefined;
 });
 
-function renderMap(padding?: { top: number; right: number; bottom: number; left: number }) {
+function renderMap(padding?: { top: number; right: number; bottom: number; left: number }, legend?: string) {
   return render(
     <HistoricalMap
       padding={padding}
+      legend={legend}
       states={states}
       birthplaces={[{ placeId: "vilna", lng: 25.3, lat: 54.7, artists: 2 }]}
       label="Mapa da Europa"
@@ -135,6 +136,14 @@ describe("HistoricalMap", () => {
     expect(mapProps?.initialViewState.fitBoundsOptions.padding.left).toBe(0);
     renderMap({ top: 0, right: 0, bottom: 0, left: 360 });
     expect(mapProps?.initialViewState.fitBoundsOptions.padding.left).toBe(360);
+  });
+
+  it("says what the green dots are, when given a legend", () => {
+    const { unmount } = renderMap();
+    expect(screen.queryByText(/Local de nascimento/)).not.toBeInTheDocument();
+    unmount();
+    renderMap(undefined, "Local de nascimento dos artistas da base");
+    expect(screen.getByText("Local de nascimento dos artistas da base")).toBeInTheDocument();
   });
 
   it("shows a pointer while hovering", () => {

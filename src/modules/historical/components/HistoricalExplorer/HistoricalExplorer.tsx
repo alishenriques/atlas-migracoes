@@ -32,6 +32,8 @@ export type HistoricalExplorerProps = {
 const FIRST_DECADE: Decade = 1920;
 // The borders' note, one rule per line (Tânia found it hard to read as one paragraph, 2026-10-30).
 const SOURCE_RULES = ["OCCUPIED", "NO_STATE", "NAMES"] as const;
+// The lines of each artist in the list, in order.
+const ORIGIN_LINES = ["BORN", "AT_BIRTH", "IN_YEAR"] as const;
 const strong = (chunks: ReactNode) => <strong className={styles.strong}>{chunks}</strong>;
 // Keeps the opening view clear of the left column and of the facts on the right on desktop.
 const SIDE_PADDING = { top: 0, right: ASIDE_INSET, bottom: 0, left: SIDE_INSET };
@@ -116,6 +118,7 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
             renderPlace={renderPlace}
             renderState={renderState}
             padding={isDesktop ? SIDE_PADDING : undefined}
+            legend={t("BIRTHPLACES_LEGEND")}
           />
         ) : (
           <p className={styles.mapStatus}>{loaded.status === "error" ? t("BORDERS_UNAVAILABLE") : t("LOADING")}</p>
@@ -145,6 +148,8 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
         />
       }
       title={t("BORDERS_OF", { year })}
+      // Reaches the bottom of the screen, under a title set apart (asked by Alisson, 2026-11-02).
+      panelClassName={styles.panel}
       action={
         // How the borders are drawn, out of the way of the facts (asked by Tânia, 2026-10-30).
         <Toggletip align="end" trigger={<span className="sr-only">{t("SOURCE_ABOUT")}</span>}>
@@ -163,7 +168,21 @@ export function HistoricalExplorer({ artists, intro, credit }: HistoricalExplore
     >
       <div className={styles.list}>
         <div className={styles.listHeader}>
-          <p className={styles.listTitle}>{t("ORIGINS_TITLE")}</p>
+          <span className={styles.listTitleGroup}>
+            <p className={styles.listTitle}>{t("ORIGINS_TITLE")}</p>
+            {/* The three lines of each artist, explained before the list (asked by Alisson, 2026-11-02). */}
+            <Toggletip trigger={<span className="sr-only">{t("ORIGINS_HOW.ABOUT")}</span>}>
+              <span className={styles.sourceNote}>
+                <span className={styles.sourceTitle}>{t("ORIGINS_HOW.TITLE")}</span>
+                <span>{t("ORIGINS_HOW.INTRO")}</span>
+                {ORIGIN_LINES.map((line) => (
+                  <span key={line} className={styles.sourceRule}>
+                    {t.rich(`ORIGINS_HOW.${line}`, { b: strong, year })}
+                  </span>
+                ))}
+              </span>
+            </Toggletip>
+          </span>
           <ReliabilityTag level="inferred" label={t("INFERRED")} />
         </div>
         <p className={styles.note}>{t("ORIGINS_METHOD")}</p>

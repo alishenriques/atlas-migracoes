@@ -13,6 +13,7 @@ describe("MapScreen", () => {
         aside={<p>Fatos</p>}
         title="Filtros"
         action={<button type="button">Limpar</button>}
+        panelClassName="esticado"
       >
         <p>Controles</p>
       </MapScreen>,
@@ -24,6 +25,7 @@ describe("MapScreen", () => {
     expect(screen.getByText("Controles")).toBeInTheDocument();
     expect(screen.getByText("Acervo")).toBeInTheDocument();
     expect(screen.getByText("Fatos")).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Filtros" })).toHaveClass("esticado");
   });
 
   it("leaves out the optional blocks", () => {
