@@ -1,6 +1,8 @@
+import { PANEL_TITLE } from "@/shared/styles/panelTitle";
+
 export const styles = {
   // Fills the right column of the map screen: the controls stay on top and the facts scroll under them.
-  panel: "flex flex-col md:min-h-0",
+  panel: `flex flex-col md:min-h-0 ${PANEL_TITLE}`,
   controls: "flex flex-col gap-3 border-b border-line pb-3 md:shrink-0",
   body: "flex flex-col gap-2 md:min-h-0 md:overflow-y-auto scrollbar-atlas",
   tags: "flex items-center gap-2",

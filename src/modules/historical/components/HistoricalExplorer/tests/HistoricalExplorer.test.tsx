@@ -161,6 +161,11 @@ describe("HistoricalExplorer", () => {
     expect(screen.getByRole("status")).toHaveTextContent("Cada artista tem três linhas:");
     expect(screen.getByRole("status")).toHaveTextContent("Em 1925: o Estado que existia ali no ano escolhido");
     fireEvent.click(how);
+    // What "inferred" means opens from the tag.
+    const inferred = screen.getByRole("button", { name: /Território inferido/ });
+    fireEvent.click(inferred);
+    expect(screen.getByRole("status")).toHaveTextContent("não vem da planilha do MAC USP");
+    fireEvent.click(inferred);
     const about = screen.getByRole("button", { name: /Sobre as fronteiras/ });
     expect(about).toHaveAttribute("aria-expanded", "false");
     fireEvent.click(about);
