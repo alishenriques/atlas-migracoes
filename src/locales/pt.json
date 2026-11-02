@@ -270,6 +270,14 @@
     "DATA_UNAVAILABLE": "Não foi possível carregar a rede agora. Tente de novo em instantes.",
     "FILTERS": "Rede",
     "CENTER": "Centro da rede",
+    "CENTER_HOW": {
+      "ABOUT": "Como funciona o centro da rede",
+      "TITLE": "Como funciona o centro da rede",
+      "OVERVIEW": "<b>Todos os artistas</b>: a base inteira em colunas, do lugar de nascimento de cada artista às instituições e cidades onde suas obras foram expostas.",
+      "ARTIST": "<b>Um artista</b>: ele vai para o centro e a rede mostra só as ligações dele, em anéis: obras, exposições e publicações, instituições, cidades e os outros artistas que expuseram junto.",
+      "PERIOD": "<b>Período</b>: vale para os dois modos e conta o ano das exposições e publicações.",
+      "FOCUS": "<b>Pela rede</b>: clique num artista do desenho e em “{focus}”."
+    },
     "OVERVIEW": "Todos os artistas (visão geral)",
     "PERIOD": "Período das exposições e publicações",
     "PERIOD_FROM": "Ano inicial",

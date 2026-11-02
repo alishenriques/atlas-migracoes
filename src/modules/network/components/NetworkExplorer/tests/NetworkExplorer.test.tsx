@@ -62,6 +62,14 @@ describe("NetworkExplorer", () => {
   it("opens on the overview of the whole base, over every dated year", () => {
     renderExplorer();
     expect(screen.getByRole("combobox", { name: "Centro da rede" })).toHaveValue("");
+    // How the center works opens next to its label, and closes on a second click.
+    const how = screen.getByRole("button", { name: /Como funciona o centro da rede/ });
+    fireEvent.click(how);
+    const note = () => screen.getByText("Como funciona o centro da rede", { selector: "span:not(.sr-only)" }).parentElement;
+    expect(note()).toHaveTextContent("Todos os artistas: a base inteira em colunas");
+    expect(note()).toHaveTextContent("clique num artista do desenho e em “Centralizar a rede neste artista”");
+    fireEvent.click(how);
+    expect(how).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByRole("slider", { name: "Ano inicial" })).toHaveValue("1951");
     expect(screen.getByRole("slider", { name: "Ano final" })).toHaveValue("1980");
     expect(within(legend()).getByText("Artistas").closest("li")).toHaveTextContent("Artistas2");

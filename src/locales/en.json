@@ -270,6 +270,14 @@
     "DATA_UNAVAILABLE": "The network could not be loaded right now. Please try again shortly.",
     "FILTERS": "Network",
     "CENTER": "Center of the network",
+    "CENTER_HOW": {
+      "ABOUT": "How the network center works",
+      "TITLE": "How the network center works",
+      "OVERVIEW": "<b>All artists</b>: the whole base in columns, from each artist's birthplace to the institutions and cities where their works were shown.",
+      "ARTIST": "<b>One artist</b>: they move to the center and the network shows only their links, in rings: works, exhibitions and publications, institutions, cities and the other artists shown alongside them.",
+      "PERIOD": "<b>Period</b>: applies to both modes and counts the year of the exhibitions and publications.",
+      "FOCUS": "<b>From the network</b>: click an artist in the drawing, then “{focus}”."
+    },
     "OVERVIEW": "All artists (overview)",
     "PERIOD": "Period of exhibitions and publications",
     "PERIOD_FROM": "From year",
