@@ -1,5 +1,5 @@
 export const styles = {
-  main: "mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16",
+  main: "mx-auto flex w-full max-w-3xl flex-1 lg:max-w-4xl xl:max-w-5xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16",
   header: "flex flex-col gap-3",
   title: "font-serif text-4xl leading-tight sm:text-5xl",
   intro: "text-lg text-muted",
