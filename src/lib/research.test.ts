@@ -38,7 +38,7 @@ describe("groupFindings", () => {
       ["pintor", 1],
     ]);
     expect(summariesOf(findings)[0]?.n).toBe(2);
-    expect(findingAnchor(2)).toBe("achado-2");
+    expect(findingAnchor(2)).toBe("ocorrencia-2");
   });
 });
 

@@ -67,7 +67,7 @@ describe("ConnectionsCard", () => {
 
   it("says so when the artist has no connections, or the network could not load", () => {
     const { container, unmount } = setup([]);
-    expect(screen.getByText("Nenhuma conexão registrada no acervo.")).toBeInTheDocument();
+    expect(screen.getByText("Nenhuma conexão registrada na base documental.")).toBeInTheDocument();
     expect(drawing(container)).toBeNull();
     unmount();
     setup(null);

@@ -26,7 +26,7 @@ const renderSummary = (summary: ResearchSummary, findingCount = 2) =>
 describe("AiSummary", () => {
   it("links only the citations of existing findings", () => {
     renderSummary(ok);
-    expect(screen.getAllByRole("link").map((link) => link.getAttribute("href"))).toEqual(["#achado-1", "#achado-2"]);
+    expect(screen.getAllByRole("link").map((link) => link.getAttribute("href"))).toEqual(["#ocorrencia-1", "#ocorrencia-2"]);
     expect(screen.getByText(/escultor \[7\]\./)).toBeInTheDocument();
     expect(screen.getByText(/Escrito por IA \(Gemini\)/)).toBeInTheDocument();
   });
@@ -43,7 +43,7 @@ describe("AiSummary", () => {
         </NextIntlClientProvider>,
       );
     again({ ...none, status: "rejected" });
-    expect(screen.getByText(/não citava os achados corretamente/)).toBeInTheDocument();
+    expect(screen.getByText(/não citava as ocorrências corretamente/)).toBeInTheDocument();
     again({ ...none, status: "error" });
     expect(screen.getByText(/A IA não respondeu agora/)).toBeInTheDocument();
     again({ ...none, status: "ok" });

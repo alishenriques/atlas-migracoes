@@ -68,7 +68,7 @@ describe("InstitutionsCard", () => {
 
   it("says when the collection records none", () => {
     setup([]);
-    expect(screen.getByText("Nenhuma instituição registrada no acervo.")).toBeInTheDocument();
+    expect(screen.getByText("Nenhuma instituição registrada na base documental.")).toBeInTheDocument();
     expect(screen.queryByRole("list")).not.toBeInTheDocument();
   });
 });

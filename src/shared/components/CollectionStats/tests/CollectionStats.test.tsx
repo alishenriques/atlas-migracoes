@@ -17,7 +17,7 @@ describe("CollectionStats", () => {
     );
     expect(screen.getByText("1.417")).toBeInTheDocument();
     expect(screen.getByText("obras")).toBeInTheDocument();
-    expect(screen.getByText("países de origem")).toBeInTheDocument();
+    expect(screen.getByText("territórios de origem")).toBeInTheDocument();
     expect(container.querySelectorAll("[data-icon]")).toHaveLength(5);
     // The places are not a counter of the strip.
     expect(screen.queryByText("73")).not.toBeInTheDocument();

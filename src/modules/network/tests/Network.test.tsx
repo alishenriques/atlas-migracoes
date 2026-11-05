@@ -41,7 +41,7 @@ describe("Network", () => {
     await renderNetwork({ meta: { source: "database" }, artists: [] });
     expect(screen.getByRole("heading", { level: 1, name: "Rede Relacional" })).toBeInTheDocument();
     expect(screen.getByTestId("explorer")).toHaveTextContent("0 lasar-segall");
-    expect(screen.getByText(/Ligações tiradas do acervo/)).toBeInTheDocument();
+    expect(screen.getByText(/Ligações tiradas da base documental/)).toBeInTheDocument();
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 

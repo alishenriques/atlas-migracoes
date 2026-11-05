@@ -97,7 +97,7 @@ describe("Explorar", () => {
 
   it("filters by country of origin", () => {
     const map = renderExplorar();
-    fireEvent.click(screen.getByRole("combobox", { name: "País de origem" }));
+    fireEvent.click(screen.getByRole("combobox", { name: "Território de origem" }));
     fireEvent.click(screen.getByRole("option", { name: "Suíça" }));
     expect(screen.getByText("1 artista")).toBeInTheDocument();
     expect(map).toHaveTextContent("mira-schendel");
@@ -108,7 +108,7 @@ describe("Explorar", () => {
     renderExplorar();
     expect(screen.getByRole("button", { name: /Lasar Segall/ }).querySelector('[data-country="Lituânia"]')).not.toBeNull();
     expect(screen.getByRole("button", { name: /Mira Schendel/ }).querySelector("svg")).toBeNull();
-    fireEvent.click(screen.getByRole("combobox", { name: "País de origem" }));
+    fireEvent.click(screen.getByRole("combobox", { name: "Território de origem" }));
     expect(screen.getByRole("option", { name: "Lituânia" }).querySelector("[data-country]")).not.toBeNull();
   });
 

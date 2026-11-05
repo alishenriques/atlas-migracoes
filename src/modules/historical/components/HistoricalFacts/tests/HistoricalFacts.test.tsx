@@ -37,11 +37,11 @@ describe("HistoricalFacts", () => {
   it("labels the facts inferred and explains how they were chosen", async () => {
     respond(file);
     renderFacts(1939);
-    const section = screen.getByRole("region", { name: "Fatos históricos" });
+    const section = screen.getByRole("region", { name: "Acontecimentos e contextos históricos" });
     expect(within(section).getByText("Inferido")).toBeInTheDocument();
-    expect(screen.getByText("Carregando os fatos…")).toBeInTheDocument();
+    expect(screen.getByText("Carregando os acontecimentos…")).toBeInTheDocument();
     await screen.findByRole("heading", { name: "Em 1939" });
-    fireEvent.click(screen.getByRole("button", { name: /Sobre os fatos históricos/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Sobre os acontecimentos e contextos históricos/ }));
     expect(screen.getByText(/sem revisão de pesquisador/)).toBeInTheDocument();
   });
 
@@ -69,14 +69,14 @@ describe("HistoricalFacts", () => {
   it("says when a year has no facts", async () => {
     respond(file);
     renderFacts(1960);
-    expect(await screen.findByText("Nenhum fato registrado para 1960.")).toBeInTheDocument();
+    expect(await screen.findByText("Nenhum acontecimento registrado para 1960.")).toBeInTheDocument();
   });
 
   it("says when the facts could not be loaded", async () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     respond(null, false);
     renderFacts(1939);
-    expect(await screen.findByText("Não foi possível carregar os fatos históricos agora.")).toBeInTheDocument();
+    expect(await screen.findByText("Não foi possível carregar os acontecimentos e contextos históricos agora.")).toBeInTheDocument();
   });
 
   it("uses the English article when the app is in English", async () => {

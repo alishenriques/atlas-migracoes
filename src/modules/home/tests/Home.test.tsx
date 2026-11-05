@@ -35,22 +35,22 @@ describe("Home", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent)).toEqual([
       "Trajetórias de artistas do Leste Europeu e da Áustria no Brasil",
-      "O acervo em números",
-      "Um acervo lido em relação",
-      "O que o projeto possibilita para a pesquisa e para o acervo",
-      "Cinco maneiras de ler o acervo",
+      "A base documental em números",
+      "Uma base documental lida em relação",
+      "O que o projeto possibilita para a pesquisa e para a base documental",
+      "Cinco maneiras de ler a base documental",
       "Leitura, relação e confiabilidade",
     ]);
-    expect(screen.getByRole("region", { name: "O acervo em números" })).toHaveTextContent("counters");
+    expect(screen.getByRole("region", { name: "A base documental em números" })).toHaveTextContent("counters");
     expect(screen.getByText(/Como a IA pode contribuir/)).toBeInTheDocument();
   });
 
-  it("says what the project makes possible for research and for the collection", () => {
+  it("says what the project makes possible for research and for the documentary corpus", () => {
     renderHome();
-    const impacts = screen.getByRole("region", { name: "O que o projeto possibilita para a pesquisa e para o acervo" });
+    const impacts = screen.getByRole("region", { name: "O que o projeto possibilita para a pesquisa e para a base documental" });
     expect(within(impacts).getAllByRole("heading", { level: 3 }).map((heading) => heading.textContent)).toEqual([
       "Para a pesquisa",
-      "A partir do acervo",
+      "A partir da base documental",
     ]);
     const [research, collection] = within(impacts).getAllByRole("list");
     expect(within(research).getAllByRole("listitem")).toHaveLength(3);
@@ -59,7 +59,7 @@ describe("Home", () => {
 
   it("leads to each screen of the atlas and to the project's method", () => {
     renderHome();
-    const screens = screen.getByRole("region", { name: "Cinco maneiras de ler o acervo" });
+    const screens = screen.getByRole("region", { name: "Cinco maneiras de ler a base documental" });
     expect(within(screens).getAllByRole("link").map((link) => link.getAttribute("href"))).toEqual([
       "/explorar",
       "/trajetorias",
@@ -80,7 +80,7 @@ describe("Home", () => {
 
   it("is in English too", () => {
     renderHome("en");
-    expect(screen.getByRole("heading", { level: 2, name: "What the project makes possible for research and for the collection" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "What the project makes possible for research and for the documentary corpus" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Explore the map" })).toHaveAttribute("href", "/explorar");
   });
 });

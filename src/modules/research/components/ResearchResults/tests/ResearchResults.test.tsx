@@ -98,14 +98,14 @@ describe("ResearchResults", () => {
 
   it("titles the collection's block with the artist's name and photo", () => {
     const { unmount } = renderResults(research);
-    const collection = screen.getByRole("region", { name: "No acervo" });
+    const collection = screen.getByRole("region", { name: "Na base documental" });
     expect(within(collection).getByRole("heading", { level: 3, name: "Lasar Segall" })).toBeInTheDocument();
     expect(within(collection).getByRole("img", { name: "Ainda sem foto" })).toBeInTheDocument();
     unmount();
 
     const photo = { url: "https://api.example/photos/lasar-segall?v=1", credit: "Arquivo Lasar Segall" };
     renderResults({ ...research, artist: { ...research.artist, photo } });
-    const withPhoto = screen.getByRole("region", { name: "No acervo" });
+    const withPhoto = screen.getByRole("region", { name: "Na base documental" });
     expect(within(withPhoto).getByRole("img", { name: "Lasar Segall" })).toHaveAttribute("src", photo.url);
     expect(within(withPhoto).getByText("Foto: Arquivo Lasar Segall")).toBeInTheDocument();
   });
@@ -116,7 +116,7 @@ describe("ResearchResults", () => {
     expect(within(born).getByText("21 de jul. de 1891")).toBeInTheDocument();
     expect(within(born).getByText("Documentado")).toBeInTheDocument();
     expect(within(born).getByText("2 referências")).toBeInTheDocument();
-    expect(within(born).getByText(/a data diverge da registrada no acervo/)).toBeInTheDocument();
+    expect(within(born).getByText(/a data diverge da registrada na base documental/)).toBeInTheDocument();
     expect(within(born).getByRole("link", { name: "Wikidata: Lasar Segall (Q1)" })).toHaveAttribute("target", "_blank");
 
     const place = screen.getByRole("region", { name: "Lugar de nascimento" });
@@ -143,7 +143,7 @@ describe("ResearchResults", () => {
 
   it("explains the name-only match", () => {
     renderResults({ ...research, match: { ...research.match!, basis: "name", description: null } });
-    expect(screen.getByText(/O acervo não registra o ano de nascimento/)).toBeInTheDocument();
+    expect(screen.getByText(/A base documental não registra o ano de nascimento/)).toBeInTheDocument();
   });
 
   it("says a researcher checked the link, with their note", () => {
@@ -167,7 +167,7 @@ describe("ResearchResults", () => {
     expect(screen.getByText(/Não foram encontrados dados concretos sobre este artista/)).toBeInTheDocument();
     expect(screen.getByText("Wikidata: nada encontrado")).toBeInTheDocument();
     expect(screen.queryByText("Pessoa encontrada no Wikidata")).not.toBeInTheDocument();
-    expect(screen.queryByText("Achados")).not.toBeInTheDocument();
+    expect(screen.queryByText("Ocorrências")).not.toBeInTheDocument();
   });
 
   it("tells a failed search apart from no match", () => {
@@ -186,13 +186,13 @@ describe("ResearchResults", () => {
     const summary = screen.getByText(/Lasar Segall nasceu em 1891/);
     const citations = within(summary).getAllByRole("link");
     expect(citations.map((link) => [link.getAttribute("aria-label"), link.getAttribute("href")])).toEqual([
-      ["Achado 1", "#achado-1"],
-      ["Achado 2", "#achado-2"],
+      ["Ocorrência 1", "#ocorrencia-1"],
+      ["Ocorrência 2", "#ocorrencia-2"],
     ]);
-    expect(container.querySelector("#achado-1")).toHaveTextContent("21 de jul. de 1891");
-    expect(container.querySelector("#achado-2")).toHaveTextContent("Vilnius");
-    expect(container.querySelector("#achado-4")).toHaveTextContent("Lasar Segall foi um pintor.");
-    expect(screen.getByLabelText("Achado 3")).toHaveTextContent("[3]");
+    expect(container.querySelector("#ocorrencia-1")).toHaveTextContent("21 de jul. de 1891");
+    expect(container.querySelector("#ocorrencia-2")).toHaveTextContent("Vilnius");
+    expect(container.querySelector("#ocorrencia-4")).toHaveTextContent("Lasar Segall foi um pintor.");
+    expect(screen.getByLabelText("Ocorrência 3")).toHaveTextContent("[3]");
     expect(screen.getByText(/Escrito por IA \(gemini-2.5-flash\)/)).toBeInTheDocument();
   });
 

@@ -79,9 +79,9 @@ describe("ResearchOverview", () => {
     });
     expect(screen.getByText("Nomes buscados: “Maciej Antoni Babinski” e “Maciej Babinski”.")).toBeInTheDocument();
     const leads = within(screen.getByRole("region", { name: "Possíveis correspondências, não vinculadas" }));
-    expect(leads.getByText("No Wikidata, nasceu em 1890; no acervo, 1892. Confirme qual data está correta.")).toBeInTheDocument();
-    expect(leads.getByText("Só aparece na busca por “Maciej Babinski”, um nome diferente do registrado no acervo.")).toBeInTheDocument();
-    expect(leads.getByText(/não registra o ano de nascimento, então não é possível comparar com o acervo \(1892\)/)).toBeInTheDocument();
+    expect(leads.getByText("No Wikidata, nasceu em 1890; na base documental, 1892. Confirme qual data está correta.")).toBeInTheDocument();
+    expect(leads.getByText("Só aparece na busca por “Maciej Babinski”, um nome diferente do registrado na base documental.")).toBeInTheDocument();
+    expect(leads.getByText(/não registra o ano de nascimento, então não é possível comparar com a base documental \(1892\)/)).toBeInTheDocument();
     expect(leads.getByText(/Mais de uma pessoa no Wikidata/)).toBeInTheDocument();
     expect(leads.getByText(/e o nome no Wikidata é diferente/)).toBeInTheDocument();
     expect(leads.getByRole("link", { name: "Wikidata Q4198627" })).toHaveAttribute("href", "https://www.wikidata.org/wiki/Q4198627");

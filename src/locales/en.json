@@ -1,7 +1,7 @@
 {
   "SEO": {
     "SITE_NAME": "Atlas Migrações Leste-Sul",
-    "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, based on the MAC USP collection."
+    "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, selected from the MAC USP collection."
   },
   "BRAND": {
     "NAME": "Atlas Migrações",
@@ -36,7 +36,7 @@
       "PLAY": "Resume the presentation",
       "SLIDES": {
         "COLLECTION": {
-          "EYEBROW": "The collection",
+          "EYEBROW": "The documentary corpus",
           "TITLE": "Trajectories of artists from <hl>Eastern Europe and Austria</hl> in Brazil",
           "BODY": "Works, exhibitions and publications connected to the places and events that make up each artist's trajectory.",
           "CTA": "Explore the map"
@@ -56,23 +56,23 @@
         "AI": {
           "EYEBROW": "Hypothesis",
           "TITLE": "AI as an <hl>assistive and exploratory</hl> tool, with critical mediation",
-          "BODY": "Relational AI searches open sources and shows each finding with its source, its reliability and the prompt used: verifiable, auditable hypotheses.",
+          "BODY": "Relational AI searches open sources and shows each occurrence with its source, its reliability and the prompt used: verifiable, auditable hypotheses.",
           "CTA": "Discover Relational AI"
         }
       }
     },
     "COUNTERS": {
-      "TITLE": "The collection in numbers",
-      "UNAVAILABLE": "The collection figures could not be loaded right now."
+      "TITLE": "The documentary corpus in numbers",
+      "UNAVAILABLE": "The documentary corpus figures could not be loaded right now."
     },
     "NEED": {
       "EYEBROW": "Why an atlas",
-      "TITLE": "A collection read in relation",
+      "TITLE": "A documentary corpus read in relation",
       "BODY": "The Atlas brings these data together and articulates them, so they can be explored in space and time, also taking into account how borders changed over the period. Each piece of information stays linked to its source, preserving gaps, uncertainties and different levels of precision whenever the available documentation does not allow a relation to be established conclusively."
     },
     "IMPACTS": {
       "EYEBROW": "Impact",
-      "TITLE": "What the project makes possible for research and for the collection",
+      "TITLE": "What the project makes possible for research and for the documentary corpus",
       "RESEARCH": {
         "TITLE": "For research",
         "ITEMS": {
@@ -82,23 +82,23 @@
         }
       },
       "COLLECTION": {
-        "TITLE": "Starting from the collection",
+        "TITLE": "Starting from the documentary corpus",
         "ITEMS": {
           "1": "The MAC USP records are the basis for new ways of visualising and exploring the trajectories of the artists and their works.",
-          "2": "Collection information can be related to geographical, historical and biographical contexts from other research sources.",
-          "3": "Provenance is kept throughout these relations, so what comes from the collection, from external sources or from inference stays identifiable.",
+          "2": "Information in the documentary corpus can be related to geographical, historical and biographical contexts from other research sources.",
+          "3": "Provenance is kept throughout these relations, so what comes from the documentary corpus, from external sources or from inference stays identifiable.",
           "4": "Different levels of information and of documentary precision stay visible, respecting the particularities of each source and the limits of available knowledge."
         }
       }
     },
     "SCREENS": {
       "EYEBROW": "Through the atlas",
-      "TITLE": "Five ways to read the collection",
-      "EXPLORAR": "The trajectories on the map, with filters by country of origin and period and the collection figures.",
+      "TITLE": "Five ways to read the documentary corpus",
+      "EXPLORAR": "The trajectories on the map, with filters by territory of origin and period and the documentary corpus figures.",
       "TRAJECTORIES": "Each artist's record: trajectory, works, exhibitions, publications and sources.",
       "HISTORICAL_LAYER": "Europe year by year, from 1910 to 1989, with the borders of each period and the places of origin.",
       "NETWORK": "The graph linking artists, works, exhibitions, publications, institutions and places.",
-      "RELATIONAL_AI": "Research in open sources, each finding tied to its source and to the period's geopolitics."
+      "RELATIONAL_AI": "Research in open sources, each occurrence tied to its source and to the period's geopolitics."
     },
     "METHOD": {
       "TITLE": "Reading, relation and reliability",
@@ -108,16 +108,16 @@
   "EXPLORAR": {
     "EYEBROW": "Contributions of immigrant art, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",
-    "SUBTITLE": "Artists from Eastern Europe and Austria who migrated to Brazil, based on the MAC USP collection.",
-    "STATS_TITLE": "Collection",
-    "STATS_UNAVAILABLE": "The collection figures could not be loaded right now.",
+    "SUBTITLE": "Artists from Eastern Europe and Austria who migrated to Brazil, selected from the MAC USP collection.",
+    "STATS_TITLE": "Documentary corpus",
+    "STATS_UNAVAILABLE": "The documentary corpus figures could not be loaded right now.",
     "MAP_UNAVAILABLE": "The trajectories could not be loaded right now.",
     "MAP": {
       "LABEL": "Map of the artists' trajectories",
       "FILTERS": "Filters",
       "CLEAR": "Clear",
-      "ORIGIN": "Country of origin",
-      "ALL_COUNTRIES": "All countries",
+      "ORIGIN": "Territory of origin",
+      "ALL_COUNTRIES": "All territories",
       "PERIOD": "Period",
       "PERIOD_FROM": "Start year",
       "PERIOD_TO": "End year",
@@ -125,7 +125,7 @@
       "LEGEND_MIGRATION": "From origin to Brazil",
       "LEGEND_ROUTE": "Other records, in date order",
       "ARTISTS": "{count, plural, one {# artist} other {# artists}}",
-      "NO_RESULTS": "No artists for this country and period.",
+      "NO_RESULTS": "No artists for this territory and period.",
       "BACK": "Back",
       "OPEN_RECORD": "Open the record",
       "POPUP_SUMMARY": "{artists, plural, one {# artist} other {# artists}} · {records, plural, one {# record} other {# records}}",
@@ -137,9 +137,9 @@
     "WORKS": "works",
     "EXHIBITIONS": "exhibitions",
     "PUBLICATIONS": "publications",
-    "ORIGIN_COUNTRIES": "countries of origin"
+    "ORIGIN_COUNTRIES": "territories of origin"
   },
-  "DEMO_NOTICE": "Demo data: the records shown are simulated and are not part of the collection.",
+  "DEMO_NOTICE": "Demo data: the records shown are simulated and are not part of the documentary corpus.",
   "COMING_SOON": {
     "EYEBROW": "Under construction",
     "BODY": "This screen is part of the MVP and is being built."
@@ -151,7 +151,7 @@
     "TITLE": "Trajectories",
     "TITLE_NOTE": "Artist records",
     "EYEBROW": "Trajectories",
-    "INTRO": "The artists in the collection, each with the record of their trajectory: works, exhibitions, publications and sources.",
+    "INTRO": "The artists selected from the collection, each with the record of their trajectory: works, exhibitions, publications and sources.",
     "NO_PHOTO": "No photo yet",
     "WORKS_TITLE": "Works",
     "EXHIBITIONS_TITLE": "Exhibitions",
@@ -165,22 +165,22 @@
     "MOVEMENT": "Movement",
     "EDUCATION": "Education",
     "GROUPS": "Groups",
-    "ACTIVITY": "Activity in the collection",
+    "ACTIVITY": "Activity in the documentary corpus",
     "CONNECTIONS": "Network of connections",
     "CONNECTIONS_ABOUT": "About the network of connections",
-    "CONNECTIONS_INFO": "The artist's strongest links in the collection: the places where they were born and died, the collection's artists shown in the same exhibitions, and the institutions that showed their works. The full network is in the Relational Network.",
+    "CONNECTIONS_INFO": "The artist's strongest links in the documentary corpus: the places where they were born and died, the artists selected from the collection shown in the same exhibitions, and the institutions that showed their works. The full network is in the Relational Network.",
     "RELATION_TYPES": "Kinds of relation",
     "RELATION_JOINT_EXHIBITION": "Joint exhibition",
     "RELATION_INSTITUTION": "Institution",
     "RELATION_PLACE": "Birth and death",
-    "NO_CONNECTIONS": "No connections recorded in the collection.",
+    "NO_CONNECTIONS": "No connections recorded in the documentary corpus.",
     "CONNECTIONS_UNAVAILABLE": "The network could not be loaded right now.",
     "SEE_NETWORK": "See full network",
     "INSTITUTIONS": "Related institutions",
     "MORE_INSTITUTIONS": "See all ({count})",
     "FEWER_INSTITUTIONS": "See fewer",
     "INSTITUTION_EXHIBITIONS": "{count, plural, one {# exhibition} other {# exhibitions}}",
-    "NO_INSTITUTIONS": "No institution recorded in the collection.",
+    "NO_INSTITUTIONS": "No institution recorded in the documentary corpus.",
     "BIO_SOURCE": "AI-generated summary",
     "BIO_SOURCE_DETAIL": "Text generated by AI ({model}) on {date}, only from what Wikidata and Wikipedia say about the artist, read with the period's geopolitics.",
     "BIO_SOURCE_LINK": "See each source, its reliability and the prompt in Relational AI.",
@@ -189,7 +189,7 @@
     "DIED": "Death",
     "MAP_LABEL": "Map of {name}'s trajectory",
     "TRAJECTORY": "Trajectory",
-    "NONE": "No records in the collection.",
+    "NONE": "No records in the documentary corpus.",
     "ACCESSION": "Accession {id}",
     "DOCUMENTED": "Documented",
     "SOURCES": "Sources",
@@ -230,15 +230,15 @@
     },
     "SOURCE_ABOUT": "About the borders",
     "FACTS": {
-      "TITLE": "Historical facts",
+      "TITLE": "Historical events and contexts",
       "INFERRED": "Inferred",
-      "ABOUT": "About the historical facts",
-      "INFO": "Chosen by the platform, not reviewed by a researcher: the best-known events of each year in Europe and in Brazil according to Wikidata, told by the opening of their Wikipedia article. Open each fact’s article to check it.",
+      "ABOUT": "About the historical events and contexts",
+      "INFO": "Chosen by the platform, not reviewed by a researcher: the best-known events of each year in Europe and in Brazil according to Wikidata, told by the opening of their Wikipedia article. Open each event’s article to check it.",
       "IN_YEAR": "In {year}",
       "ONGOING": "Ongoing",
-      "NONE": "No facts recorded for {year}.",
-      "LOADING": "Loading the facts…",
-      "UNAVAILABLE": "The historical facts could not be loaded right now.",
+      "NONE": "No events recorded for {year}.",
+      "LOADING": "Loading the events…",
+      "UNAVAILABLE": "The historical events and contexts could not be loaded right now.",
       "CREDIT": "Texts: Wikipedia (CC BY-SA 4.0). Dates and selection: Wikidata (CC0)."
     },
     "ORIGINS_TITLE": "Places of origin",
@@ -269,7 +269,7 @@
   "NETWORK": {
     "TITLE": "Relational Network",
     "EYEBROW": "Artists, works, exhibitions and places",
-    "INTRO": "The links the collection documents between the artists, their works, the exhibitions and publications the works appear in, the institutions and the places. Pick an artist to see their network, or see the whole base.",
+    "INTRO": "The links the documentary corpus records between the artists, their works, the exhibitions and publications the works appear in, the institutions and the places. Pick an artist to see their network, or see the whole base.",
     "DATA_UNAVAILABLE": "The network could not be loaded right now. Please try again shortly.",
     "FILTERS": "Network",
     "CENTER": "Center of the network",
@@ -287,7 +287,7 @@
     "PERIOD_TO": "To year",
     "UNDATED_NOTE": "Exhibitions, publications and works with no year appear only with the full period.",
     "OVERVIEW_NOTE": "The overview reads left to right: birthplace, artist, the institutions that showed their works and the cities of those exhibitions (when the source names no institution, the artist links straight to the city). Line thickness counts the exhibitions.",
-    "EGO_NOTE": "{name} sits in the middle and each ring is one link further out: works and life places, then exhibitions and publications, then institutions, cities and the other artists of the collection in the same exhibitions.",
+    "EGO_NOTE": "{name} sits in the middle and each ring is one link further out: works and life places, then exhibitions and publications, then institutions, cities and the other artists selected from the collection in the same exhibitions.",
     "LINES_NOTE": "Dashed lines lead to the place of birth or death. Zoom with the mouse wheel or the buttons and drag to move.",
     "CLEAR": "Clear",
     "LEGEND": "Legend",
@@ -324,18 +324,18 @@
     "OPEN_RECORD": "Open the trajectory record",
     "CENTER_RECORD": "Artist record",
     "DOCUMENTED": "Documented",
-    "SOURCE": "Links taken from the MAC USP collection (works, related exhibitions and publications). Institutions whose name is spelled in different ways are merged into one."
+    "SOURCE": "Links taken from the documentary corpus, built from the MAC USP collection (works, related exhibitions and publications). Institutions whose name is spelled in different ways are merged into one."
   },
   "RESEARCH": {
     "TITLE": "Relational AI",
     "TITLE_NOTE": "Research by artist",
-    "EYEBROW": "The collection and open sources",
-    "INTRO": "Links each artist in the collection to what open sources say about them. Every finding shows the page it came from and how reliable it is, and nothing found here enters the base without review.",
+    "EYEBROW": "The documentary corpus and open sources",
+    "INTRO": "Links each artist selected from the collection to what open sources say about them. Every occurrence shows the page it came from and how reliable it is, and nothing found here enters the base without review.",
     "BACK": "All artists",
     "LIST_UNAVAILABLE": "The list of artists could not be loaded right now. Please try again shortly.",
     "UNAVAILABLE": "The open-source search is not available right now. Please try again shortly.",
     "OPEN_RECORD": "Open the trajectory record",
-    "COLLECTION": "In the collection",
+    "COLLECTION": "In the documentary corpus",
     "NO_PHOTO": "No photo yet",
     "PHOTO_CREDIT": "Photo: {credit}",
     "BORN": "Born",
@@ -344,13 +344,13 @@
     "UNKNOWN_PLACE": "unknown place",
     "MATCH": "Person found on Wikidata",
     "BASIS": {
-      "BIRTH_YEAR": "Chosen as the only person with this name born in the year the collection records.",
-      "NAME": "The collection has no birth year; chosen as the only person with exactly this name.",
+      "BIRTH_YEAR": "Chosen as the only person with this name born in the year the documentary corpus records.",
+      "NAME": "The documentary corpus has no birth year; chosen as the only person with exactly this name.",
       "REVIEWED": "Link checked by a project researcher, without an automatic search."
     },
     "REVIEW_NOTE": "Researcher's note: {note}",
     "SUMMARY": "Encyclopedia summary",
-    "FINDINGS": "Findings",
+    "FINDINGS": "Occurrences",
     "NO_FINDINGS": "The person found has none of this information on Wikidata.",
     "PROPERTY": {
       "BIRTH_DATE": "Born",
@@ -371,7 +371,7 @@
     "REFERENCES": "{count, plural, =0 {no references} one {# reference} other {# references}}",
     "REVIEW": {
       "PRESENT_DAY_NAME": "Review: the source uses the present-day name of the place or state, not the period's.",
-      "CONFLICTS_WITH_COLLECTION": "Review: the date differs from the one in the collection."
+      "CONFLICTS_WITH_COLLECTION": "Review: the date differs from the one in the documentary corpus."
     },
     "SOURCE_LINK": "See the source",
     "SOURCES": "Sources consulted",
@@ -384,21 +384,21 @@
     "METHOD": "How the search works",
     "QUERY": "Query used",
     "QUERY_TEXT": "Searches Wikidata for the name “{name}”; of the people found, only the one that is certainly this artist is kept. From it the search reads the dates and places of birth and death, citizenship, occupation, movement, education, institutions they were a member of and notable works, and the lead of the Wikipedia article in Portuguese (or English, when there is none).",
-    "METHOD_RELIABILITY": "A finding is documented when Wikidata cites references for it; with no references, or when it comes from encyclopedia text, it is undetermined.",
+    "METHOD_RELIABILITY": "An occurrence is documented when Wikidata cites references for it; with no references, or when it comes from encyclopedia text, it is undetermined.",
     "METHOD_PERIOD": "Open sources use the present-day names of places and states. The AI is given the states of the birth year and told to use the names of the time.",
-    "METHOD_AI": "The summary is written by Gemini at a low temperature, only from the numbered findings, the collection's record and the period's map. A summary that cites no finding, or one that does not exist, is discarded.",
+    "METHOD_AI": "The summary is written by Gemini at a low temperature, only from the numbered occurrences, the documentary corpus record and the period's map. A summary that cites no occurrence, or one that does not exist, is discarded.",
     "AI_SUMMARY": "AI summary",
-    "AI_NOTE": "Written by AI ({model}) only from the numbered findings and the collection's record, within the period's geopolitics. Each number leads to the finding the claim comes from; check the source before using it.",
+    "AI_NOTE": "Written by AI ({model}) only from the numbered occurrences and the documentary corpus record, within the period's geopolitics. Each number leads to the occurrence the claim comes from; check the source before using it.",
     "AI_STATUS": {
       "NOT_CONFIGURED": "The AI summary is not active in this environment. The prompt that would be sent is under “How the search works”.",
-      "REJECTED": "The AI wrote a summary that did not cite the findings correctly, so it is not shown.",
-      "ERROR": "The AI did not answer just now. The findings still stand; please try again shortly."
+      "REJECTED": "The AI wrote a summary that did not cite the occurrences correctly, so it is not shown.",
+      "ERROR": "The AI did not answer just now. The occurrences still stand; please try again shortly."
     },
-    "CITATION": "Finding {n}",
-    "FINDING_NUMBER": "Finding {n}",
+    "CITATION": "Occurrence {n}",
+    "FINDING_NUMBER": "Occurrence {n}",
     "PERIOD": "The period's map",
     "PERIOD_DAY": "Europe on {date}",
-    "PERIOD_APPROXIMATE": "The birth year is approximate in the collection.",
+    "PERIOD_APPROXIMATE": "The birth year is approximate in the documentary corpus.",
     "PERIOD_BIRTH_STATE": "State of the birthplace",
     "PERIOD_NO_STATE": "no state identified",
     "PERIOD_STATES": "{count, plural, one {# state in Europe that day} other {# states in Europe that day}}",
@@ -408,7 +408,7 @@
     "PROMPT": "Prompt sent to the AI",
     "OVERVIEW": {
       "TITLE": "AI research on this artist",
-      "FOUND": "Information found by the automated research of {date} on {platforms}. Each finding below links to the page it came from.",
+      "FOUND": "Information found by the automated research of {date} on {platforms}. Each occurrence below links to the page it came from.",
       "FOUND_AI": "Summary written by AI: {model}.",
       "NOT_FOUND": "No concrete data on this artist was found by the research on {platforms} on {date}.",
       "PENDING": "Research pending: Wikidata did not answer in the research of {date}, so it is not yet known whether there is data on this artist.",
@@ -417,18 +417,18 @@
       "CANDIDATES": "Possible matches, not linked",
       "CANDIDATES_NOTE": "None of them was linked automatically, so as not to give the artist someone else's life. If one is the artist, a researcher's confirmation lets it be linked.",
       "REASON": {
-        "BIRTH_YEAR_DIFFERS": "Wikidata says born in {wikidata}; the collection, {collection}. Check which date is right.",
-        "NO_BIRTH_YEAR": "Wikidata has no birth year, so it cannot be compared with the collection ({collection}).",
-        "AMBIGUOUS": "More than one person on Wikidata fits the collection, so it is not possible to tell which is the artist.",
-        "SHORTER_NAME": "Only turns up when searching “{foundBy}”, a name different from the collection's.",
-        "NAME_DIFFERS": "The collection has no birth year, and the name on Wikidata is different."
+        "BIRTH_YEAR_DIFFERS": "Wikidata says born in {wikidata}; the documentary corpus, {collection}. Check which date is right.",
+        "NO_BIRTH_YEAR": "Wikidata has no birth year, so it cannot be compared with the documentary corpus ({collection}).",
+        "AMBIGUOUS": "More than one person on Wikidata fits the documentary corpus record, so it is not possible to tell which is the artist.",
+        "SHORTER_NAME": "Only turns up when searching “{foundBy}”, a name different from the one in the documentary corpus.",
+        "NAME_DIFFERS": "The documentary corpus has no birth year, and the name on Wikidata is different."
       }
     }
   },
   "ABOUT": {
     "TITLE": "About the project",
     "EYEBROW": "About",
-    "INTRO": "Atlas Migrações Leste-Sul maps artists from Eastern Europe and Austria who migrated to Brazil between 1918 and 1989, based on the collection of the Museum of Contemporary Art of the University of São Paulo (MAC USP).",
+    "INTRO": "Atlas Migrações Leste-Sul maps artists from Eastern Europe and Austria who migrated to Brazil between 1918 and 1989, selected from the collection of the Museum of Contemporary Art of the University of São Paulo (MAC USP).",
     "PROJECT": {
       "TITLE": "The project",
       "PROBLEM": "Digitisation widened access to collections but did not make them intelligible.",
@@ -444,7 +444,7 @@
       "READING": "Reading",
       "READING_BODY": "Defining the analytical scope, mapping and selecting data, ingesting and preparing the data for analysis.",
       "RELATION": "Relation",
-      "RELATION_BODY": "Associating entities, recognising patterns, assessing relevance and discovering relations.",
+      "RELATION_BODY": "Associating entities, recognising patterns, assessing relevance and identifying potential relations.",
       "RELIABILITY": "Reliability",
       "RELIABILITY_BODY": "Detecting inconsistencies, validating sources and flagging uncertainty.",
       "PROVENANCE": "Every piece of information keeps its provenance, every inferred relation is distinguished from a documented one, and every hypothesis leads back to the sources it came from."
@@ -460,7 +460,7 @@
     },
     "DATA": {
       "TITLE": "Data",
-      "SOURCE": "The database was built from three MAC USP collection spreadsheets, made available on 16 July 2026, bringing together information on the selected works and their related exhibitions and publications.",
+      "SOURCE": "The documentary corpus was built from three MAC USP collection spreadsheets, made available on 16 July 2026, bringing together information on the selected works and their related exhibitions and publications.",
       "PRECISION": "Place names keep the form recorded in the sources, with the present-day name alongside when that information is available. Dates keep the same level of precision as the original documentation, including entries such as “c. 1949”, “1940–1945” and “n.d.”. Undocumented information stays marked as unknown.",
       "GAPS": "To represent the movements, only the points actually documented in the sources consulted are used. When there is no information on the year of arrival or on intermediate stages of the journey to Brazil, the map connects the birthplace to the first documented place in the country, without reconstructing possible routes. Exhibitions held during the artist's lifetime and the place of death are added as further points of their trajectory."
     },
@@ -486,7 +486,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Inferred trajectory",
-    "METHOD": "The lines join, in date order, the points the collection documents: birth, exhibitions of the works during the artist's lifetime, and death. The stretch from the birthplace to the first documented place in Brazil is drawn in gold. The sources record neither the route nor the year of arrival, so the lines show the sequence of the records, not a documented journey.",
+    "METHOD": "The lines join, in date order, the points the documentary corpus records: birth, exhibitions of the works during the artist's lifetime, and death. The stretch from the birthplace to the first documented place in Brazil is drawn in gold. The sources record neither the route nor the year of arrival, so the lines show the sequence of the records, not a documented journey.",
     "STOP": {
       "BIRTH": "Birth",
       "EXHIBITION": "Exhibition",
