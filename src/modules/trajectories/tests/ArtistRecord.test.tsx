@@ -212,7 +212,7 @@ describe("ArtistRecord", () => {
     const about = screen.getByRole("tabpanel", { name: "Sobre" });
     expect(within(about).getByText("Nascimento")).toBeInTheDocument();
     expect(within(about).queryByText("Cidadania")).not.toBeInTheDocument();
-    expect(within(about).queryByText("Atividade no acervo")).not.toBeInTheDocument();
+    expect(within(about).queryByText("Atividade na base documental")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Resumo gerado por IA/ })).not.toBeInTheDocument();
   });
 
@@ -246,7 +246,7 @@ describe("ArtistRecord", () => {
     expect(within(screen.getByRole("region", { name: /^Exposições/ })).getByText("1951 · MAM · São Paulo")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /^Publicações\s?\(0\)$/ }));
-    expect(within(screen.getByRole("region", { name: /^Publicações/ })).getByText("Nenhum registro no acervo.")).toBeInTheDocument();
+    expect(within(screen.getByRole("region", { name: /^Publicações/ })).getByText("Nenhum registro na base documental.")).toBeInTheDocument();
   });
 
   it("explains each source status in a tip opened by clicking it", async () => {

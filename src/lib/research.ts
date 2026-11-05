@@ -34,7 +34,7 @@ export function groupFindings(findings: Finding[]): FindingGroup[] {
 export const summariesOf = (findings: Finding[]) => numbered(findings).filter((finding) => finding.property === "summary");
 
 /** The anchor of a finding on the page, so a citation can point to it. */
-export const findingAnchor = (n: number) => `achado-${n}`;
+export const findingAnchor = (n: number) => `ocorrencia-${n}`;
 
 export type SummaryPart = { text: string } | { cite: number };
 

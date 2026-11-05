@@ -56,7 +56,7 @@ describe("ExplorarScreen", () => {
     await renderExplorar();
     expect(screen.getByRole("heading", { level: 1, name: "Atlas Migrações Leste-Sul" })).toBeInTheDocument();
     expect(screen.getByText("417")).toBeInTheDocument();
-    expect(screen.getByText("países de origem")).toBeInTheDocument();
+    expect(screen.getByText("territórios de origem")).toBeInTheDocument();
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.getByTestId("explorar")).toBeInTheDocument();
   });
@@ -82,7 +82,7 @@ describe("ExplorarScreen", () => {
       throw new Error("ECONNREFUSED");
     });
     await renderExplorar();
-    expect(screen.getByText("Não foi possível carregar os números do acervo agora.")).toBeInTheDocument();
+    expect(screen.getByText("Não foi possível carregar os números da base documental agora.")).toBeInTheDocument();
   });
 
   it("keeps the counters when the map data fails", async () => {

@@ -40,7 +40,7 @@ describe("HomeCounters", () => {
     vi.mocked(getOverview).mockResolvedValue(overview("database"));
     await renderCounters();
     expect(screen.getByText("417")).toBeInTheDocument();
-    expect(screen.getByText("países de origem")).toBeInTheDocument();
+    expect(screen.getByText("territórios de origem")).toBeInTheDocument();
     expect(screen.queryByText(/Dados de demonstração/)).not.toBeInTheDocument();
   });
 
@@ -54,7 +54,7 @@ describe("HomeCounters", () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     vi.mocked(getOverview).mockRejectedValue(new Error("offline"));
     await renderCounters();
-    expect(screen.getByText("Não foi possível carregar os números do acervo agora.")).toBeInTheDocument();
+    expect(screen.getByText("Não foi possível carregar os números da base documental agora.")).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledWith("Failed to load the collection overview:", "offline");
 
     vi.mocked(getOverview).mockRejectedValue("timeout");

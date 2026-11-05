@@ -1,7 +1,7 @@
 {
   "SEO": {
     "SITE_NAME": "Atlas Migrações Leste-Sul",
-    "DEFAULT_DESCRIPTION": "Mapeamento dos artistas do Leste Europeu e da Áustria que migraram para o Brasil, 1918–1989, a partir do acervo do MAC USP."
+    "DEFAULT_DESCRIPTION": "Mapeamento de artistas do Leste Europeu e da Áustria que migraram para o Brasil, 1918–1989, selecionados a partir do acervo do MAC USP."
   },
   "BRAND": {
     "NAME": "Atlas Migrações",
@@ -36,7 +36,7 @@
       "PLAY": "Retomar a apresentação",
       "SLIDES": {
         "COLLECTION": {
-          "EYEBROW": "O acervo",
+          "EYEBROW": "A base documental",
           "TITLE": "Trajetórias de artistas do <hl>Leste Europeu e da Áustria</hl> no Brasil",
           "BODY": "Obras, exposições e publicações conectadas aos lugares e acontecimentos que compõem as trajetórias de cada artista.",
           "CTA": "Explorar o mapa"
@@ -56,23 +56,23 @@
         "AI": {
           "EYEBROW": "Hipótese",
           "TITLE": "A IA como ferramenta <hl>assistiva e exploratória</hl>, com mediação crítica",
-          "BODY": "A IA Relacional busca em fontes abertas e mostra cada achado com a sua fonte, a sua confiabilidade e o prompt usado: hipóteses verificáveis e auditáveis.",
+          "BODY": "A IA Relacional busca em fontes abertas e mostra cada ocorrência com a sua fonte, a sua confiabilidade e o prompt usado: hipóteses verificáveis e auditáveis.",
           "CTA": "Conhecer a IA Relacional"
         }
       }
     },
     "COUNTERS": {
-      "TITLE": "O acervo em números",
-      "UNAVAILABLE": "Não foi possível carregar os números do acervo agora."
+      "TITLE": "A base documental em números",
+      "UNAVAILABLE": "Não foi possível carregar os números da base documental agora."
     },
     "NEED": {
       "EYEBROW": "Por que um atlas",
-      "TITLE": "Um acervo lido em relação",
+      "TITLE": "Uma base documental lida em relação",
       "BODY": "O Atlas reúne e articula esses dados, permitindo explorá-los no espaço e no tempo, considerando também as transformações das fronteiras ao longo do período. Cada informação permanece vinculada à sua fonte, preservando lacunas, incertezas e diferentes níveis de precisão sempre que a documentação disponível não permite estabelecer uma relação de forma conclusiva."
     },
     "IMPACTS": {
       "EYEBROW": "Impactos",
-      "TITLE": "O que o projeto possibilita para a pesquisa e para o acervo",
+      "TITLE": "O que o projeto possibilita para a pesquisa e para a base documental",
       "RESEARCH": {
         "TITLE": "Para a pesquisa",
         "ITEMS": {
@@ -82,23 +82,23 @@
         }
       },
       "COLLECTION": {
-        "TITLE": "A partir do acervo",
+        "TITLE": "A partir da base documental",
         "ITEMS": {
           "1": "Os registros do MAC USP constituem a base para novas formas de visualização e exploração das trajetórias dos artistas e de suas obras.",
-          "2": "Informações do acervo podem ser relacionadas a contextos geográficos, históricos e biográficos provenientes de outras fontes de pesquisa.",
-          "3": "A proveniência das informações é preservada ao longo dessas relações, mantendo identificável aquilo que provém do acervo, de fontes externas ou de processos de inferência.",
+          "2": "Informações da base documental podem ser relacionadas a contextos geográficos, históricos e biográficos provenientes de outras fontes de pesquisa.",
+          "3": "A proveniência das informações é preservada ao longo dessas relações, mantendo identificável aquilo que provém da base documental, de fontes externas ou de processos de inferência.",
           "4": "Diferentes níveis de informação e de precisão documental são mantidos visíveis, respeitando as particularidades de cada fonte e os limites do conhecimento disponível."
         }
       }
     },
     "SCREENS": {
       "EYEBROW": "Percorra o atlas",
-      "TITLE": "Cinco maneiras de ler o acervo",
-      "EXPLORAR": "As trajetórias no mapa, com filtros por país de origem e período e os números do acervo.",
+      "TITLE": "Cinco maneiras de ler a base documental",
+      "EXPLORAR": "As trajetórias no mapa, com filtros por território de origem e período e os números da base documental.",
       "TRAJECTORIES": "A ficha de cada artista: trajetória, obras, exposições, publicações e fontes.",
       "HISTORICAL_LAYER": "A Europa ano a ano, de 1910 a 1989, com as fronteiras de cada período e os locais de origem.",
       "NETWORK": "O grafo que liga artistas, obras, exposições, publicações, instituições e lugares.",
-      "RELATIONAL_AI": "Pesquisa em fontes abertas, cada achado ligado à sua fonte e à geopolítica do período."
+      "RELATIONAL_AI": "Pesquisa em fontes abertas, cada ocorrência ligada à sua fonte e à geopolítica do período."
     },
     "METHOD": {
       "TITLE": "Leitura, relação e confiabilidade",
@@ -108,16 +108,16 @@
   "EXPLORAR": {
     "EYEBROW": "Contribuições da arte imigrante, 1918⁠–⁠1989",
     "TITLE": "Atlas Migrações Leste-Sul",
-    "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, a partir do acervo do MAC USP.",
-    "STATS_TITLE": "Acervo",
-    "STATS_UNAVAILABLE": "Não foi possível carregar os números do acervo agora.",
+    "SUBTITLE": "Artistas do Leste Europeu e da Áustria que migraram para o Brasil, selecionados a partir do acervo do MAC USP.",
+    "STATS_TITLE": "Base documental",
+    "STATS_UNAVAILABLE": "Não foi possível carregar os números da base documental agora.",
     "MAP_UNAVAILABLE": "Não foi possível carregar as trajetórias agora.",
     "MAP": {
       "LABEL": "Mapa das trajetórias dos artistas",
       "FILTERS": "Filtros",
       "CLEAR": "Limpar",
-      "ORIGIN": "País de origem",
-      "ALL_COUNTRIES": "Todos os países",
+      "ORIGIN": "Território de origem",
+      "ALL_COUNTRIES": "Todos os territórios",
       "PERIOD": "Período",
       "PERIOD_FROM": "Ano inicial",
       "PERIOD_TO": "Ano final",
@@ -125,7 +125,7 @@
       "LEGEND_MIGRATION": "Da origem ao Brasil",
       "LEGEND_ROUTE": "Demais registros, em ordem de data",
       "ARTISTS": "{count, plural, one {# artista} other {# artistas}}",
-      "NO_RESULTS": "Nenhum artista neste país e período.",
+      "NO_RESULTS": "Nenhum artista neste território e período.",
       "BACK": "Voltar",
       "OPEN_RECORD": "Abrir a ficha",
       "POPUP_SUMMARY": "{artists, plural, one {# artista} other {# artistas}} · {records, plural, one {# registro} other {# registros}}",
@@ -137,9 +137,9 @@
     "WORKS": "obras",
     "EXHIBITIONS": "exposições",
     "PUBLICATIONS": "publicações",
-    "ORIGIN_COUNTRIES": "países de origem"
+    "ORIGIN_COUNTRIES": "territórios de origem"
   },
-  "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte do acervo.",
+  "DEMO_NOTICE": "Dados de demonstração: os registros exibidos são simulados e não fazem parte da base documental.",
   "COMING_SOON": {
     "EYEBROW": "Em construção",
     "BODY": "Esta tela faz parte do MVP e está sendo construída."
@@ -151,7 +151,7 @@
     "TITLE": "Trajetórias",
     "TITLE_NOTE": "Fichas dos artistas",
     "EYEBROW": "Trajetórias",
-    "INTRO": "Os artistas do acervo, cada um com a ficha de sua trajetória: obras, exposições, publicações e fontes.",
+    "INTRO": "Os artistas selecionados a partir do acervo, cada um com a ficha de sua trajetória: obras, exposições, publicações e fontes.",
     "NO_PHOTO": "Ainda sem foto",
     "WORKS_TITLE": "Obras",
     "EXHIBITIONS_TITLE": "Exposições",
@@ -165,22 +165,22 @@
     "MOVEMENT": "Movimento",
     "EDUCATION": "Formação",
     "GROUPS": "Grupos",
-    "ACTIVITY": "Atividade no acervo",
+    "ACTIVITY": "Atividade na base documental",
     "CONNECTIONS": "Rede de conexões",
     "CONNECTIONS_ABOUT": "Sobre a rede de conexões",
-    "CONNECTIONS_INFO": "As ligações mais fortes do artista no acervo: os lugares onde nasceu e morreu, os artistas do acervo que estiveram nas mesmas exposições e as instituições que expuseram suas obras. A rede completa fica na Rede Relacional.",
+    "CONNECTIONS_INFO": "As ligações mais fortes do artista na base documental: os lugares onde nasceu e morreu, os artistas selecionados a partir do acervo que estiveram nas mesmas exposições e as instituições que expuseram suas obras. A rede completa fica na Rede Relacional.",
     "RELATION_TYPES": "Tipos de relação",
     "RELATION_JOINT_EXHIBITION": "Exposição conjunta",
     "RELATION_INSTITUTION": "Instituição",
     "RELATION_PLACE": "Nascimento e morte",
-    "NO_CONNECTIONS": "Nenhuma conexão registrada no acervo.",
+    "NO_CONNECTIONS": "Nenhuma conexão registrada na base documental.",
     "CONNECTIONS_UNAVAILABLE": "Não foi possível carregar a rede agora.",
     "SEE_NETWORK": "Ver rede expandida",
     "INSTITUTIONS": "Instituições relacionadas",
     "MORE_INSTITUTIONS": "Ver todas ({count})",
     "FEWER_INSTITUTIONS": "Ver menos",
     "INSTITUTION_EXHIBITIONS": "{count, plural, one {# exposição} other {# exposições}}",
-    "NO_INSTITUTIONS": "Nenhuma instituição registrada no acervo.",
+    "NO_INSTITUTIONS": "Nenhuma instituição registrada na base documental.",
     "BIO_SOURCE": "Resumo gerado por IA",
     "BIO_SOURCE_DETAIL": "Texto gerado por IA ({model}) em {date}, só com o que o Wikidata e a Wikipédia dizem do artista, lido com a geopolítica do período.",
     "BIO_SOURCE_LINK": "Ver cada fonte, a confiabilidade e o prompt na IA Relacional.",
@@ -189,7 +189,7 @@
     "DIED": "Falecimento",
     "MAP_LABEL": "Mapa da trajetória de {name}",
     "TRAJECTORY": "Trajetória",
-    "NONE": "Nenhum registro no acervo.",
+    "NONE": "Nenhum registro na base documental.",
     "ACCESSION": "Tombo {id}",
     "DOCUMENTED": "Documentado",
     "SOURCES": "Fontes",
@@ -230,15 +230,15 @@
     },
     "SOURCE_ABOUT": "Sobre as fronteiras",
     "FACTS": {
-      "TITLE": "Fatos históricos",
+      "TITLE": "Acontecimentos e contextos históricos",
       "INFERRED": "Inferido",
-      "ABOUT": "Sobre os fatos históricos",
-      "INFO": "Escolhidos pela plataforma, sem revisão de pesquisador: os acontecimentos mais conhecidos de cada ano na Europa e no Brasil segundo a Wikidata, contados pelo início do verbete da Wikipédia. Abra o verbete de cada fato para conferir.",
+      "ABOUT": "Sobre os acontecimentos e contextos históricos",
+      "INFO": "Escolhidos pela plataforma, sem revisão de pesquisador: os acontecimentos mais conhecidos de cada ano na Europa e no Brasil segundo a Wikidata, contados pelo início do verbete da Wikipédia. Abra o verbete de cada acontecimento para conferir.",
       "IN_YEAR": "Em {year}",
       "ONGOING": "Em curso",
-      "NONE": "Nenhum fato registrado para {year}.",
-      "LOADING": "Carregando os fatos…",
-      "UNAVAILABLE": "Não foi possível carregar os fatos históricos agora.",
+      "NONE": "Nenhum acontecimento registrado para {year}.",
+      "LOADING": "Carregando os acontecimentos…",
+      "UNAVAILABLE": "Não foi possível carregar os acontecimentos e contextos históricos agora.",
       "CREDIT": "Textos: Wikipédia (CC BY-SA 4.0). Datas e seleção: Wikidata (CC0)."
     },
     "ORIGINS_TITLE": "Lugares de origem",
@@ -269,7 +269,7 @@
   "NETWORK": {
     "TITLE": "Rede Relacional",
     "EYEBROW": "Artistas, obras, exposições e lugares",
-    "INTRO": "As ligações que o acervo documenta entre os artistas, suas obras, as exposições e publicações em que as obras aparecem, as instituições e os lugares. Escolha um artista para ver a rede dele, ou veja a base inteira.",
+    "INTRO": "As ligações que a base documental registra entre os artistas, suas obras, as exposições e publicações em que as obras aparecem, as instituições e os lugares. Escolha um artista para ver a rede dele, ou veja a base inteira.",
     "DATA_UNAVAILABLE": "Não foi possível carregar a rede agora. Tente de novo em instantes.",
     "FILTERS": "Rede",
     "CENTER": "Centro da rede",
@@ -287,7 +287,7 @@
     "PERIOD_TO": "Ano final",
     "UNDATED_NOTE": "Exposições, publicações e obras sem ano aparecem só com o período completo.",
     "OVERVIEW_NOTE": "Na visão geral, a rede se lê da esquerda para a direita: lugar de nascimento, artista, instituições que expuseram suas obras e cidades dessas exposições (quando a fonte não nomeia a instituição, o artista se liga direto à cidade). A espessura da linha conta as exposições.",
-    "EGO_NOTE": "{name} fica no centro e cada anel se afasta uma ligação: obras e lugares de vida, depois exposições e publicações, depois instituições, cidades e os outros artistas do acervo que estiveram nas mesmas exposições.",
+    "EGO_NOTE": "{name} fica no centro e cada anel se afasta uma ligação: obras e lugares de vida, depois exposições e publicações, depois instituições, cidades e os outros artistas selecionados a partir do acervo que estiveram nas mesmas exposições.",
     "LINES_NOTE": "Linhas tracejadas levam ao lugar de nascimento ou de falecimento. Aproxime com a roda do mouse ou os botões e arraste para mover.",
     "CLEAR": "Limpar",
     "LEGEND": "Legenda",
@@ -324,18 +324,18 @@
     "OPEN_RECORD": "Abrir a ficha da trajetória",
     "CENTER_RECORD": "Ficha do artista",
     "DOCUMENTED": "Documentado",
-    "SOURCE": "Ligações tiradas do acervo do MAC USP (obras, exposições e publicações relacionadas). Instituições com o mesmo nome escrito de formas diferentes são somadas numa só."
+    "SOURCE": "Ligações tiradas da base documental, formada a partir do acervo do MAC USP (obras, exposições e publicações relacionadas). Instituições com o mesmo nome escrito de formas diferentes são somadas numa só."
   },
   "RESEARCH": {
     "TITLE": "IA Relacional",
     "TITLE_NOTE": "Pesquisa por artista",
-    "EYEBROW": "O acervo e as fontes abertas",
-    "INTRO": "Liga cada artista do acervo ao que fontes abertas dizem sobre ele. Cada achado traz a página de onde veio e o grau de confiabilidade, e nada do que é encontrado aqui entra na base sem revisão.",
+    "EYEBROW": "A base documental e as fontes abertas",
+    "INTRO": "Liga cada artista selecionado a partir do acervo ao que fontes abertas dizem sobre ele. Cada ocorrência traz a página de onde veio e o grau de confiabilidade, e nada do que é encontrado aqui entra na base sem revisão.",
     "BACK": "Todos os artistas",
     "LIST_UNAVAILABLE": "Não foi possível carregar a lista de artistas agora. Tente de novo em instantes.",
     "UNAVAILABLE": "A pesquisa em fontes abertas não está disponível agora. Tente de novo em instantes.",
     "OPEN_RECORD": "Abrir a ficha da trajetória",
-    "COLLECTION": "No acervo",
+    "COLLECTION": "Na base documental",
     "NO_PHOTO": "Ainda sem foto",
     "PHOTO_CREDIT": "Foto: {credit}",
     "BORN": "Nascimento",
@@ -344,13 +344,13 @@
     "UNKNOWN_PLACE": "lugar desconhecido",
     "MATCH": "Pessoa encontrada no Wikidata",
     "BASIS": {
-      "BIRTH_YEAR": "Escolhida por ser a única pessoa com este nome nascida no ano que o acervo registra.",
-      "NAME": "O acervo não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome.",
+      "BIRTH_YEAR": "Escolhida por ser a única pessoa com este nome nascida no ano que a base documental registra.",
+      "NAME": "A base documental não registra o ano de nascimento; escolhida por ser a única pessoa com exatamente este nome.",
       "REVIEWED": "Vínculo conferido por um pesquisador do projeto, sem busca automática."
     },
     "REVIEW_NOTE": "Nota do pesquisador: {note}",
     "SUMMARY": "Resumo da enciclopédia",
-    "FINDINGS": "Achados",
+    "FINDINGS": "Ocorrências",
     "NO_FINDINGS": "A pessoa encontrada não tem nenhuma destas informações no Wikidata.",
     "PROPERTY": {
       "BIRTH_DATE": "Nascimento",
@@ -371,7 +371,7 @@
     "REFERENCES": "{count, plural, =0 {sem referências} one {# referência} other {# referências}}",
     "REVIEW": {
       "PRESENT_DAY_NAME": "Revisar: a fonte usa o nome atual do lugar ou do Estado, não o do período.",
-      "CONFLICTS_WITH_COLLECTION": "Revisar: a data diverge da registrada no acervo."
+      "CONFLICTS_WITH_COLLECTION": "Revisar: a data diverge da registrada na base documental."
     },
     "SOURCE_LINK": "Ver na fonte",
     "SOURCES": "Fontes consultadas",
@@ -384,21 +384,21 @@
     "METHOD": "Como a pesquisa é feita",
     "QUERY": "Consulta usada",
     "QUERY_TEXT": "Busca no Wikidata pelo nome “{name}”; das pessoas encontradas, fica só a que for com certeza este artista. Dela se leem as datas e lugares de nascimento e falecimento, cidadania, ocupação, movimento, formação, instituições de que foi membro e obras notáveis, e o resumo do verbete da Wikipedia em português (ou em inglês, quando não há).",
-    "METHOD_RELIABILITY": "Um achado é documentado quando o Wikidata cita referências para ele; sem referências, ou vindo do texto da enciclopédia, ele não é determinado.",
+    "METHOD_RELIABILITY": "Uma ocorrência é documentada quando o Wikidata cita referências para ela; sem referências, ou vinda do texto da enciclopédia, ela não é determinada.",
     "METHOD_PERIOD": "As fontes abertas usam os nomes atuais de lugares e Estados. A IA recebe os Estados do ano de nascimento e é instruída a usar os nomes da época.",
-    "METHOD_AI": "O resumo é escrito pelo Gemini com temperatura baixa, a partir só dos achados numerados, do registro do acervo e do mapa do período. Um resumo que não cite os achados, ou cite um que não existe, é descartado.",
+    "METHOD_AI": "O resumo é escrito pelo Gemini com temperatura baixa, a partir só das ocorrências numeradas, do registro da base documental e do mapa do período. Um resumo que não cite as ocorrências, ou cite uma que não existe, é descartado.",
     "AI_SUMMARY": "Resumo da IA",
-    "AI_NOTE": "Escrito por IA ({model}) só com os achados numerados e o registro do acervo, dentro da geopolítica do período. Cada número leva ao achado de onde a afirmação vem; confira a fonte antes de usar.",
+    "AI_NOTE": "Escrito por IA ({model}) só com as ocorrências numeradas e o registro da base documental, dentro da geopolítica do período. Cada número leva à ocorrência de onde a afirmação vem; confira a fonte antes de usar.",
     "AI_STATUS": {
       "NOT_CONFIGURED": "O resumo por IA não está ativo neste ambiente. O prompt que seria enviado aparece em “Como a pesquisa é feita”.",
-      "REJECTED": "A IA escreveu um resumo que não citava os achados corretamente, então ele não é mostrado.",
-      "ERROR": "A IA não respondeu agora. Os achados continuam valendo; tente de novo em instantes."
+      "REJECTED": "A IA escreveu um resumo que não citava as ocorrências corretamente, então ele não é mostrado.",
+      "ERROR": "A IA não respondeu agora. As ocorrências continuam valendo; tente de novo em instantes."
     },
-    "CITATION": "Achado {n}",
-    "FINDING_NUMBER": "Achado {n}",
+    "CITATION": "Ocorrência {n}",
+    "FINDING_NUMBER": "Ocorrência {n}",
     "PERIOD": "O mapa do período",
     "PERIOD_DAY": "Europa em {date}",
-    "PERIOD_APPROXIMATE": "O ano de nascimento é aproximado no acervo.",
+    "PERIOD_APPROXIMATE": "O ano de nascimento é aproximado na base documental.",
     "PERIOD_BIRTH_STATE": "Estado do local de nascimento",
     "PERIOD_NO_STATE": "nenhum Estado identificado",
     "PERIOD_STATES": "{count, plural, one {# Estado na Europa nesse dia} other {# Estados na Europa nesse dia}}",
@@ -408,7 +408,7 @@
     "PROMPT": "Prompt enviado à IA",
     "OVERVIEW": {
       "TITLE": "Pesquisa de IA sobre este artista",
-      "FOUND": "Informações encontradas na pesquisa automatizada de {date} em {platforms}. Cada achado abaixo traz a página de onde veio.",
+      "FOUND": "Informações encontradas na pesquisa automatizada de {date} em {platforms}. Cada ocorrência abaixo traz a página de onde veio.",
       "FOUND_AI": "Resumo escrito por IA: {model}.",
       "NOT_FOUND": "Não foram encontrados dados concretos sobre este artista nas pesquisas realizadas em {platforms} em {date}.",
       "PENDING": "Pesquisa pendente: o Wikidata não respondeu na pesquisa de {date}, então ainda não se sabe se há dados sobre este artista.",
@@ -417,18 +417,18 @@
       "CANDIDATES": "Possíveis correspondências, não vinculadas",
       "CANDIDATES_NOTE": "Nenhuma delas foi vinculada automaticamente, para não atribuir ao artista a vida de outra pessoa. Se uma for o artista, a confirmação de um pesquisador permite vinculá-la.",
       "REASON": {
-        "BIRTH_YEAR_DIFFERS": "No Wikidata, nasceu em {wikidata}; no acervo, {collection}. Confirme qual data está correta.",
-        "NO_BIRTH_YEAR": "O Wikidata não registra o ano de nascimento, então não é possível comparar com o acervo ({collection}).",
-        "AMBIGUOUS": "Mais de uma pessoa no Wikidata corresponde ao acervo, então não é possível saber qual é o artista.",
-        "SHORTER_NAME": "Só aparece na busca por “{foundBy}”, um nome diferente do registrado no acervo.",
-        "NAME_DIFFERS": "O acervo não registra o ano de nascimento, e o nome no Wikidata é diferente."
+        "BIRTH_YEAR_DIFFERS": "No Wikidata, nasceu em {wikidata}; na base documental, {collection}. Confirme qual data está correta.",
+        "NO_BIRTH_YEAR": "O Wikidata não registra o ano de nascimento, então não é possível comparar com a base documental ({collection}).",
+        "AMBIGUOUS": "Mais de uma pessoa no Wikidata corresponde ao registro da base documental, então não é possível saber qual é o artista.",
+        "SHORTER_NAME": "Só aparece na busca por “{foundBy}”, um nome diferente do registrado na base documental.",
+        "NAME_DIFFERS": "A base documental não registra o ano de nascimento, e o nome no Wikidata é diferente."
       }
     }
   },
   "ABOUT": {
     "TITLE": "Sobre o projeto",
     "EYEBROW": "Sobre",
-    "INTRO": "O Atlas Migrações Leste-Sul mapeia artistas do Leste Europeu e da Áustria que migraram para o Brasil entre 1918 e 1989, a partir do acervo do Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP).",
+    "INTRO": "O Atlas Migrações Leste-Sul mapeia artistas do Leste Europeu e da Áustria que migraram para o Brasil entre 1918 e 1989, selecionados a partir do acervo do Museu de Arte Contemporânea da Universidade de São Paulo (MAC USP).",
     "PROJECT": {
       "TITLE": "O projeto",
       "PROBLEM": "A digitalização ampliou o acesso aos acervos, mas não resolveu a sua inteligibilidade.",
@@ -444,7 +444,7 @@
       "READING": "Leitura",
       "READING_BODY": "Definição do escopo analítico, mapeamento e seleção de dados, ingestão e preparação dos dados para análise.",
       "RELATION": "Relação",
-      "RELATION_BODY": "Associação entre entidades, reconhecimento de padrões, avaliação de relevância e descoberta de relações.",
+      "RELATION_BODY": "Associação entre entidades, reconhecimento de padrões, avaliação de relevância e identificação de relações potenciais.",
       "RELIABILITY": "Confiabilidade",
       "RELIABILITY_BODY": "Detecção de inconsistências, validação de fontes e sinalização de incertezas.",
       "PROVENANCE": "Toda informação preserva sua proveniência, toda relação inferida se distingue de uma relação documentalmente comprovada, e toda hipótese permite retornar às fontes que a formularam."
@@ -460,7 +460,7 @@
     },
     "DATA": {
       "TITLE": "Dados",
-      "SOURCE": "A base de dados foi estruturada a partir de três planilhas do acervo do MAC USP, disponibilizadas em 16 de julho de 2026, reunindo informações sobre as obras selecionadas, suas exposições e publicações relacionadas.",
+      "SOURCE": "A base documental foi estruturada a partir de três planilhas do acervo do MAC USP, disponibilizadas em 16 de julho de 2026, reunindo informações sobre as obras selecionadas, suas exposições e publicações relacionadas.",
       "PRECISION": "Os nomes dos lugares preservam a forma registrada nas fontes, acompanhada da denominação atual quando essa informação está disponível. As datas mantêm o mesmo nível de precisão da documentação original, incluindo registros como “c. 1949”, “1940–1945” e “s.d.”. Informações não documentadas permanecem indicadas como desconhecidas.",
       "GAPS": "Para representar os deslocamentos, são considerados os pontos efetivamente documentados nas fontes consultadas. Quando não há informações sobre o ano de chegada ou sobre etapas intermediárias do percurso até o Brasil, o mapa estabelece uma conexão entre o local de nascimento e o primeiro local documentado no país, sem reconstruir possíveis rotas. Exposições realizadas durante a vida do artista e o local de falecimento são incorporados como pontos adicionais de sua trajetória."
     },
@@ -486,7 +486,7 @@
   },
   "TRAJECTORY": {
     "INFERRED": "Trajetória inferida",
-    "METHOD": "As linhas ligam, em ordem de data, os pontos que o acervo documenta: nascimento, exposições das obras em vida e falecimento. O trecho do local de nascimento até o primeiro lugar documentado no Brasil aparece em dourado. As fontes não registram a rota nem o ano de chegada, então as linhas mostram a sequência dos registros, não um percurso documentado.",
+    "METHOD": "As linhas ligam, em ordem de data, os pontos que a base documental registra: nascimento, exposições das obras em vida e falecimento. O trecho do local de nascimento até o primeiro lugar documentado no Brasil aparece em dourado. As fontes não registram a rota nem o ano de chegada, então as linhas mostram a sequência dos registros, não um percurso documentado.",
     "STOP": {
       "BIRTH": "Nascimento",
       "EXHIBITION": "Exposição",

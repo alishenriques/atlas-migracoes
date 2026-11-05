@@ -11,7 +11,7 @@ test("the home page presents the project and leads to Explorar", async ({ page }
   await page.getByRole("button", { name: "Pausar a apresentação" }).click();
   await page.getByRole("button", { name: "Próximo slide" }).click();
   await expect(page.getByRole("heading", { level: 2, name: /A digitalização ampliou o acesso/ })).toBeVisible();
-  await page.getByRole("button", { name: "Ir para o slide 1: O acervo" }).click();
+  await page.getByRole("button", { name: "Ir para o slide 1: A base documental" }).click();
   await page.getByRole("link", { name: "Explorar o mapa" }).click();
   await expect(page).toHaveURL(/\/pt\/explorar$/);
   await expect(page.getByRole("region", { name: "Mapa das trajetórias dos artistas" })).toBeVisible();
@@ -42,9 +42,9 @@ test("a trajectory record lists the works and leads to the open-source research"
   await expect(page.getByText(/nasceu em 1900/)).toBeVisible();
 
   // Each citation in the AI summary leads to the finding it cites.
-  await page.getByRole("link", { name: "Achado 2" }).first().click();
-  await expect(page).toHaveURL(/#achado-2$/);
-  await expect(page.locator("#achado-2")).toBeInViewport();
+  await page.getByRole("link", { name: "Ocorrência 2" }).first().click();
+  await expect(page).toHaveURL(/#ocorrencia-2$/);
+  await expect(page.locator("#ocorrencia-2")).toBeInViewport();
   await expect(page.getByText("Prompt enviado à IA")).toBeVisible();
 });
 

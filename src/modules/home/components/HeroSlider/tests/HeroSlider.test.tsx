@@ -67,7 +67,7 @@ describe("HeroSlider", () => {
 
     expect(headline()).toMatch(/Da catalogação estática/);
     expect(dot).toHaveAttribute("aria-current", "true");
-    expect(screen.getByRole("button", { name: "Ir para o slide 1: O acervo" })).not.toHaveAttribute("aria-current");
+    expect(screen.getByRole("button", { name: "Ir para o slide 1: A base documental" })).not.toHaveAttribute("aria-current");
   });
 
   it("advances when the progress line ends, and only announces the slide while paused", () => {
