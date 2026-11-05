@@ -91,6 +91,7 @@ const finding = (property: Research["findings"][number]["property"], value: stri
   property,
   propertyId: "P1",
   value,
+  labelLanguage: null,
   references,
   reliability: references > 0 ? ("documented" as const) : ("undetermined" as const),
   reviews: [],

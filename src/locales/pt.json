@@ -369,6 +369,7 @@
       "UNDETERMINED": "Não determinado"
     },
     "REFERENCES": "{count, plural, =0 {sem referências} one {# referência} other {# referências}}",
+    "AS_IN_SOURCE": "{language, select, en {Nome como na fonte, em inglês: o Wikidata não tem este nome em português.} other {Nome como na fonte: o Wikidata não tem este nome em português.}}",
     "REVIEW": {
       "PRESENT_DAY_NAME": "Revisar: a fonte usa o nome atual do lugar ou do Estado, não o do período.",
       "CONFLICTS_WITH_COLLECTION": "Revisar: a data diverge da registrada na base documental."

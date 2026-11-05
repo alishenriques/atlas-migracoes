@@ -3,7 +3,15 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { formatFuzzyDate } from "@/lib/dates";
-import { findingAnchor, formatSourceDate, groupFindings, isDateProperty, summariesOf, type NumberedFinding } from "@/lib/research";
+import {
+  findingAnchor,
+  formatSourceDate,
+  groupFindings,
+  isDateProperty,
+  nameAsInSource,
+  summariesOf,
+  type NumberedFinding,
+} from "@/lib/research";
 import type { FuzzyDate, Place, Research } from "@/lib/schemas";
 import { placeName } from "@/lib/trajectory";
 
@@ -122,6 +130,7 @@ export function ResearchResults({ research }: ResearchResultsProps) {
                             {isDateProperty(finding.property) ? formatSourceDate(finding.value, locale) : finding.value}
                           </span>
                           <FindingMeta finding={finding} />
+                          <AsInSource finding={finding} />
                           {finding.reviews.map((review) => (
                             <span key={review} className={styles.review}>
                               {t(`REVIEW.${REVIEW[review]}`)}
@@ -190,4 +199,11 @@ function FindingMeta({ finding }: { finding: NumberedFinding }) {
       </a>
     </span>
   );
+}
+
+/** Says that a name is as Wikidata gives it, when Wikidata has no Portuguese label for it. */
+function AsInSource({ finding }: { finding: NumberedFinding }) {
+  const t = useTranslations("RESEARCH");
+  const language = nameAsInSource(finding);
+  return language && <span className={styles.review}>{t("AS_IN_SOURCE", { language })}</span>;
 }

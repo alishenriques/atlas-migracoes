@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { findingAnchor, formatSourceDate, groupFindings, isDateProperty, summariesOf, summaryParts } from "./research";
+import {
+  findingAnchor,
+  formatSourceDate,
+  groupFindings,
+  isDateProperty,
+  nameAsInSource,
+  summariesOf,
+  summaryParts,
+} from "./research";
 
 import type { Finding } from "./schemas";
 
@@ -11,6 +19,7 @@ const finding = (property: Finding["property"], value: string): Finding => ({
   property,
   propertyId: property === "summary" ? null : "P1",
   value,
+  labelLanguage: null,
   references: 0,
   reliability: "undetermined",
   reviews: [],
@@ -39,6 +48,16 @@ describe("groupFindings", () => {
     ]);
     expect(summariesOf(findings)[0]?.n).toBe(2);
     expect(findingAnchor(2)).toBe("ocorrencia-2");
+  });
+});
+
+describe("nameAsInSource", () => {
+  it("marks names Wikidata has no Portuguese label for, telling English apart", () => {
+    expect(nameAsInSource({ labelLanguage: "en" })).toBe("en");
+    expect(nameAsInSource({ labelLanguage: "mul" })).toBe("other");
+    expect(nameAsInSource({ labelLanguage: "pt-br" })).toBeNull();
+    expect(nameAsInSource({ labelLanguage: "pt" })).toBeNull();
+    expect(nameAsInSource({ labelLanguage: null })).toBeNull();
   });
 });
 

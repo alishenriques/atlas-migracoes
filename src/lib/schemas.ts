@@ -207,6 +207,8 @@ export const findingSchema = z.object({
   property: findingPropertySchema,
   propertyId: z.string().nullable(),
   value: z.string(),
+  // The language of the Wikidata label the value is (pt-br, pt, mul, en); null for dates, texts and summaries.
+  labelLanguage: z.string().nullable(),
   references: z.number().int().nonnegative(),
   reliability: z.enum(["documented", "undetermined"]),
   reviews: z.array(findingReviewSchema),

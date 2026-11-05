@@ -310,6 +310,7 @@ const RESEARCH_QUERY = /* GraphQL */ `
         property
         propertyId
         value
+        labelLanguage
         references
         reliability
         reviews

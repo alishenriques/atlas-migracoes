@@ -178,6 +178,7 @@ describe("getResearch", () => {
         property: "birthDate",
         propertyId: "P569",
         value: "1891-07-21",
+        labelLanguage: null,
         references: 1,
         reliability: "documented",
         reviews: ["conflicts_with_collection"],
