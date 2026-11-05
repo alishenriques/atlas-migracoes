@@ -33,6 +33,12 @@ describe("About", () => {
     expect(screen.getByText(/Museum of Contemporary Art of the University of São Paulo/, { selector: "li" })).toBeInTheDocument();
   });
 
+  it("notes the future researcher network that will validate inferred information", () => {
+    renderAbout("pt");
+    expect(screen.getByText("Rede de pesquisadores")).toBeInTheDocument();
+    expect(screen.getByText(/rede de pesquisadores voltada à validação das informações inferidas/)).toBeInTheDocument();
+  });
+
   it("ends with the developer's footer, outside main", () => {
     renderAbout("pt");
     const footer = screen.getByRole("contentinfo");
