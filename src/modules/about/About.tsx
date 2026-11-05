@@ -12,7 +12,7 @@ const LEVELS: { level: ReliabilityLevel; key: "DOCUMENTED" | "INFERRED" | "UNDET
   { level: "undetermined", key: "UNDETERMINED" },
 ];
 
-/** Sobre: the research project, its methodology, how to read reliability, the data and the credits, then the developer's footer. */
+/** Sobre: the research project, its methodology, how to read reliability, the data, the future researcher network and the credits, then the developer's footer. */
 export function About() {
   const t = useTranslations("ABOUT");
 
@@ -64,6 +64,11 @@ export function About() {
           <p className={styles.body}>{t("DATA.SOURCE")}</p>
           <p className={styles.body}>{t("DATA.PRECISION")}</p>
           <p className={styles.body}>{t("DATA.GAPS")}</p>
+        </Panel>
+
+        {/* Future feature: the researcher network that will validate inferred information. */}
+        <Panel title={t("NETWORK.TITLE")}>
+          <p className={styles.body}>{t("NETWORK.BODY")}</p>
         </Panel>
 
         <Panel title={t("CREDITS.TITLE")}>

@@ -464,6 +464,10 @@
       "PRECISION": "Os nomes dos lugares preservam a forma registrada nas fontes, acompanhada da denominação atual quando essa informação está disponível. As datas mantêm o mesmo nível de precisão da documentação original, incluindo registros como “c. 1949”, “1940–1945” e “s.d.”. Informações não documentadas permanecem indicadas como desconhecidas.",
       "GAPS": "Para representar os deslocamentos, são considerados os pontos efetivamente documentados nas fontes consultadas. Quando não há informações sobre o ano de chegada ou sobre etapas intermediárias do percurso até o Brasil, o mapa estabelece uma conexão entre o local de nascimento e o primeiro local documentado no país, sem reconstruir possíveis rotas. Exposições realizadas durante a vida do artista e o local de falecimento são incorporados como pontos adicionais de sua trajetória."
     },
+    "NETWORK": {
+      "TITLE": "Rede de pesquisadores",
+      "BODY": "Como desdobramento futuro, prevê-se a constituição de uma rede de pesquisadores voltada à validação das informações inferidas. Especialistas poderão revisar, complementar e qualificar a base documental e a identificação de relações potenciais entre os artistas selecionados a partir do acervo do MAC USP, preservando a autoria e as fontes de cada contribuição. Até essa validação, as informações inferidas permanecem sinalizadas como tais."
+    },
     "CREDITS": {
       "TITLE": "Cartografia e créditos",
       "BASEMAP": "Cartografia de base: OpenFreeMap, com dados do OpenStreetMap (© colaboradores do OpenStreetMap, licença ODbL), no esquema OpenMapTiles. A visualização utiliza apenas as camadas de terra e água, sem fronteiras políticas ou denominações geográficas atuais.",

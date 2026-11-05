@@ -464,6 +464,10 @@
       "PRECISION": "Place names keep the form recorded in the sources, with the present-day name alongside when that information is available. Dates keep the same level of precision as the original documentation, including entries such as “c. 1949”, “1940–1945” and “n.d.”. Undocumented information stays marked as unknown.",
       "GAPS": "To represent the movements, only the points actually documented in the sources consulted are used. When there is no information on the year of arrival or on intermediate stages of the journey to Brazil, the map connects the birthplace to the first documented place in the country, without reconstructing possible routes. Exhibitions held during the artist's lifetime and the place of death are added as further points of their trajectory."
     },
+    "NETWORK": {
+      "TITLE": "Researcher network",
+      "BODY": "As a future development, a network of researchers is planned to validate inferred information. Specialists will be able to review, supplement and qualify the documentary corpus and the identification of potential relations among the artists selected from the MAC USP collection, keeping the authorship and sources of each contribution. Until that validation, inferred information remains flagged as such."
+    },
     "CREDITS": {
       "TITLE": "Cartography and credits",
       "BASEMAP": "Basemap: OpenFreeMap, with OpenStreetMap data (© OpenStreetMap contributors, ODbL license), in the OpenMapTiles schema. The visualisation uses only the land and water layers, with no political borders or present-day place names.",
