@@ -33,6 +33,17 @@ export function groupFindings(findings: Finding[]): FindingGroup[] {
 /** The encyclopedia summaries, shown apart from the statements. */
 export const summariesOf = (findings: Finding[]) => numbered(findings).filter((finding) => finding.property === "summary");
 
+/**
+ * How a name is shown when Wikidata has no Portuguese label for it: `en` for
+ * an English label, `other` for any other (the label for every language,
+ * `mul`, often in the place's own language); null when the value is in
+ * Portuguese or is not a name.
+ */
+export function nameAsInSource({ labelLanguage }: Pick<Finding, "labelLanguage">): "en" | "other" | null {
+  if (labelLanguage === null || labelLanguage === "pt-br" || labelLanguage === "pt") return null;
+  return labelLanguage === "en" ? "en" : "other";
+}
+
 /** The anchor of a finding on the page, so a citation can point to it. */
 export const findingAnchor = (n: number) => `ocorrencia-${n}`;
 

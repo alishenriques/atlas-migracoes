@@ -31,6 +31,7 @@ const statement = (property: Finding["property"], value: string, extra: Partial<
   property,
   propertyId: "P1",
   value,
+  labelLanguage: null,
   references: 0,
   reliability: "undetermined",
   reviews: [],
@@ -123,6 +124,24 @@ describe("ResearchResults", () => {
     expect(within(place).getByText("sem referências")).toBeInTheDocument();
     expect(within(place).getByText(/nome atual do lugar/)).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Ocupação" })).toHaveTextContent("pintor");
+  });
+
+  it("says when a name is as the source gives it, without a Portuguese label", () => {
+    renderResults({
+      ...research,
+      findings: [
+        statement("educatedAt", "Prussian Academy of Arts", { labelLanguage: "en" }),
+        statement("memberOf", "Akademie der Künste", { labelLanguage: "mul" }),
+        statement("occupation", "pintor", { labelLanguage: "pt-br" }),
+      ],
+    });
+    expect(screen.getByRole("region", { name: "Formação" })).toHaveTextContent(
+      "Nome como na fonte, em inglês: o Wikidata não tem este nome em português.",
+    );
+    expect(screen.getByRole("region", { name: "Membro de" })).toHaveTextContent(
+      "Nome como na fonte: o Wikidata não tem este nome em português.",
+    );
+    expect(screen.getByRole("region", { name: "Ocupação" })).not.toHaveTextContent("Nome como na fonte");
   });
 
   it("shows the encyclopedia summary apart, as undetermined", () => {
