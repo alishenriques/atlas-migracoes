@@ -2,6 +2,12 @@
 
 Deadline: **live on 8 November 2026** for the conference (10–12 Nov, MAC USP). Budget (revised 2026-10-17): **40 h** between 17 Oct and 8 Nov, R$ 2.800 (R$ 1.000 at the start, R$ 1.800 on 15 Nov). Hours per stage follow the client proposal ("Proposta … revisada").
 
+## Status (2026-11-06): MVP accepted, contract closed
+
+At the closing meeting on 2026-11-06, Alisson demonstrated the MVP and Tânia accepted it for her presentation on 12 Nov: every screen of the definition of done, the adjustments she asked for and the English interface. She paid the final R$ 1.800 the same day, so the MVP contract is closed. What is left before the conference depends on her review ("Waiting on Tânia" below), plus the launch check on 8 Nov. Alisson hands her a PPT deck, a PDF of the project case and a project conclusion document, to support fundraising for the next phase.
+
+Credits: the platform implements Tânia's conceptual model; the authorship of the research and of its academic publications is hers.
+
 ## Definition of done of the MVP
 
 The MVP is done when, at the final address, a visitor can:
@@ -79,10 +85,18 @@ Done when the demo script runs end to end at the final address.
     - [ ] A tag ruleset on `v*` in the DS (a moved tag republishes to npm), actions pinned by SHA and limited to GitHub and verified creators, a full Content-Security-Policy (Report-Only first: MapLibre worker, OpenFreeMap, the API, Vercel Analytics), Private vulnerability reporting and a SECURITY.md, the API's Dependabot alerts that need a `resolutions` entry (`esbuild`, `minimatch`, `uuid`, tested against the import, migrations and lint), SMS removed as a GitHub 2FA method (the authenticator app and GitHub Mobile remain), secret-scanning validity checks, auto-delete of head branches and only "Rebase and merge" enabled in each repo, a Vercel Firewall rate limit on `/graphql` if the Hobby plan offers it.
   - Already in place: the "restricted main" ruleset, secret scanning with push protection, read-only `GITHUB_TOKEN`, DS published by Trusted Publishing with provenance, API CORS allowlist without credentials, masked errors, Zod at every boundary, timeouts on outbound calls, no `dangerouslySetInnerHTML` in the app, https-only external links with `rel="noopener noreferrer"`, nothing secret or from the collection in git history.
 - [x] Live Gemini summary back on for the MVP delivery (done on 2026-11-05: `GEMINI_LIVE=true` in Production, the Vercel key in the Google project "atlas-migracoes" and the local generation in another project, every artist with a stored result) (decided by Alisson, 2026-10-23), for a fuller experience: set `GEMINI_LIVE=true` on the API in Vercel (Production). It was turned off by default in atlas-migracoes-api#23 because the free tier's daily request quota is per Google project and public visits to artists without a stored summary were spending what `yarn research:generate` needed. Before turning it on: every artist's research generated and stored (`yarn research:generate --stale-period`, no `failed` left), and the Vercel key moved to a Google project of its own, so live traffic can never take the generation's quota. Live calls then only happen for an artist without a stored result or after a new import.
-- [ ] Historical facts on the Camada Histórica (meeting with Tânia, 2026-10-30; her first request for the conference): the fixed note on how the borders are drawn moves to an info button, and its place shows the facts of the year chosen, labelled inferred, each with its source. Built in the app (see "Historical facts" below); still to do on Alisson's machine, which reaches Wikidata: `yarn build:historical-facts`, then Tânia reviews the list.
+- [x] Historical facts on the Camada Histórica (meeting with Tânia, 2026-10-30; her first request for the conference): the fixed note on how the borders are drawn moves to an info button, and its place shows the facts of the year chosen, labelled inferred, each with its source. Built in the app (see "Historical facts" below) and generated on Alisson's machine: 437 facts in `public/historical/facts.json` (atlas-migracoes#79). Tânia's review of the list is under "Waiting on Tânia".
 - [x] MAC USP vocabulary across the site (asked by Alisson, 2026-11-05): "o acervo" → "a base documental" when it means the platform's base (the MAC USP collection itself, and collections in general, keep "acervo"); "artistas do acervo" → "artistas selecionados a partir do acervo"; "país de origem" → "território de origem"; "descoberta de relações" → "identificação de relações potenciais"; "fatos históricos" → "acontecimentos e contextos históricos"; "achado(s)" → "ocorrência(s)" in the screen, the citation anchors (`#ocorrencia-n`) and the IA Relacional prompt (atlas-migracoes-api). English mirrors it ("documentary corpus", "territory of origin", "occurrences"). Stored summaries keep the old wording until `yarn research:generate --force` runs on Alisson's machine.
 - [x] Same meeting: a note in Sobre on the future network of researchers who will validate the inferred information (`ABOUT.NETWORK`, its own panel after "Dados", PT and EN; asked by Alisson, 2026-11-05).
-- [ ] Same meeting: Tânia's list of text corrections for academic register, still to come.
+- [x] English interface: every interface text exists in pt and en (accepted at the closing meeting, 2026-11-06). Stored research summaries stay in Portuguese, as generated.
+
+### Waiting on Tânia (closing meeting, 2026-11-06)
+
+Nothing here is code until her answer arrives; each item is applied by PR when it does.
+
+- [ ] Lasar Segall's biography rewritten: the stored summary repeats Wikidata's death date (2 Aug 1952) before the collection's (1957, the correct one). Tânia reviews the text; then the biography is fixed with the collection's date.
+- [ ] Review of the 437 historical facts: what she leaves out goes to `scripts/historical-facts-review.json` (`exclude`) and the file is rebuilt (see "Historical facts" below).
+- [ ] Her list of text corrections for academic register (meeting of 2026-10-30): blocked by problems on the USP platform where she keeps the texts.
 - [ ] Launch check on 8 Nov: production already deploys from `main` on every merge (app https://atlas-migracoes.vercel.app, API https://atlas-migracoes-api.vercel.app/graphql, real base on Neon), so launch day means confirming the latest `main` is live in production, running the demo script end to end at that address (`yarn test:launch`, plus the hand checks of the map and graph), and fixing anything it finds
 
 ## Historical cartography
@@ -105,8 +119,13 @@ Goal: let a researcher relate an artist's life (birth, departure, arrival in Bra
 
 ## After the conference
 
-- Admin area: login (Better Auth), artist list, create/edit, migration events, spreadsheet import with preview
-- Researcher contribution flow, full English texts
+Agreed at the closing meeting with Tânia (2026-11-06). Nothing here is started before the conference.
+
+- Authentication on the public API: today the GraphQL endpoint is read-only and open, protected only by the abuse limits (graphql-armor, caches, CORS allowlist); add authentication for clients other than the app before any write operation exists. Zero cost, so no paid auth service.
+- Test coverage at 100% in the three repos: raise the CI floors of the app (95/95/90/85 today, measured 99.85/99.81/99.81/96.92 on 2026-11-06) and of the API (95/95/95/90, measured 99.73/99.35/99.22/94.45) step by step to 100, with the tests that close the gaps; the DS is already at 100% (branch floor 95). Floors only go up, and no file is excluded to reach them.
+- Admin area (future, when the project resumes with funding or a grant call, "edital"): login (Better Auth), artist list, create/edit, migration events, spreadsheet import with preview
+- Explore a 3D network map for the Rede Relacional, to improve the experience of browsing the connections (exploration first: the 2D network in columns and rings stays the reference, see the Rede Relacional entry under "Front-end" in architecture.md)
+- Researcher contribution flow
 - Images of works from the MAC USP collection (decided by Alisson, 2026-10-30: nothing for the MVP, the screens stay as they are). The museum runs Collective Access, offline in October 2026 after the PHP vulnerability; the plan is one load through its API (a token from the museum), keeping each image's source and credit, since the collection is stable.
 - Grouped citations in the AI summary (found by Alisson, 2026-11-06, in Lasar Segall's regenerated summary): the model sometimes cites several findings at once, as `[7, 15]`, and `summaryParts` in `lib/research.ts` only links the single form `[7]`, so the group shows as plain text. Fix in both places: the app links each number of a group, and the API's `citationsOf` reads groups too, so the check that every citation exists covers them (or the prompt asks for one number per bracket).
 - IA Relacional with more than one AI (requested by Alisson, 2026-10-21): a deeper search that asks several models, so every finding and every sentence of a summary records which AI supplied it (provider, model, date) as its reference. Today only Gemini writes the summary, and each stored research already keeps the model that answered and the prompt sent; the findings come from Wikidata and Wikipedia, each with its source page.

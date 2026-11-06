@@ -8,14 +8,14 @@ Instructions for AI agents (Claude Code, Cursor, etc.) working on the Atlas Migr
 
 ## What this is
 
-A platform mapping artists from Eastern Europe and Austria who migrated to Brazil (contributions of immigrant art, 1918–1989), built from the MAC USP collection for the Migrações Leste-Sul research project. The MVP is presented at the project's conference at MAC USP on 10–12 November 2026 and **must be live on 8 November 2026**. Client: Tania Sulzbacher (the Academia de Curadoria is not involved). Owner and only admin at launch: Alisson.
+A platform mapping artists from Eastern Europe and Austria who migrated to Brazil (contributions of immigrant art, 1918–1989), built from the MAC USP collection for the Migrações Leste-Sul research project. The MVP is presented at the project's conference at MAC USP on 10–12 November 2026 and **must be live on 8 November 2026**. Client: Tania Sulzbacher (the Academia de Curadoria is not involved). Owner and only admin at launch: Alisson. **Status (2026-11-06): MVP accepted by Tânia and contract closed**; what is left before the conference waits on her review, and the next phase is listed under "After the conference" in [roadmap.md](roadmap.md).
 
 ## Scope of the MVP (revised by Alisson, 2026-10-17)
 
 Budget: R$ 2.800 for 40 h (R$ 1.000 at the start, R$ 1.800 on 15 Nov 2026). The scope below is the MVP's definition of done; see [roadmap.md](roadmap.md).
 
 - **In:** Explorar (map with trajectories, filters, 1918–1989 timeline, collection counters), Trajetórias (artist record, trajectory on the map, works, exhibitions, publications, sources), Camada Histórica (vector maps of Europe by decade with the borders of each period, linked to the artists' places of origin), **Rede Relacional** (graph connecting artists, works, exhibitions, publications, institutions and places), **IA Relacional** (connects the base to external information on artists, events and works: source search, tracing each finding to its source, results shown with sources, reliability and the prompt used; it reasons only with the geopolitics of the period researched), Sobre, and the full base imported from the three MAC USP spreadsheets.
-- **Out (after the conference):** the admin area (login, create/edit; at launch the base is updated by the spreadsheet import), open contribution by researchers (the model already has room for roles and review status), full English texts (i18n structure is ready, texts are Portuguese first), images of works.
+- **Out (after the conference):** the admin area (login, create/edit; at launch the base is updated by the spreadsheet import), open contribution by researchers (the model already has room for roles and review status), images of works. The English interface was delivered with the MVP (2026-11-06).
 
 ## Non-negotiables
 
