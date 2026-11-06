@@ -8,7 +8,7 @@ Instructions for AI agents (Claude Code, Cursor, etc.) working on the Atlas Migr
 
 ## What this is
 
-A platform mapping artists from Eastern Europe and Austria who migrated to Brazil (contributions of immigrant art, 1918–1989), built from the MAC USP collection for the Migrações Leste-Sul research project. The MVP is presented at the project's conference at MAC USP on 10–12 November 2026 and **must be live on 8 November 2026**. Client: Tania Sulzbacher (the Academia de Curadoria is not involved). Owner and only admin at launch: Alisson. **Status (2026-11-06): MVP accepted by Tânia and contract closed**; what is left before the conference waits on her review, and the next phase is listed under "After the conference" in [roadmap.md](roadmap.md).
+A platform mapping artists from Eastern Europe and Austria who migrated to Brazil (contributions of immigrant art, 1918–1989), built from the MAC USP collection for the Migrações Leste-Sul research project. The MVP is presented at the project's conference at MAC USP on 10–12 November 2026 and **must be live on 8 November 2026**. Client: Tania Sulzbacher (the Academia de Curadoria is not involved). Owner and only admin at launch: Alisson. **Status (2026-11-06): MVP accepted by Tânia and contract closed**; her pending reviews are technical debt in the roadmap (the USP consultation platform is down), and the next phase is listed under "After the conference" in [roadmap.md](roadmap.md).
 
 ## Scope of the MVP (revised by Alisson, 2026-10-17)
 
