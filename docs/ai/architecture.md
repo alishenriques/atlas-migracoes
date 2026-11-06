@@ -115,6 +115,7 @@ Brand (chosen by Alisson, 2026-10-20): the "Rosa Leste-Sul", a compass rose whos
 - Historical cartography: Europe's state borders from CShapes 2.0 (CC BY-NC-SA 4.0), one static file of polygons with validity dates built by `scripts/build-cartography.mts`; the app picks the polygons in force on a day and places birthplaces in them by point-in-polygon. Each state is shown by its name on that day (`public/cartography/state-names.json`, pt and en, via `periodName` in `lib/stateNames.ts`), never by CShapes' single English name; the API reads the same file for `research.period`. See "Historical cartography" in the roadmap.
 - Geocoding: a one-time Nominatim script plus manual review, stored in `places`; never a live lookup.
 - Admin: Better Auth with the Drizzle adapter, sessions in Postgres, roles admin and researcher.
+- Public API authentication (after the conference, 2026-11-06): the GraphQL endpoint is open and read-only today; authentication for clients other than the app comes before any write operation, at zero cost, and the admin's Better Auth sessions can share it.
 - E2E: when the admin area arrives, the login joins the smoke flow.
 - IA Relacional: an API service that searches open sources (Wikidata, Wikipedia) and uses the Gemini API free tier to summarise; the key stays in the API's env. Every finding keeps its source URL and a reliability tag, the prompt is returned to the app, and the period's territories go into the prompt so the model reasons only with that period's geopolitics. Findings never enter the base without review.
 
