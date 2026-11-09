@@ -90,6 +90,8 @@ Done when the demo script runs end to end at the final address.
 - [x] Same meeting: a note in Sobre on the future network of researchers who will validate the inferred information (`ABOUT.NETWORK`, its own panel after "Dados", PT and EN; asked by Alisson, 2026-11-05).
 - [x] English interface: every interface text exists in pt and en (accepted at the closing meeting, 2026-11-06). Stored research summaries stay in Portuguese, as generated.
 - [ ] Launch check on 8 Nov: production already deploys from `main` on every merge (app https://atlas-migracoes.vercel.app, API https://atlas-migracoes-api.vercel.app/graphql, real base on Neon), so launch day means confirming the latest `main` is live in production, running the demo script end to end at that address (`yarn test:launch`, plus the hand checks of the map and graph), and fixing anything it finds
+  - [x] Run on 2026-11-09, the eve of the presentation: production serves the latest `main` of the app and of the API, no runtime errors in three days, `yarn test:launch` 10 of 10 on desktop and mobile after the mobile run learned to open the Menu button first (the spec now does what `e2e/smoke.spec.ts` does)
+  - [ ] Hand checks of the map and graph on the presentation machine (Alisson)
 
 ## Technical debt
 

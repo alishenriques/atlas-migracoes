@@ -41,15 +41,21 @@ test("a trajectory record leads to the open-source research with its prompt", as
   await expect(page.getByText("Prompt enviado à IA")).toBeVisible({ timeout: 30_000 });
 });
 
-test("Camada Histórica, Rede Relacional and Sobre open", async ({ page }) => {
+test("Camada Histórica, Rede Relacional and Sobre open", async ({ page, isMobile }) => {
+  // On a phone the screens fold behind the Menu button.
+  const openMenu = async () => {
+    if (isMobile) await page.getByRole("button", { name: "Menu" }).click();
+  };
   await page.goto("/pt/camada-historica");
   await expect(page.getByRole("heading", { level: 1, name: "Camada Histórica" })).toBeVisible();
 
+  await openMenu();
   await page.getByRole("navigation", { name: MAIN_NAV }).getByRole("link", { name: "Rede Relacional" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Rede Relacional" })).toBeVisible();
   await expect(page.getByRole("group", { name: /^Rede de \d+ elementos/ })).toBeVisible();
   await expectRealData(page);
 
+  await openMenu();
   await page.getByRole("navigation", { name: MAIN_NAV }).getByRole("link", { name: "Sobre" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Sobre o projeto" })).toBeVisible();
 });
