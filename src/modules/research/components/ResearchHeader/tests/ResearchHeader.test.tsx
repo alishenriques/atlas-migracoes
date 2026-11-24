@@ -15,6 +15,6 @@ describe("ResearchHeader", () => {
     );
     expect(screen.getByRole("heading", { level: 1, name: "IA Relacional" })).toBeInTheDocument();
     expect(screen.getByText("Pesquisa por artista")).toBeInTheDocument();
-    expect(screen.getByText(/nada do que é encontrado aqui entra na base sem revisão/)).toBeInTheDocument();
+    expect(screen.getByText(/somente são incorporadas à base documental após revisão e validação/)).toBeInTheDocument();
   });
 });
