@@ -1,7 +1,8 @@
 {
   "SEO": {
     "SITE_NAME": "Atlas Migrações Leste-Sul",
-    "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, selected from the MAC USP collection."
+    "DEFAULT_DESCRIPTION": "Mapping artists from Eastern Europe and Austria who migrated to Brazil, 1918–1989, selected from the MAC USP collection.",
+    "SHARE_IMAGE_ALT": "Atlas Migrações Leste-Sul: trajectories of artists from Eastern Europe and Austria in Brazil, 1918–1989, over a night world map with routes from Europe to Brazil."
   },
   "BRAND": {
     "NAME": "Atlas Migrações",

@@ -9,6 +9,7 @@ import "@alishenriques/atlas-design-system/styles.css";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
 import { loadPublicEnv } from "@/lib/env";
+import { socialMetadata } from "@/lib/socialMetadata";
 import { Layout } from "@/modules/layout";
 
 import type { Metadata } from "next";
@@ -31,12 +32,14 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "SEO" });
   const siteName = t("SITE_NAME");
+  const description = t("DEFAULT_DESCRIPTION");
 
   return {
     metadataBase: new URL(loadPublicEnv().NEXT_PUBLIC_SITE_URL),
     title: { default: siteName, template: `%s | ${siteName}` },
-    description: t("DEFAULT_DESCRIPTION"),
+    description,
     applicationName: siteName,
+    ...socialMetadata({ locale, siteName, description, imageAlt: t("SHARE_IMAGE_ALT") }),
   };
 }
 
