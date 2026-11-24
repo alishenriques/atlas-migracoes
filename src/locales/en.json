@@ -386,11 +386,11 @@
     "QUERY": "Consulting open sources",
     "QUERY_TEXT": "The research begins by searching Wikidata for the name “{name}”, followed by identifying and confirming the entity that corresponds to the artist. From that record, it consults information on birth, death, citizenship, occupation, artistic movements, education, institutional ties and notable works, as well as the biographical summary available on Wikipedia in Portuguese or, when there is none, in English.",
     "METHOD_RELIABILITY_TITLE": "Verifying the information",
-    "METHOD_RELIABILITY": "Each piece of information comes with its origin. Data backed by references on Wikidata are identified as documented, while data with no references, or taken only from the Wikipedia text, remain classified as undetermined.",
+    "METHOD_RELIABILITY": "Each piece of information comes with its origin. Data backed by references on Wikidata are identified as documented, while data with no references, or taken only from the Wikipedia text, remain classified as unverified.",
     "METHOD_PERIOD_TITLE": "Historical and geographical context",
     "METHOD_PERIOD": "Since open sources often use present-day geographical and political names, the research also takes into account the territorial configuration of the period studied. To do so, the AI is given the states that existed in the artist's birth year and is instructed to use the historically appropriate names.",
     "METHOD_AI_TITLE": "Generating and validating the summary",
-    "METHOD_AI": "The biographical summary is written by Gemini, set to produce low-variability answers, using only the numbered occurrences, the documentary corpus records and the corresponding historical map. Each statement must be linked to the sources consulted, and summaries that cite references that do not exist, or that cite no occurrence, are discarded.",
+    "METHOD_AI": "The biographical summary is written by Gemini, set to produce low-variability answers, using only the documented information, the documentary corpus records and the corresponding historical map. Each statement must be linked to the sources consulted, and summaries that cite references that do not exist, or information with no documentary support, are discarded.",
     "AI_SUMMARY": "AI summary",
     "AI_NOTE": "Written by AI ({model}) only from the numbered occurrences and the documentary corpus record, within the period's geopolitics. Each number leads to the occurrence the claim comes from; check the source before using it.",
     "AI_STATUS": {

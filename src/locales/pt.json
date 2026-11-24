@@ -386,11 +386,11 @@
     "QUERY": "Consulta às fontes abertas",
     "QUERY_TEXT": "A pesquisa começa pela busca do nome “{name}” no Wikidata, seguida da identificação e confirmação da entidade correspondente ao artista. A partir desse registro, são consultadas informações sobre nascimento, falecimento, cidadania, ocupação, movimentos artísticos, formação, vínculos institucionais e obras notáveis, além do resumo biográfico disponível na Wikipédia em português ou, na sua ausência, em inglês.",
     "METHOD_RELIABILITY_TITLE": "Verificação das informações",
-    "METHOD_RELIABILITY": "Cada informação é acompanhada de sua origem. Os dados sustentados por referências no Wikidata são identificados como documentados, enquanto aqueles sem referências ou provenientes apenas do texto da Wikipédia permanecem classificados como não determinados.",
+    "METHOD_RELIABILITY": "Cada informação é acompanhada de sua origem. Os dados sustentados por referências no Wikidata são identificados como documentados, enquanto aqueles sem referências ou provenientes apenas do texto da Wikipédia permanecem classificados como não verificados.",
     "METHOD_PERIOD_TITLE": "Contextualização histórica e geográfica",
     "METHOD_PERIOD": "Como as fontes abertas frequentemente utilizam denominações geográficas e políticas atuais, a pesquisa considera também a configuração territorial correspondente ao período investigado. Para isso, a IA recebe informações sobre os Estados existentes no ano de nascimento do artista e é orientada a utilizar as denominações históricas pertinentes.",
     "METHOD_AI_TITLE": "Geração e validação do resumo",
-    "METHOD_AI": "O resumo biográfico é elaborado pelo Gemini, configurado para produzir respostas com baixa variabilidade, utilizando exclusivamente as ocorrências numeradas, os registros da base e o mapa histórico correspondente. Cada afirmação deve estar vinculada às fontes consultadas, e os resumos que apresentem referências inexistentes ou que não citem nenhuma ocorrência são descartados.",
+    "METHOD_AI": "O resumo biográfico é elaborado pelo Gemini, configurado para produzir respostas com baixa variabilidade, utilizando exclusivamente as informações documentadas, os registros da base e o mapa histórico correspondente. Cada afirmação deve estar vinculada às fontes consultadas, e os resumos que apresentem referências inexistentes ou informações sem sustentação documental são descartados.",
     "AI_SUMMARY": "Resumo da IA",
     "AI_NOTE": "Escrito por IA ({model}) só com as ocorrências numeradas e o registro da base documental, dentro da geopolítica do período. Cada número leva à ocorrência de onde a afirmação vem; confira a fonte antes de usar.",
     "AI_STATUS": {
