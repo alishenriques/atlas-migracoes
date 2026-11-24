@@ -157,7 +157,15 @@ describe("ResearchResults", () => {
     expect(screen.getByText("Wikidata: consultada")).toBeInTheDocument();
     expect(screen.getByText("Wikipedia: não respondeu")).toBeInTheDocument();
     expect(screen.getByText("Fontes lidas em 18 de outubro de 2026 às 09:00.")).toBeInTheDocument();
-    expect(screen.getByText(/Busca no Wikidata pelo nome “Lasar Segall”/)).toBeInTheDocument();
+    expect(screen.getByText(/A pesquisa começa pela busca do nome “Lasar Segall” no Wikidata/)).toBeInTheDocument();
+    for (const heading of [
+      "Consulta às fontes abertas",
+      "Verificação das informações",
+      "Contextualização histórica e geográfica",
+      "Geração e validação do resumo",
+    ]) {
+      expect(screen.getByText(heading)).toBeInTheDocument();
+    }
   });
 
   it("explains the name-only match", () => {

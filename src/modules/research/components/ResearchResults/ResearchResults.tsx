@@ -39,6 +39,8 @@ const PROPERTY = {
   memberOf: "MEMBER_OF",
   notableWork: "NOTABLE_WORK",
 } as const;
+// The method steps after the query, each with its own heading (`<step>_TITLE`).
+const METHOD_STEPS = ["METHOD_RELIABILITY", "METHOD_PERIOD", "METHOD_AI"] as const;
 
 /** What the open sources say about one artist, beside what the collection records, each finding with its source. */
 export function ResearchResults({ research }: ResearchResultsProps) {
@@ -168,9 +170,13 @@ export function ResearchResults({ research }: ResearchResultsProps) {
               <br />
               {t("QUERY_TEXT", { name: artist.name })}
             </p>
-            <p>{t("METHOD_RELIABILITY")}</p>
-            <p>{t("METHOD_PERIOD")}</p>
-            <p>{t("METHOD_AI")}</p>
+            {METHOD_STEPS.map((step) => (
+              <p key={step}>
+                <strong className={styles.factLabel}>{t(`${step}_TITLE`)}</strong>
+                <br />
+                {t(step)}
+              </p>
+            ))}
             {summary.prompt && (
               <details>
                 <summary className={styles.promptToggle}>{t("PROMPT")}</summary>
