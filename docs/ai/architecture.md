@@ -110,6 +110,8 @@ The dark Atlas screens in the project deck (`ap_MIGRACOES.pptx`, slides 12–21)
 
 Brand (chosen by Alisson, 2026-10-20): the "Rosa Leste-Sul", a compass rose whose only gold stroke is the quarter turn from East to South. The header draws it with `shared/components/AtlasMark` (inline SVG coloured by the `foreground` and `accent` tokens) next to the live wordmark text; `src/app/icon.svg`, `favicon.ico` and `apple-icon.png` use the simplified icon (no ring, thicker strokes) on a night-blue square. The full kit (lockups, light and mono versions) lives outside the repo, in the project's files.
 
+Share card (Open Graph and Twitter, 2026-11-24): every route inherits `og:image`/`twitter:image` from `src/app/[locale]/layout.tsx` via `src/lib/socialMetadata.ts`, one 1200×630 JPEG per locale in `public/og/` (night world map, horizontal lockup and the Home's copy), made absolute by `metadataBase` (`NEXT_PUBLIC_SITE_URL`, set on Vercel). Metadata merges shallowly, so a page that sets its own `openGraph` must spread `socialMetadata(...)` in. To change the card, edit `scripts/og-image/template.html` and run `yarn build:og-images` (needs network for Google Fonts).
+
 ## Planned additions (see roadmap)
 
 - Historical cartography: Europe's state borders from CShapes 2.0 (CC BY-NC-SA 4.0), one static file of polygons with validity dates built by `scripts/build-cartography.mts`; the app picks the polygons in force on a day and places birthplaces in them by point-in-polygon. Each state is shown by its name on that day (`public/cartography/state-names.json`, pt and en, via `periodName` in `lib/stateNames.ts`), never by CShapes' single English name; the API reads the same file for `research.period`. See "Historical cartography" in the roadmap.

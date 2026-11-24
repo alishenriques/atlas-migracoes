@@ -1,7 +1,8 @@
 {
   "SEO": {
     "SITE_NAME": "Atlas Migrações Leste-Sul",
-    "DEFAULT_DESCRIPTION": "Mapeamento de artistas do Leste Europeu e da Áustria que migraram para o Brasil, 1918–1989, selecionados a partir do acervo do MAC USP."
+    "DEFAULT_DESCRIPTION": "Mapeamento de artistas do Leste Europeu e da Áustria que migraram para o Brasil, 1918–1989, selecionados a partir do acervo do MAC USP.",
+    "SHARE_IMAGE_ALT": "Atlas Migrações Leste-Sul: trajetórias de artistas do Leste Europeu e da Áustria no Brasil, 1918–1989, sobre um mapa-múndi noturno com rotas da Europa ao Brasil."
   },
   "BRAND": {
     "NAME": "Atlas Migrações",
